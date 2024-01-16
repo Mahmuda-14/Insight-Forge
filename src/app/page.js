@@ -1,11 +1,7 @@
 import PostSection from "@/PostSection/PostSection";
 
 const HomePage = () => {
-  return (
-    <div>
-      <PostSection />
-    </div>
-  );
+  return <div>this is home.</div>;
 };
 
 export default HomePage;
