@@ -1,8 +1,10 @@
 
 .parallax-container {
-    position: relative;
-    height: 370px;
-    overflow: hidden;
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.80), rgb(0, 0, 0, 0.80)),
+  url('../../../public/team.jpg')
+  ;
   }
   
   .parallax-img {

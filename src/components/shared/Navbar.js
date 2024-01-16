@@ -22,6 +22,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import LoginIcon from '@mui/icons-material/Login';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import CloseIcon from '@mui/icons-material/Close';
+import EditNoteIcon from '@mui/icons-material/EditNote';
 import Link from 'next/link';
 import { Button } from '@mui/material';
 import logo from '@/assets/logo3.png'
@@ -101,9 +102,9 @@ const navItems = [
     icon: <HomeIcon/>
   },
   {
-    route: "Contact",
-    pathname: "/contact",
-    icon: <PhoneIcon/>
+    route: "Blogs",
+    pathname: "/blogs",
+    icon: <EditNoteIcon/>
   },
   {
     route: "Login",
@@ -114,6 +115,11 @@ const navItems = [
     route: "Register",
     pathname: "/register",
     icon: <AppRegistrationIcon/>
+  },
+  {
+    route: "Contact",
+    pathname: "/contact",
+    icon: <PhoneIcon/>
   },
 ]
 
@@ -192,7 +198,7 @@ export default function MiniDrawer({children}) {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Box> {children} </Box>
+        <Box className="childrenComponent"> {children} </Box>
       </Box>
     </Box>
   );

@@ -1,4 +1,4 @@
-
+"use client"
 import React from 'react';
 import { Avatar, Card, CardContent, CardHeader, CardMedia, IconButton, Rating, Stack, Typography } from '@mui/material';
 import { brown, red } from '@mui/material/colors';

@@ -5,6 +5,10 @@
     margin-right: 30px;
 }
 
+.childrenComponent{
+    min-height: 100vh;
+}
+
 .closeIcon{
     margin-bottom: 15px;
 }
