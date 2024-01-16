@@ -10,7 +10,7 @@ import Link from 'next/link';
 import Divider from '@mui/material/Divider';
 
 
-const FooterPage = () => {
+const Footer = () => {
   const footerStyle = {
     backgroundImage: 'url("https://i.ibb.co/JtjnqGC/Colorful-Playful-School-Class-Zoom-Virtual-Background.png")',
     backgroundSize: 'cover',
@@ -163,4 +163,4 @@ const FooterPage = () => {
   );
 };
 
-export default FooterPage;
+export default Footer;
