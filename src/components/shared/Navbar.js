@@ -24,6 +24,8 @@ import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import CloseIcon from '@mui/icons-material/Close';
 import Link from 'next/link';
 import { Button } from '@mui/material';
+import logo from '@/assets/logo2.png'
+import Image from 'next/image';
 
 const drawerWidth = 240;
 
@@ -151,7 +153,10 @@ export default function MiniDrawer({children}) {
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
+
+          <Image className='logo' width={100} height={100} src={logo} />
+
+          <IconButton className='closeIcon' onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <CloseIcon />}
           </IconButton>
         </DrawerHeader>
