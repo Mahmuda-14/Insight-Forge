@@ -24,7 +24,7 @@ import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import CloseIcon from '@mui/icons-material/Close';
 import Link from 'next/link';
 import { Button } from '@mui/material';
-import logo from '@/assets/logo2.png'
+import logo from '@/assets/logo3.png'
 import Image from 'next/image';
 
 const drawerWidth = 240;
