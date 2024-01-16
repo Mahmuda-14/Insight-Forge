@@ -6,7 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
-import demo from "../../../public/demo.jpg";
+import demo from "../../../../../public/demo.jpg";
 
 const bull = (
   <Box
