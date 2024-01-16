@@ -21,6 +21,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LoginIcon from '@mui/icons-material/Login';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
+import CloseIcon from '@mui/icons-material/Close';
 import Link from 'next/link';
 import { Button } from '@mui/material';
 
@@ -151,7 +152,7 @@ export default function MiniDrawer({children}) {
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <CloseIcon />}
           </IconButton>
         </DrawerHeader>
         <Divider />
