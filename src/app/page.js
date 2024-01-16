@@ -1,9 +1,9 @@
-
+import PostSection from "@/PostSection/PostSection";
 
 const HomePage = () => {
   return (
     <div>
-      this is home.
+      <PostSection />
     </div>
   );
 };
