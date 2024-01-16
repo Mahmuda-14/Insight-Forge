@@ -1,4 +1,4 @@
-
+"use client"
 import { FaQuoteLeft } from "react-icons/fa";
 import React from 'react';
 import { Avatar, Card, CardContent, CardHeader, CardMedia, IconButton, Rating, Stack, Typography } from '@mui/material';
