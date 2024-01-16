@@ -1,7 +1,9 @@
+/* eslint-disable react/no-children-prop */
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Review from '@/Components/Review'
-import Navbar from '@/components/shared/Navbar'
+import Navbar from '@/Components/shared/Navbar'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,12 +16,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Review></Review></body>
-      
-      <body className={inter.className}>
-        <Navbar children={children}>
+      <Navbar children={children}>
         </Navbar>
+        <Review></Review>
         </body>
+      
+      
     </html>
   )
 }

@@ -117,7 +117,8 @@ const navItems = [
   },
 ]
 
-export default function MiniDrawer({children}) {
+const Navbar =({children})=> {
+  
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -197,3 +198,8 @@ export default function MiniDrawer({children}) {
     </Box>
   );
 }
+
+
+export default Navbar;
+
+
