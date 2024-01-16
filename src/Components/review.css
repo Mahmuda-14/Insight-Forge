@@ -1,0 +1,32 @@
+
+.parallax-container {
+    position: relative;
+    height: 370px;
+    overflow: hidden;
+  }
+  
+  .parallax-img {
+    position: absolute;
+    background: rgba(25,25,25,.8) none repeat scroll 0 0;
+    background-size: cover;
+    background-attachment: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .featured-item {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* height: 100%; */
+  }
+  
