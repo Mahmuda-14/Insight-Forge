@@ -31,7 +31,7 @@ const Footer = () => {
       <Container>
       
         <div style={{ textAlign: 'center', margin: '20px' }}>
-          <Image src="https://i.ibb.co/V92F63N/g-removebg-preview.png" alt="Logo" width={100} height={100} style={logoStyle} />
+          <Image src="https://i.ibb.co/V92F63N/g-removebg-preview.png" alt="Logo" width={100} height={150} style={logoStyle} />
           <p style={{ margin: '10px', color: '#ffffff' ,fontSize:'15px'}}>Explore a wealth of curated knowledge on Insight Forge, where expertise meets curiosity. <br/>
                                                                           Our platform is dedicated to providing insightful content tailored to elevate your <br/>
                                                                           understanding and ignite your passion for learning.</p>
