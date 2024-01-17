@@ -15,6 +15,7 @@ const HomePage = () => {
       <Review></Review>
        <Count></Count>
        <Logo></Logo>
+       <h2>okkkkk</h2>
     </div>
   );
 };
