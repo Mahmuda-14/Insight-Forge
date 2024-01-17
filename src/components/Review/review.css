@@ -1,0 +1,16 @@
+
+.parallax-container {
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: linear-gradient(to right, rgba(19, 19, 19, 0.8), rgb(0, 0, 0, 0.80)),
+  url('../../../public/team.jpg')
+  ;
+  }
+  
+  .flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* height: 100%; */
+  }
+  
