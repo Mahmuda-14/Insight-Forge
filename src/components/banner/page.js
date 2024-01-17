@@ -6,7 +6,6 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 const Banner = () => {
-      const[search, setSearch]=useState()
       const divBackground={backgroundImage: 'url(https://i.ibb.co/hRs2r4S/slider3-1.jpg)',
       backgroundSize: 'cover',
        minHeight: '480px',
@@ -35,7 +34,7 @@ const Banner = () => {
             <div style={overlayStyle}>
 
                   {/* Content Section */}
-                  <div style={{maxWidth:'600px', margin:'auto',marginTop:'150px'  }}>
+                  <div style={{maxWidth:'600px', margin:'auto',marginTop:'150px'}}>
                   <h1 style={{textAlign:'center', color:'white'}}>HAVE A QUESTION?</h1>
                   <p style={{textAlign:'center', color:'white'}} >If you have any question you can ask below or enter what you are looking for!</p>
 
@@ -52,10 +51,10 @@ const Banner = () => {
                   >
                   <TextField fullWidth name='searchText'  placeholder='Search here' id="fullWidth" />
                   </Box>
-                  <Button  variant="contained" color="success">
+                  <Button style={{backgroundColor:'#1976D2'}} type='submit' variant="contained" color="success">
                   Search
                   </Button>
-
+                  
                   </form>
                   </div>
 

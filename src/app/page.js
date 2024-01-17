@@ -1,32 +1,20 @@
-<<<<<<< HEAD
-import Banner from "@/components/banner/page";
 
-=======
+
 import Review from "@/components/Review/Review";
->>>>>>> 6584926fa00182e42e4edde9396be530609bb22b
+import Banner from "@/components/banner/page";
 
 import PostSection from "@/components/ui/PostSection/PostSection";
 
 const HomePage = () => {
   return (
     <div>
-      this is home.
-<<<<<<< HEAD
-
-      
-
-      
-=======
-      we will create our dream here
-      <Review></Review>
+      <Banner></Banner>
       <PostSection />
->>>>>>> 6584926fa00182e42e4edde9396be530609bb22b
+      <Review></Review>
+      
     </div>
   );
 };
 
 export default HomePage;
-<<<<<<< HEAD
 
-=======
->>>>>>> 6584926fa00182e42e4edde9396be530609bb22b
