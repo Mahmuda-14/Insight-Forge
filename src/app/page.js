@@ -13,9 +13,9 @@ const HomePage = () => {
      
       <PostSection />
       <Review></Review>
-       <Count></Count>
-       <Logo></Logo>
-       <h2>okkkkk</h2>
+      <Count></Count>
+      <Logo></Logo>
+      <h2>ok....................</h2>
     </div>
   );
 };
