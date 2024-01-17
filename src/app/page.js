@@ -8,9 +8,7 @@ const HomePage = () => {
       this is home.
 
       
-      <Banner></Banner>
-      
-      
+
       
     </div>
   );

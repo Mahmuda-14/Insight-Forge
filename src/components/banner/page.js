@@ -1,9 +1,12 @@
-import React from 'react';
+
+'use client'
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 const Banner = () => {
+      const[search, setSearch]=useState()
       const divBackground={backgroundImage: 'url(https://i.ibb.co/hRs2r4S/slider3-1.jpg)',
       backgroundSize: 'cover',
        minHeight: '480px',
@@ -19,6 +22,13 @@ const Banner = () => {
           backgroundColor: 'rgba(0, 0, 0, 0.7)',
       }
 
+      const handleSearch=(e)=>{
+            e.preventDefault();
+            const searchText = e.target.searchText.value;
+            console.log(searchText);
+
+      }
+
       return (
       <div style={divBackground}>
                   {/* Overlay */}
@@ -30,7 +40,7 @@ const Banner = () => {
                   <p style={{textAlign:'center', color:'white'}} >If you have any question you can ask below or enter what you are looking for!</p>
 
                     {/* Search Box */}
-                  <div style={{display:'flex', gap:'4px' }}>
+                  <form onSubmit={handleSearch} style={{display:'flex', gap:'4px' }}>
                   <Box
                   sx={{
                   width: 500,
@@ -40,19 +50,14 @@ const Banner = () => {
                   border:'none'
                   }}
                   >
-                  <TextField fullWidth  placeholder='Search here' id="fullWidth" />
+                  <TextField fullWidth name='searchText'  placeholder='Search here' id="fullWidth" />
                   </Box>
-
-                  <Button variant="contained" color="success">
-                  Success
+                  <Button  variant="contained" color="success">
+                  Search
                   </Button>
 
+                  </form>
                   </div>
-                  </div>
-
-
-
-
 
           </div>      
       </div>
