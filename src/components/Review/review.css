@@ -1,4 +1,5 @@
 .parallax-container {
+  margin-top: 30px;
   background-size: cover;
   background-attachment: fixed;
   background-image: linear-gradient(
