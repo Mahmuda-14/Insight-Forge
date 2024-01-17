@@ -1,7 +1,9 @@
+/* eslint-disable react/no-children-prop */
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Navbar from '@/components/shared/Navbar'
-import Footer from '@/components/shared/footer/Footer'
+import Navbar from '@/Components/shared/Navbar'
+import Footer from '@/Components/shared/footer/Footer'
+
 
 
 
@@ -21,6 +23,8 @@ export default function RootLayout({ children }) {
       
       <Footer></Footer>
         </body>
+      
+      
     </html>
   )
 }
