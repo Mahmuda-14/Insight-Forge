@@ -1,21 +1,23 @@
-import Review from "@/components/Review/Review";
-import Count from "@/components/shared/count/Count";
-import Logo from "@/components/shared/logo/Logo";
 
 
-import PostSection from "@/components/ui/PostSection/PostSection";
+import Review from "@/Components/Review/Review";
+import All from "@/Components/Social/All";
+import Banner from "@/Components/banner/page";
+import Count from "@/Components/shared/count/Count";
+import Logo from "@/Components/shared/logo/Logo";
+import PostSection from "@/Components/ui/PostSection/PostSection";
+
 
 const HomePage = () => {
   return (
     <div>
-      this is home.
-      we will create our dream here
-     
+      <Banner></Banner>
       <PostSection />
       <Review></Review>
-       <Count></Count>
-       <Logo></Logo>
-       <h2>okkkkk</h2>
+      <All></All>
+      <Count></Count>
+      <Logo></Logo>
+      
     </div>
   );
 };

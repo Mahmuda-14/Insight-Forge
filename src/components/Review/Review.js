@@ -1,16 +1,15 @@
 "use client"
 import React from 'react';
 import './review.css';
-import Image from 'next/image';
-import img from '../../../public/team.jpg'
 import MyCard from './MyCard';
 import Story from './Story';
+
 
 const Review = () => {
   return (
 
 
-    <div className='flex parallax-container'>
+    <div className='flex parallax-container' style={{marginTop:'10px'}}>
       <div>
         <MyCard />
       </div>
