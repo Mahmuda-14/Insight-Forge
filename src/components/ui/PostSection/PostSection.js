@@ -55,6 +55,7 @@ const PostSection = () => {
           <PostCard />
           <PostCard />
         </Stack>
+      
       </Box>
     </Container>
   );
