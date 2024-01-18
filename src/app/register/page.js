@@ -1,4 +1,4 @@
-" use client";
+'use client';
 
 
 import Avatar from "@mui/material/Avatar";
@@ -15,7 +15,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Lottie from "lottie-react";
 import LogInAnimation from "../../assets/LogInAnimation.json";
-import { useForm } from "react-hook-form";
+import {useForm} from "react-hook-form";
 import useAuth from "../hooks/useAuth";
 
 
