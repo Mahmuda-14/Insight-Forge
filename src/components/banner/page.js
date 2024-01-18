@@ -28,7 +28,7 @@ const Banner = () => {
             const searchText = e.target.searchText.value;
             console.log(searchText);
 
-      }
+}
 
       return (
             <div style={divBackground}>
