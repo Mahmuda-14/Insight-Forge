@@ -3,13 +3,13 @@ import All from "@/components/Social/All";
 import Banner from "@/components/banner/page";
 import Count from "@/components/shared/count/Count";
 import Logo from "@/components/shared/logo/Logo";
-import PostSection from "@/components/ui/PostSection/PostSection";
+// import PostSection from "@/components/ui/PostSection/PostSection";
 
 const HomePage = () => {
   return (
     <div>
       <Banner></Banner>
-      <PostSection />
+      {/* <PostSection /> */}
       <Review></Review>
       <All></All>
       <Count></Count>

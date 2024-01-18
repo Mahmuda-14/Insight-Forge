@@ -11,8 +11,8 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
-import { useForm } from "react-hook-form"
-import useAuth from '@/utils/hooks/useAuth';
+import { useForm } from "react-hook-form";
+import useAuth from '@/app/hooks/useAuth';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 

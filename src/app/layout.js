@@ -2,11 +2,10 @@
 
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Navbar from '@/components/shared/Navbar'
 import { Toaster } from 'react-hot-toast'
-import AuthProvider from '@/utils/provider/AuthProvider'
 import "./globals.css";
 import MainLayout from "@/components/shared/MainLayout/MainLayout";
+import AuthProvider from './provider/AuthProvider';
 
 const inter = Inter({ subsets: ["latin"] });
 

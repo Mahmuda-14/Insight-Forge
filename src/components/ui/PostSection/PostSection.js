@@ -26,9 +26,7 @@ const PostSection = () => {
       <Box>
         <Box
           marginBottom={5}
-          sx={{
-            width: "100%",
-          }}
+          
         >
           <Tabs
             value={value}
@@ -42,11 +40,7 @@ const PostSection = () => {
               sx={{ flexDirection: "row", gap: "5px" }}
               icon={<TurnedInNotOutlinedIcon />}
               value="1"
-              label={
-                <Typography sx={{ fontSize: { xs: 10, md: 16 } }}>
-                  Recent Qustions
-                </Typography>
-              }
+              label="Popular Questions"
             >
               <TurnedInNotOutlinedIcon />
             </Tab>
@@ -54,11 +48,7 @@ const PostSection = () => {
               sx={{ flexDirection: "row", gap: "5px" }}
               icon={<WebStoriesIcon />}
               value="2"
-              label={
-                <Typography sx={{ fontSize: { xs: 10, md: 16 } }}>
-                  Popular Questions
-                </Typography>
-              }
+              label="Popular Questions"
             />
           </Tabs>
         </Box>

@@ -1,5 +1,6 @@
 " use client";
 
+
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -10,12 +11,13 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { useForm } from "react-hook-form";
-// import useAuth from '@/utils/hooks/useAuth';
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Lottie from "lottie-react";
 import LogInAnimation from "../../assets/LogInAnimation.json";
+import { useForm } from "react-hook-form";
+import useAuth from "../hooks/useAuth";
+
 
 function Copyright(props) {
   return (
@@ -35,7 +37,9 @@ function Copyright(props) {
   );
 }
 
-export default function RegistrationPage() {
+export default function RegistrationPage() 
+{
+
   const { registration, updateUser, logOut } = useAuth();
   const router = useRouter();
 
@@ -43,39 +47,25 @@ export default function RegistrationPage() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm();
 
   const onSubmit = (data) => {
     console.log(data, data.name);
-    registration(data.email, data.password).then((result) => {
+    uEmail = data.email;
+    uName = data.name;
+    uPassword = data.password;
+    uPhoto = data.photo;
+    uPhoto = data.photo;
+    registration(uEmail, uPassword).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-      updateUser(data.name, data.photo).then(() => {
+      updateUser(uName, uPhoto).then(() => {
         console.log("User profile Updated");
         reset();
         toast.success("User Updated Successfully");
         logOut().then().catch();
         router.push("/login");
       });
-      // const userInfo ={
-      //     name:data.name,
-      //     email:data.email,
-      //     role:'user',
-      // }
-      // axiosPublic.post(`/users`,userInfo)
-      // .then(res=>{
-      //     if(res.data.insertedId){
-      //         Swal.fire({
-      //             position: "top-end",
-      //             icon: "success",
-      //             title: "User has been saved",
-      //             showConfirmButton: false,
-      //             timer: 1500
-      //           });
-      //         reset();
-      //     }
-      // })
     });
   };
 
