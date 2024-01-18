@@ -1,6 +1,5 @@
 
 'use client'
-import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -25,14 +24,11 @@ const Banner = () => {
             e.preventDefault();
             const searchText = e.target.searchText.value;
             console.log(searchText);
-
       }
-
       return (
       <div style={divBackground}>
                   {/* Overlay */}
             <div style={overlayStyle}>
-
                   {/* Content Section */}
                   <div style={{maxWidth:'600px', margin:'auto',marginTop:'150px'}}>
                   <h1 style={{textAlign:'center', color:'white'}}>HAVE A QUESTION?</h1>
@@ -57,7 +53,6 @@ const Banner = () => {
                   
                   </form>
                   </div>
-
           </div>      
       </div>
       );
