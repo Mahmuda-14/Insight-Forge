@@ -5,7 +5,6 @@ import './globals.css'
 import Navbar from '@/components/shared/Navbar'
 import { Toaster } from 'react-hot-toast'
 import AuthProvider from '@/utils/provider/AuthProvider'
-import { Inter } from "next/font/google";
 import "./globals.css";
 import MainLayout from "@/components/shared/MainLayout/MainLayout";
 

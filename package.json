@@ -16,17 +16,12 @@
     "firebase": "^10.7.1",
     "lottie-react": "^2.4.0",
     "next": "14.0.4",
-<<<<<<< HEAD
-    "react": "^18",
-    "react-dom": "^18",
-    "react-hook-form": "^7.49.3",
-    "react-hot-toast": "^2.4.1"
-=======
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.49.3",
+    "react-hot-toast": "^2.4.1",
     "react-icons": "^5.0.1",
     "swiper": "^11.0.5"
->>>>>>> 220884e591d4ac5469c4d18598dfced2741f67fb
   },
   "devDependencies": {
     "eslint": "^8",
