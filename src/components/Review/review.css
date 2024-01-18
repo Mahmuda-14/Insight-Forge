@@ -1,17 +1,11 @@
-
 .parallax-container {
   margin-top: 30px;
   background-size: cover;
   background-attachment: fixed;
-  background-image: linear-gradient(to right, rgba(19, 19, 19, 0.8), rgb(0, 0, 0, 0.80)),
-  url('../../../public/team.jpg')
-  ;
-  }
-  
-  .flex {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    /* height: 100%; */
-  }
-  
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.8),
+      rgb(0, 0, 0, 0.8)
+    ),
+    url("../../../public/team.jpg");
+}
