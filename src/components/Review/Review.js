@@ -1,23 +1,39 @@
-"use client"
-import React from 'react';
-import './review.css';
-import MyCard from './MyCard';
-import Story from './Story';
-
+"use client";
+import React from "react";
+import "./review.css";
+import MyCard from "./MyCard";
+import Story from "./Story";
+import { Box } from "@mui/material";
 
 const Review = () => {
   return (
-
-
-    <div className='flex parallax-container' style={{marginTop:'10px'}}>
-      <div>
+    <Box
+      mt={5}
+      p={5}
+      gap={10}
+      display="flex"
+      justifyContent="space-evenly"
+      alignItems="center"
+      sx={{
+        flexDirection: { xs: "column", md: "row" },
+      }}
+      className=" parallax-container"
+    >
+      <Box
+        sx={{
+          width: { sm: "100%", md: "40%" },
+        }}
+      >
         <MyCard />
-      </div>
-      <div>
+      </Box>
+      <Box
+        sx={{
+          width: { sm: "100%", md: "40%" },
+        }}
+      >
         <Story />
-      </div>
-    </div>
-
+      </Box>
+    </Box>
   );
 };
 

@@ -16,8 +16,13 @@ const PostSection = () => {
     setValue(newValue);
   };
 
+  const profileStyle = {
+    padding: "20px",
+    textAlign: "center",
+  };
+
   return (
-    <Container maxWidth="lg">
+    <Container style={profileStyle}>
       <Box>
         <Box
           marginBottom={5}
@@ -37,7 +42,11 @@ const PostSection = () => {
               sx={{ flexDirection: "row", gap: "5px" }}
               icon={<TurnedInNotOutlinedIcon />}
               value="1"
-              label="Recent Qustions"
+              label={
+                <Typography sx={{ fontSize: { xs: 10, md: 16 } }}>
+                  Recent Qustions
+                </Typography>
+              }
             >
               <TurnedInNotOutlinedIcon />
             </Tab>
@@ -45,7 +54,11 @@ const PostSection = () => {
               sx={{ flexDirection: "row", gap: "5px" }}
               icon={<WebStoriesIcon />}
               value="2"
-              label="Popular Questions"
+              label={
+                <Typography sx={{ fontSize: { xs: 10, md: 16 } }}>
+                  Popular Questions
+                </Typography>
+              }
             />
           </Tabs>
         </Box>
@@ -55,6 +68,7 @@ const PostSection = () => {
           <PostCard />
           <PostCard />
         </Stack>
+      
       </Box>
     </Container>
   );
