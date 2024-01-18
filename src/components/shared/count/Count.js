@@ -1,7 +1,7 @@
 
 import Image from 'next/image';
 import Typography from '@mui/material/Typography';
-import { Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import React from 'react';
 
 
@@ -21,12 +21,13 @@ const Count = () => {
       };
 
     return (
-       <div style={{ marginLeft:'250px',marginRight:'250px' , marginTop:'200px' ,marginBottom:'100px' }}>
+       <div >
          <div style={footerStyle }>
-         <Grid container spacing={15} style={{ marginLeft: '50px'}}>
+         {/* <Box sx={{ flexGrow: 1 }}> */}
+         <Grid sx={{ flexGrow: 1 }} container spacing={15} >
 
         <Grid item>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ display: 'flex', padding:'30px', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <Image src="https://i.ibb.co/D7TFD1q/aa-removebg-preview.png" alt="cover" width={50} height={50} />
             <Typography variant="h4" sx={{ margin: '10px', color: '#ffffff' }}>126</Typography>
             <Typography variant="h6" sx={{ color: '#ffffff', fontSize: '15px' }}>Happy Client</Typography>
@@ -60,6 +61,7 @@ const Count = () => {
         </Grid>
 
           </Grid>
+          {/* </Box> */}
 
             </div>
            

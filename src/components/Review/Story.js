@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
-import { Avatar, Card, CardContent, CardHeader,  Typography } from '@mui/material';
-import { brown, red } from '@mui/material/colors';
+import { Card, CardContent, CardHeader,  Typography } from '@mui/material';
+import { brown } from '@mui/material/colors';
 
 const Story = () => {
     return (
@@ -19,7 +19,9 @@ const Story = () => {
                     <Typography variant="body2" color="text.secondary" sx={{ marginTop: '40px',color: 'white'}}>
                         This impressive paella is a perfect party dish and a fun meal to cook
                         together with your guests. Add 1 cup of frozen peas along with the mussels,
-                        if you like.
+                        if you like. 
+
+                        hello world
                     </Typography>
                 </CardContent>
 
