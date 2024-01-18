@@ -123,8 +123,7 @@ const navItems = [
   },
 ]
 
-const Navbar =({children})=> {
-  
+const  Navbar = ({children}) => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -170,7 +169,7 @@ const Navbar =({children})=> {
         <Divider />
         <List>
           {navItems.map((item, index) => (
-            <ListItem key={item} disablePadding sx={{ display: 'block' }}>
+            <ListItem key={index} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
               href={item.pathname}
                 sx={{
@@ -197,7 +196,7 @@ const Navbar =({children})=> {
         <Divider />
         
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1 }}>
         <DrawerHeader />
         <Box className="childrenComponent"> {children} </Box>
       </Box>
