@@ -22,8 +22,11 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import LoginIcon from '@mui/icons-material/Login';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import CloseIcon from '@mui/icons-material/Close';
+import EditNoteIcon from '@mui/icons-material/EditNote';
 import Link from 'next/link';
 import { Button } from '@mui/material';
+import logo from '@/assets/logo3.png'
+import Image from 'next/image';
 
 const drawerWidth = 240;
 
@@ -99,9 +102,9 @@ const navItems = [
     icon: <HomeIcon/>
   },
   {
-    route: "Contact",
-    pathname: "/contact",
-    icon: <PhoneIcon/>
+    route: "Blogs",
+    pathname: "/blogs",
+    icon: <EditNoteIcon/>
   },
   {
     route: "Login",
@@ -113,9 +116,14 @@ const navItems = [
     pathname: "/register",
     icon: <AppRegistrationIcon/>
   },
+  {
+    route: "Contact",
+    pathname: "/contact",
+    icon: <PhoneIcon/>
+  },
 ]
 
-export default function Navbar({children}) {
+const  Navbar = ({children}) => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -151,7 +159,10 @@ export default function Navbar({children}) {
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
+
+          <Image className='logo' width={100} height={100} src={logo} />
+
+          <IconButton className='closeIcon' onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <CloseIcon />}
           </IconButton>
         </DrawerHeader>
@@ -187,8 +198,13 @@ export default function Navbar({children}) {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1 }}>
         <DrawerHeader />
-        <Box> {children} </Box>
+        <Box className="childrenComponent"> {children} </Box>
       </Box>
     </Box>
   );
 }
+
+
+export default Navbar;
+
+

@@ -1,12 +1,19 @@
-
+import Review from "@/components/Review/Review";
+import All from "@/components/Social/All";
+import Banner from "@/components/banner/page";
+import Count from "@/components/shared/count/Count";
+import Logo from "@/components/shared/logo/Logo";
+import PostSection from "@/components/ui/PostSection/PostSection";
 
 const HomePage = () => {
   return (
     <div>
-      <div className="test"> kasdf;lkdsj;l</div>
-      <div className="test"> dlksdj;lkajd;lksa</div>
-      this is home.
-      we will create our dream here
+      <Banner></Banner>
+      <PostSection />
+      <Review></Review>
+      <All></All>
+      <Count></Count>
+      <Logo></Logo>
     </div>
   );
 };
