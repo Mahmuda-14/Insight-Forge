@@ -3,36 +3,39 @@ import React from "react";
 import "./review.css";
 import MyCard from "./MyCard";
 import Story from "./Story";
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 
 const Review = () => {
   return (
-    <Box
-      mt={5}
-      p={5}
-      gap={10}
-      display="flex"
-      justifyContent="space-evenly"
-      alignItems="center"
-      sx={{
-        flexDirection: { xs: "column", md: "row" },
-      }}
-      className=" parallax-container"
-    >
-      <Box
-        sx={{
-          width: { sm: "100%", md: "40%" },
-        }}
-      >
-        <MyCard />
-      </Box>
-      <Box
-        sx={{
-          width: { sm: "100%", md: "40%" },
-        }}
-      >
-        <Story />
-      </Box>
+    <Box className=" parallax-container">
+      <Container maxWidth="lg">
+        <Box
+          mt={5}
+          p={5}
+          gap={10}
+          display="flex"
+          justifyContent="space-evenly"
+          alignItems="center"
+          sx={{
+            flexDirection: { xs: "column", md: "row" },
+          }}
+        >
+          <Box
+            sx={{
+              width: { sm: "100%", md: "40%" },
+            }}
+          >
+            <MyCard />
+          </Box>
+          <Box
+            sx={{
+              width: { sm: "100%", md: "40%" },
+            }}
+          >
+            <Story />
+          </Box>
+        </Box>
+      </Container>
     </Box>
   );
 };

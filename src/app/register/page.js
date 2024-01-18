@@ -1,5 +1,4 @@
 " use client";
-
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -11,7 +10,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useForm } from "react-hook-form";
-// import useAuth from '@/utils/hooks/useAuth';
+import useAuth from "@/utils/hooks/useAuth";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Lottie from "lottie-react";

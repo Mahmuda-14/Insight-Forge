@@ -7,11 +7,9 @@ import { Container } from "@mui/material";
 const MainLayout = ({ children }) => {
   return (
     <>
-      <Container maxWidth="lg">
-        <Navbar />
-        {children}
-        <Footer></Footer>
-      </Container>
+      <Navbar />
+      {children}
+      <Footer></Footer>
     </>
   );
 };

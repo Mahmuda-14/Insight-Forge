@@ -10,7 +10,8 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-// import { auth } from "../firebase/firebase.config";
+
+import { auth } from "../firebase/firebase.config";
 // import useAxiosPublic from "../AxiosInterfaces/useAxiosPublic";
 
 export const AuthContext = createContext(null);
@@ -48,29 +49,28 @@ const AuthProvider = ({ children }) => {
     });
   };
 
-  //   useEffect(() => {
-  //     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-  //       setUser(currentUser);
-  // if(currentUser){
-  //     const user = {email: currentUser.email};
-  //     console.log(user)
-  //         axiosPublic.post('/jwt', user)
-  //         .then(res=>{
-  //             if(res.data.token){
-  //                 localStorage.setItem('access-token',res.data.token)
-  //             }
-  //         })
-  // }
-  // else{
-  //     localStorage.removeItem('access-token')
-  // }
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      if (currentUser) {
+        const user = { email: currentUser.email };
+        console.log(user);
+        // axiosPublic.post('/jwt', user)
+        // .then(res=>{
+        //     if(res.data.token){
+        //         localStorage.setItem('access-token',res.data.token)
+        //     }
+        // })
+      } else {
+        localStorage.removeItem("access-token");
+      }
 
-  // setLoading(false)
-  //     });
-  //     return () => {
-  //       unSubscribe();
-  //     };
-  //   }, []);
+      setLoading(false);
+    });
+    return () => {
+      unSubscribe();
+    };
+  }, []);
 
   const authInfo = {
     user,
