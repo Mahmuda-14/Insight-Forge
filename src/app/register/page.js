@@ -1,104 +1,120 @@
-  " use client"
+" use client";
 
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { useForm } from 'react-hook-form';
-import useAuth from '@/utils/hooks/useAuth';
-import toast from 'react-hot-toast';
-import { useRouter } from 'next/navigation';
-import Lottie from 'lottie-react';
-import LogInAnimation from "../../assets/LogInAnimation.json"
-
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { useForm } from "react-hook-form";
+// import useAuth from '@/utils/hooks/useAuth';
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import Lottie from "lottie-react";
+import LogInAnimation from "../../assets/LogInAnimation.json";
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
         Your Website
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
 
-
 export default function RegistrationPage() {
+  const { registration, updateUser, logOut } = useAuth();
+  const router = useRouter();
 
-  const { registration, updateUser, logOut } = useAuth()
-  const router = useRouter()
-
-  const { register, handleSubmit, formState: { errors }, reset } = useForm()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data, data.name)
-    registration(data.email, data.password)
-      .then(result => {
-        const loggedUser = result.user;
-        console.log(loggedUser)
-        updateUser(data.name, data.photo)
-          .then(() => {
-            console.log('User profile Updated')
-            reset();
-            toast.success("User Updated Successfully")
-            logOut()
-              .then()
-              .catch()
-            router.push('/login')
-          })
-        // const userInfo ={
-        //     name:data.name,
-        //     email:data.email,
-        //     role:'user',
-        // }
-        // axiosPublic.post(`/users`,userInfo)
-        // .then(res=>{
-        //     if(res.data.insertedId){        
-        //         Swal.fire({
-        //             position: "top-end",
-        //             icon: "success",
-        //             title: "User has been saved",
-        //             showConfirmButton: false,
-        //             timer: 1500
-        //           });
-        //         reset();
-        //     }
-        // })              
-      })
-
-  }
+    console.log(data, data.name);
+    registration(data.email, data.password).then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      updateUser(data.name, data.photo).then(() => {
+        console.log("User profile Updated");
+        reset();
+        toast.success("User Updated Successfully");
+        logOut().then().catch();
+        router.push("/login");
+      });
+      // const userInfo ={
+      //     name:data.name,
+      //     email:data.email,
+      //     role:'user',
+      // }
+      // axiosPublic.post(`/users`,userInfo)
+      // .then(res=>{
+      //     if(res.data.insertedId){
+      //         Swal.fire({
+      //             position: "top-end",
+      //             icon: "success",
+      //             title: "User has been saved",
+      //             showConfirmButton: false,
+      //             timer: 1500
+      //           });
+      //         reset();
+      //     }
+      // })
+    });
+  };
 
   return (
-
-    <Container component="main" maxWidth="xl" sx={{ backgroundColor:"#b9f6ca"}}>
+    <Container
+      component="main"
+      maxWidth="xl"
+      sx={{ backgroundColor: "#b9f6ca" }}
+    >
       <CssBaseline />
-      <Grid container spacing={4} sx={{ justifyContent:"center", alignItems: "center" }} >
-        <Grid item xs={6}><Lottie animationData={LogInAnimation}></Lottie></Grid>
-        <Grid  item xs={6}>
+      <Grid
+        container
+        spacing={4}
+        sx={{ justifyContent: "center", alignItems: "center" }}
+      >
+        <Grid item xs={6}>
+          <Lottie animationData={LogInAnimation}></Lottie>
+        </Grid>
+        <Grid item xs={6}>
           <Box
             sx={{
               marginTop: 8,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5" sx={{color : "#2e7d32"}}>
+            <Typography component="h1" variant="h5" sx={{ color: "#2e7d32" }}>
               Sign up
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit(onSubmit)} sx={{ mt: 3 }}>
+            <Box
+              component="form"
+              noValidate
+              onSubmit={handleSubmit(onSubmit)}
+              sx={{ mt: 3 }}
+            >
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -111,7 +127,9 @@ export default function RegistrationPage() {
                     autoFocus
                     {...register("name", { required: true })}
                   />
-                  {errors.name && <Typography> Name field is required</Typography>}
+                  {errors.name && (
+                    <Typography> Name field is required</Typography>
+                  )}
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -123,7 +141,9 @@ export default function RegistrationPage() {
                     autoComplete="Photo URL"
                     {...register("photo", { required: true })}
                   />
-                  {errors.photo && <Typography> Photo URL Field is required</Typography>}
+                  {errors.photo && (
+                    <Typography> Photo URL Field is required</Typography>
+                  )}
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
@@ -135,7 +155,9 @@ export default function RegistrationPage() {
                     autoComplete="email"
                     {...register("email", { required: true })}
                   />
-                  {errors.email && <Typography> Email Field is required</Typography>}
+                  {errors.email && (
+                    <Typography> Email Field is required</Typography>
+                  )}
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
@@ -150,7 +172,7 @@ export default function RegistrationPage() {
                       required: true,
                       minLength: 6,
                       maxLength: 25,
-                      pattern: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=])/
+                      pattern: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=])/,
                     })}
                   />
                   {errors.password?.type === "required" && (
@@ -160,19 +182,24 @@ export default function RegistrationPage() {
                     <Typography>Password must be 6 characters </Typography>
                   )}
                   {errors.password?.type === "maxLength" && (
-                    <Typography> Password can not be more than 20 characters</Typography>
+                    <Typography>
+                      {" "}
+                      Password can not be more than 20 characters
+                    </Typography>
                   )}
                   {errors.password?.type === "pattern" && (
-                    <Typography>Password must have one uppercase character, one lowercase character, one digit, one special character</Typography>
+                    <Typography>
+                      Password must have one uppercase character, one lowercase
+                      character, one digit, one special character
+                    </Typography>
                   )}
                 </Grid>
-
               </Grid>
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2, backgroundColor:"#2e7d32" }}
+                sx={{ mt: 3, mb: 2, backgroundColor: "#2e7d32" }}
               >
                 Sign Up
               </Button>
@@ -189,6 +216,5 @@ export default function RegistrationPage() {
       </Grid>
       <Copyright sx={{ mt: 5 }} />
     </Container>
-
   );
 }
