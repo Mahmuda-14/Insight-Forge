@@ -6,6 +6,7 @@ import { Toaster } from 'react-hot-toast'
 import "./globals.css";
 import MainLayout from "@/components/shared/MainLayout/MainLayout";
 import AuthProvider from './provider/AuthProvider';
+import WebTheme from '@/utils/theme/theme';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +19,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AuthProvider>
-          <Toaster position="top-center" />
-          <MainLayout>{children}</MainLayout>
-        </AuthProvider>
-       
+        <WebTheme>
+          <AuthProvider>
+            <Toaster position="top-center" />
+            <MainLayout>{children}</MainLayout>
+          </AuthProvider>
+        </WebTheme>
+
       </body>
     </html>
   );

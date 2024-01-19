@@ -21,10 +21,10 @@ const Footer = () => {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
-      height: '600px',
+     
 
     }}>
-      <Container maxWidth="lg" >
+      <Container maxWidth="lg"  >
 
         <div style={{ textAlign: 'center', margin: '10px' }}>
           <Image src="https://i.ibb.co/V92F63N/g-removebg-preview.png" alt="Logo" width={100} height={150} style={{

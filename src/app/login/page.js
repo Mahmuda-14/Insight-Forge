@@ -42,7 +42,7 @@ export default function LogInPage() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm();
   const router = useRouter();
   // const from = router.pathname || '/'

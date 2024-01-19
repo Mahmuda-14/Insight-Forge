@@ -46,16 +46,16 @@ export default function RegistrationPage()
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }, reset
   } = useForm();
 
   const onSubmit = (data) => {
     console.log(data, data.name);
-    uEmail = data.email;
-    uName = data.name;
-    uPassword = data.password;
-    uPhoto = data.photo;
-    uPhoto = data.photo;
+    const uEmail = data.email;
+    const uName = data.name;
+    const uPassword = data.password;
+    const uPhoto = data.photo;
+    
     registration(uEmail, uPassword).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
@@ -73,7 +73,7 @@ export default function RegistrationPage()
     <Container
       component="main"
       maxWidth="xl"
-      sx={{ backgroundColor: "#b9f6ca" }}
+      sx={{  backgroundColor: "#b9f6ca" }}
     >
       <CssBaseline />
       <Grid
@@ -81,10 +81,10 @@ export default function RegistrationPage()
         spacing={4}
         sx={{ justifyContent: "center", alignItems: "center" }}
       >
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
           <Lottie animationData={LogInAnimation}></Lottie>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
           <Box
             sx={{
               marginTop: 8,

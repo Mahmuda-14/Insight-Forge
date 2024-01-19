@@ -7,7 +7,7 @@ import {  green } from "@mui/material/colors";
 
 const Social = ({ src, alt, title }) => {
   return (
-    <Card sx={{ display: "flex", bgcolor: green[300], p:3 , justifyContent:"center", alignItems:"center"}}>
+    <Card sx={{ display: "flex", backgroundColor: "#B2533E", p:3 , justifyContent:"center", alignItems:"center"}}>
       <Image width={50} height="100%" src={src} alt={alt} />
       <CardContent>
         <Typography sx={{ fontSize: 18, color:"white" }} color="text.secondary">

@@ -14,7 +14,7 @@ const Logo = () => {
 
   return (
     <Container maxWidth="md"   >
-      <Grid container spacing={8} sx={{ backgroundColor: green[300], my: 10, pt: 5, pb: 10, pr: 10 }} >
+      <Grid container spacing={8} sx={{ backgroundColor: "#B2533E", my: 10, pt: 5, pb: 10, pr: 10 }} >
 
         <Grid item xs={12} sm={6} md={3}>
           <Card sx={{ minWidth: 175 }}>

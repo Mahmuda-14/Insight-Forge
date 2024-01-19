@@ -158,21 +158,27 @@ const Navbar = () => {
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <Image
-            className="logo"
-            width={80}
-            height={80}
-            src={logo}
-            alt="logo"
-          />
+        <DrawerHeader >
+         
+            <Typography variant="h6" sx={{ mr: 2, fontWeight: 600, color: "#B2533E" }}>
+              Insight
+              <br /> Forge
+            </Typography>
+            <Image
+              className="logo"
+              width={50}
+              height={40}
+              src={logo}
+              alt="logo"
+            />
+        
 
           <IconButton className="closeIcon" onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? <ChevronRightIcon /> : <CloseIcon />}
           </IconButton>
         </DrawerHeader>
 
-        <List>
+        <List >
           {navItems.map((item, index) => (
             <ListItem key={index} disablePadding sx={{ display: "block" }}>
               <ListItemButton
@@ -181,6 +187,7 @@ const Navbar = () => {
                   minHeight: 48,
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
+                  color:"#B2533E"
                 }}
               >
                 <ListItemIcon
@@ -188,6 +195,7 @@ const Navbar = () => {
                     minWidth: 0,
                     mr: open ? 3 : "auto",
                     justifyContent: "center",
+                    color:"#B2533E"
                   }}
                 >
                   {item.icon}
@@ -195,7 +203,7 @@ const Navbar = () => {
                 </ListItemIcon>
                 <ListItemText
                   primary={item.route}
-                  sx={{ opacity: open ? 1 : 0 }}
+                  sx={{ opacity: open ? 1 : 0 , color:""}}
                 />
               </ListItemButton>
             </ListItem>
