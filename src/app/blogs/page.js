@@ -46,22 +46,27 @@ const page = () => {
   }, []);
 
   return (
-    <Grid mt={5} container spacing={2}>
+    <div>
+      <h1 style={{textAlign:'center'}} >The Knowledge Revolution Shaping the Future Together</h1>
+      <h4 style={{textAlign:'center'}}>Explore practical strategies for continuous learning and adapting to the ever-evolving world of information</h4>
+      <Grid mt={5} container spacing={2}>
       {blogs && blogs.length > 0 ? (
         blogs.map((item, i) => (
           <Grid key={i} item xs={12} md={6}>
-            <Card>
+            <Card className="card" >
               <CardMedia
                 component="img"
-                height="194"
-                image="/static/images/cards/paella.jpg"
+                height="294"
+                image={item.image}
                 alt="Paella dish"
               />
               <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                  This impressive paella is a perfect party dish and a fun meal
-                  to cook together with your guests. Add 1 cup of frozen peas
-                  along with the mussels, if you like.
+                <Typography style={{color:'black', margin:'10px 0px'  }} variant="h5"  color="text.secondary">
+                  {item.title}
+                </Typography>
+
+                <Typography style={{fontSize:'18px'}} variant="body2" color="text.secondary">
+                  {item.details}
                 </Typography>
               </CardContent>
               <CardActions disableSpacing>
@@ -79,7 +84,10 @@ const page = () => {
         <p>No data available.</p>
       )}
     </Grid>
+    </div>
   );
 };
 
 export default page;
+
+
