@@ -2,7 +2,7 @@
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Typography from "@mui/material/Typography";
 import TurnedInNotOutlinedIcon from "@mui/icons-material/TurnedInNotOutlined";
 import WebStoriesIcon from "@mui/icons-material/WebStories";
@@ -11,8 +11,30 @@ import { Container, Stack } from "@mui/material";
 
 const PostSection = () => {
   const [value, setValue] = useState("1");
+  const [posts, setPosts] = useState([]);
+  const [filterPost, SetFilterPost] = useState(posts);
+
+  const test = "popular questions";
+  useEffect(() => {
+    fetch("post.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setPosts(data.data);
+
+        SetFilterPost(data.data);
+      });
+  }, []);
 
   const handleChange = (event, newValue) => {
+    const tabText = event.target.innerText?.toLowerCase();
+
+    if (test === tabText) {
+      const filter = posts.filter((post) => post.comment_count > 10);
+      SetFilterPost(filter);
+    } else {
+      SetFilterPost(posts);
+    }
+
     setValue(newValue);
   };
 
@@ -63,12 +85,10 @@ const PostSection = () => {
           </Tabs>
         </Box>
         <Stack spacing={2}>
-          <PostCard />
-          <PostCard />
-          <PostCard />
-          <PostCard />
+          {filterPost.map((post) => {
+            return <PostCard key={post.id} post={post} />;
+          })}
         </Stack>
-      
       </Box>
     </Container>
   );

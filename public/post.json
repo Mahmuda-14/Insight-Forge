@@ -1,0 +1,68 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "user_name": "JohnDoe",
+      "user_img": "https://example.com/johndoe.jpg",
+      "question_name": "How to solve a complex problem?",
+      "time": "2024-01-19T12:30:00",
+      "comment_count": 10
+    },
+    {
+      "id": 2,
+      "user_name": "AliceSmith",
+      "user_img": "https://example.com/alicesmith.jpg",
+      "question_name": "What are the benefits of regular exercise?",
+      "time": "2024-01-19T13:45:00",
+      "comment_count": 8
+    },
+    {
+      "id": 3,
+      "user_name": "BobJohnson",
+      "user_img": "https://example.com/bobjohnson.jpg",
+      "question_name": "Tips for effective time management?",
+      "time": "2024-01-19T14:20:00",
+      "comment_count": 15
+    },
+    {
+      "id": 4,
+      "user_name": "EmilyJones",
+      "user_img": "https://example.com/emilyjones.jpg",
+      "question_name": "How to learn a new programming language quickly?",
+      "time": "2024-01-19T15:10:00",
+      "comment_count": 12
+    },
+    {
+      "id": 5,
+      "user_name": "DavidMiller",
+      "user_img": "https://example.com/davidmiller.jpg",
+      "question_name": "Best practices for project management?",
+      "time": "2024-01-19T16:00:00",
+      "comment_count": 5
+    },
+    {
+      "id": 6,
+      "user_name": "SophieBrown",
+      "user_img": "https://example.com/sophiebrown.jpg",
+      "question_name": "How to improve focus and concentration?",
+      "time": "2024-01-19T16:45:00",
+      "comment_count": 20
+    },
+    {
+      "id": 7,
+      "user_name": "MarkTaylor",
+      "user_img": "https://example.com/marktaylor.jpg",
+      "question_name": "Career advice for recent graduates?",
+      "time": "2024-01-19T17:30:00",
+      "comment_count": 18
+    },
+    {
+      "id": 8,
+      "user_name": "EvaWilson",
+      "user_img": "https://example.com/evawilson.jpg",
+      "question_name": "How to maintain a healthy work-life balance?",
+      "time": "2024-01-19T18:15:00",
+      "comment_count": 7
+    }
+  ]
+}

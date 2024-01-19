@@ -15,14 +15,17 @@ const bull = (
   </Box>
 );
 
-const PostCard = () => {
+const PostCard = ({ post }) => {
+  const { user_name, question_name, comment_count } = post;
+
+  console.log(post);
   return (
     <Card sx={{ display: "flex" }}>
       <Image width={100} height="100%" src={demo} alt="demo" />
       <CardContent sx={{ width: "100%" }}>
         <Box display="flex" justifyContent="space-between">
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            user name
+            {user_name}
           </Typography>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Wishlist
@@ -34,7 +37,7 @@ const PostCard = () => {
           sx={{ fontSize: { md: 26, xs: 16 } }}
           component="div"
         >
-          how to become a web developer in 2024?
+          {question_name}
         </Typography>
         <Typography
           textAlign="start"
@@ -45,7 +48,7 @@ const PostCard = () => {
           2 hours ago
         </Typography>
         <Box display="flex" justifyContent="end">
-          <Typography sx={{ fontSize: 16 }}>27 answers</Typography>
+          <Typography sx={{ fontSize: 16 }}>{comment_count} answers</Typography>
         </Box>
       </CardContent>
     </Card>
