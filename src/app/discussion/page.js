@@ -46,8 +46,10 @@ const page = () => {
 
                             <h4>How do I break a string into words and track the index of is a each word (within the original string)?</h4>
                             <p>50 Answers · 10 hours ago</p>
-                            <button> <QuestionAnswer /> Answer</button>
-                            <Button><ThumbUpOffAltIcon /></Button>
+                            <div className="btnIcon">
+                            <Button> <QuestionAnswer /> Answer</Button>
+                            <Button className="like"><ThumbUpOffAltIcon /></Button>
+                            </div>
                             <div className="qusDivider"></div>
                         </div>)
                     }
