@@ -17,7 +17,7 @@
 }
 
 .askBtn {
-    font-size: 18px;
+    font-size: 16px;
     border: 2px solid #76453B;
     background: none;
     border-radius: 5px;
@@ -29,6 +29,28 @@
 .askBtn:hover {
     color: white;
     background: #76453B;
+    border: 2px solid #76453B;
+}
+
+.input{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.qusPost {
+    font-size: 14px;
+    border: 2px solid #76453B;
+    background: none;
+    border-radius: 5px;
+    color: #76453B;
+    padding: 10px 16px;
+    font-weight: 600;
+}
+
+.qusPost:hover {
+    color: white;
+    background: #76453B;
+    border: 2px solid #76453B;
 }
 
 .discusContainer {
