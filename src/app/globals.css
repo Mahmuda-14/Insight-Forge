@@ -17,32 +17,3 @@
 .card{
     height: 530px;
 }
-
-.discussion{
-    min-height: 100vh;
-}
-
-.discusHeader{
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-.topQus{
-    font-weight: 700;
-}
-
-.askBtn{
-font-size: 18px;
-border: 3px solid #76453B;
-background: none;
-border-radius: 5px;
-color: #76453B;
-padding: 14px 20px;
-font-weight: 600;
-}
-
-.askBtn:hover{
-    color: white;
-    background: #76453B;
-    /* border: none; */
-}

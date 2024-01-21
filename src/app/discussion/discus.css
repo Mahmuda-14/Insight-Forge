@@ -1,0 +1,73 @@
+.discussion {
+    min-height: 100vh;
+}
+
+.discusHeader {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.borderBot {
+    border-bottom: 2px solid #c1c1c1;
+    /* margin-bottom: 10px; */
+}
+
+.topQus {
+    font-weight: 700;
+}
+
+.askBtn {
+    font-size: 18px;
+    border: 2px solid #76453B;
+    background: none;
+    border-radius: 5px;
+    color: #76453B;
+    padding: 14px 20px;
+    font-weight: 600;
+}
+
+.askBtn:hover {
+    color: white;
+    background: #76453B;
+}
+
+.discusContainer {
+    min-width: 80vh;
+    margin-top: 1px;
+}
+
+.qusContainer {
+    border-left: 2px solid #c1c1c1;
+    border-right: 2px solid #c1c1c1;
+    padding: 0px 10px;
+}
+
+.qusContainer div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.qusDivider{
+    border-bottom: 2px solid #c1c1c1;
+}
+
+.qusContainer h4 {
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
+
+.qusContainer p {
+    color: #818181;
+    font-size: small;
+    margin-top: 0px;
+}
+
+.qusContainer button {
+    font-size: 14px;
+    border: 2px solid #818181;
+    background: none;
+    border-radius: 5px;
+    color: #818181;
+    padding: 5px 8px;
+    font-weight: 500;
+}
