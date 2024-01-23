@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import Backdrop from '@mui/material/Backdrop';
@@ -6,6 +7,8 @@ import './discus.css'
 import { QuestionAnswer } from "@mui/icons-material";
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import React, { useEffect, useState } from "react";
+import useAxiosPublic from '../hooks/useAxiosPublic';
+import toast from 'react-hot-toast';
 
 const style = {
     position: 'absolute',
@@ -20,12 +23,13 @@ const style = {
 };
 
 const page = () => {
+    const axiosPublic = useAxiosPublic()
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    
+
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [age, setAge] = React.useState('');
 
@@ -33,13 +37,27 @@ const page = () => {
         setAge(event.target.value);
     };
 
-    const handlePost = e =>{
+    const handlePost = e => {
         e.preventDefault()
         const from = e.target
         const title = from.title.value
         const description = from.description.value
         const category = from.category.value
-        console.log(title, description, category)
+        // console.log(title, description, category)
+
+        const discusItem = {
+            title,
+            description,
+            category
+        }
+
+        axiosPublic.post('/discus', discusItem)
+            .then(res => {
+                console.log(res.data.__v)
+                if (res.data.__v === 0) {
+                    toast.success("Your question has been posted");
+                }
+            })
     }
 
 
@@ -87,6 +105,7 @@ const page = () => {
                             <Box sx={style}>
                                 <form onSubmit={handlePost} className='from'>
                                     <TextField name='title'
+                                        required
                                         className='input'
                                         id="outlined-multiline-flexible"
                                         label="Title"
@@ -94,6 +113,7 @@ const page = () => {
                                         maxRows={4}
                                     />
                                     <TextField name='description'
+                                        required
                                         className='input'
                                         id="outlined-multiline-static"
                                         label="Description"
@@ -102,6 +122,7 @@ const page = () => {
                                     />
                                     <InputLabel id="demo-select-small-label">Age</InputLabel>
                                     <Select className='input' name='category'
+                                        required
                                         labelId="demo-simple-select-autowidth-label"
                                         id="demo-simple-select-autowidth"
                                         autoWidth
