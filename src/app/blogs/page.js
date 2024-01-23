@@ -9,7 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-import { Box, Grid } from "@mui/material";
+import { Box,Grid, Stack, TextField} from "@mui/material";
 
 // const ExpandMore = styled((props) => {
 //   const { expand, ...other } = props;
@@ -39,11 +39,39 @@ const page = () => {
       });
   }, []);
 
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchText = e.target.value;
+    console.log(searchText);
+
+}
+
   return (
     <Box>
       <Typography variant="h3" sx={{color:"#B2533E", textAlign:"center", fontWeight:700}} > Knowledge Revolution </Typography>
       
       <Typography variant="h6" sx={{color:"#CD5C08", textAlign:"center", mt:3}} >Explore practical strategies for continuous <br/> learning and adapting to the ever-evolving world of information</Typography>
+
+      <Stack justifyContent='center' alignItems='center' >
+      <form  style={{ display: 'flex', gap: '4px',marginTop:'8px' }}>
+      <Box
+            sx={{
+                  width: 500,
+                  maxWidth: '100%',
+                  backgroundColor: 'white',
+                  outline: 'none',
+                  border: 'none'
+            }}>
+            <TextField type='text' fullWidth onKeyUp={handleSearch}  placeholder='Search here' id="fullWidth" />
+      </Box>
+      
+
+      </form>
+      </Stack>
+
+     
+
       <Grid mt={5} container  spacing={2}>
         {blogs && blogs.length > 0 ? (
           blogs.map((item, i) => (
