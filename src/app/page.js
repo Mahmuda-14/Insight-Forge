@@ -1,21 +1,19 @@
 import Review from "@/components/Review/Review";
+import All from "@/components/Social/All";
+import Banner from "@/components/banner/page";
 import Count from "@/components/shared/count/Count";
 import Logo from "@/components/shared/logo/Logo";
-
-
-import PostSection from "@/components/ui/PostSection/PostSection";
+// import PostSection from "@/components/ui/PostSection/PostSection";
 
 const HomePage = () => {
   return (
     <div>
-      this is home.
-      we will create our dream here
-     
-      <PostSection />
+      <Banner></Banner>
+      {/* <PostSection /> */}
       <Review></Review>
-       <Count></Count>
-       <Logo></Logo>
-       <h2>okkkkk</h2>
+      <All></All>
+      <Count></Count>
+      <Logo></Logo>
     </div>
   );
 };

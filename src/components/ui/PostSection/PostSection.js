@@ -16,14 +16,17 @@ const PostSection = () => {
     setValue(newValue);
   };
 
+  const profileStyle = {
+    padding: "20px",
+    textAlign: "center",
+  };
+
   return (
-    <Container maxWidth="lg">
+    <Container style={profileStyle}>
       <Box>
         <Box
           marginBottom={5}
-          sx={{
-            width: "100%",
-          }}
+          
         >
           <Tabs
             value={value}
@@ -37,7 +40,7 @@ const PostSection = () => {
               sx={{ flexDirection: "row", gap: "5px" }}
               icon={<TurnedInNotOutlinedIcon />}
               value="1"
-              label="Recent Qustions"
+              label="Popular Questions"
             >
               <TurnedInNotOutlinedIcon />
             </Tab>
@@ -55,6 +58,7 @@ const PostSection = () => {
           <PostCard />
           <PostCard />
         </Stack>
+      
       </Box>
     </Container>
   );
