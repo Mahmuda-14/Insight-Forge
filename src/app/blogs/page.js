@@ -23,21 +23,150 @@ import { Box,Grid, Stack, TextField} from "@mui/material";
 // }));
 
 const page = () => {
-  const [expanded, setExpanded] = useState(false);
+  
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  // const [blogs, setBlogs] = useState();
 
-  const [blogs, setBlogs] = useState();
+  // useEffect(() => {
+  //   fetch("/blog.json")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setBlogs(data);
+  //     });
+  // }, []);
 
-  useEffect(() => {
-    fetch("/blog.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setBlogs(data);
-      });
-  }, []);
+  const blogs = [
+    {
+        "_id": "643010e0f5a7e52ce1e8fa65",
+        "title": "Introduction to Knowledge Sharing",
+        "image":"https://i.ibb.co/30tWs9t/knowledge.jpg",
+        "name": "Jane Doe",
+        "date": "2024-01-08",
+        "details": "Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        "comments": [
+            {
+              "id": 101,
+              "author": "Alice",
+              "date": "2024-01-02",
+              "text": "Great post! Thanks for sharing."
+            },
+            {
+              "id": 102,
+              "author": "Bob",
+              "date": "2024-01-03",
+              "text": "I have a question about..."
+            }
+          ],
+        "rating": 3
+    },
+    {
+        "_id": "643010f9f5a7e52ce1e8fa66",
+        "title": "Best Practices for Effective Knowledge Transfer",
+        "image":"https://i.ibb.co/G5WNqtq/istockphoto-467209147-612x612.jpg",
+        "name": "John Doe",
+        "date": "2024-01-06",
+        "details": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)",
+        "rating": 2,
+        "comments": [
+            {
+              "id": 201,
+              "author": "Charlie",
+              "date": "2024-01-06",
+              "text": "I totally agree with your points!"
+            }
+          ]
+    },
+    {
+      "_id": "64301123f5a7e52ce1e8fa68",
+      "title": "Best Practices for Effective Knowledge Transfer",
+      "image":"https://i.ibb.co/wpsVRqh/istockphoto-1166587507-612x612.jpg",
+      "name": "Sarah Smith",
+      "date": "2024-01-03",
+      "details": "I found the product to be incredibly useful and easy to use. The interface is intuitive, and it has all the features I need. Highly recommend it!",
+      "rating": 4,
+      "comments": [
+          {
+            "id": 201,
+            "author": "Charlie",
+            "date": "2024-01-06",
+            "text": "I totally agree with your points!"
+          }
+        ]
+  },
+    {
+        "_id": "6430110af5a7e52ce1e8fa67",
+        "title": "Introduction to Knowledge Sharing",
+        "image":"https://i.ibb.co/30tWs9t/knowledge.jpg",
+        "name": "MJ Doe",
+        "date": "2024-01-05",
+        "details": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)",
+        "rating": 5,
+        "comments": [
+            {
+              "id": 101,
+              "author": "Alice",
+              "date": "2024-01-02",
+              "text": "Great post! Thanks for sharing."
+            },
+            {
+              "id": 102,
+              "author": "Bob",
+              "date": "2024-01-03",
+              "text": "I have a question about..."
+            }
+          ]
+    },
+   
+
+    {
+      "_id": "6430113af5a7e52ce1e8fa69",
+      "title": "Introduction to Knowledge Sharing",
+      "image":"https://i.ibb.co/q5gkHC6/istockphoto-1395650800-612x612.jpg",
+      "name": "Robert Johnson",
+      "date": "2024-01-02",
+      "details": "This is by far the best service I have ever used. The customer support is outstanding, and the product itself is top-notch. I couldn't be happier!",
+      "rating": 5,
+      "comments": [
+          {
+            "id": 101,
+            "author": "Alice",
+            "date": "2024-01-02",
+            "text": "Great post! Thanks for sharing."
+          },
+          {
+            "id": 102,
+            "author": "Bob",
+            "date": "2024-01-03",
+            "text": "I have a question about..."
+          }
+        ]
+  },
+
+    {
+        "_id": "6430113af5a7e52ce1e8fa69",
+        "title": "Introduction to Knowledge Sharing",
+        "image":"https://i.ibb.co/30tWs9t/knowledge.jpg",
+        "name": "Robert Johnson",
+        "date": "2024-01-02",
+        "details": "This is by far the best service I have ever used. The customer support is outstanding, and the product itself is top-notch. I couldn't be happier!",
+        "rating": 5,
+        "comments": [
+            {
+              "id": 101,
+              "author": "Alice",
+              "date": "2024-01-02",
+              "text": "Great post! Thanks for sharing."
+            },
+            {
+              "id": 102,
+              "author": "Bob",
+              "date": "2024-01-03",
+              "text": "I have a question about..."
+            }
+          ]
+    }
+    
+]
 
 
   const handleSearch = (e) => {
