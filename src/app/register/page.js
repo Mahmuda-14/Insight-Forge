@@ -15,8 +15,9 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Lottie from "lottie-react";
 import LogInAnimation from "../../assets/LogInAnimation.json";
-import {useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 
 function Copyright(props) {
@@ -37,8 +38,9 @@ function Copyright(props) {
   );
 }
 
-export default function RegistrationPage() 
-{
+export default function RegistrationPage() {
+  const axiosPublic = useAxiosPublic()
+
 
   const { registration, updateUser, logOut } = useAuth();
   const router = useRouter();
@@ -55,17 +57,33 @@ export default function RegistrationPage()
     const uName = data.name;
     const uPassword = data.password;
     const uPhoto = data.photo;
-    
+
     registration(uEmail, uPassword).then((result) => {
       const loggedUser = result.user;
-      console.log(loggedUser);
-      updateUser(uName, uPhoto).then(() => {
-        console.log("User profile Updated");
-        reset();
-        toast.success("User Updated Successfully");
-        logOut().then().catch();
-        router.push("/login");
-      });
+
+      const userInfo = {
+        uEmail: data.email,
+        uName: data.name,
+        uPhoto: data.photo,
+      }
+
+      axiosPublic.post('/users', userInfo)
+        .then(res => {
+          console.log(res.data)
+          if (res.data.__v === 0) {
+            console.log(loggedUser);
+            updateUser(uName, uPhoto).then(() => {
+              console.log("User profile Updated");
+              reset();
+              toast.success("User Updated Successfully");
+              logOut().then().catch();
+              router.push("/login");
+            });
+          }
+        }).catch(err => { console.log(err)})
+
+
+      
     });
   };
 
@@ -73,7 +91,7 @@ export default function RegistrationPage()
     <Container
       component="main"
       maxWidth="xl"
-      sx={{  backgroundColor: "#b9f6ca" }}
+      sx={{ backgroundColor: "#b9f6ca" }}
     >
       <CssBaseline />
       <Grid
