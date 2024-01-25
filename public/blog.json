@@ -1,6 +1,7 @@
 [
     {
-        "_id": "643010e0f5a7e52ce1e8fa65",
+        
+        "category":"Technology",
         "title": "Introduction to Knowledge Sharing",
         "image":"https://i.ibb.co/30tWs9t/knowledge.jpg",
         "name": "Jane Doe",
@@ -8,13 +9,13 @@
         "details": "Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
         "comments": [
             {
-              "id": 101,
+              
               "author": "Alice",
               "date": "2024-01-02",
               "text": "Great post! Thanks for sharing."
             },
             {
-              "id": 102,
+              
               "author": "Bob",
               "date": "2024-01-03",
               "text": "I have a question about..."
@@ -23,7 +24,8 @@
         "rating": 3
     },
     {
-        "_id": "643010f9f5a7e52ce1e8fa66",
+        
+        "category":"Technology",
         "title": "Best Practices for Effective Knowledge Transfer",
         "image":"https://i.ibb.co/G5WNqtq/istockphoto-467209147-612x612.jpg",
         "name": "John Doe",
@@ -32,7 +34,7 @@
         "rating": 2,
         "comments": [
             {
-              "id": 201,
+              
               "author": "Charlie",
               "date": "2024-01-06",
               "text": "I totally agree with your points!"
@@ -40,7 +42,7 @@
           ]
     },
     {
-      "_id": "64301123f5a7e52ce1e8fa68",
+      "category":"Development",
       "title": "Best Practices for Effective Knowledge Transfer",
       "image":"https://i.ibb.co/wpsVRqh/istockphoto-1166587507-612x612.jpg",
       "name": "Sarah Smith",
@@ -49,7 +51,7 @@
       "rating": 4,
       "comments": [
           {
-            "id": 201,
+            
             "author": "Charlie",
             "date": "2024-01-06",
             "text": "I totally agree with your points!"
@@ -57,7 +59,7 @@
         ]
   },
     {
-        "_id": "6430110af5a7e52ce1e8fa67",
+      "category":"Development",
         "title": "Introduction to Knowledge Sharing",
         "image":"https://i.ibb.co/30tWs9t/knowledge.jpg",
         "name": "MJ Doe",
@@ -66,13 +68,13 @@
         "rating": 5,
         "comments": [
             {
-              "id": 101,
+              
               "author": "Alice",
               "date": "2024-01-02",
               "text": "Great post! Thanks for sharing."
             },
             {
-              "id": 102,
+             
               "author": "Bob",
               "date": "2024-01-03",
               "text": "I have a question about..."
@@ -82,7 +84,7 @@
    
 
     {
-      "_id": "6430113af5a7e52ce1e8fa69",
+      "category":"Business",
       "title": "Introduction to Knowledge Sharing",
       "image":"https://i.ibb.co/q5gkHC6/istockphoto-1395650800-612x612.jpg",
       "name": "Robert Johnson",
@@ -91,13 +93,13 @@
       "rating": 5,
       "comments": [
           {
-            "id": 101,
+            
             "author": "Alice",
             "date": "2024-01-02",
             "text": "Great post! Thanks for sharing."
           },
           {
-            "id": 102,
+           
             "author": "Bob",
             "date": "2024-01-03",
             "text": "I have a question about..."
@@ -106,7 +108,7 @@
   },
 
     {
-        "_id": "6430113af5a7e52ce1e8fa69",
+        "category":"Business",
         "title": "Introduction to Knowledge Sharing",
         "image":"https://i.ibb.co/30tWs9t/knowledge.jpg",
         "name": "Robert Johnson",
@@ -115,13 +117,13 @@
         "rating": 5,
         "comments": [
             {
-              "id": 101,
+             
               "author": "Alice",
               "date": "2024-01-02",
               "text": "Great post! Thanks for sharing."
             },
             {
-              "id": 102,
+             
               "author": "Bob",
               "date": "2024-01-03",
               "text": "I have a question about..."
