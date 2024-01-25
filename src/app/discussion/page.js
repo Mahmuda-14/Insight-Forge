@@ -7,8 +7,12 @@ import './discus.css'
 import { QuestionAnswer } from "@mui/icons-material";
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import React, { useEffect, useState } from "react";
-import useAxiosPublic from '../hooks/useAxiosPublic';
 import toast from 'react-hot-toast';
+import useAuth from '../hooks/useAuth';
+import { useRouter } from 'next/navigation';
+import useAxiosSecure from '../hooks/useAxiosSecure';
+import useDiscussData from '../hooks/useDiscussData';
+
 
 const style = {
     position: 'absolute',
@@ -23,7 +27,12 @@ const style = {
 };
 
 const page = () => {
-    const axiosPublic = useAxiosPublic()
+    const axiosSecure = useAxiosSecure()
+    const { user } = useAuth();
+    console.log(user)
+    const router = useRouter();
+    const [discuss, reload] = useDiscussData()
+    console.log(discuss, discuss?.likes?.length)
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [open, setOpen] = React.useState(false);
@@ -39,41 +48,49 @@ const page = () => {
 
     const handlePost = e => {
         e.preventDefault()
-        const from = e.target
-        const title = from.title.value
-        const description = from.description.value
-        const category = from.category.value
-        // console.log(title, description, category)
+        if(user && user?.email){
 
-        const discusItem = {
-            title,
-            description,
-            category
+            const from = e.target
+            const title = from.title.value
+            const description = from.description.value
+            const category = from.category.value
+            // console.log(title, description, category)
+    
+            const discusItem = {
+                name: user?.displayName,
+                email: user?.email,
+                photo: user?.photoURL,
+                title,
+                description,
+                category,
+            }
+    
+            axiosSecure.post('/discus', discusItem)
+                .then(res => {
+                    console.log(res.data)
+                    if (res.data.__v === 0) {
+                        toast.success("Your question has been posted");
+                    }
+                })
+        }else{
+            toast.success("You are not Logged In!");
+            router.push("/login");
         }
-
-        axiosPublic.post('/discus', discusItem)
-            .then(res => {
-                console.log(res.data.__v)
-                if (res.data.__v === 0) {
-                    toast.success("Your question has been posted");
-                }
-            })
     }
 
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [questions, setQuestions] = useState([]);
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useEffect(() => {
-        fetch("/blog.json")
-            .then((res) => res.json())
-            .then((data) => {
-                setQuestions(data);
-            });
-    }, []);
-
-    console.log(questions)
+    const likePost = (id) =>{
+        const uId= {
+            postId: id
+        }
+        axiosSecure.put('/questionLike', uId)
+        .then(res => {
+            console.log(res.data)
+            if (res.data) {
+                toast.success("Your question has been posted");
+                reload()
+            }
+        })
+    }
 
 
     return (
@@ -148,22 +165,26 @@ const page = () => {
             {/* question part */}
 
             <Grid container className="discusContainer" spacing={2}>
-                <Grid lg={3} >content</Grid>
-                <Grid lg={6} className="qusContainer">
+                <Grid lg={4} >content</Grid>
+                <Grid lg={8} className="qusContainer">
                     {
-                        questions?.map(question => <div key={question?._id}>
+                        discuss?.map(question => <div key={question?._id}>
 
                             <h4>How do I break a string into words and track the index of is a each word (within the original string)?</h4>
                             <p>50 Answers · 10 hours ago</p>
                             <div className="btnIcon">
                                 <Button> <QuestionAnswer /> Answer</Button>
-                                <Button className="like"><ThumbUpOffAltIcon /></Button>
+                                <div className="like">
+                                <Button 
+                                onClick={()=>{likePost(question?._id)}}
+                                ><ThumbUpOffAltIcon /></Button>
+                                <span>{question?.likes?.length} links</span>
+                                </div>
                             </div>
                             <div className="qusDivider"></div>
                         </div>)
                     }
                 </Grid>
-                <Grid lg={3} >content</Grid>
             </Grid>
 
         </Box>
