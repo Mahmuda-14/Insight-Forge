@@ -86,7 +86,7 @@ const page = () => {
         .then(res => {
             console.log(res.data)
             if (res.data) {
-                toast.success("Your question has been posted");
+                toast.success("You like this question");
                 reload()
             }
         })
