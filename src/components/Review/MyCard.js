@@ -25,9 +25,7 @@ const MyCard = () => {
             color="text.secondary"
             sx={{ color: "black", fontSize: "lg", fontWeight: "lg" }}
           >
-            This impressive paella is a perfect party dish and a fun meal to
-            cook together with your guests. Add 1 cup of frozen peas along with
-            the mussels, if you like.
+             Join Insight Forge in exploring, sharing, and reviewing the wealth of information that fuels everyone collective intellectual growth!
           </Typography>
         </CardContent>
         <CardHeader
