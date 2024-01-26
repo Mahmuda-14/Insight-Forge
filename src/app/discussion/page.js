@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import Backdrop from '@mui/material/Backdrop';
-import { Box, Button, Fab, Fade, Grid, InputLabel, MenuItem, Modal, Select, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Fab, Fade, Grid, InputLabel, MenuItem, Modal, Select, Stack, TextField, Typography } from "@mui/material";
 import './discus.css'
 import { QuestionAnswer } from "@mui/icons-material";
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
@@ -12,6 +12,7 @@ import useAuth from '../hooks/useAuth';
 import { useRouter } from 'next/navigation';
 import useAxiosSecure from '../hooks/useAxiosSecure';
 import useDiscussData from '../hooks/useDiscussData';
+import useBlogs from '../hooks/useBlogs';
 
 
 const style = {
@@ -32,6 +33,7 @@ const page = () => {
     console.log(user)
     const router = useRouter();
     const [discuss, reload] = useDiscussData()
+    const [blogs, reloadBlog] = useBlogs()
     console.log(discuss, discuss?.likes?.length)
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -48,14 +50,14 @@ const page = () => {
 
     const handlePost = e => {
         e.preventDefault()
-        if(user && user?.email){
+        if (user && user?.email) {
 
             const from = e.target
             const title = from.title.value
             const description = from.description.value
             const category = from.category.value
             // console.log(title, description, category)
-    
+
             const discusItem = {
                 name: user?.displayName,
                 email: user?.email,
@@ -64,7 +66,7 @@ const page = () => {
                 description,
                 category,
             }
-    
+
             axiosSecure.post('/discus', discusItem)
                 .then(res => {
                     console.log(res.data)
@@ -72,24 +74,29 @@ const page = () => {
                         toast.success("Your question has been posted");
                     }
                 })
-        }else{
+        } else {
             toast.success("You are not Logged In!");
             router.push("/login");
         }
     }
 
-    const likePost = (id) =>{
-        const uId= {
-            postId: id
-        }
-        axiosSecure.put('/questionLike', uId)
-        .then(res => {
-            console.log(res.data)
-            if (res.data) {
-                toast.success("You like this question");
-                reload()
+    const likePost = (id) => {
+        if (user && user?.email) {
+            const uId = {
+                postId: id
             }
-        })
+            axiosSecure.put('/questionLike', uId)
+                .then(res => {
+                    console.log(res.data)
+                    if (res.data) {
+                        toast.success("You like this question");
+                        reload()
+                    }
+                })
+        } else {
+            toast.success("You are not Logged In!");
+            router.push("/login");
+        }
     }
 
 
@@ -165,20 +172,45 @@ const page = () => {
             {/* question part */}
 
             <Grid container className="discusContainer" spacing={2}>
-                <Grid lg={4} >content</Grid>
+                <Grid lg={4}  className='blogContainer'>
+                    <h2>Blogs</h2>
+                    <div>
+                        {
+                            blogs?.map(blog =>
+                                <div key={blog?._id}>
+                                    <Card sx={{ maxWidth: 345, margin: 'auto', marginBottom: 3 }}>
+                                        <CardMedia
+                                            sx={{ height: 140 }}
+                                            image={blog?.image}
+                                            title="green iguana"
+                                        />
+                                        <CardContent>
+                                            <Typography gutterBottom variant="h5" component="div">
+                                                {blog?.title}
+                                            </Typography>
+                                            <Typography variant="body2" color="text.secondary">
+                                                {blog?.details}
+                                            </Typography>
+                                        </CardContent>
+                                    </Card>
+                                </div>
+                            )
+                        }
+                    </div>
+                </Grid>
                 <Grid lg={8} className="qusContainer">
                     {
                         discuss?.map(question => <div key={question?._id}>
 
-                            <h4>How do I break a string into words and track the index of is a each word (within the original string)?</h4>
+                            <h3>How do I break a string into words and track the index of is a each word (within the original string)?</h3>
                             <p>50 Answers · 10 hours ago</p>
                             <div className="btnIcon">
                                 <Button> <QuestionAnswer /> Answer</Button>
                                 <div className="like">
-                                <Button 
-                                onClick={()=>{likePost(question?._id)}}
-                                ><ThumbUpOffAltIcon /></Button>
-                                <span>{question?.likes?.length} links</span>
+                                    <Button
+                                        onClick={() => { likePost(question?._id) }}
+                                    ><ThumbUpOffAltIcon /></Button>
+                                    <span>{question?.likes?.length} likes</span>
                                 </div>
                             </div>
                             <div className="qusDivider"></div>
