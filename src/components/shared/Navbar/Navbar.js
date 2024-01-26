@@ -30,7 +30,8 @@ import Link from "next/link";
 
 import logo from "@/assets/logo3.png";
 import Image from "next/image";
-import { Container } from "@mui/material";
+import { Avatar, Button, Container, Menu, Tooltip } from "@mui/material";
+import useAuth from "@/app/hooks/useAuth";
 
 const drawerWidth = 240;
 
@@ -145,6 +146,11 @@ const Navbar = () => {
   const theme = useTheme();
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [open, setOpen] = React.useState(false);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const { user } = useAuth();
+
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -152,6 +158,14 @@ const Navbar = () => {
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
   };
 
   return (
@@ -167,7 +181,59 @@ const Navbar = () => {
                 alt="logo"
               />
 
-              <AppBar position="fixed" open={open} maxWidth="xl" >
+              <AppBar position="fixed" open={open} >
+               
+                  {/* <Toolbar >
+                    <IconButton
+                      color="#B2533E"
+                      aria-label="open drawer"
+                      onClick={handleDrawerOpen}
+                      edge="start"
+                      sx={{
+                        marginRight: 5,
+                        ...(open && { display: "none" }),
+                      }}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                    <Typography className="typography" color="#B2533E" variant="h4" noWrap component="div" sx={{ fontWeight: 600 }}>
+                      Insight Forge
+                    </Typography>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex', lg: 'flex' } }}>
+                    </Box>
+
+                    <Box sx={{ flexGrow: 0 }}>
+                      <Tooltip title="Open settings">
+                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                          <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                        </IconButton>
+                      </Tooltip>
+                      <Menu
+                        sx={{ mt: '45px' }}
+                        id="menu-appbar"
+                        anchorEl={anchorElUser}
+                        anchorOrigin={{
+                          vertical: 'top',
+                          horizontal: 'right',
+                        }}
+                        keepMounted
+                        transformOrigin={{
+                          vertical: 'top',
+                          horizontal: 'right',
+                        }}
+                        open={Boolean(anchorElUser)}
+                        onClose={handleCloseUserMenu}
+                      >
+                        {settings.map((setting) => (
+                          <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                            <Typography textAlign="center">{setting}</Typography>
+                          </MenuItem>
+                        ))}
+                      </Menu>
+                    </Box>
+                  </Toolbar> */}
+               
+
                 <Toolbar>
                   <IconButton
                     color="#B2533E"
@@ -181,9 +247,44 @@ const Navbar = () => {
                   >
                     <MenuIcon />
                   </IconButton>
-                  <Typography color="#B2533E" variant="h4" noWrap component="div" sx={{fontWeight:600}}>
-                    Insight Forge
-                  </Typography>
+                  <div className="navBar">
+                    {
+                      user?.email ? 
+                    <Box sx={{ flexGrow: 0 }}>
+                      <Tooltip title="Open settings">
+                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                          <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                        </IconButton>
+                      </Tooltip>
+                      <Menu
+                        sx={{ mt: '45px' }}
+                        id="menu-appbar"
+                        anchorEl={anchorElUser}
+                        anchorOrigin={{
+                          vertical: 'top',
+                          horizontal: 'right',
+                        }}
+                        keepMounted
+                        transformOrigin={{
+                          vertical: 'top',
+                          horizontal: 'right',
+                        }}
+                        open={Boolean(anchorElUser)}
+                        onClose={handleCloseUserMenu}
+                      >
+                        {/* {settings.map((setting) => (
+                          <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                            <Typography textAlign="center">{setting}</Typography>
+                          </MenuItem>
+                        ))} */}
+                      </Menu>
+                    </Box> : ''
+                    }
+
+                    <Typography className="typography" color="#B2533E" variant="h4" noWrap component="div" sx={{ fontWeight: 600 }}>
+                      Insight Forge
+                    </Typography>
+                  </div>
                 </Toolbar>
               </AppBar>
 

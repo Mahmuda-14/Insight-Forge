@@ -17,3 +17,12 @@
 .card{
     height: 530px;
 }
+
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.navBar .typography{}
