@@ -8,7 +8,7 @@ import Navbar from "../Navbar/Navbar";
 const MainLayout = ({ children }) => {
   return (
     <>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Navbar />
         {children}
         <Footer></Footer>
