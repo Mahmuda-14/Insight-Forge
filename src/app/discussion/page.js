@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import Backdrop from '@mui/material/Backdrop';
-import { Box, Button, Fab, Fade, Grid, InputLabel, MenuItem, Modal, Select, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, Container, Fab, Fade, Grid, InputLabel, MenuItem, Modal, Select, Stack, TextField, Typography } from "@mui/material";
 import './discus.css'
 import { QuestionAnswer } from "@mui/icons-material";
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
@@ -48,14 +48,14 @@ const page = () => {
 
     const handlePost = e => {
         e.preventDefault()
-        if(user && user?.email){
+        if (user && user?.email) {
 
             const from = e.target
             const title = from.title.value
             const description = from.description.value
             const category = from.category.value
             // console.log(title, description, category)
-    
+
             const discusItem = {
                 name: user?.displayName,
                 email: user?.email,
@@ -64,7 +64,7 @@ const page = () => {
                 description,
                 category,
             }
-    
+
             axiosSecure.post('/discus', discusItem)
                 .then(res => {
                     console.log(res.data)
@@ -72,122 +72,128 @@ const page = () => {
                         toast.success("Your question has been posted");
                     }
                 })
-        }else{
+        } else {
             toast.success("You are not Logged In!");
             router.push("/login");
         }
     }
 
-    const likePost = (id) =>{
-        const uId= {
+    const likePost = (id) => {
+        const uId = {
             postId: id
         }
         axiosSecure.put('/questionLike', uId)
-        .then(res => {
-            console.log(res.data)
-            if (res.data) {
-                toast.success("You like this question");
-                reload()
-            }
-        })
+            .then(res => {
+                console.log(res.data)
+                if (res.data) {
+                    toast.success("You like this question");
+                    reload()
+                }
+            })
     }
 
 
     return (
-        <Box className="discussion">
-            {/*header part*/}
-            <Stack className="discusHeader"
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-                spacing={1}
-            >
-                <Typography className="topQus" variant="h4">Top Questions</Typography>
-                <div>
-                    <Button className="askBtn" variant="outlined" onClick={handleOpen}>Ask Question</Button>
-                    <Modal
-                        aria-labelledby="transition-modal-title"
-                        aria-describedby="transition-modal-description"
-                        open={open}
-                        onClose={handleClose}
-                        closeAfterTransition
-                        slots={{ backdrop: Backdrop }}
-                        slotProps={{
-                            backdrop: {
-                                timeout: 500,
-                            },
-                        }}
-                    >
-                        <Fade in={open}>
-                            <Box sx={style}>
-                                <form onSubmit={handlePost} className='from'>
-                                    <TextField name='title'
-                                        required
-                                        className='input'
-                                        id="outlined-multiline-flexible"
-                                        label="Title"
-                                        multiline
-                                        maxRows={4}
-                                    />
-                                    <TextField name='description'
-                                        required
-                                        className='input'
-                                        id="outlined-multiline-static"
-                                        label="Description"
-                                        multiline
-                                        rows={4}
-                                    />
-                                    <InputLabel id="demo-select-small-label">Age</InputLabel>
-                                    <Select className='input' name='category'
-                                        required
-                                        labelId="demo-simple-select-autowidth-label"
-                                        id="demo-simple-select-autowidth"
-                                        autoWidth
-                                        label="Age"
-                                        onChange={handleChange}
-                                    >
-                                        <MenuItem value="">
-                                            <em>None</em>
-                                        </MenuItem>
-                                        <MenuItem value={10}>Ten</MenuItem>
-                                        <MenuItem value={20}>Twenty</MenuItem>
-                                        <MenuItem value={30}>Thirty</MenuItem>
-                                    </Select>
-                                    <Button type='submit' className="qusPost" variant="outlined">Post Question</Button>
-                                </form>
-                            </Box>
-                        </Fade>
-                    </Modal>
-                </div>
-            </Stack>
-            <Box className="borderBot"></Box>
+        <Container maxWidth="xl">
+            <Box className="discussion">
+                {/*header part*/}
+                <Stack className="discusHeader"
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    spacing={1}
+                >
+                    <Typography className="topQus" variant="h4">Top Questions</Typography>
+                    <div>
+                        <Button className="askBtn" variant="outlined" onClick={handleOpen}>Ask Question</Button>
+                        <Modal
+                            aria-labelledby="transition-modal-title"
+                            aria-describedby="transition-modal-description"
+                            open={open}
+                            onClose={handleClose}
+                            closeAfterTransition
+                            slots={{ backdrop: Backdrop }}
+                            slotProps={{
+                                backdrop: {
+                                    timeout: 500,
+                                },
+                            }}
+                        >
+                            <Fade in={open}>
+                                <Box sx={style}>
+                                    <form onSubmit={handlePost} className='from'>
+                                        <TextField name='title'
+                                            required
+                                            className='input'
+                                            id="outlined-multiline-flexible"
+                                            label="Title"
+                                            multiline
+                                            maxRows={4}
+                                        />
+                                        <TextField name='description'
+                                            required
+                                            className='input'
+                                            id="outlined-multiline-static"
+                                            label="Description"
+                                            multiline
+                                            rows={4}
+                                        />
+                                        <InputLabel id="demo-select-small-label">Age</InputLabel>
+                                        <Select className='input' name='category'
+                                            required
+                                            labelId="demo-simple-select-autowidth-label"
+                                            id="demo-simple-select-autowidth"
+                                            autoWidth
+                                            label="Age"
+                                            onChange={handleChange}
+                                        >
+                                            <MenuItem value="">
+                                                <em>None</em>
+                                            </MenuItem>
+                                            <MenuItem value={10}>Ten</MenuItem>
+                                            <MenuItem value={20}>Twenty</MenuItem>
+                                            <MenuItem value={30}>Thirty</MenuItem>
+                                        </Select>
+                                        <Button type='submit' className="qusPost" variant="outlined">Post Question</Button>
+                                    </form>
+                                </Box>
+                            </Fade>
+                        </Modal>
+                    </div>
+                </Stack>
+                <Box className="borderBot"></Box>
 
-            {/* question part */}
+                {/* question part */}
 
-            <Grid container className="discusContainer" spacing={2}>
-                <Grid lg={4} >content</Grid>
-                <Grid lg={8} className="qusContainer">
-                    {
-                        discuss?.map(question => <div key={question?._id}>
+                <Grid container className="discusContainer" spacing={2}>
+                    <Grid item xs={0} md={6} lg={4} >content</Grid>
+                    <Grid item xs={12} md={6} lg={8} className="qusContainer">
+                        {
+                            discuss?.map(question => <div key={question?._id}>
 
-                            <h4>How do I break a string into words and track the index of is a each word (within the original string)?</h4>
-                            <p>50 Answers · 10 hours ago</p>
-                            <div className="btnIcon">
-                                <Button> <QuestionAnswer /> Answer</Button>
-                                <div className="like">
-                                <Button 
-                                onClick={()=>{likePost(question?._id)}}
-                                ><ThumbUpOffAltIcon /></Button>
-                                <span>{question?.likes?.length} links</span>
-                                </div>
-                            </div>
-                            <div className="qusDivider"></div>
-                        </div>)
-                    }
+                                <Box sx={{
+                                    width: {xs: 400 , md:700}
+                                    }}>
+                                    <h4>How do I break a string into words and track the index of is a each word (within the original string)?</h4>
+                                    <p>50 Answers · 10 hours ago</p>
+                                    <div className="btnIcon">
+                                        <Button> <QuestionAnswer /> Answer</Button>
+                                        <div className="like">
+                                            <Button
+                                                onClick={() => { likePost(question?._id) }}
+                                            ><ThumbUpOffAltIcon /></Button>
+                                            <span>{question?.likes?.length} links</span>
+                                        </div>
+                                    </div>
+                                    <div className="qusDivider"></div>
+                                </Box>
+                            </div>)
+                        }
+                    </Grid>
                 </Grid>
-            </Grid>
 
-        </Box>
+            </Box>
+        </Container>
     );
 };
 

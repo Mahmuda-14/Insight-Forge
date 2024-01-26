@@ -26,11 +26,10 @@ import LoginIcon from "@mui/icons-material/Login";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import CloseIcon from "@mui/icons-material/Close";
 import EditNoteIcon from "@mui/icons-material/EditNote";
-import Link from "next/link";
-
 import logo from "@/assets/logo3.png";
 import Image from "next/image";
 import { Container } from "@mui/material";
+
 
 const drawerWidth = 240;
 
@@ -141,7 +140,7 @@ const navItems = [
   },
 ];
 
-const Navbar = () => {
+const Navbar = ({children}) => {
   const theme = useTheme();
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [open, setOpen] = React.useState(false);
@@ -158,76 +157,79 @@ const Navbar = () => {
     <Container maxWidth="xl">
       <Box >
         <CssBaseline />
-        <Container maxWidth="xl">
-          <Drawer variant="permanent" open={open} >
-            <DrawerHeader >
-              <Image
-                className="logo"
-                src={logo}
-                alt="logo"
-              />
 
-              <AppBar position="fixed" open={open} maxWidth="xl" >
-                <Toolbar>
-                  <IconButton
-                    color="#B2533E"
-                    aria-label="open drawer"
-                    onClick={handleDrawerOpen}
-                    edge="start"
+        <Drawer variant="permanent" open={open} >
+          <DrawerHeader >
+            <Image
+              className="logo"
+              src={logo}
+              alt="logo"
+            />
+
+            <AppBar position="fixed" open={open} maxWidth="xl" >
+              <Toolbar>
+                <IconButton
+                  color="#B2533E"
+                  aria-label="open drawer"
+                  onClick={handleDrawerOpen}
+                  edge="start"
+                  sx={{
+                    marginRight: 5,
+                    ...(open && { display: "none" }),
+                  }}
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Typography color="#B2533E" variant="h4" noWrap component="div" sx={{ fontWeight: 600 }}>
+                  Insight Forge
+                </Typography>
+              </Toolbar>
+            </AppBar>
+
+
+            <IconButton className="closeIcon" onClick={handleDrawerClose}>
+              {theme.direction === "rtl" ? <ChevronRightIcon /> : <CloseIcon />}
+            </IconButton>
+          </DrawerHeader>
+
+          <List  >
+            {navItems.map((item, index) => (
+              <ListItem key={index} disablePadding sx={{ display: "block" }}>
+                <ListItemButton
+                  href={item.pathname}
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                    color: "#B2533E"
+                  }}
+                >
+                  <ListItemIcon
                     sx={{
-                      marginRight: 5,
-                      ...(open && { display: "none" }),
-                    }}
-                  >
-                    <MenuIcon />
-                  </IconButton>
-                  <Typography color="#B2533E" variant="h4" noWrap component="div" sx={{fontWeight:600}}>
-                    Insight Forge
-                  </Typography>
-                </Toolbar>
-              </AppBar>
-
-
-              <IconButton className="closeIcon" onClick={handleDrawerClose}>
-                {theme.direction === "rtl" ? <ChevronRightIcon /> : <CloseIcon />}
-              </IconButton>
-            </DrawerHeader>
-
-            <List  >
-              {navItems.map((item, index) => (
-                <ListItem key={index} disablePadding sx={{ display: "block" }}>
-                  <ListItemButton
-                    href={item.pathname}
-                    sx={{
-                      minHeight: 48,
-                      justifyContent: open ? "initial" : "center",
-                      px: 2.5,
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
                       color: "#B2533E"
                     }}
                   >
-                    <ListItemIcon
-                      sx={{
-                        minWidth: 0,
-                        mr: open ? 3 : "auto",
-                        justifyContent: "center",
-                        color: "#B2533E"
-                      }}
-                    >
-                      {item.icon}
-                      {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={item.route}
-                      sx={{ opacity: open ? 1 : 0, color: "#B2533E" }}
-                    />
-                  </ListItemButton>
-                </ListItem>
-              ))}
-            </List>
-            <Divider />
-          </Drawer>
-        </Container>
-        <DrawerHeader />
+                    {item.icon}
+                    {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={item.route}
+                    sx={{ opacity: open ? 1 : 0, color: "#B2533E" }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+          <Divider />
+        </Drawer>
+
+        <Box component="main" sx={{ flexGrow: 1 }}>
+          <DrawerHeader />
+          {children}
+        </Box>
       </Box>
     </Container>
   );

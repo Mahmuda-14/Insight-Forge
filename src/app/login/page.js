@@ -149,7 +149,7 @@ export default function LogInPage() {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/register" variant="body2">
+                <Link href="/register" sx={{color:"#2e7d32"}}>
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
