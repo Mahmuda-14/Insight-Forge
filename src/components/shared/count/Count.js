@@ -1,7 +1,7 @@
 
 import Image from 'next/image';
 import Typography from '@mui/material/Typography';
-import { Grid } from '@mui/material';
+import { Grid, Paper } from '@mui/material';
 import React from 'react';
 import './Count.css'
 

@@ -9,8 +9,9 @@ const MainLayout = ({ children }) => {
   return (
     <>
       <Container maxWidth="xl">
-        <Navbar />
+       <Navbar>
         {children}
+       </Navbar>
         <Footer></Footer>
       </Container>
     </>
