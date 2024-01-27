@@ -8,11 +8,11 @@ import React from 'react';
 const Count = () => {
 
   const footerStyle = {
-    backgroundImage: 'url("https://i.ibb.co/8NTY8Pk/ok.png")',
+    backgroundImage: 'url("https://i.ibb.co/0hMFwqH/paul-volkmer-f-X-q-Ws-Xl5x8-unsplash.jpg")',
     backgroundSize: 'cover',
+    backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-
 
     width: '100%',
     marginLeft: 'auto',
