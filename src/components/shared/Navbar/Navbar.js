@@ -1,105 +1,28 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable react-hooks/exhaustive-deps */
-
-"use client";
-
-import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import CssBaseline from "@mui/material/CssBaseline";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import CssBaseline from '@mui/material/CssBaseline';
+import Divider from '@mui/material/Divider';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import MenuIcon from '@mui/icons-material/Menu';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import { ListItemIcon } from '@mui/material';
 import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LoginIcon from "@mui/icons-material/Login";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import CloseIcon from "@mui/icons-material/Close";
 import EditNoteIcon from "@mui/icons-material/EditNote";
-import Link from "next/link";
-
-import logo from "@/assets/logo3.png";
-import Image from "next/image";
-import { Avatar, Button, Container, Menu, Tooltip } from "@mui/material";
-import useAuth from "@/app/hooks/useAuth";
 
 const drawerWidth = 240;
-
-const openedMixin = (theme) => ({
-  width: drawerWidth,
-  transition: theme.transitions.create("width", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.enteringScreen,
-  }),
-  overflowX: "hidden",
-});
-
-const closedMixin = (theme) => ({
-  transition: theme.transitions.create("width", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  overflowX: "hidden",
-  width: `calc(${theme.spacing(7)} + 1px)`,
-  [theme.breakpoints.down("md")]: {
-    width: `calc(${theme.spacing(0)} + 1px)`,
-  },
-});
-
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "flex-end",
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(["width", "margin"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
-
-const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  width: drawerWidth,
-  flexShrink: 0,
-  whiteSpace: "nowrap",
-  boxSizing: "border-box",
-  ...(open && {
-    ...openedMixin(theme),
-    "& .MuiDrawer-paper": openedMixin(theme),
-  }),
-  ...(!open && {
-    ...closedMixin(theme),
-    "& .MuiDrawer-paper": closedMixin(theme),
-  }),
-}));
-
 const navItems = [
   {
     route: "Home",
@@ -142,171 +65,25 @@ const navItems = [
   },
 ];
 
-const Navbar = () => {
-  const theme = useTheme();
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [open, setOpen] = React.useState(false);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+const DrawerAppBar = (props) => {
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const { user } = useAuth();
-
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
+  const handleDrawerToggle = () => {
+    setMobileOpen((prevState) => !prevState);
   };
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-  return (
-    <Container maxWidth="xl">
-      <Box >
-        <CssBaseline />
-        <Container maxWidth="xl">
-          <Drawer variant="permanent" open={open} >
-            <DrawerHeader >
-              <Image
-                className="logo"
-                src={logo}
-                alt="logo"
-              />
-
-              <AppBar position="fixed" open={open} >
-               
-                  {/* <Toolbar >
-                    <IconButton
-                      color="#B2533E"
-                      aria-label="open drawer"
-                      onClick={handleDrawerOpen}
-                      edge="start"
-                      sx={{
-                        marginRight: 5,
-                        ...(open && { display: "none" }),
-                      }}
-                    >
-                      <MenuIcon />
-                    </IconButton>
-                    <Typography className="typography" color="#B2533E" variant="h4" noWrap component="div" sx={{ fontWeight: 600 }}>
-                      Insight Forge
-                    </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex', lg: 'flex' } }}>
-                    </Box>
-
-                    <Box sx={{ flexGrow: 0 }}>
-                      <Tooltip title="Open settings">
-                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                          <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                        </IconButton>
-                      </Tooltip>
-                      <Menu
-                        sx={{ mt: '45px' }}
-                        id="menu-appbar"
-                        anchorEl={anchorElUser}
-                        anchorOrigin={{
-                          vertical: 'top',
-                          horizontal: 'right',
-                        }}
-                        keepMounted
-                        transformOrigin={{
-                          vertical: 'top',
-                          horizontal: 'right',
-                        }}
-                        open={Boolean(anchorElUser)}
-                        onClose={handleCloseUserMenu}
-                      >
-                        {settings.map((setting) => (
-                          <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                            <Typography textAlign="center">{setting}</Typography>
-                          </MenuItem>
-                        ))}
-                      </Menu>
-                    </Box>
-                  </Toolbar> */}
-               
-
-                <Toolbar>
-                  <IconButton
-                    color="#B2533E"
-                    aria-label="open drawer"
-                    onClick={handleDrawerOpen}
-                    edge="start"
-                    sx={{
-                      marginRight: 5,
-                      ...(open && { display: "none" }),
-                    }}
-                  >
-                    <MenuIcon />
-                  </IconButton>
-                  <div className="navBar">
-                    {
-                      user?.email ? 
-                    <Box sx={{ flexGrow: 0 }}>
-                      <Tooltip title="Open settings">
-                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                          <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                        </IconButton>
-                      </Tooltip>
-                      <Menu
-                        sx={{ mt: '45px' }}
-                        id="menu-appbar"
-                        anchorEl={anchorElUser}
-                        anchorOrigin={{
-                          vertical: 'top',
-                          horizontal: 'right',
-                        }}
-                        keepMounted
-                        transformOrigin={{
-                          vertical: 'top',
-                          horizontal: 'right',
-                        }}
-                        open={Boolean(anchorElUser)}
-                        onClose={handleCloseUserMenu}
-                      >
-                        {/* {settings.map((setting) => (
-                          <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                            <Typography textAlign="center">{setting}</Typography>
-                          </MenuItem>
-                        ))} */}
-                      </Menu>
-                    </Box> : ''
-                    }
-
-                    <Typography className="typography" color="#B2533E" variant="h4" noWrap component="div" sx={{ fontWeight: 600 }}>
-                      Insight Forge
-                    </Typography>
-                  </div>
-                </Toolbar>
-              </AppBar>
-
-
-              <IconButton className="closeIcon" onClick={handleDrawerClose}>
-                {theme.direction === "rtl" ? <ChevronRightIcon /> : <CloseIcon />}
-              </IconButton>
-            </DrawerHeader>
-
-            <List  >
-              {navItems.map((item, index) => (
-                <ListItem key={index} disablePadding sx={{ display: "block" }}>
-                  <ListItemButton
-                    href={item.pathname}
-                    sx={{
-                      minHeight: 48,
-                      justifyContent: open ? "initial" : "center",
-                      px: 2.5,
-                      color: "#B2533E"
-                    }}
-                  >
-                    <ListItemIcon
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', color: "#B2533E" }}>
+      <Typography variant="h6" sx={{ my: 2 }}>
+        MUI
+      </Typography>
+      <Divider />
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item} disablePadding>
+            <ListItemButton href={item.pathname} sx={{ textAlign: 'start' }}>
+            <ListItemIcon
                       sx={{
                         minWidth: 0,
                         mr: open ? 3 : "auto",
@@ -315,23 +92,79 @@ const Navbar = () => {
                       }}
                     >
                       {item.icon}
-                      {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
                     </ListItemIcon>
-                    <ListItemText
-                      primary={item.route}
-                      sx={{ opacity: open ? 1 : 0, color: "#B2533E" }}
-                    />
-                  </ListItemButton>
-                </ListItem>
-              ))}
-            </List>
-            <Divider />
-          </Drawer>
-        </Container>
-        <DrawerHeader />
-      </Box>
-    </Container>
+              <ListItemText primary={item.route} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
   );
+
+  const container = window !== undefined ? () => window().document.body : undefined;
+
+  return (
+    <Box sx={{ display: 'flex', color: "#B2533E" }}>
+      <CssBaseline />
+      <AppBar component="nav">
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+          >
+            MUI
+          </Typography>
+          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+            {navItems.map((item) => (
+              <Button href={item.pathname} key={item} sx={{ color: '#B2533E' }}>
+                {item.route}
+              </Button>
+            ))}
+          </Box>
+        </Toolbar>
+      </AppBar>
+      <nav>
+        <Drawer
+          container={container}
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: 'block', sm: 'none' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </nav>
+      <Box component="main" sx={{ p: 0 }}>
+        <Toolbar />
+        <Typography>
+        </Typography>
+      </Box>
+    </Box>
+  );
+}
+
+DrawerAppBar.propTypes = {
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window: PropTypes.func,
 };
 
-export default Navbar;
+export default DrawerAppBar;
