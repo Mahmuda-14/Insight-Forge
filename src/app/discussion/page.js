@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import Backdrop from '@mui/material/Backdrop';
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Fab, Fade, Grid, InputLabel, MenuItem, Modal, Select, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, CardMedia, Container, Fab, Fade, Grid, InputLabel, MenuItem, Modal, Select, Stack, TextField, Typography } from "@mui/material";
 import './discus.css'
 import { QuestionAnswer } from "@mui/icons-material";
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
@@ -171,8 +171,9 @@ const page = () => {
 
             {/* question part */}
 
-            <Grid container className="discusContainer" spacing={2}>
-                <Grid lg={4}  className='blogContainer'>
+                <Grid container className="discusContainer" spacing={2}>
+                    <Grid item xs={0} md={6} lg={4} >
+                    
                     <h2>Blogs</h2>
                     <div>
                         {
@@ -197,10 +198,11 @@ const page = () => {
                             )
                         }
                     </div>
-                </Grid>
-                <Grid lg={8} className="qusContainer">
-                    {
-                        discuss?.map(question => <div key={question?._id}>
+                    
+                    </Grid>
+                    <Grid item xs={12} md={6} lg={8} className="qusContainer">
+                        {
+                            discuss?.map(question => <div key={question?._id}>
 
                             <h3>How do I break a string into words and track the index of is a each word (within the original string)?</h3>
                             <p>50 Answers · 10 hours ago</p>
