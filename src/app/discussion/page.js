@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import Backdrop from '@mui/material/Backdrop';
-import { Box, Button, Container, Fab, Fade, Grid, InputLabel, MenuItem, Modal, Select, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, CardMedia, Container, Fab, Fade, Grid, InputLabel, MenuItem, Modal, Select, Stack, TextField, Typography } from "@mui/material";
 import './discus.css'
 import { QuestionAnswer } from "@mui/icons-material";
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
@@ -12,6 +12,7 @@ import useAuth from '../hooks/useAuth';
 import { useRouter } from 'next/navigation';
 import useAxiosSecure from '../hooks/useAxiosSecure';
 import useDiscussData from '../hooks/useDiscussData';
+import useBlogs from '../hooks/useBlogs';
 
 
 const style = {
@@ -32,6 +33,7 @@ const page = () => {
     console.log(user)
     const router = useRouter();
     const [discuss, reload] = useDiscussData()
+    const [blogs, reloadBlog] = useBlogs()
     console.log(discuss, discuss?.likes?.length)
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -166,7 +168,34 @@ const page = () => {
                 {/* question part */}
 
                 <Grid container className="discusContainer" spacing={2}>
-                    <Grid item xs={0} md={6} lg={4} >content</Grid>
+                    <Grid item xs={0} md={6} lg={4} >
+                    
+                    <h2>Blogs</h2>
+                    <div>
+                        {
+                            blogs?.map(blog =>
+                                <div key={blog?._id}>
+                                    <Card sx={{ maxWidth: 345, margin: 'auto', marginBottom: 3 }}>
+                                        <CardMedia
+                                            sx={{ height: 140 }}
+                                            image={blog?.image}
+                                            title="green iguana"
+                                        />
+                                        <CardContent>
+                                            <Typography gutterBottom variant="h5" component="div">
+                                                {blog?.title}
+                                            </Typography>
+                                            <Typography variant="body2" color="text.secondary">
+                                                {blog?.details}
+                                            </Typography>
+                                        </CardContent>
+                                    </Card>
+                                </div>
+                            )
+                        }
+                    </div>
+                    
+                    </Grid>
                     <Grid item xs={12} md={6} lg={8} className="qusContainer">
                         {
                             discuss?.map(question => <div key={question?._id}>
