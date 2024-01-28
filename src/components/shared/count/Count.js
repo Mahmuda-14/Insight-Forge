@@ -10,12 +10,15 @@ const Count = () => {
 
   const footerStyle = {
     backgroundImage: 'url("https://i.ibb.co/0hMFwqH/paul-volkmer-f-X-q-Ws-Xl5x8-unsplash.jpg")',
+    backgroundImage: 'url("https://i.ibb.co/0hMFwqH/paul-volkmer-f-X-q-Ws-Xl5x8-unsplash.jpg")',
     backgroundSize: 'cover',
+    backgroundAttachment: 'fixed',
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
 
     height: '350px',
+
     width: '100%',
     marginLeft: 'auto',
     marginRight: 'auto',
