@@ -3,15 +3,15 @@ import React from "react";
 import Footer from "../footer/Footer";
 
 import { Container } from "@mui/material";
-import Navbar from "../Navbar/Navbar";
+import DrawerAppBar from "../Navbar/Navbar";
 
 const MainLayout = ({ children }) => {
   return (
     <>
       <Container maxWidth="xl">
-       <Navbar>
+       <DrawerAppBar>
+       </DrawerAppBar>
         {children}
-       </Navbar>
         <Footer></Footer>
       </Container>
     </>
