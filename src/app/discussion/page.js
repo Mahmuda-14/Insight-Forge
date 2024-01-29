@@ -13,6 +13,7 @@ import { useRouter } from 'next/navigation';
 import useAxiosSecure from '../hooks/useAxiosSecure';
 import useDiscussData from '../hooks/useDiscussData';
 import useBlogs from '../hooks/useBlogs';
+import Link from 'next/link';
 
 
 const style = {
@@ -111,7 +112,7 @@ const page = () => {
             >
                 <Typography className="topQus" variant="h4">Top Questions</Typography>
                 <div>
-                    <Button className="askBtn" variant="outlined" onClick={handleOpen}>Ask Question</Button>
+                    <button className="askBtn" variant="outlined" onClick={handleOpen}>Ask Question</button>
                     <Modal
                         aria-labelledby="transition-modal-title"
                         aria-describedby="transition-modal-description"
@@ -160,7 +161,7 @@ const page = () => {
                                         <MenuItem value={20}>Twenty</MenuItem>
                                         <MenuItem value={30}>Thirty</MenuItem>
                                     </Select>
-                                    <Button type='submit' className="qusPost" variant="outlined">Post Question</Button>
+                                    <button type='submit' className="qusPost" variant="outlined">Post Question</button>
                                 </form>
                             </Box>
                         </Fade>
@@ -171,9 +172,9 @@ const page = () => {
 
             {/* question part */}
 
-                <Grid container className="discusContainer" spacing={2}>
-                    <Grid item xs={0} md={6} lg={4} >
-                    
+            <Grid container className="discusContainer" spacing={2}>
+                <Grid item className='hidden md:block' md={6} lg={4} >
+
                     <h2>Blogs</h2>
                     <div>
                         {
@@ -198,16 +199,16 @@ const page = () => {
                             )
                         }
                     </div>
-                    
-                    </Grid>
-                    <Grid item xs={12} md={6} lg={8} className="qusContainer">
-                        {
-                            discuss?.map(question => <div key={question?._id}>
+
+                </Grid>
+                <Grid item xs={12} md={6} lg={8} className="qusContainer">
+                    {
+                        discuss?.map(question => <div key={question?._id}>
 
                             <h3>How do I break a string into words and track the index of is a each word (within the original string)?</h3>
                             <p>50 Answers · 10 hours ago</p>
                             <div className="btnIcon">
-                                <Button> <QuestionAnswer /> Answer</Button>
+                                <Link href={`/discussion/${question?._id}`}><Button> <QuestionAnswer /> Answer</Button></Link>
                                 <div className="like">
                                     <Button
                                         onClick={() => { likePost(question?._id) }}
