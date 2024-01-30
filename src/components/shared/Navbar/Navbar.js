@@ -162,9 +162,11 @@ const Navbar = ({children}) => {
     setAnchorElUser(null);
   };
 
+  
+
   return (
     <Container maxWidth="xl">
-      <Box >
+      <Box style={{ background: theme.palette.primary.mainGradient }}>
         <CssBaseline />
 
         <Drawer variant="permanent" open={open} >
@@ -175,7 +177,7 @@ const Navbar = ({children}) => {
               alt="logo"
             />
 
-            <AppBar position="fixed" open={open} maxWidth="xl" >
+            <AppBar position="fixed" open={open} maxWidth="xl" style={{ background: theme.palette.primary.mainGradient }}>
               <Toolbar>
                 <IconButton
                   color="#B2533E"
@@ -223,7 +225,7 @@ const Navbar = ({children}) => {
                     </Box> : ''
                     }
 
-                    <Typography className="typography" color="#B2533E" variant="h4" noWrap component="div" sx={{ fontWeight: 600 }}>
+                    <Typography className="typography" color="black" variant="h4" noWrap component="div" sx={{ fontWeight: 600 }}>
                       Insight Forge
                     </Typography>
                   </div>
