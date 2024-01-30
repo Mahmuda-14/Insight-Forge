@@ -31,11 +31,9 @@ const style = {
 const page = () => {
     const axiosSecure = useAxiosSecure()
     const { user } = useAuth();
-    console.log(user)
     const router = useRouter();
     const [discuss, reload] = useDiscussData()
     const [blogs, reloadBlog] = useBlogs()
-    console.log(discuss, discuss?.likes?.length)
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [open, setOpen] = React.useState(false);

@@ -118,7 +118,7 @@ const DrawerAppBar = (props) => {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex', color: "#B2533E" }}>
+    <Box sx={{ display: 'flex', color: "#B2533E" }} className="overflow-x-hidden">
       <CssBaseline />
       <AppBar component="nav">
         <Toolbar>
@@ -152,7 +152,7 @@ const DrawerAppBar = (props) => {
                 <Avatar alt="Remy Sharp" src={user?.photoURL} />
               </IconButton>
             </Tooltip>
-            <Menu
+            <Menu textAlign="center"
               sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
