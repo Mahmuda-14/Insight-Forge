@@ -102,7 +102,7 @@ const page = () => {
 
 
     return (
-        <Box className="discussion">
+        <Box className="discussion overflow-x-hidden">
             {/*header part*/}
             <Stack className="discusHeader"
                 direction="row"

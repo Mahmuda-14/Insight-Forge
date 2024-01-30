@@ -14,13 +14,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { ListItemIcon } from '@mui/material';
+import { Avatar, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
 import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LoginIcon from "@mui/icons-material/Login";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import CloseIcon from "@mui/icons-material/Close";
 import EditNoteIcon from "@mui/icons-material/EditNote";
+import Image from 'next/image';
+import useAuth from '@/app/hooks/useAuth';
 
 const drawerWidth = 240;
 const navItems = [
@@ -33,11 +35,6 @@ const navItems = [
     route: "Blogs",
     pathname: "/blogs",
     icon: <EditNoteIcon />,
-  },
-  {
-    route: "Login",
-    pathname: "/login",
-    icon: <LoginIcon />,
   },
   {
     route: "Register",
@@ -65,12 +62,29 @@ const navItems = [
   },
 ];
 
+const settings = ['Profile', 'Dashboard'];
+
 const DrawerAppBar = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const { user, logOut } = useAuth()
+  console.log(user)
+
+  const handleLogOut = () => {
+    logOut()
+}
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
+  };
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
   };
 
   const drawer = (
@@ -124,13 +138,54 @@ const DrawerAppBar = (props) => {
           >
             MUI
           </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button href={item.pathname} key={item} sx={{ color: '#B2533E' }}>
                 {item.route}
               </Button>
             ))}
           </Box>
+          {
+            user && user?.email ? <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src={user?.photoURL} />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+              <Button onClick={handleLogOut} sx={{ color: '#B2533E' }}>
+                Logout
+              </Button>
+            </Menu>
+          </Box> 
+          : 
+          <Box sx={{ flexGrow: 0}}>
+              <Button href='/login' sx={{ color: '#B2533E' }}>
+                Login
+              </Button>
+            
+          </Box>
+          }
         </Toolbar>
       </AppBar>
       <nav>
