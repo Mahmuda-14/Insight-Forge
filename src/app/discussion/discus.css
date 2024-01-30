@@ -1,3 +1,7 @@
+.blogContainer h2{
+    text-align: center;
+}
+
 .discussion {
     min-height: 100vh;
 }
@@ -59,8 +63,6 @@
 }
 
 .qusContainer {
-    border-left: 2px solid #c1c1c1;
-    border-right: 2px solid #c1c1c1;
     padding: 0px 10px;
 }
 
