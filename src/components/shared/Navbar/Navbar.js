@@ -62,7 +62,16 @@ const navItems = [
   },
 ];
 
-const settings = ['Profile', 'Dashboard'];
+const settings = [
+  {
+    route: "Profile",
+    pathname: "/profile",
+  },
+  {
+    route: "Dashboard",
+    pathname: "/dashboard",
+  }
+];
 
 const DrawerAppBar = (props) => {
   const { window } = props;
@@ -237,7 +246,7 @@ const DrawerAppBar = (props) => {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex', color: "#B2533E" }}>
+    <Box sx={{ display: 'flex', color: "#B2533E" }} className="overflow-x-hidden">
       <CssBaseline />
       <AppBar component="nav">
         <Toolbar>
@@ -271,7 +280,7 @@ const DrawerAppBar = (props) => {
                 <Avatar alt="Remy Sharp" src={user?.photoURL} />
               </IconButton>
             </Tooltip>
-            <Menu
+            <Menu textAlign="center"
               sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
@@ -288,13 +297,16 @@ const DrawerAppBar = (props) => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
+                  <ListItem key={setting} disablePadding>
+                  <ListItemButton href={setting.pathname} sx={{ textAlign: 'center' }}>
+                    <ListItemText primary={setting.route} />
+                  </ListItemButton>
+                </ListItem>
               ))}
-              <Button onClick={handleLogOut} sx={{ color: '#B2533E' }}>
+              <Button onClick={handleLogOut} sx={{ color: '#B2533E', textAlign: 'center' }}>
                 Logout
               </Button>
+                
             </Menu>
           </Box> 
           : 
