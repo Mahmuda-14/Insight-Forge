@@ -62,7 +62,16 @@ const navItems = [
   },
 ];
 
-const settings = ['Profile', 'Dashboard'];
+const settings = [
+  {
+    route: "Profile",
+    pathname: "/profile",
+  },
+  {
+    route: "Dashboard",
+    pathname: "/dashboard",
+  }
+];
 
 const DrawerAppBar = (props) => {
   const { window } = props;
@@ -169,13 +178,16 @@ const DrawerAppBar = (props) => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
+                  <ListItem key={setting} disablePadding>
+                  <ListItemButton href={setting.pathname} sx={{ textAlign: 'center' }}>
+                    <ListItemText primary={setting.route} />
+                  </ListItemButton>
+                </ListItem>
               ))}
-              <Button onClick={handleLogOut} sx={{ color: '#B2533E' }}>
+              <Button onClick={handleLogOut} sx={{ color: '#B2533E', textAlign: 'center' }}>
                 Logout
               </Button>
+                
             </Menu>
           </Box> 
           : 

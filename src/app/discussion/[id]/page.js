@@ -7,11 +7,12 @@ import { Avatar, Button, CardContent, CardHeader, IconButton, TextField, Typogra
 import useAuth from '@/app/hooks/useAuth';
 import useAxiosSecure from '@/app/hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { useRouter } from 'next/navigation';
 
 const page = ({ params }) => {
     console.log(params.id)
     const { user } = useAuth();
+    const router = useRouter();
     const axiosSecure = useAxiosSecure()
     const axiosPublic = useAxiosPublic()
     const { refetch, data } = useQuery({
