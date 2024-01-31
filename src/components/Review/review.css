@@ -4,8 +4,8 @@
   background-attachment: fixed;
   background-image: linear-gradient(
       to right,
-      rgba(0, 0, 0, 0.8),
-      rgb(0, 0, 0, 0.8)
+      rgba(0, 0, 0, 0.6),
+      rgb(0, 0, 0, 0.6)
     ),
     url("../../../public/team.jpg");
 }

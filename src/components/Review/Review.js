@@ -16,6 +16,7 @@ const Review = () => {
       alignItems="center"
       sx={{
         flexDirection: { xs: "column", md: "row" },
+        height:{ xs:950 , md:650}  
       }}
       className=" parallax-container"
     >

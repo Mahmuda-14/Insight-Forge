@@ -19,9 +19,11 @@ const Story = () => {
       <Card
         sx={{
           paddingTop: "20px",
-          paddingBottom: "100px",
-          bgcolor: brown[500],
+          paddingBottom: "50px",
+          backgroundColor: red[800],
           color: "white",
+          px:2
+          
         }}
       >
         <CardContent sx={{ padding: "40px" }}>
@@ -29,7 +31,7 @@ const Story = () => {
             titleTypographyProps={{
               fontSize: { xs: 18, sm: 26 },
             }}
-            title="SUCCESS STORIES"
+            title="CUSTOMER REVIEW"
           />
 
           <Typography
@@ -37,9 +39,7 @@ const Story = () => {
             color="text.secondary"
             sx={{ marginTop: "30px", color: "white" }}
           >
-            This impressive paella is a perfect party dish and a fun meal to
-            cook together with your guests. Add 1 cup of frozen peas along with
-            the mussels, if you like.
+            From insightful content to user-friendly interfaces, Insight Forge strive to create an engaging platform for collaborative learning. Join Insight Forge in exploring, sharing, and reviewing the wealth of information that fuels everyone collective intellectual growth!
           </Typography>
         </CardContent>
       </Card>

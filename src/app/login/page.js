@@ -15,7 +15,6 @@ import { useForm } from "react-hook-form";
 import useAuth from '@/app/hooks/useAuth';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
-import useAxiosPublic from '../hooks/useAxiosPublic';
 
 
 
@@ -39,7 +38,6 @@ function Copyright(props) {
 }
 
 export default function LogInPage() {
-  const axiosPublic = useAxiosPublic()
   const { signIn } = useAuth();
 
   const {
@@ -55,21 +53,9 @@ export default function LogInPage() {
     signIn(data.email, data.password).then((result) => {
       const loggedUser = result.user;
 
-      const userInfo = {
-        uEmail: data.email,
-        uName: data.name,
-      }
-
-      axiosPublic.post('/users', userInfo)
-        .then(res => {
-          console.log(res.data)
-          if (res.data) {
-            console.log(loggedUser);
-            toast.success("User logged in");
-            router.push("/");
-          }
-        }).catch(err => { console.log(err) })
-
+      console.log(loggedUser);
+      toast.success("User logged in");
+      router.push("/");
 
     });
   };
@@ -163,7 +149,7 @@ export default function LogInPage() {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/register" variant="body2">
+                <Link href="/register" sx={{color:"#2e7d32"}}>
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

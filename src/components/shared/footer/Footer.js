@@ -16,6 +16,7 @@ const Footer = () => {
  
 
   return (
+    <Container maxWidth="xl"  >
     <footer style={{
       backgroundImage: 'url("https://i.ibb.co/JtjnqGC/Colorful-Playful-School-Class-Zoom-Virtual-Background.png")',
       backgroundSize: 'cover',
@@ -24,7 +25,7 @@ const Footer = () => {
      
 
     }}>
-      <Container maxWidth="lg"  >
+      
 
         <div style={{ textAlign: 'center', margin: '10px' }}>
           <Image src="https://i.ibb.co/V92F63N/g-removebg-preview.png" alt="Logo" width={100} height={150} style={{
@@ -138,8 +139,9 @@ const Footer = () => {
             &copy; 2024 Insight Forge. All rights reserved.
           </Typography>
         </Grid>
-      </Container>
+      
     </footer>
+    </Container>
   );
 };
 
