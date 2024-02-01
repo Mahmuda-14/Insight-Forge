@@ -39,7 +39,7 @@ const Footer = () => {
         </div>
 
 
-        <Grid container spacing={8} sx={{ px: 10, mx: "auto" }}>
+        <Grid container spacing={8} sx={{ mx: "auto" }}>
           <Grid item>
             <Typography variant="h4" sx={{ margin: '5px', color: '#ffffff', marginTop: '40px' }}>
               Our Location
