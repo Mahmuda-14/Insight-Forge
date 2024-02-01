@@ -11,12 +11,12 @@ const Banner = () => {
             backgroundImage: 'linear-gradient(to right, rgba(0, 0, 0, 0.10), rgb(0, 0, 0, 0.1)), url(https://i.ibb.co/hRs2r4S/slider3-1.jpg)',
             backgroundSize: 'cover',
             backgroundAttachment: 'fixed',
-            minHeight: '600px',
-            position: 'relative'
+            // minHeight: '600px',
+            // position: 'relative'
       }
       {/* Overlay */ }
       const overlayStyle = {
-            position: 'absolute',
+            // position: 'absolute',
             top: 0,
             left: 0,
             width: '100%',
@@ -38,7 +38,7 @@ const Banner = () => {
                         <div style={overlayStyle}>
 
                               {/* Content Section */}
-                              <div style={{ maxWidth: '600px', margin: 'auto', marginTop: '150px' }}>
+                              <div style={{height:'500px'}}>
                                     <Typography variant='h3' style={{ textAlign: 'center', color: '#F9C5D5', fontWeight: 600 }}>Welcome to the World of Knowledge Sharing</Typography>
                                     <Typography sx={{ textAlign: 'center', color: '#F9C5D5', mt: 5 }} >Unlocking Wisdom, Empowering Minds: Explore a World of Knowledge with Insight Forge , Our Knowledge Share Platform. Join the Conversation, Ignite Learning, and Fuel Curiosity !</Typography>
 

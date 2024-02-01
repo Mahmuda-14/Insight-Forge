@@ -23,7 +23,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import Image from 'next/image';
 import useAuth from '@/app/hooks/useAuth';
-
+import { Work } from '@mui/icons-material';
+import bg2 from '../../../assets/Insight Forge (3).png'
 const drawerWidth = 240;
 const navItems = [
   {
@@ -45,6 +46,11 @@ const navItems = [
     route: "Contact",
     pathname: "/contact",
     icon: <PhoneIcon />,
+  },
+  {
+    route: "job",
+    pathname: "/job",
+    icon: <Work />,
   },
   {
     route: "Discussion ",
@@ -102,7 +108,7 @@ const DrawerAppBar = (props) => {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', color: "#B2533E" }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', color:'white' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
         MUI
       </Typography>
@@ -116,7 +122,8 @@ const DrawerAppBar = (props) => {
                         minWidth: 0,
                         mr: open ? 3 : "auto",
                         justifyContent: "center",
-                        color: "#B2533E"
+                        // color: "#B2533E"
+                        color: "white"
                       }}
                     >
                       {item.icon}
@@ -132,7 +139,7 @@ const DrawerAppBar = (props) => {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex', color: "#B2533E" }} className="overflow-x-hidden">
+    <Box sx={{ display: 'flex', color: "white" }}>
       <CssBaseline />
       <AppBar component="nav">
         <Toolbar>
@@ -150,11 +157,13 @@ const DrawerAppBar = (props) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+         <Image src={bg2} alt='company' className=' w-10 h-11'
+                                     
+                />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button href={item.pathname} key={item} sx={{ color: '#B2533E' }}>
+              <Button href={item.pathname} key={item} sx={{ color: 'white' }}>
                 {item.route}
               </Button>
             ))}
@@ -197,7 +206,7 @@ const DrawerAppBar = (props) => {
           </Box> 
           : 
           <Box sx={{ flexGrow: 0}}>
-              <Button href='/login' sx={{ color: '#B2533E' }}>
+              <Button href='/login' sx={{ color: 'white' }}>
                 Login
               </Button>
             

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Image from 'next/image';
 import React from 'react';
 
@@ -202,8 +203,34 @@ const page = () => {
         </div>
 
 
+=======
+
+import React from 'react';
+import Card from './Card';
+import JobCard from './JobCard';
+
+const page = () => {
+    
+    return (
+        <div>
+            <div className='bg-gradient-to-r from-teal-800 to-slate-400 h-[23rem]'>
+                <h2 className='text-white p-4 pt-[80px] text-2xl ml-[113px] mt-5 text-center'>Find your dream job.</h2>
+                <input name="text" type="text" placeholder="text" className="input input-bordered ml-[650px] mt-8 px-5 py-2 rounded-xl" required />
+                <button class="btn ml-2 px-5 py-2 bg-black text-white rounded-xl">
+                    Search
+                </button>
+
+            </div>
+            <Card></Card>
+            <JobCard></JobCard>
+>>>>>>> 48f09f784bbf3c6323427a02c16fea6bddb42a02
         </div>
     );
 };
 
+<<<<<<< HEAD
 export default page;
+=======
+export default page;
+
+>>>>>>> 48f09f784bbf3c6323427a02c16fea6bddb42a02
