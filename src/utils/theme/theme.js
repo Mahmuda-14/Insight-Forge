@@ -1,31 +1,28 @@
 
 "use client";
 
-<<<<<<< HEAD
-import {  createTheme, ThemeProvider } from '@mui/material/styles';
-const themeColor = createTheme({
-    palette: {
-        primary: {
-          main: '#87CEEB',
-          mainGradient: "linear-gradient(to right, #2980b9, #6dd5fa, #ffffff)",
-          contrastText:"black"
-        },
-        // ...
-      },
-    breakpoints: {
-        values: {
-          xs: 0,
-          sm: 600,
-          md: 900,
-          lg: 1200,
-          xl: 1536,
-        },
-      },
-})
-=======
+// import {  createTheme, ThemeProvider } from '@mui/material/styles';
+// const themeColor = createTheme({
+//     palette: {
+//         primary: {
+//           main: '#87CEEB',
+//           mainGradient: "linear-gradient(to right, #2980b9, #6dd5fa, #ffffff)",
+//           contrastText:"black"
+//         },
+//         // ...
+//       },
+//     breakpoints: {
+//         values: {
+//           xs: 0,
+//           sm: 600,
+//           md: 900,
+//           lg: 1200,
+//           xl: 1536,
+//         },
+//       },
+// })
 import { blueGrey } from '@mui/material/colors';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
->>>>>>> 48f09f784bbf3c6323427a02c16fea6bddb42a02
 
 const themeColor = createTheme({
   palette: {

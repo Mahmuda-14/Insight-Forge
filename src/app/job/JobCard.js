@@ -13,7 +13,7 @@ const JobCard = () => {
 
 
 
-         <div className='grid grid-cols-4 gap-3 mx-4'>
+         <div className='grid grid-cols-4 gap-3 mx-4 my-7'>
 
             <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 my-5">
                  <Image src={bg2} alt='company' className=' w-10 h-11'
