@@ -23,7 +23,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import Image from 'next/image';
 import useAuth from '@/app/hooks/useAuth';
-
+import { Work } from '@mui/icons-material';
+import bg2 from '../../../assets/Insight Forge (3).png'
 const drawerWidth = 240;
 const navItems = [
   {
@@ -45,6 +46,11 @@ const navItems = [
     route: "Contact",
     pathname: "/contact",
     icon: <PhoneIcon />,
+  },
+  {
+    route: "job",
+    pathname: "/job",
+    icon: <Work />,
   },
   {
     route: "Discussion ",
@@ -96,126 +102,8 @@ const DrawerAppBar = (props) => {
     setAnchorElUser(null);
   };
 
-<<<<<<< HEAD
-  
-
-  return (
-    <Container maxWidth="xl">
-      <Box style={{ background: theme.palette.primary.mainGradient }}>
-        <CssBaseline />
-
-        <Drawer variant="permanent" open={open} >
-          <DrawerHeader >
-            <Image
-              className="logo"
-              src={logo}
-              alt="logo"
-            />
-
-            <AppBar position="fixed" open={open} maxWidth="xl" style={{ background: theme.palette.primary.mainGradient }}>
-              <Toolbar>
-                <IconButton
-                  color="#B2533E"
-                  aria-label="open drawer"
-                  onClick={handleDrawerOpen}
-                  edge="start"
-                  sx={{
-                    marginRight: 5,
-                    ...(open && { display: "none" }),
-                  }}
-                >
-                  <MenuIcon />
-                </IconButton>
-                <div className="navBar">
-                    {
-                      user?.email ? 
-                    <Box sx={{ flexGrow: 0 }}>
-                      <Tooltip title="Open settings">
-                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                          <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                        </IconButton>
-                      </Tooltip>
-                      <Menu
-                        sx={{ mt: '45px' }}
-                        id="menu-appbar"
-                        anchorEl={anchorElUser}
-                        anchorOrigin={{
-                          vertical: 'top',
-                          horizontal: 'right',
-                        }}
-                        keepMounted
-                        transformOrigin={{
-                          vertical: 'top',
-                          horizontal: 'right',
-                        }}
-                        open={Boolean(anchorElUser)}
-                        onClose={handleCloseUserMenu}
-                      >
-                        {/* {settings.map((setting) => (
-                          <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                            <Typography textAlign="center">{setting}</Typography>
-                          </MenuItem>
-                        ))} */}
-                      </Menu>
-                    </Box> : ''
-                    }
-
-                    <Typography className="typography" color="black" variant="h4" noWrap component="div" sx={{ fontWeight: 600 }}>
-                      Insight Forge
-                    </Typography>
-                  </div>
-              </Toolbar>
-            </AppBar>
-
-
-            <IconButton className="closeIcon" onClick={handleDrawerClose}>
-              {theme.direction === "rtl" ? <ChevronRightIcon /> : <CloseIcon />}
-            </IconButton>
-          </DrawerHeader>
-
-          <List  >
-            {navItems.map((item, index) => (
-              <ListItem key={index} disablePadding sx={{ display: "block" }}>
-                <ListItemButton
-                  href={item.pathname}
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                    color: "#B2533E"
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : "auto",
-                      justifyContent: "center",
-                      color: "#B2533E"
-                    }}
-                  >
-                    {item.icon}
-                    {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.route}
-                    sx={{ opacity: open ? 1 : 0, color: "#B2533E" }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-          <Divider />
-        </Drawer>
-
-        <Box component="main" sx={{ flexGrow: 1 }}>
-          <DrawerHeader />
-          {children}
-        </Box>
-      </Box>
-    </Container>
-=======
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', color: "#B2533E" }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', color:'white' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
         MUI
       </Typography>
@@ -229,7 +117,8 @@ const DrawerAppBar = (props) => {
                         minWidth: 0,
                         mr: open ? 3 : "auto",
                         justifyContent: "center",
-                        color: "#B2533E"
+                        // color: "#B2533E"
+                        color: "white"
                       }}
                     >
                       {item.icon}
@@ -240,13 +129,12 @@ const DrawerAppBar = (props) => {
         ))}
       </List>
     </Box>
->>>>>>> b36487caa004f86aec06016f400e2623b683cb6b
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex', color: "#B2533E" }} className="overflow-x-hidden">
+    <Box sx={{ display: 'flex', color: "white" }}>
       <CssBaseline />
       <AppBar component="nav">
         <Toolbar>
@@ -264,11 +152,13 @@ const DrawerAppBar = (props) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+         <Image src={bg2} alt='company' className=' w-10 h-11'
+                                     
+                />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button href={item.pathname} key={item} sx={{ color: '#B2533E' }}>
+              <Button href={item.pathname} key={item} sx={{ color: 'white' }}>
                 {item.route}
               </Button>
             ))}
@@ -311,7 +201,7 @@ const DrawerAppBar = (props) => {
           </Box> 
           : 
           <Box sx={{ flexGrow: 0}}>
-              <Button href='/login' sx={{ color: '#B2533E' }}>
+              <Button href='/login' sx={{ color: 'white' }}>
                 Login
               </Button>
             
