@@ -60,6 +60,11 @@ const navItems = [
       <path fillRule="evenodd" clipRule="evenodd" d="M30.2124 20.4709C33.1747 18.4748 35.0665 15.4355 35.0665 12.0312C35.0665 11.1154 34.9296 10.226 34.6718 9.37613C35.3479 9.23934 36.0559 9.16666 36.7852 9.16666C41.5314 9.16666 45.379 12.2447 45.379 16.0417C45.379 17.1284 45.0639 18.1561 44.5027 19.0698C45.0326 19.9674 45.221 21.093 45.2822 21.9398C45.3174 22.428 44.7266 22.6839 44.3254 22.4034C43.8289 22.0563 43.1528 21.6481 42.3228 21.2993C40.8272 22.3085 38.895 22.9167 36.7852 22.9167C34.1483 22.9167 31.7887 21.9665 30.2124 20.4709Z" fill="#984900" />
     </svg>,
   },
+  {
+    route: "Job Board",
+    pathname: "/job",
+    icon: < PhoneIcon/>,
+  }
 ];
 
 const settings = [
@@ -96,124 +101,6 @@ const DrawerAppBar = (props) => {
     setAnchorElUser(null);
   };
 
-<<<<<<< HEAD
-  
-
-  return (
-    <Container maxWidth="xl">
-      <Box style={{ background: theme.palette.primary.mainGradient }}>
-        <CssBaseline />
-
-        <Drawer variant="permanent" open={open} >
-          <DrawerHeader >
-            <Image
-              className="logo"
-              src={logo}
-              alt="logo"
-            />
-
-            <AppBar position="fixed" open={open} maxWidth="xl" style={{ background: theme.palette.primary.mainGradient }}>
-              <Toolbar>
-                <IconButton
-                  color="#B2533E"
-                  aria-label="open drawer"
-                  onClick={handleDrawerOpen}
-                  edge="start"
-                  sx={{
-                    marginRight: 5,
-                    ...(open && { display: "none" }),
-                  }}
-                >
-                  <MenuIcon />
-                </IconButton>
-                <div className="navBar">
-                    {
-                      user?.email ? 
-                    <Box sx={{ flexGrow: 0 }}>
-                      <Tooltip title="Open settings">
-                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                          <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                        </IconButton>
-                      </Tooltip>
-                      <Menu
-                        sx={{ mt: '45px' }}
-                        id="menu-appbar"
-                        anchorEl={anchorElUser}
-                        anchorOrigin={{
-                          vertical: 'top',
-                          horizontal: 'right',
-                        }}
-                        keepMounted
-                        transformOrigin={{
-                          vertical: 'top',
-                          horizontal: 'right',
-                        }}
-                        open={Boolean(anchorElUser)}
-                        onClose={handleCloseUserMenu}
-                      >
-                        {/* {settings.map((setting) => (
-                          <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                            <Typography textAlign="center">{setting}</Typography>
-                          </MenuItem>
-                        ))} */}
-                      </Menu>
-                    </Box> : ''
-                    }
-
-                    <Typography className="typography" color="black" variant="h4" noWrap component="div" sx={{ fontWeight: 600 }}>
-                      Insight Forge
-                    </Typography>
-                  </div>
-              </Toolbar>
-            </AppBar>
-
-
-            <IconButton className="closeIcon" onClick={handleDrawerClose}>
-              {theme.direction === "rtl" ? <ChevronRightIcon /> : <CloseIcon />}
-            </IconButton>
-          </DrawerHeader>
-
-          <List  >
-            {navItems.map((item, index) => (
-              <ListItem key={index} disablePadding sx={{ display: "block" }}>
-                <ListItemButton
-                  href={item.pathname}
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                    color: "#B2533E"
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : "auto",
-                      justifyContent: "center",
-                      color: "#B2533E"
-                    }}
-                  >
-                    {item.icon}
-                    {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.route}
-                    sx={{ opacity: open ? 1 : 0, color: "#B2533E" }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-          <Divider />
-        </Drawer>
-
-        <Box component="main" sx={{ flexGrow: 1 }}>
-          <DrawerHeader />
-          {children}
-        </Box>
-      </Box>
-    </Container>
-=======
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', color: "#B2533E" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
@@ -240,7 +127,6 @@ const DrawerAppBar = (props) => {
         ))}
       </List>
     </Box>
->>>>>>> b36487caa004f86aec06016f400e2623b683cb6b
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
