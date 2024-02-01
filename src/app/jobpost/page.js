@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import { Divider } from '@mui/material';
 import Image from 'next/image';
@@ -12,20 +14,29 @@ const page = () => {
     setShowMoreInfo(!showMoreInfo);
   };
 
+  const [formData, setFormData] = useState({
+    jobtitle: '',
+    companyname: '',
+    companylogo: '',
+    location: '',
+    description: '',
+    jobtype:'',
+    
+  });
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-  const handlesubmit = event =>{
-    event.preventDefault();
-    const form = event.target;
-    const jobtitle = form.jobtitle.value;
-    const companyname = form.companyname.value;
-    const companylogo= form.companylogo.value;
-    const location = form.location.value;
-    const description = form.description.value;
-    const jobtype = form.jobtype.value;
-    const user = {jobtitle,companyname,companylogo,location,description,jobtype};
-    console.log(user)
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
+
 
     return (
      <div>
@@ -49,69 +60,77 @@ const page = () => {
 
         <div className='flex justify-center items-start'>
         <div className="container  mt-8">
-      <form onClick={handlesubmit} className="w-[800px] mx-auto bg-white p-8 rounded shadow-md">
-      {/* <Image src="https://i.ibb.co/ct1xgpw/hat-removebg-preview.png" alt='gif' width={200}  height={200}></Image> */}
-        <div className="mb-12">
-          <label htmlFor="jobtitle" className="block text-teal-600 text-[22px] mb-2">
+
+      <form onSubmit={handleSubmit} className="w-[800px] mx-auto bg-white p-8 rounded shadow-md">
+        <div className='flex justify-center items-center'>
+        <Image src="https://i.ibb.co/ct1xgpw/hat-removebg-preview.png" alt='gif' width={200}  height={200}></Image>
+        </div>
+     <div className='flex justify-center items-center'>
+    
+     <Image src="https://i.ibb.co/5cFq58J/Untitled-design.png" alt='gif' width={70}  height={70}></Image>
+     <p className='text-[#545454] text-[18px] mt-[50px]'>Passionate software engineer with expertise in full-stack development, dedicated to delivering high-quality, scalable solutions to enhance user experiences and drive innovation.</p>
+     </div>
+        <div className="mb-12 mt-[80px]">
+          <label  className="block text-teal-600 text-[22px] mb-2">
             Job Title:
           </label>
           <input
             type="text"
-            id="jobtitle"
             name="jobtitle"
+            value={formData.jobtitle}
+            onChange={handleChange}
             className="border rounded w-full py-2 px-3"
             placeholder="Enter Job Title"
-            required
           />
         </div>
         <div className="mb-12">
-          <label htmlFor="companyname" className="block text-teal-600 text-[22px] mb-2">
+          <label  className="block text-teal-600 text-[22px] mb-2">
             Company Name:
           </label>
           <input
             type="text"
-            id="companyname"
             name="companyname"
+            value={formData.companyname}
+            onChange={handleChange}
             className="border rounded w-full py-2 px-3"
             placeholder="Enter Company Name"
-            required
           />
         </div>
         <div className="mb-12">
-          <label htmlFor="companylogo" className="block text-teal-600 text-[22px] mb-2">
+          <label  className="block text-teal-600 text-[22px] mb-2">
             Company Logo:
           </label>
           <input
             type="text"
-            id="companylogo"
             name="companylogo"
+            value={formData.companylogo}
+            onChange={handleChange}
             className="border rounded w-full py-2 px-3"
             placeholder="Enter Logo"
-            required
           />
         </div>
         <div className="mb-12">
-          <label htmlFor="location" className="block text-teal-600 text-[22px] mb-2">
+          <label  className="block text-teal-600 text-[22px] mb-2">
           Location:
           </label>
           <input
             type="text"
-            id="location"
             name="location"
+            value={formData.location}
+            onChange={handleChange}
             className="border rounded w-full py-2 px-3"
             placeholder="Enter location"
-            required
           />
         </div>
 
         <div className="mb-12">
-          <label htmlFor="jobtype" className="block text-teal-600 text-[22px] mb-2">
+          <label  className="block text-teal-600 text-[22px] mb-2">
           Job Type:
           </label>
           <select 
             type="text" name="jobtype"
-            // value={selectedJob}
-            //onChange={handleJobSelection}
+            value={formData.jobtype}
+            onChange={handleChange}
             className="mt-4 p-2 border rounded-md"
           >
             <option value="" disabled>
@@ -124,16 +143,16 @@ const page = () => {
         </div>
 
         <div className="mb-12">
-              <label htmlFor="description" className="block text-teal-600 text-[22px] mb-2">
+              <label  className="block text-teal-600 text-[22px] mb-2">
                 Description:
               </label>
               <textarea
-                id="description"
                 name="description"
+                value={formData.description}
+                onChange={handleChange}
                 className="border rounded w-full py-2 px-3"
                 placeholder="Enter Job Description"
                 rows="4"
-                required
               />
             </div>
 

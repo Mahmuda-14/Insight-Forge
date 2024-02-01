@@ -31,7 +31,7 @@ const PostForm = () => {
                     <div>
                         <h2 className="text-xl font-bold text-gray-800 mb-2">Browse For Job</h2>
                         <p className="text-[#B9FF66]">This is a simple card example using Tailwind CSS. Customize it as per your needs.</p>
-                        <button onClick="/jobpost" className="bg-[#87CEEB] text-white px-4 py-2 mt-4 rounded-md hover:bg-[#6495ED] focus:outline-none focus:ring focus:border-blue-300">Browse Job</button>
+                        <Link href="/jobposts"><button className="bg-[#87CEEB] text-white px-4 py-2 mt-4 rounded-md hover:bg-[#6495ED] focus:outline-none focus:ring focus:border-blue-300">Post Job</button></Link>
                     </div>
                 </div>
             </div>
