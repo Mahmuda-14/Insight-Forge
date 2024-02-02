@@ -3,7 +3,7 @@ import React from 'react';
 import './job.css'
 const Card = () => {
     return (
-        <div className='flex flex-row'>
+        <div className='flex flex-row my-[100px]'>
             <div className='p'>
                 <h2 className='bg-white mt-[281px] mr-[100px] ml-[448px] p-10 rounded-2xl'>1000+<br />Talented waiting for hire</h2>
             </div>

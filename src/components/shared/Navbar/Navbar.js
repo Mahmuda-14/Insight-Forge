@@ -25,11 +25,15 @@ import EditNoteIcon from "@mui/icons-material/EditNote";
 import Image from 'next/image';
 import useAuth from '@/app/hooks/useAuth';
 import { useTheme } from '@emotion/react';
+<<<<<<< HEAD
 import bg2 from "../../../assets/Insight Forge (3).png"
 import Link from 'next/link';
 import {  useRouter } from 'next/navigation';
 import GroupsIcon from '@mui/icons-material/Groups';
 
+=======
+import { Work } from '@mui/icons-material';
+>>>>>>> c5377cc61b243296f6476daa53e9a27de19bfada
 
 const drawerWidth = 240;
 const navItems = [
@@ -64,10 +68,18 @@ const navItems = [
     icon: <EditNoteIcon />,
   },
   {
+<<<<<<< HEAD
     route: "Job Board",
     pathname: "/job",
     icon: < PhoneIcon/>,
   }
+=======
+    id: "6",
+    route: "job",
+    pathname: "/job",
+    icon: <Work />,
+  },
+>>>>>>> c5377cc61b243296f6476daa53e9a27de19bfada
 ];
 
 const settings = [
@@ -146,10 +158,23 @@ const DrawerAppBar = (props) => {
           >
             <MenuIcon />
           </IconButton>
+<<<<<<< HEAD
 
           <Image sx={{ flexGrow: 1 }} src={bg2} alt='company' width={80} height={80} />
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } , ml:3}}>
+=======
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+          >
+         {/* <Image src={bg2} alt='company' className=' w-10 h-11' */}
+                                     
+                {/* /> */}
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
+>>>>>>> c5377cc61b243296f6476daa53e9a27de19bfada
             {navItems.map((item) => (
                
                 <Button href={item.pathname} key={item} sx={{ color: 'black' , fontWeight:600}}>
