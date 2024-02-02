@@ -101,7 +101,7 @@ const Footer = () => {
 
           </Grid>
 
-          <Grid item>
+          {/* <Grid item>
             <Typography variant="h4" sx={{ margin: '5px', color: '#ffffff', marginTop: '40px' }}>
               Our Services
             </Typography>
@@ -119,7 +119,7 @@ const Footer = () => {
               <Typography variant="h6" sx={{ margin: '10px', color: '#ffffff', fontSize: '15px', marginTop: '15px' }}> Web Development</Typography>
             </Link>
 
-          </Grid>
+          </Grid> */}
 
           <Grid item>
             <Typography variant="h4" sx={{ margin: '5px', color: '#ffffff', marginTop: '40px', textAlign: "center" }}>
