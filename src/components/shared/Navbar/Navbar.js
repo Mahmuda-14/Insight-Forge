@@ -24,6 +24,7 @@ import EditNoteIcon from "@mui/icons-material/EditNote";
 import Image from 'next/image';
 import useAuth from '@/app/hooks/useAuth';
 import { useTheme } from '@emotion/react';
+import { Work } from '@mui/icons-material';
 
 const drawerWidth = 240;
 const navItems = [
@@ -65,6 +66,12 @@ const navItems = [
     route: "VirtualHackathon",
     pathname: "/hackathon",
     icon: <EditNoteIcon />,
+  },
+  {
+    id: "6",
+    route: "job",
+    pathname: "/job",
+    icon: <Work />,
   },
 ];
 
@@ -148,9 +155,9 @@ const DrawerAppBar = (props) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-         <Image src={bg2} alt='company' className=' w-10 h-11'
+         {/* <Image src={bg2} alt='company' className=' w-10 h-11' */}
                                      
-                />
+                {/* /> */}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
