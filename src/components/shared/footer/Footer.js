@@ -12,7 +12,6 @@ import QuizIcon from '@mui/icons-material/Quiz';
 
 const Footer = () => {
 
-<<<<<<< HEAD
 
   return (
     <Box sx={{ maxWidth: "xl", mx: "auto" }} >
@@ -36,35 +35,8 @@ const Footer = () => {
           height: '100%',
           backgroundColor: 'rgba(0, 0, 0, 0.5)',
         }}>
-        
-          <p style={{ margin: '5px', color: 'white', fontSize: '20px', textAlign: "center", paddingTop: "10px", marginTop:"120px" }}>Explore a wealth of curated knowledge on Insight Forge, where expertise meets curiosity. <br />
-=======
-  // https://i.ibb.co/JtjnqGC/Colorful-Playful-School-Class-Zoom-Virtual-Background.png
- 
 
-  return (
-    <Container  >
-    <footer style={{
-      // backgroundImage: 'url("https://i.ibb.co/8cF21XP/Green-Watercolour-Opening-Soon-Banner-1.png")',
-      backgroundColor:'#00897B',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-   
-    
-    }}>
-      
-      {/* https://i.ibb.co/V92F63N/g-removebg-preview.png */}
-        <div  style={{ textAlign: 'center', margin: '10px' }}>
-          <Image src="https://i.ibb.co/99f5L5P/Untitled-design-removebg-preview.png" alt="Logo" width={150} height={150} style={{
-    width: '100px',
-    paddingTop: '50px',
-    display: 'block',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  }}/>
-          <p style={{ margin: '5px', color:'#ffffff', fontSize: '15px' }}>Explore a wealth of curated knowledge on Insight Forge, where expertise meets curiosity. <br />
->>>>>>> c5377cc61b243296f6476daa53e9a27de19bfada
+          <p style={{ margin: '5px', color: 'white', fontSize: '20px', textAlign: "center", paddingTop: "10px", marginTop: "120px" }}>Explore a wealth of curated knowledge on Insight Forge, where expertise meets curiosity. <br />
             Our platform is dedicated to providing insightful content tailored to elevate your <br />
             understanding and ignite your passion for learning.</p>
 
@@ -191,19 +163,15 @@ const Footer = () => {
           </Grid>
 
         </div>
-<<<<<<< HEAD
-      </footer>
-    </Box>
-=======
 
 
         <Grid container spacing={12} sx={{ mx: "auto" }}>
           <Grid item>
-            <Typography variant="h4" sx={{ margin: '5px', color:'#ffffff', marginTop: '40px' }}>
+            <Typography variant="h4" sx={{ margin: '5px', color: '#ffffff', marginTop: '40px' }}>
               Our Location
             </Typography>
 
-            <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center', color:'#ffffff', fontSize: '15px' }}>
+            <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center', color: '#ffffff', fontSize: '15px' }}>
               <Image
                 src="https://i.ibb.co/dbBYfrG/k-removebg-preview-1.png"
                 alt="Company Logo"
@@ -214,7 +182,7 @@ const Footer = () => {
               Chittagong
             </Typography>
 
-            <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center', color:'#ffffff', fontSize: '15px' }}>
+            <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center', color: '#ffffff', fontSize: '15px' }}>
               <Image
                 src="https://i.ibb.co/6gq3mGB/kk-removebg-preview-1.png"
                 alt="Company Logo"
@@ -224,7 +192,7 @@ const Footer = () => {
               />
               insightforge@gmail.com
             </Typography>
-            <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center',color:'#ffffff', fontSize: '15px' }}>
+            <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center', color: '#ffffff', fontSize: '15px' }}>
               <Image
                 src="https://i.ibb.co/pRkV9h5/kkk-removebg-preview.png"
                 alt="Company Logo"
@@ -316,10 +284,9 @@ const Footer = () => {
             &copy; 2024 Insight Forge. All rights reserved.
           </Typography>
         </Grid>
-      
-    </footer>
-    </Container>
->>>>>>> c5377cc61b243296f6476daa53e9a27de19bfada
+
+      </footer>
+    </Box>
   );
 };
 

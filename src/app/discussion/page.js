@@ -24,7 +24,7 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
-    backgroundColor:'#C5FFF8',
+    backgroundColor: '#C5FFF8',
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
@@ -102,7 +102,7 @@ const page = () => {
 
 
     return (
-        <Box className="discussion overflow-x-hidden"  style={{ background: 'linear-gradient(to right, #FFFFFF, #87CEEB)', padding:'10px' }}>
+        <Box className="discussion overflow-x-hidden" style={{ background: 'linear-gradient(to right, #FFFFFF, #87CEEB)', padding: '10px' }}>
             <DrawerAppBar></DrawerAppBar>
             {/*header part*/}
             <Stack className="discusHeader"
@@ -137,7 +137,7 @@ const page = () => {
                                         label="Title"
                                         multiline
                                         maxRows={4}
-                                        sx={{width:'100%', my:1}}
+                                        sx={{ width: '100%', my: 1 }}
                                     />
                                     <TextField name='description'
                                         required
@@ -146,7 +146,7 @@ const page = () => {
                                         label="Description"
                                         multiline
                                         rows={4}
-                                        sx={{width:'100%', my:1}}
+                                        sx={{ width: '100%', my: 1 }}
                                     />
                                     <InputLabel id="demo-select-small-label">Age</InputLabel>
                                     <Select className='input' name='category'
@@ -156,7 +156,7 @@ const page = () => {
                                         autoWidth
                                         label="Age"
                                         onChange={handleChange}
-                                        sx={{width:'100%', my:1}}
+                                        sx={{ width: '100%', my: 1 }}
                                     >
                                         <MenuItem value="">
                                             <em>None</em>
@@ -225,7 +225,7 @@ const page = () => {
                     }
                 </Grid>
             </Grid>
-<Footer></Footer>
+            <Footer></Footer>
         </Box>
     );
 };
