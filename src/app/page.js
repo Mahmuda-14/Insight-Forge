@@ -2,7 +2,7 @@
 
 import Review from "@/components/Review/Review";
 import All from "@/components/Social/All";
-import Banner from "@/components/banner/page";
+import Banner from "@/components/banner/banner";
 import Chatbot from "@/components/chatbot/chatbot";
 import DrawerAppBar from "@/components/shared/Navbar/Navbar";
 import Count from "@/components/shared/count/Count";
