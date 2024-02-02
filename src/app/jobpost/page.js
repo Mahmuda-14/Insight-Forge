@@ -58,10 +58,10 @@ const page = () => {
         </div>
 
 
-        <div className='flex justify-center items-start'>
+        <div className='lg:flex md:flex-col-1 sm:flex-col-1 justify-center items-start'>
         <div className="container  mt-8">
 
-      <form onSubmit={handleSubmit} className="w-[800px] mx-auto bg-white p-8 rounded shadow-md">
+      <form onSubmit={handleSubmit} className="lg:w-[800px] md:w-[600px] sm:w-[500px] mx-auto bg-white p-8 rounded shadow-md">
         <div className='flex justify-center items-center'>
         <Image src="https://i.ibb.co/ct1xgpw/hat-removebg-preview.png" alt='gif' width={200}  height={200}></Image>
         </div>
@@ -171,7 +171,7 @@ const page = () => {
 
 
     <div>
-    <div className=" w-[500px] bg-white p-8 rounded shadow-md mt-8 ">
+    <div className=" lg:w-[500px] md:w-[400px] sm:w-[300px] bg-white p-8 rounded shadow-md mt-8 ">
       <p className='text-teal-600 text-[30px] mb-[30px] font-bold'>Contact Info</p>
       <p className='text-[#87CEEB] text-[20px]'>Address</p>
       <p className='mb-[20px]'>203 Fake St. Mountain View, San <br/> Francisco, California, USA</p>
@@ -181,7 +181,7 @@ const page = () => {
       <p>myemailaddress@gmail.com</p>
     </div>
 
-    <div className="w-[500px] bg-white p-8 rounded shadow-md mt-[50px]">
+    <div className="lg:w-[500px] md:w-[400px] sm:w-[300px] bg-white p-8 rounded shadow-md mt-[50px]">
       <p className='text-teal-600 text-[30px] mb-[30px] font-bold'>More Info</p>
 
       <p className='mb-[20px]'>Empowering careers through seamless integration, our job-focused platform connects talented individuals with dynamic opportunities, fostering professional growth and success.</p>

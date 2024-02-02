@@ -38,7 +38,7 @@ const JobM = () => {
                 </div>
             </div>
 
-            <div className='flex justify-center items-center'>
+            <div className='lg:flex md:flex-col-1 justify-center items-center'>
 
                 <div className="max-w-md w-full mx-auto bg-white shadow-md p-8 rounded-md " style={{ float: 'left' }}>
                     <Image

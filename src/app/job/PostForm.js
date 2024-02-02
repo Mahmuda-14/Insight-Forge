@@ -5,8 +5,8 @@ import React from 'react';
 const PostForm = () => {
     return (
         <div>
-             <div className='flex justify-center items-center mt-[200px]'>
-                <div className="flex justify-around items-center w-[610px] h-[310px] mx-auto  shadow-md p-8 rounded-md bg-[#B9FF66]">
+             <div className='lg:flex md:flex-col sm:flex-col justify-center items-center mt-[200px]'>
+                <div className="flex justify-around items-center lg:w-[610px] md:w-[500px] sm:w-[450px] h-[310px] mx-auto  shadow-md p-8 rounded-md bg-[#B9FF66]">
                     <Image
                         src="https://i.ibb.co/LJQR7LP/18-removebg-preview.png"
                         alt="Company Logo"
@@ -20,7 +20,7 @@ const PostForm = () => {
                         <Link href="/jobpost"><button className="bg-[#87CEEB] text-white px-4 py-2 mt-4 rounded-md hover:bg-[#6495ED] focus:outline-none focus:ring focus:border-blue-300">Post Job</button></Link>
                     </div>
                 </div>
-                <div className="flex justify-around items-center w-[610px] h-[310px] mx-auto bg-[#006A4E] shadow-md p-8 rounded-md">
+                <div className="flex justify-around items-center lg:w-[610px] md:w-[500px] sm:w-[450px] h-[310px] mx-auto bg-[#006A4E] shadow-md p-8 rounded-md">
                     <Image
                         src="https://i.ibb.co/jGL0VpW/14-removebg-preview-1.png"
                         alt="Company Logo"
