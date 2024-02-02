@@ -14,29 +14,6 @@ const Footer = () => {
 
 
   return (
-<<<<<<< HEAD
-    <Container  maxWidth='xl'>
-    <footer style={{
-      // backgroundImage: 'url("https://i.ibb.co/8cF21XP/Green-Watercolour-Opening-Soon-Banner-1.png")',
-      backgroundColor:'#00897B',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-   
-    
-    }}>
-      
-      {/* https://i.ibb.co/V92F63N/g-removebg-preview.png */}
-        <div  style={{ textAlign: 'center', margin: '10px' }}>
-          <Image src="https://i.ibb.co/99f5L5P/Untitled-design-removebg-preview.png" alt="Logo" width={150} height={150} style={{
-    width: '100px',
-    paddingTop: '50px',
-    display: 'block',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  }}/>
-          <p style={{ margin: '5px', color:'#ffffff', fontSize: '15px' }}>Explore a wealth of curated knowledge on Insight Forge, where expertise meets curiosity. <br />
-=======
     <Box sx={{ maxWidth: "xl", mx: "auto" }} >
       <footer style={{
         backgroundImage: 'url("https://i.ibb.co/8j1tcNW/footer-bg.jpg")',
@@ -60,7 +37,6 @@ const Footer = () => {
         }}>
         
           <p style={{ margin: '5px', color: 'white', fontSize: '20px', textAlign: "center", paddingTop: "10px", marginTop:"120px" }}>Explore a wealth of curated knowledge on Insight Forge, where expertise meets curiosity. <br />
->>>>>>> 9aa9a0d2cf80cdfa9f43dd4e6743b4595794c43d
             Our platform is dedicated to providing insightful content tailored to elevate your <br />
             understanding and ignite your passion for learning.</p>
 
