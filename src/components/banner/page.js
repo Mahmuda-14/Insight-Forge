@@ -24,12 +24,7 @@ const Banner = () => {
             backgroundColor: 'rgba(0, 0, 0, 0.7)',
       }
 
-      //       const handleSearch = (e) => {
-      //             e.preventDefault();
-      //             const searchText = e.target.searchText.value;
-      //             console.log(searchText);
-
-      // }
+     
 
       return (
             <Container maxWidth="xl">

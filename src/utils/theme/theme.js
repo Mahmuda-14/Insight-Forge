@@ -1,62 +1,31 @@
 
 "use client";
 
-// import {  createTheme, ThemeProvider } from '@mui/material/styles';
-// const themeColor = createTheme({
-//     palette: {
-//         primary: {
-//           main: '#87CEEB',
-//           mainGradient: "linear-gradient(to right, #2980b9, #6dd5fa, #ffffff)",
-//           contrastText:"black"
-//         },
-//         // ...
-//       },
-//     breakpoints: {
-//         values: {
-//           xs: 0,
-//           sm: 600,
-//           md: 900,
-//           lg: 1200,
-//           xl: 1536,
-//         },
-//       },
-// })
-import { blueGrey } from '@mui/material/colors';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import {  createTheme, ThemeProvider } from '@mui/material/styles';
 const themeColor = createTheme({
-  palette: {
-    primary: {
-      // main: blueGrey[700],
-      main: '#385961',
-      // mainGradient: "linear-gradient(to right, #3d5f73, #6dd5fa, #ffffff)",
-      contrastText: "white",
-    },
-    // ...
-  },
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 900,
-      lg: 1200,
-      xl: 1536,
-    },
-  },
-  overrides: {
-    MuiCssBaseline: {
-      '@global': {
-        body: {
-          // backgroundImage: 'linear-gradient(to right, #3d5f73, #6dd5fa, #ffffff)',
-          /* You can adjust background size, position, and other properties as needed */
-          // backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          // backgroundAttachment: '', // optional
+    palette: {
+        primary: {
+          main: '#ff4400',
+          mainGradient: "linear-gradient(to right, #FFFFFF, #87CEEB)",
+          contrastText:"black"
+        },
+        secondary: {
+          main:"#C5FFF8"
+        }
+        // ...
+      },
+    breakpoints: {
+        values: {
+          xs: 0,
+          sm: 600,
+          md: 900,
+          lg: 1480,
+          xl: 1536,
         },
       },
-    },
-  },
-});
+})
+
+
 
 const WebTheme = ({ children }) => {
   return (

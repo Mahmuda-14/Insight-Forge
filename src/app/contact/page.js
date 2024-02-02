@@ -5,6 +5,8 @@ import emailjs from '@emailjs/browser';
 import toast from "react-hot-toast";
 import Lottie from "lottie-react";
 import ContactUsAnimation from "../../assets/ContactUsAnimation.json"
+import DrawerAppBar from "@/components/shared/Navbar/Navbar";
+import Footer from "@/components/shared/footer/Footer";
 
 
 export default function Contact() {
@@ -31,7 +33,7 @@ export default function Contact() {
     return (
 
         <Container component="main" maxWidth="md">
-
+            <DrawerAppBar></DrawerAppBar>
             <Box
                 sx={{
                     marginTop: 8,
@@ -42,7 +44,7 @@ export default function Contact() {
             >
 
                 <Paper elevation={10} sx={{ width: '210px', mx: 'auto', my: 4, background: '#F9C5D5' }}><Typography variant="h4" sx={{ px: '12px', py: '5px', color: '#B2533E', fontWeight: 600 }}>Contact us</Typography></Paper>
-                <Grid spacing={5}  container sx={{justifyContent:"center", alignItems:"center"}}>
+                <Grid spacing={5} container sx={{ justifyContent: "center", alignItems: "center" }}>
                     <Grid item xs={12} md={6}>
                         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                             <TextField
@@ -93,7 +95,7 @@ export default function Contact() {
                     </Grid>
                 </Grid>
             </Box>
-
+            <Footer></Footer>
         </Container>
 
     );

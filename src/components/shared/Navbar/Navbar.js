@@ -23,38 +23,33 @@ import CloseIcon from "@mui/icons-material/Close";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import Image from 'next/image';
 import useAuth from '@/app/hooks/useAuth';
+import { useTheme } from '@emotion/react';
 import { Work } from '@mui/icons-material';
-import bg2 from '../../../assets/Insight Forge (3).png'
+
 const drawerWidth = 240;
 const navItems = [
   {
+    id: "1",
     route: "Home",
     pathname: "/",
     icon: <HomeIcon />,
   },
   {
+    id: "2",
     route: "Blogs",
-    pathname: "/blogs",
+    pathname: "blogs",
     icon: <EditNoteIcon />,
   },
   {
-    route: "Register",
-    pathname: "/register",
-    icon: <AppRegistrationIcon />,
-  },
-  {
+    id: "3",
     route: "Contact",
-    pathname: "/contact",
+    pathname: "contact",
     icon: <PhoneIcon />,
   },
   {
-    route: "job",
-    pathname: "/job",
-    icon: <Work />,
-  },
-  {
+    id: "4",
     route: "Discussion ",
-    pathname: "/discussion ",
+    pathname: "discussion ",
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 55 55" fill="none">
       <path d="M20.6248 32.0833C20.6248 35.2487 18.061 37.8125 14.8957 37.8125C11.7303 37.8125 9.1665 35.2487 9.1665 32.0833C9.1665 28.918 11.7303 26.3542 14.8957 26.3542C18.061 26.3542 20.6248 28.918 20.6248 32.0833Z" fill="#984900" />
       <path d="M3.4375 46.2152C3.4375 42.1514 11.0716 40.1042 14.8958 40.1042C18.7201 40.1042 26.3542 42.1514 26.3542 46.2152V49.2708H3.4375V46.2152Z" fill="#984900" />
@@ -65,30 +60,40 @@ const navItems = [
       <path fillRule="evenodd" clipRule="evenodd" d="M21.8783 20.625C27.8902 20.625 32.7637 16.7774 32.7637 12.0312C32.7637 7.28505 27.8902 3.4375 21.8783 3.4375C15.8665 3.4375 10.9929 7.28505 10.9929 12.0312C10.9929 13.1842 11.2805 14.2841 11.8021 15.2886C10.65 16.7007 10.3678 18.8388 10.313 20.1826C10.293 20.6716 10.8835 20.9218 11.2756 20.6288C12.062 20.0411 13.3108 19.244 14.9331 18.6488C16.8177 19.8831 19.2383 20.625 21.8783 20.625Z" fill="#984900" />
       <path fillRule="evenodd" clipRule="evenodd" d="M30.2124 20.4709C33.1747 18.4748 35.0665 15.4355 35.0665 12.0312C35.0665 11.1154 34.9296 10.226 34.6718 9.37613C35.3479 9.23934 36.0559 9.16666 36.7852 9.16666C41.5314 9.16666 45.379 12.2447 45.379 16.0417C45.379 17.1284 45.0639 18.1561 44.5027 19.0698C45.0326 19.9674 45.221 21.093 45.2822 21.9398C45.3174 22.428 44.7266 22.6839 44.3254 22.4034C43.8289 22.0563 43.1528 21.6481 42.3228 21.2993C40.8272 22.3085 38.895 22.9167 36.7852 22.9167C34.1483 22.9167 31.7887 21.9665 30.2124 20.4709Z" fill="#984900" />
     </svg>,
-  }
+  },
+  {
+    id: "5",
+    route: "VirtualHackathon",
+    pathname: "/hackathon",
+    icon: <EditNoteIcon />,
+  },
+  {
+    id: "6",
+    route: "job",
+    pathname: "/job",
+    icon: <Work />,
+  },
 ];
 
 const settings = [
   {
-    route: "Profile",
-    pathname: "/profile",
-  },
-  {
-    route: "Dashboard",
-    pathname: "/dashboard",
-  }
-];
+    id: "1",
+    route: "Dashboard ",
+    pathname: "dashboard",
+
+  }]
 
 const DrawerAppBar = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const { user, logOut } = useAuth()
+  const theme = useTheme()
   console.log(user)
 
   const handleLogOut = () => {
     logOut()
-}
+  }
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -103,26 +108,24 @@ const DrawerAppBar = (props) => {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', color:'white' }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', color: "black" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
         MUI
       </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <ListItem key={item.id} disablePadding>
             <ListItemButton href={item.pathname} sx={{ textAlign: 'start' }}>
-            <ListItemIcon
-                      sx={{
-                        minWidth: 0,
-                        mr: open ? 3 : "auto",
-                        justifyContent: "center",
-                        // color: "#B2533E"
-                        color: "white"
-                      }}
-                    >
-                      {item.icon}
-                    </ListItemIcon>
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  justifyContent: "center",
+                  color: "black"
+                }}
+              >
+                {item.icon}
+              </ListItemIcon>
               <ListItemText primary={item.route} />
             </ListItemButton>
           </ListItem>
@@ -136,7 +139,7 @@ const DrawerAppBar = (props) => {
   return (
     <Box sx={{ display: 'flex', color: "white" }}>
       <CssBaseline />
-      <AppBar component="nav">
+      <AppBar component="nav" style={{ background: theme.palette.primary.mainGradient }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -152,60 +155,61 @@ const DrawerAppBar = (props) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-         <Image src={bg2} alt='company' className=' w-10 h-11'
+         {/* <Image src={bg2} alt='company' className=' w-10 h-11' */}
                                      
-                />
+                {/* /> */}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button href={item.pathname} key={item} sx={{ color: 'white' }}>
+              <Button href={item.pathname} key={item.id} sx={{ color: 'black', fontWeight:600 }}>
                 {item.route}
               </Button>
             ))}
           </Box>
           {
             user && user?.email ? <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src={user?.photoURL} />
-              </IconButton>
-            </Tooltip>
-            <Menu textAlign="center"
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                  <ListItem key={setting} disablePadding>
-                  <ListItemButton href={setting.pathname} sx={{ textAlign: 'center' }}>
-                    <ListItemText primary={setting.route} />
-                  </ListItemButton>
-                </ListItem>
-              ))}
-              <Button onClick={handleLogOut} sx={{ color: '#B2533E', textAlign: 'center' }}>
-                Logout
-              </Button>
-                
-            </Menu>
-          </Box> 
-          : 
-          <Box sx={{ flexGrow: 0}}>
-              <Button href='/login' sx={{ color: 'white' }}>
-                Login
-              </Button>
-            
-          </Box>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src={user?.photoURL} />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: '45px' }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                {settings.map((setting) => (
+                  <MenuItem key={setting.id} onClick={handleCloseUserMenu}>
+                    <Button href={setting.pathname} key={setting.id} sx={{ color: 'black' }}>
+                      {setting.route}
+                    </Button>
+                  </MenuItem>
+                ))}
+                  <MenuItem onClick={handleCloseUserMenu}>
+                  <Button onClick={handleLogOut} sx={{ color: 'black' }}>
+                     Log Out
+                    </Button>
+                  </MenuItem>
+              </Menu>
+            </Box>
+              :
+              <Box sx={{ flexGrow: 0 }}>
+                <Button href='/login' sx={{ color: '#B2533E' }}>
+                  Login
+                </Button>
+
+              </Box>
           }
         </Toolbar>
       </AppBar>

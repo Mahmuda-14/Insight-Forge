@@ -14,6 +14,8 @@ import useAxiosSecure from '../hooks/useAxiosSecure';
 import useDiscussData from '../hooks/useDiscussData';
 import useBlogs from '../hooks/useBlogs';
 import Link from 'next/link';
+import DrawerAppBar from '@/components/shared/Navbar/Navbar';
+import Footer from '@/components/shared/footer/Footer';
 
 
 const style = {
@@ -22,7 +24,7 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
-    bgcolor: 'background.paper',
+    backgroundColor:'#C5FFF8',
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
@@ -100,7 +102,8 @@ const page = () => {
 
 
     return (
-        <Box className="discussion overflow-x-hidden">
+        <Box className="discussion overflow-x-hidden"  style={{ background: 'linear-gradient(to right, #FFFFFF, #87CEEB)', padding:'10px' }}>
+            <DrawerAppBar></DrawerAppBar>
             {/*header part*/}
             <Stack className="discusHeader"
                 direction="row"
@@ -110,7 +113,7 @@ const page = () => {
             >
                 <Typography className="topQus" variant="h4">Top Questions</Typography>
                 <div>
-                    <button className="askBtn" variant="outlined" onClick={handleOpen}>Ask Question</button>
+                    <button className='mt-10 px-5 py-3 rounded mx-auto text-black font-semibold bg-[#C5FFF8]' onClick={handleOpen}>Ask Question</button>
                     <Modal
                         aria-labelledby="transition-modal-title"
                         aria-describedby="transition-modal-description"
@@ -134,6 +137,7 @@ const page = () => {
                                         label="Title"
                                         multiline
                                         maxRows={4}
+                                        sx={{width:'100%', my:1}}
                                     />
                                     <TextField name='description'
                                         required
@@ -142,6 +146,7 @@ const page = () => {
                                         label="Description"
                                         multiline
                                         rows={4}
+                                        sx={{width:'100%', my:1}}
                                     />
                                     <InputLabel id="demo-select-small-label">Age</InputLabel>
                                     <Select className='input' name='category'
@@ -151,6 +156,7 @@ const page = () => {
                                         autoWidth
                                         label="Age"
                                         onChange={handleChange}
+                                        sx={{width:'100%', my:1}}
                                     >
                                         <MenuItem value="">
                                             <em>None</em>
@@ -219,7 +225,7 @@ const page = () => {
                     }
                 </Grid>
             </Grid>
-
+<Footer></Footer>
         </Box>
     );
 };

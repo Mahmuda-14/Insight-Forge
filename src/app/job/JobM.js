@@ -1,9 +1,17 @@
-
+"use client"
 
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 
 const JobM = () => {
+
+    const [showMoreInfo, setShowMoreInfo] = useState(false);
+
+    const handleReadMoreClick = () => {
+      setShowMoreInfo(!showMoreInfo);
+    };
+
+
     return (
         <div className='mx-auto'>
             <div>
@@ -40,10 +48,42 @@ const JobM = () => {
                         height={130}
 
                     />
-                    <h2 className="text-xl font-bold text-gray-800 mb-2">Card Title</h2>
-                    <p className="text-gray-600">This is a simple card example using Tailwind CSS. Customize it as per your needs.</p>
-                    <button className="bg-[#87CEEB] text-white px-4 py-2 mt-4 rounded-md hover:bg-[#6495ED] focus:outline-none focus:ring focus:border-blue-300">Read More</button>
+                     <h2 className="text-xl font-bold text-gray-800 mb-2">Card Title</h2>
+                    <p className="text-gray-600 my-[10px]">This is a simple card example using Tailwind CSS. Customize it as per your needs.</p>
+
+                     {showMoreInfo && (
+        <p className='mb-[20px] text-gray-600'>Additional information that is revealed when Read More is clicked.</p>
+      )}
+
+      <button
+        onClick={handleReadMoreClick}
+        className="bg-[#87CEEB] text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+      >
+        {showMoreInfo ? 'Read Less' : 'Read More'}
+      </button>
                 </div>
+
+
+
+
+                {/* <div className="w-[500px] bg-white p-8 rounded shadow-md mt-[50px]">
+      <p className='text-teal-600 text-[30px] mb-[30px] font-bold'>More Info</p>
+
+      <p className='mb-[20px]'>Empowering careers through seamless integration, our job-focused platform connects talented individuals with dynamic opportunities, fostering professional growth and success.</p>
+
+      {showMoreInfo && (
+        <p className='mb-[20px]'>Additional information that is revealed when Read More is clicked.</p>
+      )}
+
+      <button
+        onClick={handleReadMoreClick}
+        className="bg-[#87CEEB] text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+      >
+        {showMoreInfo ? 'Read Less' : 'Read More'}
+      </button>
+    </div> */}
+
+
 
                 <div className="max-w-md w-full mx-auto bg-white shadow-md p-8 rounded-md" style={{ float: 'left' }}>
                     <Image
@@ -54,8 +94,18 @@ const JobM = () => {
 
                     />
                     <h2 className="text-xl font-bold text-gray-800 mb-2">Card Title</h2>
-                    <p className="text-gray-600">This is a simple card example using Tailwind CSS. Customize it as per your needs.</p>
-                    <button className="bg-[#87CEEB] text-white px-4 py-2 mt-4 rounded-md hover:bg-[#6495ED] focus:outline-none focus:ring focus:border-blue-300">Read More</button>
+                    <p className="text-gray-600 my-[10px]">This is a simple card example using Tailwind CSS. Customize it as per your needs.</p>
+
+                     {showMoreInfo && (
+        <p className='mb-[20px] text-gray-600'>Additional information that is revealed when Read More is clicked.</p>
+      )}
+
+      <button
+        onClick={handleReadMoreClick}
+        className="bg-[#87CEEB] text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+      >
+        {showMoreInfo ? 'Read Less' : 'Read More'}
+      </button>
                 </div>
 
                 <div className="max-w-md w-full mx-auto bg-white shadow-md p-8 rounded-md" style={{ float: 'left' }}>
@@ -67,8 +117,18 @@ const JobM = () => {
 
                     />
                     <h2 className="text-xl font-bold text-gray-800 mb-2">Card Title</h2>
-                    <p className="text-gray-600">This is a simple card example using Tailwind CSS. Customize it as per your needs.</p>
-                    <button className="bg-[#87CEEB] text-white px-4 py-2 mt-4 rounded-md hover:bg-[#6495ED] focus:outline-none focus:ring focus:border-blue-300">Read More</button>
+                    <p className="text-gray-600 my-[10px]">This is a simple card example using Tailwind CSS. Customize it as per your needs.</p>
+
+                     {showMoreInfo && (
+        <p className='mb-[20px] text-gray-600'>Additional information that is revealed when Read More is clicked.</p>
+      )}
+
+      <button
+        onClick={handleReadMoreClick}
+        className="bg-[#87CEEB] text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+      >
+        {showMoreInfo ? 'Read Less' : 'Read More'}
+      </button>
                 </div>
             </div>
 

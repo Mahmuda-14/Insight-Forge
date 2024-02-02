@@ -13,31 +13,38 @@ import useAxiosPublic from '../hooks/useAxiosPublic';
 
 const JobCard = () => {
 
- 
-    const [job, setJobs] = useState([]);
-    const axiosPublic = useAxiosPublic();
 
- // eslint-disable-next-line react-hooks/rules-of-hooks
-    useEffect(() => {
+  const [job, setJobs] = useState([]);
+  const axiosPublic = useAxiosPublic();
 
-        axiosPublic.get('/job')
-          .then(res => {
-            setJobs(res.data)
-          })
-    
-      }, [])
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+
+    axiosPublic.get('/job')
+      .then(res => {
+        setJobs(res.data)
+      })
+
+  }, [])
 
 
-    return (
+  return (
+    <div>
+      <div className=' text-center'>
+        <h2 className=' text-3xl font-bold'>Browse top jobs</h2>
+        <p className='text-xl sm:mx-4 lg:mx-[24rem] my-3'>Empowering careers through seamless integration, our job-focused platform connects talented individuals with dynamic
+          opportunities,fostering professional growth and success.</p></div>
+      <div className='grid grid-cols-4 gap-3 mx-4 my-7'>
+        {
+          job.map(item => <Job key={item.id} item={item}></Job>)
+        }
 
-         <div className='grid grid-cols-4 gap-3 mx-4 my-7'>
-            {
-                job.map(item => <Job key={item.id} item={item}></Job>)
-            }
+      </div>
+    </div>
 
-        </div>  
 
-    );
+
+  );
 };
 
 export default JobCard;
@@ -70,7 +77,7 @@ export default JobCard;
 
 // import React from 'react';
 // import { motion } from 'framer-motion';
-// import Image from 'next/image'; 
+// import Image from 'next/image';
 // import bg2 from '../../../public/job1.svg';
 
 // const JobCard = () => {
