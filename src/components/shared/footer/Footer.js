@@ -16,7 +16,7 @@ const Footer = () => {
  
 
   return (
-    <Container  >
+    <Container  maxWidth='xl'>
     <footer style={{
       backgroundImage: 'url("https://i.ibb.co/JtjnqGC/Colorful-Playful-School-Class-Zoom-Virtual-Background.png")',
       backgroundSize: 'cover',

@@ -65,12 +65,13 @@ const page = () => {
           {blogs && blogs.length > 0 ? (
             blogs.map((item, i) => (
               <Grid key={i} item xs={12} md={6}>
-                <Card className="card" >
+                <Card className="card w-auto h-[400px]" >
                   <CardMedia
                     component="img"
                     height="294"
                     image={item.image}
                     alt="Paella dish"
+                   
                   />
                   <CardContent>
                     <Typography style={{ color: 'black', margin: '10px 0px' }} variant="h5" color="text.secondary">
