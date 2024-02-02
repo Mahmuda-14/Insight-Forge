@@ -5,9 +5,12 @@ const themeColor = createTheme({
     palette: {
         primary: {
           main: '#ff4400',
-          mainGradient: "linear-gradient(to right, #2980b9, #6dd5fa, #ffffff)",
+          mainGradient: "linear-gradient(to right, #FFFFFF, #87CEEB)",
           contrastText:"black"
         },
+        secondary: {
+          main:"#C5FFF8"
+        }
         // ...
       },
     breakpoints: {

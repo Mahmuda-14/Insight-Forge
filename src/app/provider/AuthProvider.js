@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       if (currentUser) {
         const user = {
-          uEmail: currentUser.email
+          uEmail: currentUser.email,
         };
         console.log(currentUser.displayName)
         console.log(user)
@@ -87,6 +87,7 @@ const AuthProvider = ({ children }) => {
     googleLogIn,
     loading,
     updateUser,
+    loading
   };
 
   return (

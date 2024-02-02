@@ -13,6 +13,8 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import { Box, Container, Grid, Stack, TextField } from "@mui/material";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import DrawerAppBar from "@/components/shared/Navbar/Navbar";
+import Footer from "@/components/shared/footer/Footer";
 
 
 const page = () => {
@@ -42,6 +44,8 @@ const page = () => {
 
   return (
     <Container maxWidth="xl">
+      <DrawerAppBar>
+       </DrawerAppBar>
       <Box>
         <Typography variant="h3" sx={{ color: "#B2533E", textAlign: "center", fontWeight: 700 }} > Knowledge Revolution </Typography>
 
@@ -101,6 +105,7 @@ const page = () => {
           )}
         </Grid>
       </Box>
+      <Footer></Footer>
     </Container>
   );
 };
