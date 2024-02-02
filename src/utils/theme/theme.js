@@ -1,3 +1,4 @@
+
 "use client";
 
 import {  createTheme, ThemeProvider } from '@mui/material/styles';
@@ -24,12 +25,14 @@ const themeColor = createTheme({
       },
 })
 
-const WebTheme = ({children}) => {
-    return(
-        <ThemeProvider theme={themeColor}>
-            {children}
-        </ThemeProvider>
-    )
+
+
+const WebTheme = ({ children }) => {
+  return (
+    <ThemeProvider theme={themeColor}>
+      {children}
+    </ThemeProvider>
+  );
 };
 
 export default WebTheme;

@@ -130,7 +130,7 @@ const DrawerAppBar = (props) => {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex', color: "#B2533E" }}>
+    <Box sx={{ display: 'flex', color: "white" }}>
       <CssBaseline />
       <AppBar component="nav" style={{ background: theme.palette.primary.mainGradient }}>
         <Toolbar>
@@ -148,7 +148,9 @@ const DrawerAppBar = (props) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+         <Image src={bg2} alt='company' className=' w-10 h-11'
+                                     
+                />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
