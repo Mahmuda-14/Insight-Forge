@@ -15,6 +15,9 @@ import { useForm } from "react-hook-form";
 import useAuth from '@/app/hooks/useAuth';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import { Chip, Divider } from '@mui/material';
+import GoogleIcon from '@mui/icons-material/Google';
+import useAxiosPublic from '../hooks/useAxiosPublic';
 
 
 
@@ -29,7 +32,7 @@ function Copyright(props) {
     >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        InsightForge
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -38,7 +41,8 @@ function Copyright(props) {
 }
 
 export default function LogInPage() {
-  const { signIn } = useAuth();
+  const { signIn, googleLogIn } = useAuth();
+  const axiosPublic = useAxiosPublic()
 
   const {
     register,
@@ -59,6 +63,30 @@ export default function LogInPage() {
 
     });
   };
+  const handleGoogleLogIn = () => {
+
+    googleLogIn()
+      .then(result => {
+        console.log(result.user)
+
+        const userInfo = {
+          email: result?.user?.email,
+          name: result?.user?.displayName,
+          role: "user"
+        }
+        axiosPublic.post('/users', userInfo)
+          .then(res => {
+            console.log(res.data);
+
+          })
+
+        router.push('/')
+      })
+      .catch()
+
+
+
+  }
 
   return (
     <Grid container component="main" sx={{ height: "100vh" }}>
@@ -87,7 +115,7 @@ export default function LogInPage() {
         component={Paper}
         elevation={6}
         square
-        sx={{ backgroundColor: "#b9f6ca" }}
+        style={{ background: 'linear-gradient(to right, #FFFFFF, #87CEEB)', padding: '10px' }}
       >
         <Box
           sx={{
@@ -98,7 +126,7 @@ export default function LogInPage() {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <Avatar sx={{ m: 1, bgcolor: "#2e7d32" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography
@@ -125,6 +153,7 @@ export default function LogInPage() {
               autoComplete="email"
               autoFocus
               {...register("email", { required: true })}
+              sx={{ backgroundColor: "#C5FFF8" }}
             />
             {errors.email && <span>Email field is required</span>}
             <TextField
@@ -137,26 +166,34 @@ export default function LogInPage() {
               id="password"
               autoComplete="current-password"
               {...register("password", { required: true })}
+              sx={{ backgroundColor: "#C5FFF8" }}
             />
             {errors.password && <span>Password field is required</span>}
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2, backgroundColor: "#2e7d32" }}
+            <button
+
+              className='font-semibold w-full py-2 rounded mt-3 mb-2 bg-[#C5FFF8] text-black'
             >
               Sign In
-            </Button>
+            </button>
             <Grid container>
               <Grid item>
-                <Link href="/register" sx={{color:"#2e7d32"}}>
+                <Link href="/register" sx={{ color: "#2e7d32", textDecoration: "none", fontWeight: 600 }}>
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
-            <Copyright sx={{ mt: 5 }} />
+
           </Box>
+          <Divider sx={{ mt: 5, border:'black' }}>
+            <Chip label="OR" size="small" />
+          </Divider>
+          <button onClick={handleGoogleLogIn} className=" font-semibold w-full py-2 rounded mt-7 mb-2 text-lg bg-[#C5FFF8] text-black">
+            <GoogleIcon sx={{ mr: 3, color: "blue" }} />
+            Google Log In
+          </button>
+          <Copyright sx={{ mt: 5 }} />
         </Box>
+
       </Grid>
     </Grid>
   );
