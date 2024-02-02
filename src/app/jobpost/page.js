@@ -51,11 +51,11 @@ const page = () => {
       email: user?.email,
       formData
     }
-  
+
     console.log('discusItem:', discusItem);
 
-    
-  
+
+
     axiosPublic.post('/job', discusItem)
       .then(res => {
         console.log(res.data)
@@ -68,7 +68,7 @@ const page = () => {
       });
     // console.log(formData);
   };
-  
+
 
 
   return (
