@@ -5,7 +5,7 @@ import React from 'react';
 const PostForm = () => {
     return (
         <div>
-             <div className='lg:flex md:flex-col sm:flex-col justify-center items-center mt-[200px]'>
+             <div className='lg:flex md:flex-col-1 sm:flex-col-1 justify-center items-center mt-[200px]'>
                 <div className="flex justify-around items-center lg:w-[610px] md:w-[500px] sm:w-[450px] h-[310px] mx-auto  shadow-md p-8 rounded-md bg-[#B9FF66]">
                     <Image
                         src="https://i.ibb.co/LJQR7LP/18-removebg-preview.png"
