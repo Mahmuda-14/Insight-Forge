@@ -121,8 +121,6 @@ export default function RegistrationPage() {
       })
       .catch()
 
-
-
   }
 
   return (
@@ -251,7 +249,9 @@ export default function RegistrationPage() {
               >
                 Sign Up
               </button>
-              <Grid container justifyContent="flex-start">
+            </Box>
+
+            <Grid container justifyContent="flex-start">
                 <Grid item>
                   <Link href="/login" sx={{ color: "#2e7d32", textDecoration: "none", fontWeight: 600 }}>
                     Already have an account? Sign in
@@ -261,8 +261,7 @@ export default function RegistrationPage() {
               <Divider sx={{ mt: 5 }}>
                 <Chip label="OR" size="small" />
               </Divider>
-
-            </Box>
+              
             <button onClick={handleGoogleLogIn} className=" font-semibold w-full py-2 rounded mt-7 mb-2 text-lg bg-[#C5FFF8] text-black">
               <GoogleIcon sx={{ mr: 3, color: "blue" }} />
               Google Log In

@@ -43,7 +43,7 @@ const page = () => {
   }
 
   return (
-    <Container maxWidth="xl">
+    <Box sx={{maxWidth:"xl", mx:"auto"}}>
       <DrawerAppBar>
        </DrawerAppBar>
       <Box>
@@ -107,7 +107,7 @@ const page = () => {
         </Grid>
       </Box>
       <Footer></Footer>
-    </Container>
+    </Box>
   );
 };
 

@@ -76,7 +76,7 @@ const Hackathonbanner = () => {
     }
        
         return (
-            <Container maxWidth="xl">
+            <Box sx={{maxWidth:"xl", mx:"auto"}}>
 
                 <div style={divBackground}>
                     {/* Overlay */}
@@ -152,7 +152,7 @@ const Hackathonbanner = () => {
                     </div>
                 </div>
 
-            </Container>
+            </Box>
         );
     };
 
