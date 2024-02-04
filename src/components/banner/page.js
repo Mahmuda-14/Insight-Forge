@@ -28,13 +28,13 @@ const Banner = () => {
 
       return (
             <Container maxWidth="xl">
-                  <div style={divBackground}>
+                  <div style={divBackground} >
                         {/* Overlay */}
                         <div style={overlayStyle}>
 
                               {/* Content Section */}
-                              <div style={{height:'500px'}}>
-                                    <Typography variant='h3' style={{ textAlign: 'center', color: '#F9C5D5', fontWeight: 600 }}>Welcome to the World of Knowledge Sharing</Typography>
+                              <div style={{height:'500px'}} >
+                                    <Typography variant='h3' style={{ textAlign: 'center', color: '#F9C5D5', fontWeight: 600 }} >Welcome to the World of Knowledge Sharing</Typography>
                                     <Typography sx={{ textAlign: 'center', color: '#F9C5D5', mt: 5 }} >Unlocking Wisdom, Empowering Minds: Explore a World of Knowledge with Insight Forge , Our Knowledge Share Platform. Join the Conversation, Ignite Learning, and Fuel Curiosity !</Typography>
 
                                     <Box sx={{ textAlign: "center" }}> <Button sx={{ background: "#B2533E", mt: 5, px: 3, py: 2, mx: "auto" }} href='/discussion' >Explore Discussion</Button></Box>
@@ -67,4 +67,5 @@ const Banner = () => {
 };
 
 export default Banner;
+
 
