@@ -11,36 +11,43 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-import { Box, Container, Grid, Stack, TextField } from "@mui/material";
+import { Box,Button,Grid, Stack, TextField} from "@mui/material";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import { Container } from "postcss";
+import { FaSearchLocation } from "react-icons/fa";
+import { red } from "@mui/material/colors";
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import DrawerAppBar from "@/components/shared/Navbar/Navbar";
 import Footer from "@/components/shared/footer/Footer";
 
 
+
 const page = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [blogs, setBlogs] = useState();
-  const axiosPublic = useAxiosPublic();
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [search, setSearch] = useState()
+   // eslint-disable-next-line react-hooks/rules-of-hooks
+   //const [blogs, setBlogs] = useState();
+   const axiosPublic = useAxiosPublic();
+   const [article, setArticle]= useState([ ])
 
+   console.log(article)
+   // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [search,setSearch] =useState()
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  useEffect(() => {
+// eslint-disable-next-line react-hooks/rules-of-hooks
+useEffect(()=>{
+  axiosPublic.get("/allBlogs")
+  .then(res=>{
+    setArticle(res.data)
+})
 
-    axiosPublic.get(`/allBlog?search=${search}`)
-      .then(res => {
-        setBlogs(res.data)
-      })
-
-  }, [search])
+},[search])
 
   const handleSearch = (e) => {
     e.preventDefault();
     const searchText = e.target.value;
     setSearch(searchText)
+    
+}
 
-  }
 
   return (
     <Box sx={{maxWidth:"xl", mx:"auto"}}>
@@ -112,5 +119,4 @@ const page = () => {
 };
 
 export default page;
-
 
