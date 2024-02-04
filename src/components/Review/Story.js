@@ -11,16 +11,16 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { brown, red } from "@mui/material/colors";
+import { blueGrey, brown, red } from "@mui/material/colors";
 
 const Story = () => {
   return (
     <div>
       <Card
         sx={{
-          paddingTop: "20px",
+          paddingTop: "143px",
           paddingBottom: "50px",
-          backgroundColor: red[800],
+          backgroundColor: blueGrey[400],
           color: "white",
           px:2
           
