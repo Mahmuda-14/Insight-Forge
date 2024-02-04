@@ -8,7 +8,7 @@ import DrawerAppBar from "../Navbar/Navbar";
 const MainLayout = ({ children }) => {
   return (
     <>
-      <Box sx={{maxWidth:"xl", overflowX: "hidden"}}>
+      <Box sx={{maxWidth:"xl", overflow:"hidden"}}>
        
         {children}
       

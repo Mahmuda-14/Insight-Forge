@@ -34,7 +34,15 @@ const page = () => {
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 useEffect(()=>{
+<<<<<<< HEAD
   axiosPublic.get(`/allBlog?search=${search}`)
+=======
+<<<<<<< HEAD
+  axiosPublic.get(`/allBlog?search=${search}`)
+=======
+  axiosPublic.get("/allBlogs")
+>>>>>>> 1afe671e7a2358060cd8a37bdeb722c1145ce41c
+>>>>>>> 93a97b8d17b48bd94db20f640fc22feb874e307d
   .then(res=>{
     setArticle(res.data)
 })
@@ -56,6 +64,10 @@ useEffect(()=>{
       
       <Typography variant="h6" sx={{color:"black", textAlign:"center", mt:3}} >Explore practical strategies for continuous <br/> learning and adapting to the ever-evolving world of information</Typography>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 93a97b8d17b48bd94db20f640fc22feb874e307d
       {/* <Stack justifyContent='center' alignItems='center' >
       <form  style={{ display: 'flex', gap: '4px',marginTop:'8px' }}>
       <Box
@@ -67,6 +79,67 @@ useEffect(()=>{
                   border: 'none'
             }}>
             <TextField type='text' fullWidth onKeyUp={handleSearch}  placeholder='Search category ' id="fullWidth" />
+<<<<<<< HEAD
+=======
+=======
+        <Typography variant="h6" sx={{ color: "#CD5C08", textAlign: "center", mt: 3 }} >Explore practical strategies for continuous <br /> learning and adapting to the ever-evolving world of information</Typography>
+
+        <Stack justifyContent='center' alignItems='center' >
+          <form style={{ display: 'flex', gap: '4px', marginTop: '8px' }}>
+            <Box
+              sx={{
+                width: { xs:400, md:500},
+                maxWidth: '100%',
+                backgroundColor: 'white',
+                outline: 'none',
+                border: 'none'
+              }}>
+              <TextField type='text' fullWidth onKeyUp={handleSearch} placeholder='Search category ' id="fullWidth" />
+            </Box>
+          </form>
+        </Stack>
+        <Grid mt={5} container spacing={2}>
+          {blogs && blogs.length > 0 ? (
+            blogs.map((item, i) => (
+              <Grid key={i} item xs={12} md={6}>
+                <Card className="card w-auto h-[400px]" >
+                  <CardMedia
+                    component="img"
+                    height="294"
+                    image={item.image}
+                    alt="Paella dish"
+                   
+                  />
+                  <CardContent>
+                    <Typography style={{ color: 'black', margin: '10px 0px' }} variant="h5" color="text.secondary">
+                      {item.title}
+                    </Typography>
+
+                    <Typography style={{ color: 'black', margin: '5px 5px' }} variant="body" color="text.secondary">
+                      Category: {item.category}
+                    </Typography>
+
+                    <Typography style={{ fontSize: '18px' }} variant="body2" color="text.secondary">
+                      {item.details}
+                    </Typography>
+                  </CardContent>
+                  {/*  <CardActions disableSpacing>
+                  <IconButton aria-label="add to favorites">
+                    <FavoriteIcon />
+                  </IconButton>
+                  <IconButton aria-label="share">
+                    <ShareIcon />
+                  </IconButton>
+                </CardActions> */}
+                </Card>
+              </Grid>
+            ))
+          ) : (
+            <p>No data available.</p>
+          )}
+        </Grid>
+>>>>>>> 1afe671e7a2358060cd8a37bdeb722c1145ce41c
+>>>>>>> 93a97b8d17b48bd94db20f640fc22feb874e307d
       </Box>
       </form>
       </Stack> */}
@@ -216,4 +289,13 @@ useEffect(()=>{
   );
 };
 
+<<<<<<< HEAD
 export default page;
+=======
+<<<<<<< HEAD
+export default page;
+=======
+export default page;
+
+>>>>>>> 1afe671e7a2358060cd8a37bdeb722c1145ce41c
+>>>>>>> 93a97b8d17b48bd94db20f640fc22feb874e307d

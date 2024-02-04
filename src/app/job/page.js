@@ -7,18 +7,14 @@ import Gallery from './Gallery';
 import PostForm from './PostForm';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 import Footer from '@/components/shared/footer/Footer';
+import withAuth from '@/components/PrivateRoute/withAuth';
 
-const page = () => {
+const Job = () => {
 
   return (
-<<<<<<< HEAD
     <div style={{ background: 'linear-gradient(to right, #FFFFFF, #87CEEB)', padding: '10px' }}>
       <DrawerAppBar></DrawerAppBar>
       <div className='bg-gradient-to-r from-teal-800 to-slate-400 h-[23rem]'>
-=======
-    <div className='mx-auto'>
-      <div className='bg-gradient-to-r from-teal-800 to-slate-400 h-[23rem] w-full'>
->>>>>>> c5377cc61b243296f6476daa53e9a27de19bfada
         <h2 className='text-white p-4 pt-[80px] text-2xl ml-[113px] mt-5 text-center'>Find your dream job.</h2>
         <input name="text" type="text" placeholder="text" className="input input-bordered ml-[650px] mt-8 px-5 py-2 rounded-xl" required />
         <button class="btn ml-2 px-5 py-2 bg-black text-white rounded-xl">
@@ -36,6 +32,6 @@ const page = () => {
   );
 };
 
-export default page;
+export default withAuth(Job);
 
 

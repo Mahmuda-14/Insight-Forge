@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import Backdrop from '@mui/material/Backdrop';
-import { Box, Button, Card, CardContent, CardMedia, Container, Fab, Fade, Grid, InputLabel, MenuItem, Modal, Select, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, CardMedia, Container, Fab, Fade, Grid, InputLabel, MenuItem, Modal, Paper, Select, Stack, TextField, Typography } from "@mui/material";
 import './discus.css'
 import { QuestionAnswer } from "@mui/icons-material";
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
@@ -106,12 +106,12 @@ const page = () => {
             <DrawerAppBar></DrawerAppBar>
             {/*header part*/}
             <Stack className="discusHeader"
-                direction="row"
-                justifyContent="space-between"
+                direction="column"
+                justifyContent="center"
                 alignItems="center"
                 spacing={1}
             >
-                <Typography className="topQus" variant="h4">Top Questions</Typography>
+                 <Paper elevation={10} sx={{ maxWidth: '400px', mx: 'auto', my: 8, background: '#87CEEB', py:2, px:1 }}><Typography variant="h4" sx={{ px: '12px', py: '5px', color: 'black', fontWeight:600 }}>Top Questions</Typography></Paper>
                 <div>
                     <button className='mt-10 px-5 py-3 rounded mx-auto text-black font-semibold bg-[#C5FFF8]' onClick={handleOpen}>Ask Question</button>
                     <Modal
@@ -179,7 +179,7 @@ const page = () => {
             <Grid container className="discusContainer" spacing={2}>
                 <Grid item className='hidden md:block' md={6} lg={4} >
 
-                    <h2>Blogs</h2>
+                <Paper elevation={10} sx={{ maxWidth: '150px', mx: 'auto', my: 8, background: '#87CEEB', py:2, px:1 }}><Typography variant="h4" sx={{ px: '12px', py: '5px', color: 'black', fontWeight:600 }}>Blogs</Typography></Paper>
                     <div>
                         {
                             blogs?.map(blog =>

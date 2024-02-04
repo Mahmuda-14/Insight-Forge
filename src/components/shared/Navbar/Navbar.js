@@ -30,7 +30,6 @@ import Link from 'next/link';
 import {  useRouter } from 'next/navigation';
 import GroupsIcon from '@mui/icons-material/Groups';
 
-import { Work } from '@mui/icons-material';
 
 const drawerWidth = 240;
 const navItems = [
@@ -65,11 +64,11 @@ const navItems = [
     icon: <EditNoteIcon />,
   },
   {
-    id: "6",
-    route: "job",
+    id:"6",
+    route: "Job Board",
     pathname: "/job",
-    icon: <Work />,
-  },
+    icon: < PhoneIcon/>,
+  }
 ];
 
 const settings = [
@@ -107,9 +106,7 @@ const DrawerAppBar = (props) => {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', color: "black" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
+       <Image sx={{ flexGrow: 1 }} src={bg2} alt='company' width={80} height={80} />
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -154,14 +151,15 @@ const DrawerAppBar = (props) => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } , ml:3}}>
             {navItems.map((item) => (
                
-                <Button href={item.pathname} key={item} sx={{ color: 'black' , fontWeight:600}}>
-                  {item.route}
-                </Button>
+                <Link href={item.pathname} key={item.id} >
+                 <button className='py-1 px-3 rounded font-bold'> {item.route}</button>
+                </Link>
               
             ))}
           </Box>
           {
-            user && user?.email ? <Box sx={{ flexGrow: 0 }}>
+            user && user?.email ? 
+            <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt="Remy Sharp" src={user?.photoURL} />
@@ -199,7 +197,7 @@ const DrawerAppBar = (props) => {
             </Box>
               :
               <Box sx={{ flexGrow: 0 }}>
-                <Button href='/login' sx={{ color: '#B2533E' }}>
+                <Button href='/login' sx={{ color: 'black' }}>
                   Login
                 </Button>
 
