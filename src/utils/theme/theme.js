@@ -1,3 +1,4 @@
+
 "use client";
 
 import {  createTheme, ThemeProvider } from '@mui/material/styles';
@@ -5,9 +6,12 @@ const themeColor = createTheme({
     palette: {
         primary: {
           main: '#ff4400',
-          mainGradient: "linear-gradient(to right, #2980b9, #6dd5fa, #ffffff)",
+          mainGradient: "linear-gradient(to right, #FFFFFF, #87CEEB)",
           contrastText:"black"
         },
+        secondary: {
+          main:"#C5FFF8"
+        }
         // ...
       },
     breakpoints: {
@@ -15,18 +19,20 @@ const themeColor = createTheme({
           xs: 0,
           sm: 600,
           md: 900,
-          lg: 1200,
+          lg: 1480,
           xl: 1536,
         },
       },
 })
 
-const WebTheme = ({children}) => {
-    return(
-        <ThemeProvider theme={themeColor}>
-            {children}
-        </ThemeProvider>
-    )
+
+
+const WebTheme = ({ children }) => {
+  return (
+    <ThemeProvider theme={themeColor}>
+      {children}
+    </ThemeProvider>
+  );
 };
 
 export default WebTheme;

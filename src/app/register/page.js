@@ -10,7 +10,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Lottie from "lottie-react";
@@ -18,7 +18,9 @@ import LogInAnimation from "../../assets/LogInAnimation.json";
 import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
 import useAxiosPublic from "../hooks/useAxiosPublic";
-
+import { useTheme } from "@emotion/react";
+import GoogleIcon from '@mui/icons-material/Google';
+import { Chip, Divider } from "@mui/material";
 
 function Copyright(props) {
   return (
@@ -30,7 +32,7 @@ function Copyright(props) {
     >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        insightForge
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -42,8 +44,9 @@ export default function RegistrationPage() {
   const axiosPublic = useAxiosPublic()
 
 
-  const { registration, updateUser, logOut } = useAuth();
+  const { registration, updateUser, logOut, googleLogIn } = useAuth();
   const router = useRouter();
+  const theme = useTheme()
 
   const {
     register,
@@ -60,39 +63,74 @@ export default function RegistrationPage() {
 
     registration(uEmail, uPassword).then((result) => {
       const loggedUser = result.user;
+      console.log(loggedUser)
+      updateUser(data.name, data.photo)
+        .then(() => {
+          console.log('User profile Updated')
+          reset();
+          toast.success("user updated successfully")
+        });
+      logOut()
+        .then()
+        .catch()
+      router.push('/login')
+    })
 
-      const userInfo = {
-        uEmail: data.email,
-        uName: data.name,
-        uPhoto: data.photo,
-      }
+    const userInfo = {
+      uEmail: data.email,
+      uName: data.name,
+      uPhoto: data.photo,
+      role: "user"
+    }
 
-      axiosPublic.post('/users', userInfo)
-        .then(res => {
-          console.log(res.data)
-          if (res.data.__v === 0) {
-            console.log(loggedUser);
-            updateUser(uName, uPhoto).then(() => {
-              console.log("User profile Updated");
-              reset();
-              toast.success("User Updated Successfully");
-              logOut().then().catch();
-              router.push("/login");
-            });
-          }
-        }).catch(err => { console.log(err)})
+    axiosPublic.post('/users', userInfo)
+      .then(res => {
+        console.log(res.data)
+        if (res.data.__v === 0) {
+          console.log(loggedUser);
+          updateUser(uName, uPhoto).then(() => {
+            console.log("User profile Updated");
+            reset();
+            toast.success("User Updated Successfully");
+            logOut().then().catch();
+            router.push("/login");
+          });
+        }
+      }).catch(err => { console.log(err) })
 
-
-      
-    });
   };
 
+  const handleGoogleLogIn = () => {
+
+    googleLogIn()
+      .then(result => {
+        console.log(result.user)
+
+        const userInfo = {
+          email: result?.user?.email,
+          name: result?.user?.displayName,
+          role: "user"
+        }
+        axiosPublic.post('/users', userInfo)
+          .then(res => {
+            console.log(res.data);
+
+          })
+
+        router.push('/')
+      })
+      .catch()
+
+
+
+  }
+
   return (
-    <Container
+    <Box
       component="main"
-      maxWidth="xl"
-      sx={{ backgroundColor: "#b9f6ca" }}
+      style={{ background: theme.palette.primary.mainGradient, padding: "100px", maxWidth: "xl" }}
     >
+
       <CssBaseline />
       <Grid
         container
@@ -111,10 +149,10 @@ export default function RegistrationPage() {
               alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <Avatar sx={{ m: 1, bgcolor: "#2e7d32" }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5" sx={{ color: "#2e7d32" }}>
+            <Typography component="h1" variant="h4" sx={{ color: "#2e7d32", fontWeight: 600 }}>
               Sign up
             </Typography>
             <Box
@@ -134,6 +172,7 @@ export default function RegistrationPage() {
                     label="Name"
                     autoFocus
                     {...register("name", { required: true })}
+                    sx={{ backgroundColor: "#C5FFF8" }}
                   />
                   {errors.name && (
                     <Typography> Name field is required</Typography>
@@ -148,6 +187,7 @@ export default function RegistrationPage() {
                     name="Photo URL"
                     autoComplete="Photo URL"
                     {...register("photo", { required: true })}
+                    sx={{ backgroundColor: "#C5FFF8" }}
                   />
                   {errors.photo && (
                     <Typography> Photo URL Field is required</Typography>
@@ -162,6 +202,7 @@ export default function RegistrationPage() {
                     name="email"
                     autoComplete="email"
                     {...register("email", { required: true })}
+                    sx={{ backgroundColor: "#C5FFF8" }}
                   />
                   {errors.email && (
                     <Typography> Email Field is required</Typography>
@@ -182,6 +223,7 @@ export default function RegistrationPage() {
                       maxLength: 25,
                       pattern: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=])/,
                     })}
+                    sx={{ backgroundColor: "#C5FFF8" }}
                   />
                   {errors.password?.type === "required" && (
                     <Typography>Password is required </Typography>
@@ -203,26 +245,33 @@ export default function RegistrationPage() {
                   )}
                 </Grid>
               </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2, backgroundColor: "#2e7d32" }}
+              <button
+
+                className=" font-semibold w-full py-2 rounded mt-3 mb-2 bg-[#C5FFF8] text-black"
               >
                 Sign Up
-              </Button>
-              <Grid container justifyContent="flex-end">
+              </button>
+              <Grid container justifyContent="flex-start">
                 <Grid item>
-                  <Link href="/login" variant="body2">
+                  <Link href="/login" sx={{ color: "#2e7d32", textDecoration: "none", fontWeight: 600 }}>
                     Already have an account? Sign in
                   </Link>
                 </Grid>
               </Grid>
+              <Divider sx={{ mt: 5 }}>
+                <Chip label="OR" size="small" />
+              </Divider>
+
             </Box>
+            <button onClick={handleGoogleLogIn} className=" font-semibold w-full py-2 rounded mt-7 mb-2 text-lg bg-[#C5FFF8] text-black">
+              <GoogleIcon sx={{ mr: 3, color: "blue" }} />
+              Google Log In
+            </button>
           </Box>
         </Grid>
       </Grid>
       <Copyright sx={{ mt: 5 }} />
-    </Container>
+
+    </Box>
   );
 }

@@ -2,18 +2,17 @@
 import React from "react";
 import Footer from "../footer/Footer";
 
-import { Container } from "@mui/material";
+import { Box } from "@mui/material";
 import DrawerAppBar from "../Navbar/Navbar";
 
 const MainLayout = ({ children }) => {
   return (
     <>
-      <Container maxWidth="xl">
-       <DrawerAppBar>
-       </DrawerAppBar>
+      <Box sx={{maxWidth:"xl"}}>
+       
         {children}
-        <Footer></Footer>
-      </Container>
+      
+      </Box>
     </>
   );
 };

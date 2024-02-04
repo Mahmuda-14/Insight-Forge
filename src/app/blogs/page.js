@@ -17,6 +17,8 @@ import { Container } from "postcss";
 import { FaSearchLocation } from "react-icons/fa";
 import { red } from "@mui/material/colors";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import DrawerAppBar from "@/components/shared/Navbar/Navbar";
+import Footer from "@/components/shared/footer/Footer";
 
 
 
@@ -32,7 +34,7 @@ const page = () => {
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 useEffect(()=>{
-  axiosPublic.get(`/allBlog?search=${search}`)
+  axiosPublic.get("/allBlogs")
   .then(res=>{
     setArticle(res.data)
 })
@@ -48,10 +50,11 @@ useEffect(()=>{
 
 
   return (
-    <Box>
-      <Typography variant="h3" sx={{color:"#B2533E", textAlign:"center", fontWeight:700}} > Knowledge Revolution </Typography>
+    <Box className="overflow-hidden" style={{ background: 'linear-gradient(to right, #FFFFFF, #87CEEB)', padding:'10px' }}>
+      <DrawerAppBar></DrawerAppBar>
+      <Typography variant="h3" sx={{color:"black", textAlign:"center", fontWeight:700}} className="mt-5"> Knowledge Revolution </Typography>
       
-      <Typography variant="h6" sx={{color:"#CD5C08", textAlign:"center", mt:3}} >Explore practical strategies for continuous <br/> learning and adapting to the ever-evolving world of information</Typography>
+      <Typography variant="h6" sx={{color:"black", textAlign:"center", mt:3}} >Explore practical strategies for continuous <br/> learning and adapting to the ever-evolving world of information</Typography>
 
       {/* <Stack justifyContent='center' alignItems='center' >
       <form  style={{ display: 'flex', gap: '4px',marginTop:'8px' }}>
@@ -126,7 +129,7 @@ useEffect(()=>{
             }}>
             <TextField style={{borderRadius:0}} type='text' fullWidth onKeyUp={handleSearch}  placeholder='Search category ' id="fullWidth" />
         </Box>
-          <Button variant="contained" sx={{borderRadius:0}} endIcon={<FaSearchLocation style={{ color: 'white' }}  />}>
+          <Button className="bg-[#8BD0EC] hover:bg-[#8BD0EC]" variant="contained" sx={{borderRadius:0}} endIcon={<FaSearchLocation style={{ color: 'black' }}  />}>
           </Button>
 
           
@@ -138,8 +141,8 @@ useEffect(()=>{
 
 
       <div>
-        {article.map((category,i)=>(
-        <Typography key={i} component="div" mt={2} variant="body1" className="font-bold" >
+        {article.map((category)=>(
+        <Typography key={category._id} component="div" mt={2} variant="body1" className="font-bold" >
              {/* Use the actual title from the blog */}
              {category.category}
              
@@ -191,7 +194,7 @@ useEffect(()=>{
           }
          
           <Box className="flex justify-end items-end " >
-          <Button className=" w-4 " variant="contained" sx={{borderRadius:0}} endIcon= {<ArrowRightIcon  style={{ color: 'white',fontSize:'38px' }}  />}>
+          <Button className=" w-4 bg-[#8BD0EC] hover:bg-[#8BD0EC]" variant="contained" sx={{borderRadius:0}} endIcon= {<ArrowRightIcon  style={{ color: 'black',fontSize:'38px' }}  />}>
 
           </Button>
           </Box>
@@ -201,6 +204,7 @@ useEffect(()=>{
        </div>
       </div>
     </div>
+    <Footer></Footer>
     </Box>
     
 
@@ -213,5 +217,4 @@ useEffect(()=>{
 };
 
 export default page;
-
 
