@@ -107,8 +107,8 @@ export default function RegistrationPage() {
         console.log(result.user)
 
         const userInfo = {
-          email: result?.user?.email,
-          name: result?.user?.displayName,
+          uEmail: result?.user?.email,
+          uName: result?.user?.displayName,
           role: "user"
         }
         axiosPublic.post('/users', userInfo)
