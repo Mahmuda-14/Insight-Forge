@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
+
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client"
@@ -17,7 +20,10 @@ import Link from 'next/link';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 // import Footer from '@/components/shared/footer/Footer';
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
-
+import Marquee from "react-fast-marquee";
+import SouthIcon from '@mui/icons-material/South';
+import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import Image from 'next/image';
 const style = {
     position: 'absolute',
     top: '50%',
@@ -36,6 +42,8 @@ const Discuss = () => {
     const router = useRouter();
     const [discuss, reload] = useDiscussData()
     const [blogs, reloadBlog] = useBlogs()
+
+
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [open, setOpen] = React.useState(false);
@@ -101,30 +109,40 @@ const Discuss = () => {
     }
 
 
+    const marqueeProps = {
+
+        speed: 30,
+        direction: 'right',
+        pauseOnClick: 'false',
+        gradientColor: 'rgb(248,251,253)'
+
+    };
+
     return (
         <Box className="discussion overflow-x-hidden" style={{ padding: '10px' }}>
-            {/* <DrawerAppBar></DrawerAppBar> */}
-            {/*header part*/}
+
             <Stack className="discusHeader"
                 direction="column"
                 justifyContent="center"
                 alignItems="center"
                 spacing={1}
             >
-            
+
                 <div>
+                    <Marquee {...marqueeProps}>
+                        <p className=' text-3xl font-bold text-slate-800 my-5'>Ask Your Question Here</p>
+                        <SouthIcon style={{ width: '2em ', height: '1em' }}></SouthIcon>
+                    </Marquee>
 
-                    <input name="text" type="text" placeholder="text" className="input input-bordered rounded-xl" required />
-                    <button class="btn ml-2 px-5 py-2 bg-black text-white rounded-xl">
-                        Search
-                    </button>
+                    <div className=' my-10'>
 
+                        <SearchRoundedIcon style={{ width: '1.5em ', height: '2em' }} />  <TextField sx={{ paddingRight: '185px', paddingBottom: '4.5px' }} type='text' placeholder='Search category ' />
 
-                    <BorderColorOutlinedIcon style={{ width: '3em ', height: '2em' }}></BorderColorOutlinedIcon>
+                        <BorderColorOutlinedIcon style={{ width: '1.5em ', height: '2em' }}></BorderColorOutlinedIcon>
 
-                    <TextField label="Ask Your Question" focused onClick={handleOpen} style={{ paddingRight: '158px' }} />
+                        <TextField label="Ask Your Question" focused onClick={handleOpen} style={{ paddingRight: '158px' }} />
+                    </div>
 
-                    {/* <button className='mt-10 px-5 py-3 rounded mx-auto text-black font-semibold bg-[#C5FFF8]' onClick={handleOpen}>Ask Question</button> */}
                     <Modal
                         aria-labelledby="transition-modal-title"
                         aria-describedby="transition-modal-description"
@@ -187,10 +205,9 @@ const Discuss = () => {
 
             {/* question part */}
 
-            <Grid container className="discusContainer" spacing={2}>
+            <Grid container className="discusContainer" spacing={3}>
                 <Grid item className='hidden md:block' md={6} lg={4} >
 
-                    <Paper elevation={10} sx={{ maxWidth: '150px', mx: 'auto', my: 8, background: '#87CEEB', py: 2, px: 1 }}><Typography variant="h4" sx={{ px: '12px', py: '5px', color: 'black', fontWeight: 600 }}>Blogs</Typography></Paper>
                     <div>
                         {
                             blogs?.map(blog =>
@@ -201,14 +218,7 @@ const Discuss = () => {
                                             image={blog?.image}
                                             title="green iguana"
                                         />
-                                        <CardContent>
-                                            <Typography gutterBottom variant="h5" component="div">
-                                                {blog?.title}
-                                            </Typography>
-                                            <Typography variant="body2" color="text.secondary">
-                                                {blog?.details}
-                                            </Typography>
-                                        </CardContent>
+
                                     </Card>
                                 </div>
                             )
@@ -216,26 +226,63 @@ const Discuss = () => {
                     </div>
 
                 </Grid>
-                <Grid item xs={12} md={6} lg={8} className="qusContainer">
+                <Grid item xs={12} md={4} lg={4} className="qusContainer">
                     {
-                        discuss?.map(question => <div key={question?._id}>
+                        discuss?.map(question =>
+                            <div key={question?._id} className=' w-[30rem] h-[11rem] p-6'>
 
-                            <h3>How do I break a string into words and track the index of is a each word (within the original string)?</h3>
-                            <p>50 Answers · 10 hours ago</p>
-                            <div className="btnIcon">
-                                <Link href={`/discussion/${question?._id}`}><Button> <QuestionAnswer /> Answer</Button></Link>
-                                <div className="like">
-                                    <Button
-                                        onClick={() => { likePost(question?._id) }}
-                                    ><ThumbUpOffAltIcon /></Button>
-                                    <span>{question?.likes?.length} likes</span>
+
+                                <div className='flex gap-4'>
+                                    <img className='w-12 h-12 rounded-full' src={question.photo} />
+                                    <div>
+                                        <p>{question.name}</p>
+                                        <p>Posted on 21 august 2012</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="qusDivider"></div>
-                        </div>)
+
+
+                                <Link href={`/discussion/${question?._id}`}><h3 className='text-xl font-bold my-1'>{question.title}</h3></Link>
+                                <p>50 Answers · 10 hours ago</p>
+                                <div className="btnIcon">
+                                    <Link href={`/discussion/${question?._id}`}><Button> <QuestionAnswer /> Answer</Button></Link>
+                                    <div className="like">
+                                        <Button
+                                            onClick={() => { likePost(question?._id) }}
+                                        ><ThumbUpOffAltIcon /></Button>
+                                        <span>{question?.likes?.length} likes</span>
+                                    </div>
+                                </div>
+                                <div className="qusDivider"></div>
+                            </div>)
                     }
                 </Grid>
+
+
+                <Grid item xs={12} md={4} lg={4} xl={4}>
+                    {/* Content for the third column */}
+                    <p>Join US on</p>
+                </Grid>
             </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         </Box>
     );
