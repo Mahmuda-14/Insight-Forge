@@ -28,6 +28,8 @@ import Image from 'next/image';
 import GroupsIcon from '@mui/icons-material/Groups';
 import DevicesIcon from '@mui/icons-material/Devices';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import useAdmin from '../hooks/useAdmin';
+import useRecruiter from '../hooks/useRecruiter';
 
 function Copyright(props) {
     return (
@@ -92,12 +94,17 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const defaultTheme = createTheme();
 
 export default function Dashboard({ children }) {
+    const [isAdmin] = useAdmin();
+    const [isRecruiter] = useRecruiter();
     const [open, setOpen] = React.useState(true);
+
+    console.log(isAdmin, isRecruiter);
+
     const toggleDrawer = () => {
         setOpen(!open);
     };
     const theme = useTheme()
-    const mainListItems = [
+    const mainListItemsAdmin = [
         {
             id: "1",
             route: "AdminProfile",
@@ -106,15 +113,24 @@ export default function Dashboard({ children }) {
         }
 
     ]
-    // const mainListItemsAdmin = [
-    //     {
-    //         id: "1",
-    //         route: "UserProfile",
-    //         pathname: "/dashboard",
-    //         icon: <AccountCircleIcon />,
-    //     }
+    const mainListItemsUser = [
+        {
+            id: "1",
+            route: "UserProfile",
+            pathname: "/dashboard",
+            icon: <AccountCircleIcon />,
+        }
 
-    // ]
+    ]
+    const mainListItemsRecruiter = [
+        {
+            id: "1",
+            route: "RecruiterProfile",
+            pathname: "/dashboard",
+            icon: <AccountCircleIcon />,
+        }
+
+    ]
 
     const secondaryListItems = [
         {
@@ -146,10 +162,10 @@ export default function Dashboard({ children }) {
             route: "Discussion ",
             pathname: "discussion ",
             icon: <GroupsIcon/>,
-        },
+        }
         ,
         {
-            id: "2",
+            id: "6",
             route: "VirtualHackathon",
             pathname: "/hackathon",
             icon: <DevicesIcon />,
@@ -210,7 +226,11 @@ export default function Dashboard({ children }) {
                     </Toolbar>
                     <Divider />
                     <List component="nav" sx={{ background: theme.palette.primary.mainGradient }}>
-                        {mainListItems.map((item) => (
+                       
+                       {
+                        isAdmin ?
+                        <>
+                        {mainListItemsAdmin.map((item) => (
                             <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'black' }}>
                                 <ListItemIcon sx={{ color: 'black' }}>
                                     {item.icon}
@@ -218,6 +238,32 @@ export default function Dashboard({ children }) {
                                 <ListItemText primary={item.route} />
                             </ListItemButton>
                         ))}
+                        </>
+                        :
+                        isRecruiter?
+                       <>
+                        {mainListItemsRecruiter.map((item) => (
+                            <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'black' }}>
+                                <ListItemIcon sx={{ color: 'black' }}>
+                                    {item.icon}
+                                </ListItemIcon>
+                                <ListItemText primary={item.route} />
+                            </ListItemButton>
+                        ))}
+                       </>
+                        :
+                        <>
+                        {mainListItemsUser.map((item) => (
+                            <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'black' }}>
+                                <ListItemIcon sx={{ color: 'black' }}>
+                                    {item.icon}
+                                </ListItemIcon>
+                                <ListItemText primary={item.route} />
+                            </ListItemButton>
+                        ))}
+                        </>
+                       }
+
                         <Divider sx={{ my: 1 }} />
                         {secondaryListItems.map((item) => (
                             <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'black' }}>

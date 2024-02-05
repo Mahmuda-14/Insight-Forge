@@ -1,4 +1,5 @@
 " use client"
+
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
@@ -27,9 +28,9 @@ import useAuth from '@/app/hooks/useAuth';
 import { useTheme } from '@emotion/react';
 // import bg2 from "../../../assets/Insight Forge.png"
 import bg2 from "../../../assets/logo3.png"
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import GroupsIcon from '@mui/icons-material/Groups';
+// import GroupsIcon from '@mui/icons-material/Groups';
 
 
 const drawerWidth = 240;
@@ -59,12 +60,12 @@ const navItems = [
   //   icon: <GroupsIcon />,
   // },
   {
-    id: "5",
+    id: "4",
     route: "VirtualHackathon",
     pathname: "/hackathon",
     icon: <EditNoteIcon />,
   },
-  {
+  { id: "5",
     route: "Job Board",
     pathname: "/job",
     icon: < PhoneIcon />,
@@ -155,15 +156,9 @@ const DrawerAppBar = (props, item) => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, ml: 3 }}>
             {navItems.map((item) => (
 
-              <Button variant="outlined"  href={item.pathname} key={item} sx={{  color: 'white',right:'10px'}} >
+              <Button variant="outlined"  href={item.pathname} key={item.id} sx={{  color: 'white',right:'10px'}} >
                 {item.route}
               </Button>
-
-              
-           
-
-             
-
 
 
             ))}

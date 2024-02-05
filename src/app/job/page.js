@@ -7,8 +7,9 @@ import Gallery from './Gallery';
 import PostForm from './PostForm';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 import Footer from '@/components/shared/footer/Footer';
+import withAuth from '@/components/PrivateRoute/withAuth';
 
-const page = () => {
+const Job = () => {
 
   return (
     <div style={{ background: 'linear-gradient(to right, #FFFFFF, #87CEEB)', padding: '10px' }}>
@@ -31,6 +32,6 @@ const page = () => {
   );
 };
 
-export default page;
+export default withAuth(Job);
 
 

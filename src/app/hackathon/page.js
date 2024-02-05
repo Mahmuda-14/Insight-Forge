@@ -1,11 +1,12 @@
 "use client"
-import Hackathonbanner from '@/components/hackathonbanner/hackathonbanner';
-import Hackathonfaq from '@/components/hackathonfaq/hackathonfaq';
+import withAuth from '@/components/PrivateRoute/withAuth';
+import Hackathonbanner from '@/components/hackathon/hackathonbanner/hackathonbanner';
+import Hackathonfaq from '@/components/hackathon/hackathonfaq/hackathonfaq';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 import { Box } from '@mui/material';
 import React from 'react';
 
-const page = () => {
+const Hackathon = () => {
 
   return (
 
@@ -18,4 +19,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default withAuth(Hackathon);

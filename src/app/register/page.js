@@ -2,7 +2,7 @@
 
 
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
+
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
@@ -20,7 +20,8 @@ import useAuth from "../hooks/useAuth";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import { useTheme } from "@emotion/react";
 import GoogleIcon from '@mui/icons-material/Google';
-import { Chip, Divider } from "@mui/material";
+import { Chip, Divider, InputLabel, MenuItem, Select } from "@mui/material";
+
 
 function Copyright(props) {
   return (
@@ -48,6 +49,8 @@ export default function RegistrationPage() {
   const router = useRouter();
   const theme = useTheme()
 
+
+
   const {
     register,
     handleSubmit,
@@ -60,6 +63,7 @@ export default function RegistrationPage() {
     const uName = data.name;
     const uPassword = data.password;
     const uPhoto = data.photo;
+
 
     registration(uEmail, uPassword).then((result) => {
       const loggedUser = result.user;
@@ -80,8 +84,9 @@ export default function RegistrationPage() {
       uEmail: data.email,
       uName: data.name,
       uPhoto: data.photo,
-      role: "user"
+      role: data.role
     }
+    console.log(userInfo)
 
     axiosPublic.post('/users', userInfo)
       .then(res => {
@@ -107,8 +112,8 @@ export default function RegistrationPage() {
         console.log(result.user)
 
         const userInfo = {
-          email: result?.user?.email,
-          name: result?.user?.displayName,
+          uEmail: result?.user?.email,
+          uName: result?.user?.displayName,
           role: "user"
         }
         axiosPublic.post('/users', userInfo)
@@ -153,6 +158,9 @@ export default function RegistrationPage() {
             <Typography component="h1" variant="h4" sx={{ color: "#2e7d32", fontWeight: 600 }}>
               Sign up
             </Typography>
+            <Typography component="h1" variant="h7" sx={{ color: "#2e7d32", fontWeight: 500, mt:4, textAlign:"center" }}>
+              If you are a recruiter then we are requesting you to Sign Up through registration field to experience some extra benefit
+            </Typography>
             <Box
               component="form"
               noValidate
@@ -161,6 +169,7 @@ export default function RegistrationPage() {
             >
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
+                <InputLabel id="demo-simple-select-helper-label">Name</InputLabel>
                   <TextField
                     autoComplete="Name"
                     name="Name"
@@ -170,13 +179,14 @@ export default function RegistrationPage() {
                     label="Name"
                     autoFocus
                     {...register("name", { required: true })}
-                    sx={{ backgroundColor: "#C5FFF8" }}
+                    sx={{ backgroundColor: "#C5FFF8", mt:2 }}
                   />
                   {errors.name && (
                     <Typography> Name field is required</Typography>
                   )}
                 </Grid>
                 <Grid item xs={12} sm={6}>
+                <InputLabel id="demo-simple-select-helper-label">Photo URL</InputLabel>
                   <TextField
                     required
                     fullWidth
@@ -185,13 +195,14 @@ export default function RegistrationPage() {
                     name="Photo URL"
                     autoComplete="Photo URL"
                     {...register("photo", { required: true })}
-                    sx={{ backgroundColor: "#C5FFF8" }}
+                    sx={{ backgroundColor: "#C5FFF8" , mt:2  }}
                   />
                   {errors.photo && (
                     <Typography> Photo URL Field is required</Typography>
                   )}
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={6}>
+                <InputLabel id="demo-simple-select-helper-label">Email Address</InputLabel>
                   <TextField
                     required
                     fullWidth
@@ -200,13 +211,31 @@ export default function RegistrationPage() {
                     name="email"
                     autoComplete="email"
                     {...register("email", { required: true })}
-                    sx={{ backgroundColor: "#C5FFF8" }}
+                    sx={{ backgroundColor: "#C5FFF8", mt:2  }}
                   />
                   {errors.email && (
                     <Typography> Email Field is required</Typography>
                   )}
                 </Grid>
+                <Grid item xs={12} sm={6}>
+                  <InputLabel id="demo-simple-select-helper-label">User Role</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-helper-label"
+                    id="demo-simple-select-helper"
+                    label="user"
+                    fullWidth
+                    {...register("role", { required: true })}
+                    sx={{ backgroundColor: "#C5FFF8" , mt:2 }}
+                  >
+                    <MenuItem value={"user"}>User</MenuItem>
+                    <MenuItem value={"recruiter"}>Recruiter</MenuItem>
+                  </Select>
+                  {errors.role && (
+                    <Typography> User Role Field is required</Typography>
+                  )}
+                </Grid>
                 <Grid item xs={12}>
+                <InputLabel id="demo-simple-select-helper-label">Password</InputLabel>
                   <TextField
                     required
                     fullWidth
@@ -221,7 +250,7 @@ export default function RegistrationPage() {
                       maxLength: 25,
                       pattern: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=])/,
                     })}
-                    sx={{ backgroundColor: "#C5FFF8" }}
+                    sx={{ backgroundColor: "#C5FFF8" , mt:2 }}
                   />
                   {errors.password?.type === "required" && (
                     <Typography>Password is required </Typography>
@@ -245,23 +274,23 @@ export default function RegistrationPage() {
               </Grid>
               <button
 
-                className=" font-semibold w-full py-2 rounded mt-3 mb-2 bg-[#C5FFF8] text-black"
+                className=" font-semibold w-full py-2 rounded mt-8 mb-2 bg-[#C5FFF8] text-black"
               >
                 Sign Up
               </button>
             </Box>
 
             <Grid container justifyContent="flex-start">
-                <Grid item>
-                  <Link href="/login" sx={{ color: "#2e7d32", textDecoration: "none", fontWeight: 600 }}>
-                    Already have an account? Sign in
-                  </Link>
-                </Grid>
+              <Grid item>
+                <Link href="/login" sx={{ color: "#2e7d32", textDecoration: "none", fontWeight: 600 }}>
+                  Already have an account? Sign in
+                </Link>
               </Grid>
-              <Divider sx={{ mt: 5 }}>
-                <Chip label="OR" size="small" />
-              </Divider>
-              
+            </Grid>
+            <Divider sx={{ mt: 5 }}>
+              <Chip label="OR" size="small" />
+            </Divider>
+
             <button onClick={handleGoogleLogIn} className=" font-semibold w-full py-2 rounded mt-7 mb-2 text-lg bg-[#C5FFF8] text-black">
               <GoogleIcon sx={{ mr: 3, color: "blue" }} />
               Google Log In
