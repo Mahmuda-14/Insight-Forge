@@ -68,6 +68,12 @@ const navItems = [
     route: "Job Board",
     pathname: "/job",
     icon: < PhoneIcon/>,
+  },
+  {
+    id:"6",
+    route: "About",
+    pathname: "/about",
+    icon: < PhoneIcon/>,
   }
 ];
 

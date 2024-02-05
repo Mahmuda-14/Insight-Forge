@@ -1,11 +1,12 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import Social from "./Social";
+
 import img1 from "../../../public/fb.png";
 import img2 from "../../../public/twitter.png";
 import img3 from "../../../public/google.png";
 import img4 from "../../../public/linkedin.png";
 import { motion } from "framer-motion"
+import Social from "./Social";
 
 const All = () => {
   return (
