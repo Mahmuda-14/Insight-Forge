@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import Job from './Job';
 import useAxiosPublic from '../hooks/useAxiosPublic';
 
-
+import '../../components/banner/banner.css'
 
 
 
