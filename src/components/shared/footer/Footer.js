@@ -1,54 +1,26 @@
 import React from 'react';
-import Typography from '@mui/material/Typography';
-import { Box, Grid, IconButton } from '@mui/material';
+
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import Image from 'next/image';
 import Link from 'next/link';
-import Divider from '@mui/material/Divider';
-import QuizIcon from '@mui/icons-material/Quiz';
 
+import bg2 from "../../../assets/Insight Forge (3).png"
 
 const Footer = () => {
-
-
   return (
-    <Box sx={{ maxWidth: "xl", mx: "auto" }} >
-      <footer style={{
-        backgroundImage: 'url("https://i.ibb.co/8j1tcNW/footer-bg.jpg")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        minHeight: '600px',
-        position: 'relative ',
-        padding: "10px"
+    <div className="bg-[#263238] w-full h-[210px]">
+      <div className='flex justify-around items-center '>
+         <div className='flex flex-col justify-center items-center mt-[20px] text-left'>
+            <Image sx={{ flexGrow: 1 }} src={bg2} alt='company' width={80} height={80} />
+            <p className="text-[18px] text-white"><span className="font-a text-[#4c87d3]">Insight Forge</span> Companies Ltd.</p>
+            <p className="text-[12px] text-white">Providing reliable tech since 2021</p>
+         </div>
 
-      }}>
-
-
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        }}>
-        
-          <p style={{ margin: '5px', color: 'white', fontSize: '20px', textAlign: "center", paddingTop: "10px", marginTop:"120px" }}>Explore a wealth of curated knowledge on Insight Forge, where expertise meets curiosity. <br />
-            Our platform is dedicated to providing insightful content tailored to elevate your <br />
-            understanding and ignite your passion for learning.</p>
-
-
-
-          <Grid container spacing={12} sx={{ mx: "auto" }}>
-            <Grid item>
-              <Typography variant="h4" sx={{ margin: '5px', color: 'white', marginTop: '40px' }}>
-                Our Location
-              </Typography>
-
-              <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center', color: 'white', fontSize: '15px' }}>
+         <div>
+           <p className='text-[18px] text-white mb-[10px] font-bold'>Location</p>
+          <div className='flex justify-start items-left'>
                 <Image
                   src="https://i.ibb.co/dbBYfrG/k-removebg-preview-1.png"
                   alt="Company Logo"
@@ -56,116 +28,94 @@ const Footer = () => {
                   height={25}
                   style={{ marginBottom: '5px' }}
                 />
-                Chittagong
-              </Typography>
-
-              <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center', color: 'white', fontSize: '15px' }}>
-                <Image
+                <p className='text-[12px] text-white'> Chittagong</p>
+          </div>
+          <div className='flex justify-start items-left'>
+              <Image
                   src="https://i.ibb.co/6gq3mGB/kk-removebg-preview-1.png"
                   alt="Company Logo"
                   width={25}
                   height={25}
                   style={{ marginBottom: '5px' }}
                 />
-                insightforge@gmail.com
-              </Typography>
-              <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center', color: 'white', fontSize: '15px' }}>
-                <Image
+                <p className='text-[12px] text-white'> insightforge@gmail.com</p>
+          </div>
+          <div className='flex justify-start items-left'>
+          <Image
                   src="https://i.ibb.co/pRkV9h5/kkk-removebg-preview.png"
                   alt="Company Logo"
                   width={25}
                   height={25}
                   style={{ marginBottom: '5px' }}
                 />
-                +880 01234567890
-              </Typography>
-            </Grid>
-
-            <Grid item>
-              <Typography variant="h4" sx={{ margin: '5px', color: 'white', marginTop: '40px' }}>
-                What we Provided
-              </Typography>
-              <Link href="#">
-                <Typography variant="h6" sx={{ margin: '10px', color: 'white', fontSize: '15px', marginTop: '15px' }}>
-                  Theme Development
-                </Typography>
-              </Link>
-              <Link href="#">
-                <Typography variant="h6" sx={{ margin: '10px', color: 'white', fontSize: '15px', marginTop: '15px' }}>
-                  Web Designing
-                </Typography>
-              </Link>
-              <Link href="#">
-                <Typography variant="h6" sx={{ margin: '10px', color: 'white', fontSize: '15px', marginTop: '15px' }}> Web Development</Typography>
-              </Link>
-
-            </Grid>
-
-            <Grid item>
-              <Typography variant="h4" sx={{ margin: '5px', color: 'white', marginTop: '40px' }}>
-                Our Services
-              </Typography>
-              <Link href="#">
-                <Typography variant="h6" sx={{ margin: '10px', color: 'white', fontSize: '15px', marginTop: '15px' }}>
-                  Theme Development
-                </Typography>
-              </Link>
-              <Link href="#">
-                <Typography variant="h6" sx={{ margin: '10px', color: 'white', fontSize: '15px', marginTop: '15px' }}>
-                  Web Designing
-                </Typography>
-              </Link>
-              <Link href="#">
-                <Typography variant="h6" sx={{ margin: '10px', color: 'white', fontSize: '15px', marginTop: '15px' }}> Web Development</Typography>
-              </Link>
-
-            </Grid>
-
-            <Grid item>
-              <Typography variant="h4" sx={{ margin: '5px', color: 'white', marginTop: '40px', textAlign: "center" }}>
-                Site Links
-              </Typography>
-
-              <Typography variant="h6" sx={{ color: 'white', fontSize: '15px' }}>
-                <IconButton href="https://www.youtube.com/your-youtube-channel" target="_blank">
-                  <YouTubeIcon sx={{ fontSize: 20, color: 'white' }} />
-                  <Typography variant="h6" sx={{ color: 'white', fontSize: '15px' }}>
-                    Your YouTube Link
-                  </Typography>
-                </IconButton>
-              </Typography>
-
-              <Typography variant="h6" sx={{ color: 'white', fontSize: '15px' }}>
-                <IconButton href="https://www.facebook.com/your-facebook-page" target="_blank">
-                  <FacebookIcon sx={{ fontSize: 20, color: 'white' }} />
-                  <Typography variant="h6" sx={{ margin: '5px', color: 'white', fontSize: '15px' }}>
-                    Your facebook Link
-                  </Typography>
-                </IconButton>
-              </Typography>
-
-              <Typography variant="h6" sx={{ color: 'white', fontSize: '15px' }}>
-                <IconButton href="https://www.instagram.com/your-instagram-account" target="_blank">
-                  <InstagramIcon sx={{ fontSize: 20, color: 'white' }} />
-                  <Typography variant="h6" sx={{ margin: '5px', color: 'white', fontSize: '15px' }}>
-                    Your Instragram Link
-                  </Typography>
-                </IconButton>
-              </Typography>
-
-            </Grid>
-          </Grid>
-          <Divider sx={{ backgroundColor: 'white', marginTop: '50px' }} />
-          <Grid item xs={12} sx={{ textAlign: 'center', marginTop: '10px' }}>
-            <Typography variant="body2" sx={{ color: 'white' }}>
-              &copy; 2024 Insight Forge. All rights reserved.
-            </Typography>
-          </Grid>
-
+                <p className='text-[12px] text-white'> +880 01234567890</p>
+          </div>
         </div>
-      </footer>
-    </Box>
+
+
+
+
+        <div>
+           <p className='text-[18px] text-white mb-[10px] font-bold'>Services</p>
+         
+          <div className='flex flex-col justify-start items-left gap-3'>
+                <Link href="#">
+                <p className='text-[12px] text-white'>
+                  Theme Development
+                </p>
+              </Link>
+              <Link href="#">
+                <p className='text-[12px] text-white'>
+                  Web Designing
+                </p>
+              </Link>
+              <Link href="#">
+                <p className='text-[12px] text-white'>
+                  Web Development
+                </p>
+              </Link>
+        </div>
+      </div>
+
+      <div class="text-white">
+    <p class="text-[18px] text-white mb-[10px] font-bold">Site Links</p>
+
+    <div class="flex flex-col justify-start items-left space-y-2 mt-4">
+        <a href="https://www.youtube.com/your-youtube-channel" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+         
+            <YouTubeIcon sx={{ fontSize: 20, color: 'white' }} />
+            <p class="text-[12px]">Your YouTube Link</p>
+        </a>
+
+        <a href="https://www.facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+        <FacebookIcon sx={{ fontSize: 20, color: 'white' }} />
+            <p class="text-[12px]">Your Facebook Link</p>
+        </a>
+
+        <a href="https://www.instagram.com/your-instagram-account" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+        <InstagramIcon sx={{ fontSize: 20, color: 'white' }} /> 
+            <p class="text-[12px]">Your Instagram Link</p>
+        </a>
+    </div>
+</div>
+
+
+
+
+</div>
+
+
+      <div className="mx-auto max-w-7xl">
+        <hr className="border-t border-white mt-8" />
+        <div className="py-[5px] text-white text-center text-[12px]">
+          <p>&copy; 2024 Insight Forge. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+   
   );
 };
+
+
 
 export default Footer;
