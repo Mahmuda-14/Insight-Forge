@@ -106,9 +106,7 @@ const DrawerAppBar = (props, item) => {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', color: "black" }}>
-      {/* <Typography variant="h6" sx={{ my: 2 }}>
-
-      </Typography> */}
+      
       <Divider />
       <List>
         {navItems.map((item) => (
