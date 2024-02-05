@@ -6,19 +6,26 @@ import Chatbot from "@/components/chatbot/chatbot";
 import DrawerAppBar from "@/components/shared/Navbar/Navbar";
 
 import Footer from "@/components/shared/footer/Footer";
-
-import { Box, Container } from "@mui/material";
+import Logo from "@/components/shared/logo/Logo";
+import { Box, Container, Divider } from "@mui/material";
+import Discuss from "./discussion/Discuss";
 
 
 // import PostSection from "@/components/ui/PostSection/PostSection";
 
 const HomePage = () => {
   return (
-    <Box sx={{ maxWidth: "xl", mx: "auto" }} style={{ background: 'linear-gradient(to right, #FFFFFF, #87CEEB)'}}>
+    <Box sx={{ maxWidth: "xl", mx: "auto" }} >
       <DrawerAppBar></DrawerAppBar>
+      <Divider sx={{ backgroundColor: 'white',paddingTop:'45px' }} />
       <Banner></Banner>
-      <Chatbot></Chatbot>
-      <Footer></Footer>
+      <Discuss></Discuss>
+      {/* <Chatbot></Chatbot>
+      <Review></Review>
+      <All></All>
+      <Count></Count>
+      <Logo></Logo>
+      <Footer></Footer> */}
     </Box>
   );
 };
