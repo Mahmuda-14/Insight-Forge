@@ -12,25 +12,32 @@ import {
   Typography,
 } from "@mui/material";
 import { blueGrey, brown, red } from "@mui/material/colors";
+import Image from "next/image";
 
 const Story = () => {
   return (
     <div>
       <Card
         sx={{
-          paddingTop: "143px",
-          paddingBottom: "50px",
+          paddingTop: "32px",
+          paddingBottom: "32px",
           backgroundColor: blueGrey[400],
-          color: "white",
+          color: "#263238",
           px:2
           
         }}
       >
-        <CardContent sx={{ padding: "40px" }}>
+            <div className='flex justify-center  items-center '>
+    <Image src="https://i.ibb.co/wWQfKSr/Untitled-design-1-removebg-preview.png" alt='ok' width={150} height={150}></Image>
+    </div>
+        <CardContent sx={{ padding: "20px" }}>
           <CardHeader
             titleTypographyProps={{
               fontSize: { xs: 18, sm: 26 },
+              fontWeight: 'bold',
             }}
+       
+          
             title="CUSTOMER REVIEW"
           />
 
