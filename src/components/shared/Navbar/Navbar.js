@@ -44,13 +44,13 @@ const navItems = [
   {
     id: "2",
     route: "Blogs",
-    pathname: "blogs",
+    pathname: "/blogs",
     icon: <EditNoteIcon />,
   },
   {
     id: "3",
     route: "Contact",
-    pathname: "contact",
+    pathname: "/contact",
     icon: <PhoneIcon />,
   },
   // {
@@ -68,7 +68,13 @@ const navItems = [
   { id: "5",
     route: "Job Board",
     pathname: "/job",
-    icon: < PhoneIcon />,
+    icon: < PhoneIcon/>,
+  },
+  {
+    id:"6",
+    route: "About",
+    pathname: "/about",
+    icon: < PhoneIcon/>,
   }
 ];
 
@@ -76,7 +82,7 @@ const settings = [
   {
     id: "1",
     route: "Dashboard ",
-    pathname: "dashboard",
+    pathname: "/dashboard",
 
   }]
 
