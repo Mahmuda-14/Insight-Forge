@@ -6,17 +6,17 @@ import React, { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import IconButton from "@mui/material/IconButton";
+// import CardActions from "@mui/material/CardActions";
+// import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
+// import FavoriteIcon from "@mui/icons-material/Favorite";
+// import ShareIcon from "@mui/icons-material/Share";
 import { Box,Button,Grid, Stack, TextField} from "@mui/material";
 import useAxiosPublic from "../hooks/useAxiosPublic";
-import { Container } from "postcss";
-import { FaSearchLocation } from "react-icons/fa";
-import { red } from "@mui/material/colors";
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+// import { Container } from "postcss";
+// import { FaSearchLocation } from "react-icons/fa";
+// import { red } from "@mui/material/colors";
+// import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import DrawerAppBar from "@/components/shared/Navbar/Navbar";
 import Footer from "@/components/shared/footer/Footer";
 
@@ -24,7 +24,7 @@ import Footer from "@/components/shared/footer/Footer";
 
 const page = () => {
    // eslint-disable-next-line react-hooks/rules-of-hooks
-   //const [blogs, setBlogs] = useState();
+   const [blogs, setBlogs] = useState();
    const axiosPublic = useAxiosPublic();
    const [article, setArticle]= useState([ ])
 
@@ -36,8 +36,8 @@ const page = () => {
 useEffect(()=>{
   axiosPublic.get("/allBlogs")
   .then(res=>{
-    setArticle(res.data)
-})
+    setBlogs(res.data)
+},[])
 
 },[search])
 

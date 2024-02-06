@@ -32,7 +32,7 @@ const Job = () => {
     }
   
   return (
-    <div style={{  padding: '10px' }}>
+    <div style={{ padding: '10px' }}>
       <DrawerAppBar></DrawerAppBar>
       <VideoPlayer></VideoPlayer>
 
@@ -73,6 +73,7 @@ const Job = () => {
   );
 };
 
-// export default withAuth(Job);
-
 export default Job;
+
+
+
