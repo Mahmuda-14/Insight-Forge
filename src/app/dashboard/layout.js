@@ -93,7 +93,28 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 // TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme();
+const themeColor = createTheme({
+    palette: {
+        primary: {
+          main: '#263238',
+          // mainGradient: "linear-gradient(to right, #3c3c3c, #ffffff)",
+          contrastText:"black"
+        },
+        secondary: {
+          main:"#C5FFF8"
+        }
+        // ...
+      },
+    breakpoints: {
+        values: {
+          xs: 0,
+          sm: 600,
+          md: 900,
+          lg: 1480,
+          xl: 1536,
+        },
+      },
+})
 
 export default function Dashboard({ children }) {
     const [isAdmin] = useAdmin();
@@ -159,6 +180,12 @@ export default function Dashboard({ children }) {
             pathname: "/dashboard/writeABlog",
             icon: <EditNoteIcon />,
         },
+        {
+            id: "3",
+            route: "My blog",
+            pathname: "/dashboard/myBLog",
+            icon: <EditNoteIcon />,
+        },
 
     ]
     const mainListItemsRecruiter = [
@@ -213,9 +240,8 @@ export default function Dashboard({ children }) {
     
 
     return (
-        <ThemeProvider theme={defaultTheme}>
-            <Box sx={{ display: 'flex'}} >
-               
+        <ThemeProvider theme={themeColor}>
+            <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
                 <AppBar position="absolute" open={open} style={{ background: "#263238", color:"white" }}>
                     <Toolbar
@@ -232,14 +258,14 @@ export default function Dashboard({ children }) {
                                 ...(open && { display: 'none' }),
                             }}
                         >
-                            <MenuIcon />
+                            <MenuIcon className='text-white' />
                         </IconButton>
                         <Typography
                             component="h1"
                             variant="h5"
                             color="white"
                             noWrap
-                            sx={{ flexGrow: 1, fontWeight:600 }}
+                            sx={{ flexGrow: 1, fontWeight:600, color: 'white' }}
                         >
                             Dashboard
                         </Typography>
