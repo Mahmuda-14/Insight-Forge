@@ -5,25 +5,28 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import Backdrop from '@mui/material/Backdrop';
-import { Box, Button, Card, CardContent, CardMedia, Container, Fab, Fade, Grid, Input, InputLabel, MenuItem, Modal, Paper, Select, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, Fade, InputLabel, MenuItem, Modal, Paper, Select, Stack, Tab, Tabs, TextField, } from "@mui/material";
 import './discus.css'
-import { Create, QuestionAnswer } from "@mui/icons-material";
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
-import React, { useEffect, useState } from "react";
+import React from "react";
 import toast from 'react-hot-toast';
 import useAuth from '../hooks/useAuth';
 import { useRouter } from 'next/navigation';
 import useAxiosSecure from '../hooks/useAxiosSecure';
 import useDiscussData from '../hooks/useDiscussData';
-import useBlogs from '../hooks/useBlogs';
-import Link from 'next/link';
-import DrawerAppBar from '@/components/shared/Navbar/Navbar';
-// import Footer from '@/components/shared/footer/Footer';
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
 import Marquee from "react-fast-marquee";
 import SouthIcon from '@mui/icons-material/South';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
-import Image from 'next/image';
+import DiscussM from './DiscussM';
+import TurnedInNotOutlinedIcon from "@mui/icons-material/TurnedInNotOutlined";
+import WebStoriesIcon from "@mui/icons-material/WebStories";
+import { QuestionAnswer } from '@mui/icons-material';
+
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import Link from 'next/link';
+
 const style = {
     position: 'absolute',
     top: '50%',
@@ -40,8 +43,8 @@ const Discuss = () => {
     const axiosSecure = useAxiosSecure()
     const { user } = useAuth();
     const router = useRouter();
-    const [discuss, reload] = useDiscussData()
-    const [blogs, reloadBlog] = useBlogs()
+    const [discuss ] = useDiscussData()
+    // const [blogs, reloadBlog] = useBlogs()
 
 
 
@@ -89,25 +92,6 @@ const Discuss = () => {
         }
     }
 
-    const likePost = (id) => {
-        if (user && user?.email) {
-            const uId = {
-                postId: id
-            }
-            axiosSecure.put('/questionLike', uId)
-                .then(res => {
-                    console.log(res.data)
-                    if (res.data) {
-                        toast.success("You like this question");
-                        reload()
-                    }
-                })
-        } else {
-            toast.success("You are not Logged In!");
-            router.push("/login");
-        }
-    }
-
 
     const marqueeProps = {
 
@@ -134,13 +118,12 @@ const Discuss = () => {
                         <SouthIcon style={{ width: '2em ', height: '1em' }}></SouthIcon>
                     </Marquee>
 
-                    <div className=' my-10'>
+                    <div className='flex my-10'>
+                    <SearchRoundedIcon style={{ width: '1.5em ', height: '2em',position:'relative',top:'3px', left:'41px' }} /> 
 
-                        <SearchRoundedIcon style={{ width: '1.5em ', height: '2em' }} />  <TextField sx={{ paddingRight: '185px', paddingBottom: '4.5px' }} type='text' placeholder='Search category ' />
-
-                        <BorderColorOutlinedIcon style={{ width: '1.5em ', height: '2em' }}></BorderColorOutlinedIcon>
-
-                        <TextField label="Ask Your Question" focused onClick={handleOpen} style={{ paddingRight: '158px' }} />
+                          <input name="text" type="text" placeholder="Search here" className="input input-bordered border-2 pl-7 py-2 rounded-xl" required />
+                          {/* <button className='relative bg-slate-500 right-11 rounded-2xl p-3 w-10'>Search</button> */}
+           
                     </div>
 
                     <Modal
@@ -177,7 +160,7 @@ const Discuss = () => {
                                         rows={4}
                                         sx={{ width: '100%', my: 1 }}
                                     />
-                                    <InputLabel id="demo-select-small-label">Age</InputLabel>
+                                    <InputLabel id="demo-select-small-label">Category</InputLabel>
                                     <Select className='input' name='category'
                                         required
                                         labelId="demo-simple-select-autowidth-label"
@@ -190,9 +173,9 @@ const Discuss = () => {
                                         <MenuItem value="">
                                             <em>None</em>
                                         </MenuItem>
-                                        <MenuItem value={10}>Ten</MenuItem>
-                                        <MenuItem value={20}>Twenty</MenuItem>
-                                        <MenuItem value={30}>Thirty</MenuItem>
+                                        <MenuItem value={10}>Next.js</MenuItem>
+                                        <MenuItem value={20}>React</MenuItem>
+                                        <MenuItem value={30}>Javascript</MenuItem>
                                     </Select>
                                     <button type='submit' className="qusPost" variant="outlined">Post Question</button>
                                 </form>
@@ -201,87 +184,79 @@ const Discuss = () => {
                     </Modal>
                 </div>
             </Stack>
-            <Box className="borderBot"></Box>
+           
 
             {/* question part */}
 
-            <Grid container className="discusContainer" spacing={3}>
-                <Grid item className='hidden md:block' md={6} lg={4} >
 
-                    <div>
-                        {
-                            blogs?.map(blog =>
-                                <div key={blog?._id}>
-                                    <Card sx={{ maxWidth: 345, margin: 'auto', marginBottom: 3 }}>
-                                        <CardMedia
-                                            sx={{ height: 140 }}
-                                            image={blog?.image}
-                                            title="green iguana"
-                                        />
+        <div className=' ml-[7rem]'>
+            <ul className='flex flex-row ml-[319px]'>
+                <li className='mr-[19px] bg-slate-400'>
+                  <Button>Recent Questions</Button>
+                </li>
+                <li className=''>
+                  <Button>Most Answered</Button>
+                </li>
+                <li>
+                  <Button>Recent Posts</Button>
+                </li>
+            </ul>
+        </div>
+        <Box className="borderBot ml-[112px] mr-[446px]"></Box>
 
-                                    </Card>
-                                </div>
-                            )
-                        }
-                    </div>
+      
+            <div className='flex flex-row gap-3 '>
 
-                </Grid>
-                <Grid item xs={12} md={4} lg={4} className="qusContainer">
+                <div className='grid grid-cols-1 gap-3 mr-4 ml-[7rem] my-9'>
                     {
-                        discuss?.map(question =>
-                            <div key={question?._id} className=' w-[30rem] h-[11rem] p-6'>
-
-
-                                <div className='flex gap-4'>
-                                    <img className='w-12 h-12 rounded-full' src={question.photo} />
-                                    <div>
-                                        <p>{question.name}</p>
-                                        <p>Posted on 21 august 2012</p>
-                                    </div>
-                                </div>
-
-
-                                <Link href={`/discussion/${question?._id}`}><h3 className='text-xl font-bold my-1'>{question.title}</h3></Link>
-                                <p>50 Answers · 10 hours ago</p>
-                                <div className="btnIcon">
-                                    <Link href={`/discussion/${question?._id}`}><Button> <QuestionAnswer /> Answer</Button></Link>
-                                    <div className="like">
-                                        <Button
-                                            onClick={() => { likePost(question?._id) }}
-                                        ><ThumbUpOffAltIcon /></Button>
-                                        <span>{question?.likes?.length} likes</span>
-                                    </div>
-                                </div>
-                                <div className="qusDivider"></div>
-                            </div>)
+                        discuss.map(question => <DiscussM key={question.id} question={question}></DiscussM>)
                     }
-                </Grid>
 
+                </div>
+                
 
-                <Grid item xs={12} md={4} lg={4} xl={4}>
-                    {/* Content for the third column */}
-                    <p>Join US on</p>
-                </Grid>
-            </Grid>
+              <div>
+              <div>
+                
+                <Button onClick={handleOpen} className=' bg-slate-400 px-9 ml-7 left-7 bottom-12'> <BorderColorOutlinedIcon style={{ width: '1.5em ', height: '1.5em' }}/>Ask A Question</Button>
+                <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 mb-5">
+                <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>States</h2>
+                <hr></hr>
+                <div className="flex flex-col gap-2  my-3">
+                   <Button className='askBtn'>Questions(20)</Button>
+                   <Button className='askBtn'>Answers(20)</Button>
+                   <Button className='askBtn'>Most Liked(20)</Button>
+                     
+                    
+                </div>
 
+                </div>
+                
+                </div>
+                <div>
+                <div>
+                
+              
+                <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 mb-5">
+                <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>Join Us On</h2>
+                <hr></hr>
+                <div className="flex flex-col gap-2  my-3">
+                    
+                   <Button className='askBtn'><Link href={'https://www.facebook.com/'}><FacebookIcon style={{marginRight:'5px', color:'blue'}}></FacebookIcon>Facebook</Link></Button>
+                   <Button className='askBtn'><Link href={'https://www.facebook.com/'}><InstagramIcon style={{marginRight:'5px', color:'red'}}></InstagramIcon>Instagram</Link></Button>
+                   <Button className='askBtn'><Link href={'https://www.facebook.com/'}><TwitterIcon style={{marginRight:'7px',color:'blue'}}></TwitterIcon>Twitter</Link></Button>
+                     
+                    
+                </div>
 
+                </div>
+                
+                </div>
+                </div>
+              </div>
+               
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            </div>
 
 
         </Box>

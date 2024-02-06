@@ -32,7 +32,7 @@ export default function Contact() {
 
     return (
 
-        <Box sx={{ maxWidth: "xl", mx: "auto" }} style={{ background: 'linear-gradient(to right, #FFFFFF, #87CEEB)', padding: '10px' }}>
+        <Box sx={{ maxWidth: "xl", mx: "auto" }} style={{  padding: '10px' }}>
             <DrawerAppBar></DrawerAppBar>
             <Box
                 sx={{
