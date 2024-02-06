@@ -10,6 +10,7 @@ import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 import Footer from '@/components/shared/footer/Footer';
+import useDiscussData from '@/app/hooks/useDiscussData';
 
 const page = ({ params }) => {
     console.log(params.id)
@@ -24,6 +25,9 @@ const page = ({ params }) => {
             return res.data
         }
     })
+
+
+    const [discuss ] = useDiscussData()
 
 
     const postAns = (text, postedId) => {
@@ -52,12 +56,12 @@ const page = ({ params }) => {
 
 
     return (
-        <Box className="" style={{ background: 'linear-gradient(to right, #FFFFFF, #87CEEB)', padding: '10px' }}>
+        <Box className="my-7" style={{ padding: '10px', }}>
             <DrawerAppBar></DrawerAppBar>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-8 px-10 mt-8 min-h-screen'>
                 <div className=' md:col-span-2'>
                     <div>
-                        <h3 className='text-xl font-bold'>How do I break a string into words and track the index of is a each word (within the original string)?</h3>
+                        <h3 className='text-xl font-bold'>{discuss.title}</h3>
                         <p className='text-base text-gray-500'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus laboriosam sunt tempore minima laudantium praesentium, ducimus reiciendis aut iste dolores labore animi quas quibusdam. At qui repudiandae ducimus facilis officiis.</p>
                     </div>
                     {
