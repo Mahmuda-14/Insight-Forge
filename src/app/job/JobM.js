@@ -13,7 +13,7 @@ const JobM = () => {
 
 
   return (
-    <div className='mx-auto'>
+    <div className='mx-auto '>
       <div>
         <div>
           <Image
@@ -38,7 +38,7 @@ const JobM = () => {
         </div>
       </div>
 
-      <div className='flex justify-center items-center'>
+      <div className='flex justify-center items-center mt-[100px] mb-[150px]'>
 
         <div className="max-w-md w-full mx-auto bg-white shadow-md p-8 rounded-md " style={{ float: 'left' }}>
           <Image

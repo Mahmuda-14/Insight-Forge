@@ -134,8 +134,8 @@ const Footer = () => {
 
 
       <div className="mx-auto max-w-7xl">
-        <hr className="border-t border-white mt-8" />
-        <div className="py-[5px] text-black text-center text-[12px]">
+        <hr className="border-t border-white " />
+        <div className=" text-black text-center text-[12px]">
           <p>&copy; 2024 Insight Forge. All rights reserved.</p>
         </div>
       </div>
