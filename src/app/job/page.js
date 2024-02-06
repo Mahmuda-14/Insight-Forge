@@ -8,6 +8,7 @@ import PostForm from './PostForm';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 import Footer from '@/components/shared/footer/Footer';
 import VideoPlayer from './VideoPlayer';
+import '../../utils/button/theme_button.css'
 // import withAuth from '@/components/PrivateRoute/withAuth';
 
 const Job = () => {
@@ -37,8 +38,8 @@ const Job = () => {
       <VideoPlayer></VideoPlayer>
 
       <div >
-        <h2 className='text-black p-4 pt-[80px] text-2xl ml-[113px] mt-5 text-center'>Find your dream job.</h2>
-        <form onSubmit={handleSubmit} className="w-[800px] mx-auto bg-white p-8 rounded shadow-md flex justify-center items-center">
+        <h2 className='text-black p-4 pt-[80px] text-2xl  mt-5 text-center font-bold'>Find your dream job.</h2>
+        <form onSubmit={handleSubmit} className="w-[800px] mx-auto bg-white p-8 rounded shadow-2xl flex justify-center items-center">
         <div >
               {/* <label className="block text-teal-600 text-[22px] mb-2 ">
                 Job Type:
@@ -57,7 +58,7 @@ const Job = () => {
                 <option value="job3">Full-time</option>
               </select>
             </div>
-        <button class="btn ml-2 px-5 py-2 bg-black text-white rounded-xl">
+        <button className='blog-button mx-[10px]'>
           Search
         </button>
         </form>
