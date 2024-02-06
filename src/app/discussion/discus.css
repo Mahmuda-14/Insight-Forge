@@ -21,19 +21,19 @@
 }
 
 .askBtn {
-    font-size: 16px;
-    border: 2px solid #76453B;
+    font-size: 14px;
+    border: 1px solid #d9c6c2;
     background: none;
     border-radius: 5px;
-    color: #76453B;
+    color: #161211;
     padding: 14px 20px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .askBtn:hover {
     color: white;
-    background: #76453B;
-    border: 2px solid #76453B;
+    background: #3f515b;
+    border: 2px solid #042030;
 }
 
 .input{
@@ -66,13 +66,10 @@
     padding: 0px 10px;
 }
 
-.qusContainer div{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
 .qusDivider{
     border-bottom: 2px solid #c1c1c1;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .qusContainer h4 {
@@ -80,11 +77,6 @@
     margin-bottom: 2px;
 }
 
-.qusContainer p {
-    color: #818181;
-    font-size: small;
-    margin-top: 0px;
-}
 
 .btnIcon{
     display: flex;

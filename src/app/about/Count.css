@@ -1,0 +1,13 @@
+.countContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.count{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}

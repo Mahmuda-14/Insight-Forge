@@ -1,4 +1,5 @@
 " use client"
+
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
@@ -25,10 +26,9 @@ import EditNoteIcon from "@mui/icons-material/EditNote";
 import Image from 'next/image';
 import useAuth from '@/app/hooks/useAuth';
 import { useTheme } from '@emotion/react';
-import bg2 from "../../../assets/Insight Forge (3).png"
-import Link from 'next/link';
-import {  useRouter } from 'next/navigation';
-import GroupsIcon from '@mui/icons-material/Groups';
+import bg2 from "../../../assets/logo3.png"
+import { useRouter } from 'next/navigation';
+
 
 
 const drawerWidth = 240;
@@ -42,31 +42,30 @@ const navItems = [
   {
     id: "2",
     route: "Blogs",
-    pathname: "blogs",
+    pathname: "/blogs",
     icon: <EditNoteIcon />,
   },
   {
     id: "3",
     route: "Contact",
-    pathname: "contact",
+    pathname: "/contact",
     icon: <PhoneIcon />,
   },
   {
     id: "4",
-    route: "Discussion ",
-    pathname: "discussion ",
-    icon: <GroupsIcon/>,
-  },
-  {
-    id: "5",
     route: "VirtualHackathon",
     pathname: "/hackathon",
     icon: <EditNoteIcon />,
   },
-  {
-    id:"6",
+  { id: "5",
     route: "Job Board",
     pathname: "/job",
+    icon: < PhoneIcon/>,
+  },
+  {
+    id:"6",
+    route: "About",
+    pathname: "/about",
     icon: < PhoneIcon/>,
   }
 ];
@@ -75,11 +74,11 @@ const settings = [
   {
     id: "1",
     route: "Dashboard ",
-    pathname: "dashboard",
+    pathname: "/dashboard",
 
   }]
 
-const DrawerAppBar = (props) => {
+const DrawerAppBar = (props, item) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -106,7 +105,7 @@ const DrawerAppBar = (props) => {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', color: "black" }}>
-       <Image sx={{ flexGrow: 1 }} src={bg2} alt='company' width={80} height={80} />
+      
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -129,10 +128,14 @@ const DrawerAppBar = (props) => {
     </Box>
   );
 
+
+
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
+  
     <Box sx={{ display: 'flex', color: "white" }}>
+      
       <CssBaseline />
       <AppBar component="nav" style={{ background: theme.palette.primary.mainGradient }}>
         <Toolbar>
@@ -146,65 +149,68 @@ const DrawerAppBar = (props) => {
             <MenuIcon />
           </IconButton>
 
-          <Image sx={{ flexGrow: 1 }} src={bg2} alt='company' width={80} height={80} />
+          <Image src={bg2} alt='company' width={109} height={100} style={{ marginLeft: '107px', marginRight: '184px' }} />
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } , ml:3}}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, ml: 3 }}>
             {navItems.map((item) => (
-               
-                <Link href={item.pathname} key={item.id} >
-                 <button className='py-1 px-3 rounded font-bold'> {item.route}</button>
-                </Link>
-              
-            ))}
-          </Box>
-          {
-            user && user?.email ? 
-            <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src={user?.photoURL} />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                sx={{ mt: '45px' }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                {settings.map((setting) => (
-                  <MenuItem key={setting.id} onClick={handleCloseUserMenu}>
-                    <Button href={setting.pathname} key={setting.id} sx={{ color: 'black' }}>
-                      {setting.route}
-                    </Button>
-                  </MenuItem>
-                ))}
-                <MenuItem onClick={handleCloseUserMenu}>
-                  <Button onClick={handleLogOut} sx={{ color: 'black' }}>
-                    Log Out
-                  </Button>
-                </MenuItem>
-              </Menu>
-            </Box>
-              :
-              <Box sx={{ flexGrow: 0 }}>
-                <Button href='/login' sx={{ color: 'black' }}>
-                  Login
-                </Button>
 
-              </Box>
-          }
-        </Toolbar>
-      </AppBar>
+              <Button variant="outlined"  href={item.pathname} key={item.id} sx={{  color: 'white',right:'10px'}} >
+                {item.route}
+              </Button>
+
+
+            ))}
+    </Box>
+          {
+    user && user?.email ? <Box sx={{ flexGrow: 0 }}>
+      <Tooltip title="Open settings">
+        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+          <Avatar alt="Remy Sharp" src={user?.photoURL} />
+        </IconButton>
+      </Tooltip>
+      <Menu
+        sx={{ mt: '45px' }}
+        id="menu-appbar"
+        anchorEl={anchorElUser}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        keepMounted
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        open={Boolean(anchorElUser)}
+        onClose={handleCloseUserMenu}
+      >
+        {settings.map((setting) => (
+          <MenuItem key={setting.id} onClick={handleCloseUserMenu}>
+            <Button href={setting.pathname} key={setting.id} sx={{ color: 'black' }}>
+              {setting.route}
+            </Button>
+          </MenuItem>
+        ))}
+        <MenuItem onClick={handleCloseUserMenu}>
+          <Button onClick={handleLogOut} sx={{ color: 'black' }}>
+            Log Out
+          </Button>
+        </MenuItem>
+      </Menu>
+    </Box>
+      :
+      <Box sx={{ flexGrow: 0 }}>
+        <Button variant="contained" href='/login' sx={{ color: 'white', background: '#607d8b', right: '12px' }}>
+          Login
+        </Button>
+        <Button variant="outlined" href='/register' sx={{ color: 'white', border: '2px solid #546e7a', borderRadius: '10px' }}>
+          Register
+        </Button>
+
+      </Box>
+  }
+        </Toolbar >
+      </AppBar >
       <nav>
         <Drawer
           container={container}
@@ -227,7 +233,7 @@ const DrawerAppBar = (props) => {
         <Typography>
         </Typography>
       </Box>
-    </Box>
+    </Box >
   );
 }
 

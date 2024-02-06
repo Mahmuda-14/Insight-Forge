@@ -152,7 +152,13 @@ export default function Dashboard({ children }) {
             route: "UserProfile",
             pathname: "/dashboard",
             icon: <AccountCircleIcon />,
-        }
+        },
+        {
+            id: "2",
+            route: "Write a blog",
+            pathname: "/dashboard/writeABlog",
+            icon: <EditNoteIcon />,
+        },
 
     ]
     const mainListItemsRecruiter = [
