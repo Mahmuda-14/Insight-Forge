@@ -19,4 +19,5 @@ const Hackathon = () => {
   );
 };
 
-export default withAuth(Hackathon);
+// export default withAuth(Hackathon);
+export default Hackathon;
