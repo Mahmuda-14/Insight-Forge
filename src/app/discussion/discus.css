@@ -21,19 +21,19 @@
 }
 
 .askBtn {
-    font-size: 16px;
-    border: 2px solid #76453B;
+    font-size: 14px;
+    border: 1px solid #d9c6c2;
     background: none;
     border-radius: 5px;
-    color: #76453B;
+    color: #161211;
     padding: 14px 20px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .askBtn:hover {
     color: white;
-    background: #76453B;
-    border: 2px solid #76453B;
+    background: #3f515b;
+    border: 2px solid #042030;
 }
 
 .input{
