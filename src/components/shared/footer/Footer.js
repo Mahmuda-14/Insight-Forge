@@ -10,15 +10,15 @@ import bg2 from "../../../assets/Insight Forge (3).png"
 
 const Footer = () => {
   return (
-    <div className="bg-[#263238] w-full h-[210px]">
+    <div className="bg-[#263238] w-full h-[230px]">
       <div className='flex justify-around items-center '>
-         <div className='flex flex-col justify-center items-center mt-[20px] text-left'>
+         <div className='flex flex-col justify-center items-center mt-[20px] text-left '>
             <Image sx={{ flexGrow: 1 }} src={bg2} alt='company' width={80} height={80} />
             <p className="text-[18px] text-white"><span className="font-a text-[#4c87d3]">Insight Forge</span> Companies Ltd.</p>
             <p className="text-[12px] text-white">Providing reliable tech since 2021</p>
          </div>
 
-         <div>
+         <div className='mt-[20px]'>
            <p className='text-[18px] text-white mb-[10px] font-bold'>Location</p>
           <div className='flex justify-start items-left'>
                 <Image
@@ -55,7 +55,7 @@ const Footer = () => {
 
 
 
-        <div>
+        <div className='mt-[20px]'>
            <p className='text-[18px] text-white mb-[10px] font-bold'>Services</p>
          
           <div className='flex flex-col justify-start items-left gap-3'>
@@ -77,7 +77,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div class="text-white">
+      <div class="text-white mt-[20px]">
     <p class="text-[18px] text-white mb-[10px] font-bold">Site Links</p>
 
     <div class="flex flex-col justify-start items-left space-y-2 mt-4">

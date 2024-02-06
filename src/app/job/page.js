@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import Card from './Card';
 import JobCard from './JobCard';
 import JobM from './JobM';
@@ -7,21 +7,62 @@ import Gallery from './Gallery';
 import PostForm from './PostForm';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 import Footer from '@/components/shared/footer/Footer';
-import withAuth from '@/components/PrivateRoute/withAuth';
+import VideoPlayer from './VideoPlayer';
+// import withAuth from '@/components/PrivateRoute/withAuth';
 
 const Job = () => {
+  const [formData, setFormData] = useState({
+   
+    jobtype: ''
 
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    }
+  
   return (
-    <div style={{ background: 'linear-gradient(to right, #FFFFFF, #87CEEB)', padding: '10px' }}>
+    <div style={{  padding: '10px' }}>
       <DrawerAppBar></DrawerAppBar>
-      <div className='bg-gradient-to-r from-teal-800 to-slate-400 h-[23rem]'>
-        <h2 className='text-white p-4 pt-[80px] text-2xl ml-[113px] mt-5 text-center'>Find your dream job.</h2>
-        <input name="text" type="text" placeholder="text" className="input input-bordered ml-[650px] mt-8 px-5 py-2 rounded-xl" required />
+      <VideoPlayer></VideoPlayer>
+
+      <div >
+        <h2 className='text-black p-4 pt-[80px] text-2xl ml-[113px] mt-5 text-center'>Find your dream job.</h2>
+        <form onSubmit={handleSubmit} className="w-[800px] mx-auto bg-white p-8 rounded shadow-md flex justify-center items-center">
+        <div >
+              {/* <label className="block text-teal-600 text-[22px] mb-2 ">
+                Job Type:
+              </label> */}
+              <select
+                type="text" name="jobtype"
+                value={formData.jobtype}
+                onChange={handleChange}
+                className=" p-4 border rounded-md w-[500px]"
+              >
+                <option value="" disabled>
+                  Select a job
+                </option>
+                <option value="job1">Remote</option>
+                <option value="job2">Freelance</option>
+                <option value="job3">Full-time</option>
+              </select>
+            </div>
         <button class="btn ml-2 px-5 py-2 bg-black text-white rounded-xl">
           Search
         </button>
-
+        </form>
       </div>
+
       <JobM></JobM>
       <Card></Card>    
       <JobCard></JobCard>
@@ -32,6 +73,6 @@ const Job = () => {
   );
 };
 
-export default withAuth(Job);
+// export default withAuth(Job);
 
-
+export default Job;
