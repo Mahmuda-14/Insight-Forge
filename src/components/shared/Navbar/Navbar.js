@@ -26,11 +26,9 @@ import EditNoteIcon from "@mui/icons-material/EditNote";
 import Image from 'next/image';
 import useAuth from '@/app/hooks/useAuth';
 import { useTheme } from '@emotion/react';
-// import bg2 from "../../../assets/Insight Forge.png"
 import bg2 from "../../../assets/logo3.png"
-// import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-// import GroupsIcon from '@mui/icons-material/Groups';
+
 
 
 const drawerWidth = 240;
@@ -53,12 +51,6 @@ const navItems = [
     pathname: "/contact",
     icon: <PhoneIcon />,
   },
-  // {
-  //   id: "4",
-  //   route: "Discussion ",
-  //   pathname: "discussion ",
-  //   icon: <GroupsIcon />,
-  // },
   {
     id: "4",
     route: "VirtualHackathon",
@@ -137,7 +129,7 @@ const DrawerAppBar = (props, item) => {
   );
 
 
-  const isActive = router.pathname === item.pathname;
+
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (

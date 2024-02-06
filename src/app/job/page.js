@@ -7,12 +7,12 @@ import Gallery from './Gallery';
 import PostForm from './PostForm';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 import Footer from '@/components/shared/footer/Footer';
-import withAuth from '@/components/PrivateRoute/withAuth';
+// import withAuth from '@/components/PrivateRoute/withAuth';
 
 const Job = () => {
 
   return (
-    <div style={{ background: 'linear-gradient(to right, #FFFFFF, #87CEEB)', padding: '10px' }}>
+    <div style={{ padding: '10px' }}>
       <DrawerAppBar></DrawerAppBar>
       <div className='bg-gradient-to-r from-teal-800 to-slate-400 h-[23rem]'>
         <h2 className='text-white p-4 pt-[80px] text-2xl ml-[113px] mt-5 text-center'>Find your dream job.</h2>
@@ -32,6 +32,6 @@ const Job = () => {
   );
 };
 
-export default withAuth(Job);
+export default Job;
 
 

@@ -1,4 +1,4 @@
-button {
+.blog-button {
     text-decoration: none;
     position: relative;
     border: none;
@@ -10,13 +10,13 @@ button {
     height: 3em;
     line-height: 2em;
     text-align: center;
-    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background: linear-gradient(90deg, #213640, #1c314a, #ffeb3b, #03a9f4);
     background-size: 300%;
-    border-radius: 30px;
+    border-radius: 35px;
     z-index: 1;
   }
   
-  button:hover {
+  .blog-button:hover {
     animation: ani 8s linear infinite;
     border: none;
   }
@@ -31,7 +31,7 @@ button {
     }
   }
   
-  button:before {
+  .blog-button:before {
     content: "";
     position: absolute;
     top: -5px;
@@ -39,17 +39,17 @@ button {
     right: -5px;
     bottom: -5px;
     z-index: -1;
-    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background: linear-gradient(90deg, #5a6b72, #1a6887, #246669, #bfddeb);
     background-size: 400%;
     border-radius: 35px;
     transition: 1s;
   }
   
-  button:hover::before {
+  .blog-button:hover::before {
     filter: blur(20px);
   }
   
-  button:active {
+  .blog-button:active {
     background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
   }
   
