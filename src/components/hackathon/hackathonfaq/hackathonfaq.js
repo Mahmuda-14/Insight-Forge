@@ -12,14 +12,14 @@ import { Box, Container, Grid, Paper, Typography } from '@mui/material';
 export default function Hackathonfaq() {
     return (
         <Box sx={{maxWidth:"xl", mx:"auto"}}>
-            <div style={{ background: 'linear-gradient(to right, #FFFFFF, #87CEEB)', padding:'10px' }}>
+            <div style={{  padding:'10px' }}>
                 <Paper elevation={10} sx={{ maxWidth: '355px', mx: 'auto', my: 4, background: '#87CEEB', py: 2, px: 1 }}><Typography variant="h4" sx={{ px: '12px', py: '5px', color: 'black', fontWeight: 600 }}>FAQ for Hackathon</Typography></Paper>
 
                 <Grid container spacing={3} sx={{ justifyContent: "center", alignItems: "center", px:5 }}>
-                    <Grid item xs={12} md={12} lg={6}>
+                    <Grid item xs={12} md={6} lg={6}>
                         <Lottie animationData={FAQAnimation}></Lottie>
                     </Grid>
-                    <Grid item xs={12} md={12} lg={6}>
+                    <Grid item xs={12} md={6} lg={6}>
                         <Accordion>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}

@@ -3,7 +3,7 @@ import React from 'react';
 
 const Gallery = () => {
     return (
-        <div>
+        <div className='my-[100px]'>
             <div className='my-[100px] flex justify-between items-center'>
                 <div>
                     <Image
