@@ -147,6 +147,12 @@ export default function Dashboard({ children }) {
             pathname: "/dashboard/writeABlog",
             icon: <EditNoteIcon />,
         },
+        {
+            id: "3",
+            route: "My blog",
+            pathname: "/dashboard/myBLog",
+            icon: <EditNoteIcon />,
+        },
 
     ]
     const mainListItemsRecruiter = [

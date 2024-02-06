@@ -2,7 +2,6 @@
 // /* eslint-disable react-hooks/rules-of-hooks */
 'use client'
 import DashboardTitle from '@/components/shared/dashboardTitle/dashboardTitle';
-import HTMLReactParser from 'html-react-parser'
 import React, { useCallback, useEffect, useState } from 'react';
 import { Jodit } from 'jodit/es2018/jodit.fat.min';
 import JoditEditor from 'jodit-react';
@@ -90,6 +89,7 @@ const Form = () => {
 			const blogItem = {
 				name: user?.displayName,
 				userImg: user?.photoURL,
+				userEmail: user?.email,
 				title,
 				category,
 				details,
@@ -104,7 +104,7 @@ const Form = () => {
 		}
 	}
 
-	const timestampStr = "2024-02-05T18:27:43.397+00:00";
+	const timestampStr = "2024-02-06T08:27:00.878+00:00";
 	const [formattedTimestamp, setFormattedTimestamp] = useState('');
 	const [targetTimezone, setTargetTimezone] = useState('America/New_York');
 	
