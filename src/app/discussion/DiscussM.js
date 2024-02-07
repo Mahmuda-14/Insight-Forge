@@ -56,7 +56,7 @@ const [users] = useSingleUser()
                     </div>
                 </div>
 
-                <Link href={`/discussion/${question?._id}`}><h3 className='text-xl font-bold my-1'>{question.title}</h3></Link>
+                <Link href={`/discussion/${question?._id}`}><h3 className='text-xl font-bold my-1 w-[35rem]'>{question.title}</h3></Link>
 
 
                 <p>{question?.comments?.length} Answers </p>
@@ -74,7 +74,7 @@ const [users] = useSingleUser()
                 </div>
             </div>
             <div>
-                <img className='w-[15rem] h-[13rem] mt-4 rounded-2xl' src={question.photo} />
+                <img className='w-[15rem] h-[13rem] mt-4 rounded-2xl' src="https://i.ibb.co/RNmQ9dJ/7.webp" />
             </div>
         </div>
     );
