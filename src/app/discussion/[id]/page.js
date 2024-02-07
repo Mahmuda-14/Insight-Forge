@@ -15,6 +15,7 @@ const page = ({ params }) => {
     const router = useRouter();
     const axiosSecure = useAxiosSecure()
     const axiosPublic = useAxiosPublic()
+    
     const { refetch, data } = useQuery({
         queryKey: ['discuss'],
         queryFn: async () => {
