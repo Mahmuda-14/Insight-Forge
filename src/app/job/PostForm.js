@@ -8,8 +8,8 @@ const PostForm = () => {
 
     return (
         <div className='my-[300px]'>
-             <div className='flex justify-around items-center '>
-                <div className="flex justify-around items-center w-[750px] h-[310px] mx-auto  shadow-md p-8 rounded-md card3 card4 ">
+             <div className='lg:flex md:flex sm:flex-col-1 justify-around items-center '>
+                <div className="flex justify-around items-center lg:w-[750px] lg:h-[310px] md:w-[650px] md:h-[410px] sm:w-[550px] sm:h-[510px] mx-auto  shadow-md p-8 rounded-md card3 card4 ">
                     <Image
                         src="https://i.ibb.co/LJQR7LP/18-removebg-preview.png"
                         alt="Company Logo"
@@ -35,7 +35,7 @@ const PostForm = () => {
                </div>
              
             </div>
-            <div className='flex justify-around items-center mt-[200px]'>
+            <div className='lg:flex md:flex sm:flex-col-1 justify-around items-center mt-[200px]'>
                <div className='mx-[50px]'>
                 <p className='text-[30px] font-semibold'>Search your job</p>
                </div>
@@ -47,7 +47,7 @@ const PostForm = () => {
                         height={100}></Image>
                </div>
 
-            <div className="flex justify-around items-center w-[750px] h-[310px] mx-auto card3 card4 shadow-md p-8 rounded-md">
+            <div className="flex justify-around items-center lg:w-[750px] lg:h-[310px] md:w-[650px] md:h-[410px] sm:w-[550px] sm:h-[510px] mx-auto card3 card4 shadow-md p-8 rounded-md">
                     <Image
                         src="https://i.ibb.co/jGL0VpW/14-removebg-preview-1.png"
                         alt="Company Logo"

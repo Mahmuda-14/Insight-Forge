@@ -4,7 +4,7 @@ import React from 'react';
 const Gallery = () => {
     return (
         <div className='my-[100px]'>
-            <div className='my-[100px] flex justify-between items-center'>
+            <div className='my-[100px] lg:flex md:flex-col-1 sm:flex-col-1 justify-between items-center'>
                 <div>
                     <Image
                         src="https://i.ibb.co/wNzPjct/25-removebg-preview.png"
