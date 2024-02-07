@@ -17,14 +17,15 @@ const DiscussM = ({ question }) => {
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
     const router = useRouter();
-    const [ reload] = useDiscussData()
+    const [ , reload] = useDiscussData()
 
 
 
     const likePost = (id) => {
         if (user && user?.email) {
             const uId = {
-                postId: id
+                postId: id,
+                userEmail: user?.email
             }
             axiosSecure.put('/questionLike', uId)
                 .then(res => {
@@ -57,7 +58,7 @@ const DiscussM = ({ question }) => {
                 <Link href={`/discussion/${question?._id}`}><h3 className='text-xl font-bold my-1'>{question.title}</h3></Link>
 
 
-                <p>50 Answers · 10 hours ago</p>
+                <p>{question?.comments?.length} Answers </p>
                 <div className="btnIcon my-3">
                     <Link href={`/discussion/${question?._id}`}><Button> <QuestionAnswer /> Answer</Button></Link>
                     <div className="like">

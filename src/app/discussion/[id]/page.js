@@ -10,6 +10,7 @@ import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 import Footer from '@/components/shared/footer/Footer';
+import useDiscussData from '@/app/hooks/useDiscussData';
 
 const page = ({ params }) => {
     console.log(params.id)
@@ -17,6 +18,7 @@ const page = ({ params }) => {
     const router = useRouter();
     const axiosSecure = useAxiosSecure()
     const axiosPublic = useAxiosPublic()
+    const [ , reload] = useDiscussData()
     const { refetch, data } = useQuery({
         queryKey: ['discuss'],
         queryFn: async () => {
@@ -41,6 +43,7 @@ const page = ({ params }) => {
                     console.log(res.data)
                     if (res.data) {
                         toast.success("You answer this question");
+                        reload()
                         refetch()
                     }
                 })
