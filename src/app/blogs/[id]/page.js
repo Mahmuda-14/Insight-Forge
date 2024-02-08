@@ -5,6 +5,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
 import useAuth from '@/app/hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
+import BlogShare from '@/components/blogShare/modal';
 const page = ({params}) => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const { user } = useAuth();
@@ -67,6 +68,7 @@ const page = ({params}) => {
             </Box>
             {/* Like and comment icon */}
             <Box className="flex  justify-items-center gap-8 mr-8 mt-4 ">
+            <BlogShare></BlogShare>
             <Box className="flex space-x-2">
             <FavoriteBorderOutlinedIcon className='text-black'></FavoriteBorderOutlinedIcon>
            <Typography>

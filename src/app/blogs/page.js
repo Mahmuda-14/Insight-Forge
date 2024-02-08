@@ -17,6 +17,7 @@ import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
 import Link from "next/link";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import BlogShare from "@/components/blogShare/modal";
 
 const page = () => {
       const axiosSecure = useAxiosSecure()
@@ -149,7 +150,7 @@ const page = () => {
     <Typography component="div" variant="subtitle," >
     {blog.name}
     </Typography>
-    <Avatar alt="Remy Sharp" className="w-8 h-8" src={blog?.userImg} />
+    <Avatar alt={blog?.name} className="w-8 h-8" src={blog?.userImg} />
     </Box>
     <Typography className="font-bold text-lg md:text-2xl"  >
     {/* Use the actual title from the blog */}
@@ -165,7 +166,9 @@ const page = () => {
     </Typography>
     }
     <Box className="flex justify-end items-center justify-items-center space-x-6 " >
-    <Box>
+    <Box className="flex" >
+       {/* share modal */}
+      <BlogShare></BlogShare>
     <Button onClick={()=>submitLike(blog._id)} className="text-black w-10" ><FavoriteBorderOutlinedIcon></FavoriteBorderOutlinedIcon></Button>
     {blog.likes?.length}
     </Box>
