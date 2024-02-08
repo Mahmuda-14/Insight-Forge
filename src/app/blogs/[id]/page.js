@@ -5,6 +5,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
 import useAuth from '@/app/hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
+
 const page = ({params}) => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const { user } = useAuth();
@@ -109,8 +110,8 @@ const page = ({params}) => {
           </Button>
           </form>
           <Box className="space-y-6">
-          {data?.comments?.map((item)=>(
-          <Box key={item} className="flex space-x-4 ">
+          {data?.comments?.map((item, i)=>(
+          <Box key={i} className="flex space-x-4 ">
           <Avatar alt="Remy Sharp" src={item?.userPhoto} />
           <Box className="">
           <Typography className=' text-lg md:text-xl  ' >
