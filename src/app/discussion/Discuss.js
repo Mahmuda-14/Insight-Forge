@@ -43,7 +43,7 @@ const Discuss = () => {
     const axiosSecure = useAxiosSecure()
     const { user } = useAuth();
     const router = useRouter();
-    const [discuss ] = useDiscussData()
+    const [discuss] = useDiscussData()
     // const [blogs, reloadBlog] = useBlogs()
 
 
@@ -119,11 +119,11 @@ const Discuss = () => {
                     </Marquee>
 
                     <div className='flex my-10'>
-                    <SearchRoundedIcon style={{ width: '1.5em ', height: '2em',position:'relative',top:'3px', left:'41px' }} /> 
+                        <SearchRoundedIcon style={{ width: '1.5em ', height: '2em', position: 'relative', top: '3px', left: '41px' }} />
 
-                          <input name="text" type="text" placeholder="Search here" className="input input-bordered border-2 pl-7 py-2 rounded-xl" required />
-                          {/* <button className='relative bg-slate-500 right-11 rounded-2xl p-3 w-10'>Search</button> */}
-           
+                        <input name="text" type="text" placeholder="Search here" className="input input-bordered border-2 pl-7 py-2 rounded-xl" required />
+                        {/* <button className='relative bg-slate-500 right-11 rounded-2xl p-3 w-10'>Search</button> */}
+
                     </div>
 
                     <Modal
@@ -184,77 +184,82 @@ const Discuss = () => {
                     </Modal>
                 </div>
             </Stack>
-           
+
 
             {/* question part */}
+            {/* const dessert = menu.filter(item => item.category === 'dessert'); */}
+
+            <div className=' ml-[7rem]'>
+                <ul className='flex flex-row ml-[319px]'>
+                    <li className='mr-[19px]'>
+                        <Button>Recent Questions
+                            {
+                             discuss.filter(item => item.category === 'likes')
+
+                            }
+                        </Button>
+                    </li>
+                    <li className=' mr-[19px] '>
+                        <Button>Most Answered</Button>
+                    </li>
+                    <li className=' mr-[19px] '>
+                        <Button>Recent Posts</Button>
+                    </li>
+                </ul>
+            </div>
+            <Box className="borderBot ml-[112px] mr-[446px]"></Box>
 
 
-        <div className=' ml-[7rem]'>
-            <ul className='flex flex-row ml-[319px]'>
-                <li className='mr-[19px] bg-slate-400'>
-                  <Button>Recent Questions</Button>
-                </li>
-                <li className=''>
-                  <Button>Most Answered</Button>
-                </li>
-                <li>
-                  <Button>Recent Posts</Button>
-                </li>
-            </ul>
-        </div>
-        <Box className="borderBot ml-[112px] mr-[446px]"></Box>
+            <div className='flex sm:flex-col md:flex-col lg:flex-row gap-3 '>
 
-      
-            <div className='flex flex-row gap-3 '>
-
-                <div className='grid grid-cols-1 gap-3 mr-4 ml-[7rem] my-9'>
+                <div className='grid grid-cols-1 gap-3 mr-4 sm:ml-[1px] lg:ml-[7rem] my-9'>
                     {
                         discuss.map(question => <DiscussM key={question.id} question={question}></DiscussM>)
                     }
 
                 </div>
-                
 
-              <div>
-              <div>
-                
-                <Button onClick={handleOpen} className=' bg-slate-400 px-9 ml-7 left-7 bottom-12'> <BorderColorOutlinedIcon style={{ width: '1.5em ', height: '1.5em' }}/>Ask A Question</Button>
-                <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 mb-5">
-                <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>States</h2>
-                <hr></hr>
-                <div className="flex flex-col gap-2  my-3">
-                   <Button className='askBtn'>Questions(20)</Button>
-                   <Button className='askBtn'>Answers(20)</Button>
-                   <Button className='askBtn'>Most Liked(20)</Button>
-                     
-                    
-                </div>
 
-                </div>
-                
-                </div>
                 <div>
-                <div>
-                
-              
-                <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 mb-5">
-                <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>Join Us On</h2>
-                <hr></hr>
-                <div className="flex flex-col gap-2  my-3">
-                    
-                   <Button className='askBtn'><Link href={'https://www.facebook.com/'}><FacebookIcon style={{marginRight:'5px', color:'blue'}}></FacebookIcon>Facebook</Link></Button>
-                   <Button className='askBtn'><Link href={'https://www.facebook.com/'}><InstagramIcon style={{marginRight:'5px', color:'red'}}></InstagramIcon>Instagram</Link></Button>
-                   <Button className='askBtn'><Link href={'https://www.facebook.com/'}><TwitterIcon style={{marginRight:'7px',color:'blue'}}></TwitterIcon>Twitter</Link></Button>
-                     
-                    
+                    <div>
+
+                        <Button onClick={handleOpen} className=' bg-slate-400 px-9 ml-7 left-7 bottom-12'> <BorderColorOutlinedIcon style={{ width: '1.5em ', height: '1.5em' }} />Ask A Question</Button>
+                        <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 mb-5">
+                            <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>States</h2>
+                            <hr></hr>
+                            <div className="flex flex-col gap-2  my-3">
+                                <Button className='askBtn'>Questions(20)</Button>
+                                <Button className='askBtn'>Answers(20)</Button>
+                                <Button className='askBtn'>Most Liked(20)</Button>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div>
+                        <div>
+
+
+                            <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 mb-5">
+                                <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>Join Us On</h2>
+                                <hr></hr>
+                                <div className="flex flex-col gap-2  my-3">
+
+                                    <Button className='askBtn'><Link href={'https://www.facebook.com/'}><FacebookIcon style={{ marginRight: '5px', color: 'blue' }}></FacebookIcon>Facebook</Link></Button>
+                                    <Button className='askBtn'><Link href={'https://www.facebook.com/'}><InstagramIcon style={{ marginRight: '5px', color: 'red' }}></InstagramIcon>Instagram</Link></Button>
+                                    <Button className='askBtn'><Link href={'https://www.facebook.com/'}><TwitterIcon style={{ marginRight: '7px', color: 'blue' }}></TwitterIcon>Twitter</Link></Button>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
-                </div>
-                
-                </div>
-                </div>
-              </div>
-               
 
             </div>
 

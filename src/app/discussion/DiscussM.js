@@ -11,6 +11,7 @@ import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import useDiscussData from '../hooks/useDiscussData';
+import '../../components/banner/banner.css'
 
 const DiscussM = ({ question }) => {
     const { photo, title, _id, likes } = question;
