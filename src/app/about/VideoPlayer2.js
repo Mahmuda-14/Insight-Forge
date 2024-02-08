@@ -10,11 +10,12 @@ import Image from "next/image";
 const VideoPlayer2 = () => {
   // const inter = Inter({ subsets: ['latin'] })
   // Video path
-  let videoSrc = "/v3.mp4";
+  // let videoSrc = "/v3.mp4";
 
   return (
-    <div className="relative ">
+    <div className="relative h-[400px]">
       {/* Video Player */}
+      {/* <div className="hidden sm:block">
       <ReactPlayer
         width="100%"
         height="auto"
@@ -26,14 +27,15 @@ const VideoPlayer2 = () => {
         muted={true}
         loop={true}
       />
-  
+     </div> */}
       {/* Text Overlay */}
-      <div className="absolute inset-0 flex items-center justify-center font-bold text-[#ffffff] text-[25px] mx-[50px]">
+      <div className="absolute inset-0 flex items-center justify-center font-bold text-black text-[25px] mx-[50px]">
       <Image
                             src="https://i.ibb.co/LgFphFr/20-removebg-preview.png"
                             alt="Company Logo"
                             width={350}
                             height={350}
+                            className="hidden sm:block"
                         /> 
       <TypeAnimation 
       sequence={[
