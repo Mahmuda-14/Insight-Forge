@@ -241,11 +241,6 @@ const Discuss = () => {
             <div className='flex flex-row gap-3 '>
 
                 <div className='grid grid-cols-1 gap-3 mr-4 ml-[7rem] my-9'>
-<<<<<<< HEAD
-                    {
-                        discuss.map(question => <DiscussM key={question._id} question={question}></DiscussM>)
-                    }
-=======
                 {discuss && discuss.length > 0 ? (
             discuss?.filter((menuItem) => {
                 return search.toLocaleLowerCase() === '' ? menuItem : menuItem?.category.toLocaleLowerCase().includes(search) || menuItem?.title.toLocaleLowerCase().includes(search)
@@ -254,7 +249,6 @@ const Discuss = () => {
           ) : (
             <p>No data available.</p>
           )}
->>>>>>> b90c693e4c106edce2418630cc611467643981a9
 
                 </div>
 
