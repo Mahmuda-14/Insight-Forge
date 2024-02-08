@@ -5,7 +5,7 @@ import {  createTheme, ThemeProvider } from '@mui/material/styles';
 const themeColor = createTheme({
     palette: {
         primary: {
-          main: '#263238',
+          main: '#4f675b',
           // mainGradient: "linear-gradient(to right, #3c3c3c, #ffffff)",
           contrastText:"black"
         },

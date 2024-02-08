@@ -10,7 +10,7 @@
     height: 3em;
     line-height: 2em;
     text-align: center;
-    background: linear-gradient(90deg, #213640, #1c314a, #ffeb3b, #03a9f4);
+    background: linear-gradient(90deg, #6f817a, #62c1b9, #ffeb3b, #7a8685);
     background-size: 300%;
     border-radius: 35px;
     z-index: 1;
@@ -39,7 +39,7 @@
     right: -5px;
     bottom: -5px;
     z-index: -1;
-    background: linear-gradient(90deg, #5a6b72, #1a6887, #246669, #bfddeb);
+    background: linear-gradient(90deg, #6f817a, #395b5b, #246669, #bfddeb);
     background-size: 400%;
     border-radius: 35px;
     transition: 1s;
