@@ -49,19 +49,19 @@ const navItems = [
     pathname: "/contact",
     icon: <PhoneIcon />,
   },
-  {
-    id: "4",
-    route: "VirtualHackathon",
-    pathname: "/hackathon",
-    icon: <EditNoteIcon />,
-  },
-  { id: "5",
+  // {
+  //   id: "4",
+  //   route: "VirtualHackathon",
+  //   pathname: "/hackathon",
+  //   icon: <EditNoteIcon />,
+  // },
+  { id: "4",
     route: "Job Board",
     pathname: "/job",
     icon: < PhoneIcon/>,
   },
   {
-    id:"6",
+    id:"5",
     route: "About",
     pathname: "/about",
     icon: < PhoneIcon/>,
@@ -198,10 +198,10 @@ const DrawerAppBar = (props, item) => {
     </Box>
       :
       <Box sx={{ flexGrow: 0 }}>
-        <Button variant="contained" href='/login' sx={{ color: 'white', background: '#607d8b', right: '12px' }}>
+        <Button variant="contained" href='/login' sx={{ color: 'white', background: '#6f817a', right: '12px' }}>
           Login
         </Button>
-        <Button variant="outlined" href='/register' sx={{ color: 'white', border: '2px solid #546e7a', borderRadius: '10px' }}>
+        <Button variant="outlined" href='/register' sx={{ color: 'white', border: '2px solid #6f817a', borderRadius: '10px' }}>
           Register
         </Button>
 
