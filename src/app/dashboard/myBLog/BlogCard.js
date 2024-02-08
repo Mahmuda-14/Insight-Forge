@@ -66,14 +66,14 @@ const BlogCard = ({ item }) => {
 
                     }
                     </div> */}
-                    <div className='flex justify-end items-center gap-5 mt-4'>
+                    {/* <div className='flex justify-end items-center gap-5 mt-4'>
                     <button class="bg-[#263238] hover:bg-[#4e5356] px-4 py-2 rounded-md">
                     <FaEdit />
                         </button>
                     <button class="bg-red-600 hover:bg-red-500 px-4 pb-2 rounded-md">
                     <DeleteForeverIcon />
                         </button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

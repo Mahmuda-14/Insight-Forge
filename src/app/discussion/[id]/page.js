@@ -58,25 +58,17 @@ const page = ({ params }) => {
 
 
     return (
-<<<<<<< HEAD
-        <Box sx={{p:10}}>
-=======
         <div>
 
         <Box className="mt-16" style={{ padding: '', }}>
->>>>>>> b90c693e4c106edce2418630cc611467643981a9
             <DrawerAppBar></DrawerAppBar>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-8 px-10 mt-8 min-h-full mb-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-8 px-10 mt-8 min-h-[60vh] mb-4'>
                 <div className=' '>
                     <div>
                         <h3 className='text-xl font-bold'>{discuss.title}</h3>
                         <p className='text-base text-gray-500'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus laboriosam sunt tempore minima laudantium praesentium, ducimus reiciendis aut iste dolores labore animi quas quibusdam. At qui repudiandae ducimus facilis officiis.</p>
                     </div>
-<<<<<<< HEAD
-                   
-=======
                     
->>>>>>> b90c693e4c106edce2418630cc611467643981a9
 
                     <form onSubmit={(e) => {
                         e.preventDefault()
@@ -97,35 +89,15 @@ const page = ({ params }) => {
                         <button type='submit' className="bg-[#042030] text-white p-3 rounded-md hover:bg-[#3f515b]">Post Answer</button>
                     </form>
                 </div>
-<<<<<<< HEAD
-                <div className='p-5'>
-=======
                 <div className=''>
->>>>>>> b90c693e4c106edce2418630cc611467643981a9
                 {
                         data?.comments && data?.comments?.length > 0 ? (
                             <div className='max-h-[400px] overflow-y-auto'>
                                 {
-<<<<<<< HEAD
-                                    data?.comments?.map(comment => <div className='my-5 border-b-2 pb-2' key={comment?._id}>
-                                        <div className='flex gap-2 mb-2'>
-                                            <Avatar className='' aria-label="user image">
-                                                {comment?.userPhoto}
-                                            </Avatar>
-                                            <p className='font-semibold'>{comment?.userName}</p>
-                                        </div>
-
-                                        <Typography className='mt-0' color="text.secondary">
-                                            {comment?.text}
-                                        </Typography>
-
-                                    </div>)
-=======
                                     data?.comments?.map(comment => <SingleComment key={comment._id} comment={comment}></SingleComment>)
->>>>>>> b90c693e4c106edce2418630cc611467643981a9
                                 }
                             </div>
-                        ) : ''
+                        ) : <p>No answer available.</p>
                     }
                 </div>
             </div>
