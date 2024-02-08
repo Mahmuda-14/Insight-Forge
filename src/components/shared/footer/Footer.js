@@ -11,15 +11,15 @@ import bg2 from "../../../assets/logo3.png"
 const Footer = () => {
   return (
 <div>
-<div className="bg-[#263238] w-full h-[210px] p-10">
-      <div className='flex justify-around items-center '>
+<div className="bg-[#263238] w-full lg:h-[210px] md:h-[550px] sm:h-[550px] p-10">
+      <div className='lg:flex md:flex-col sm:flex-col-1 justify-around items-center '>
         <div className='flex flex-col justify-center items-center mt-[20px] text-left'>
           <Image sx={{ flexGrow: 1 }} src={bg2} alt='company' width={80} height={80} />
           <p className="text-[18px] text-white"><span className="font-a text-[#4c87d3]">Insight Forge</span> Companies Ltd.</p>
           <p className="text-[12px] text-white">Providing reliable tech since 2021</p>
         </div>
 
-        <div>
+        <div className='lg:ml-[0px] md:ml-[250px] sm:ml-[0px] lg:mt-[0px] md:mt-[20px] sm:mt-[10px]'>
           <p className='text-[18px] text-white mb-[10px] font-bold'>Location</p>
           <div className='flex justify-start items-left'>
             <Image
@@ -56,7 +56,7 @@ const Footer = () => {
 
 
 
-        <div>
+        <div className='lg:ml-[0px] md:ml-[250px] sm:ml-[0px] lg:mt-[0px] md:mt-[20px] sm:mt-[10px]'>
           <p className='text-[18px] text-white mb-[10px] font-bold'>Services</p>
 
           <div className='flex flex-col justify-start items-left gap-3'>
@@ -78,8 +78,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div class="text-white">
-          <p class="text-[18px] text-white mb-[10px] font-bold">Site Links</p>
+        <div className="text-white lg:ml-[0px] md:ml-[250px] sm:ml-[0px] lg:mt-[0px] md:mt-[20px] sm:mt-[10px]">
+          <p className="text-[18px] text-white mb-[10px] font-bold">Site Links</p>
 
           <div class="flex flex-col justify-start items-left space-y-2 mt-4">
             <a href="https://www.youtube.com/your-youtube-channel" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">

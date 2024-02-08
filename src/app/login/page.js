@@ -72,6 +72,7 @@ export default function LogInPage() {
         const userInfo = {
           uEmail: result?.user?.email,
           uName: result?.user?.displayName,
+          uPhoto: result?.user?.photoURL,
           role: "user"
         }
         console.log(userInfo);

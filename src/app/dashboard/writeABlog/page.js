@@ -149,7 +149,7 @@ const Form = () => {
 
 
 	return (
-		<div className='mt-20 min-h-screen'>
+		<div className='mt-20 min-h-screen min-w-full'>
 
 			<div>
 				<p>Original Timestamp: {timestampStr}</p>

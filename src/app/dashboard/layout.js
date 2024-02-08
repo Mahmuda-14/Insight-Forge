@@ -344,10 +344,10 @@ export default function Dashboard({ children }) {
                     </List>
                 </Drawer>
                
-                    <Box sx={{maxWidth:"xl", mx:"auto"}}>
+                    <div className='md:min-w-[1024px] mx-auto '>
                         {children}
                         <Copyright />
-                    </Box>
+                    </div>
 
                 
             </Box>
