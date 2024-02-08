@@ -64,6 +64,10 @@ const DiscussM = ({ question }) => {
                         reload();
                     }
                 })
+                .catch(error => {
+                    toast.error("Something is wrong");
+                    console.error("Error:", error);
+                  });
         } else {
             toast.success("You are not Logged In!");
             router.push("/login");
