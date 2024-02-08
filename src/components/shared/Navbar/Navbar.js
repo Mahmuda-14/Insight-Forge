@@ -19,9 +19,7 @@ import Button from '@mui/material/Button';
 import { Avatar, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
 import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
-import LoginIcon from "@mui/icons-material/Login";
-import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
-import CloseIcon from "@mui/icons-material/Close";
+
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import Image from 'next/image';
 import useAuth from '@/app/hooks/useAuth';

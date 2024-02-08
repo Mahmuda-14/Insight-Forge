@@ -5,6 +5,8 @@
 import useAuth from '@/app/hooks/useAuth';
 import { redirect } from 'next/navigation';
 import React, { useEffect } from 'react';
+import loadingAnimation from '../../assets/loadingAnimation.json'
+import Lottie from 'lottie-react';
 
 export default function withAuth(Component) {
     return function WithAuth(props) {
@@ -13,17 +15,17 @@ export default function withAuth(Component) {
         // eslint-disable-next-line react-hooks/rules-of-hooks  
 
         if (loading) {
-
+            <Lottie animationData={loadingAnimation}></Lottie>
         }
         useEffect(() => {
 
             if (!user) {
-                redirect('/')
+                redirect('/login')
             }
         }, [])
 
         if (!user) {
-            return redirect('/');
+            return redirect('/login');
         }
 
         return <Component {...props} />

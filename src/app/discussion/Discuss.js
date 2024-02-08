@@ -209,7 +209,7 @@ const Discuss = () => {
 
                 <div className='grid grid-cols-1 gap-3 mr-4 ml-[7rem] my-9'>
                     {
-                        discuss.map(question => <DiscussM key={question.id} question={question}></DiscussM>)
+                        discuss.map(question => <DiscussM key={question._id} question={question}></DiscussM>)
                     }
 
                 </div>

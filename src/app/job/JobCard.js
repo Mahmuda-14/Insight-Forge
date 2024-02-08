@@ -24,7 +24,7 @@ const JobCard = () => {
         setJobs(res.data)
       })
 
-  }, [])
+  }, [axiosPublic])
 
   const marqueeProps = {
 
@@ -45,7 +45,7 @@ const JobCard = () => {
           <Marquee {...marqueeProps}>
       <div className='grid grid-cols-4 gap-3 mx-4 my-7'>
         {
-          job.map(item => <Job key={item.id} item={item}></Job>)
+          job.map(item => <Job key={item._id} item={item}></Job>)
         }
 
       </div>

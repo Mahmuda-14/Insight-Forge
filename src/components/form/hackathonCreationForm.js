@@ -30,7 +30,7 @@ const HackathonCreationForm = () => {
         const category = data.category
 
         const hackathonInfo = {
-            tile: title,
+            title: title,
             totalPrice: totalPrice,
             description: description,
             category: category

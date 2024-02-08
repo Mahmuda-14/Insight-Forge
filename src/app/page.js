@@ -2,7 +2,7 @@
 
 
 import Banner from "@/components/banner/banner";
-// import Chatbot from "@/components/chatbot/chatbot";
+ import Chatbot from "@/components/chatbot/chatbot";
 import DrawerAppBar from "@/components/shared/Navbar/Navbar";
 
 import Footer from "@/components/shared/footer/Footer";
@@ -20,8 +20,8 @@ const HomePage = () => {
       <Divider sx={{ backgroundColor: 'white',paddingTop:'45px' }} />
       <Banner></Banner>
       <Discuss></Discuss>
-      {/* <Chatbot></Chatbot>
-      <Review></Review>
+      <Chatbot></Chatbot>
+      {/* <Review></Review>
       <All></All>
       <Count></Count>
       <Logo></Logo> */}

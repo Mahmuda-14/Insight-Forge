@@ -52,7 +52,7 @@ const page = ({ params }) => {
 
 
     return (
-        <Box className="" style={{ background: 'linear-gradient(to right, #FFFFFF, #87CEEB)', padding: '10px' }}>
+        <Box sx={{p:10}}>
             <DrawerAppBar></DrawerAppBar>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-8 px-10 mt-8 min-h-screen'>
                 <div className=' md:col-span-2'>
@@ -60,27 +60,7 @@ const page = ({ params }) => {
                         <h3 className='text-xl font-bold'>How do I break a string into words and track the index of is a each word (within the original string)?</h3>
                         <p className='text-base text-gray-500'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus laboriosam sunt tempore minima laudantium praesentium, ducimus reiciendis aut iste dolores labore animi quas quibusdam. At qui repudiandae ducimus facilis officiis.</p>
                     </div>
-                    {
-                        data?.comments && data?.comments?.length > 0 ? (
-                            <div className='max-h-[400px] overflow-y-auto'>
-                                {
-                                    data?.comments?.map(comment => <div className='my-5 border-b-2 pb-2' key={comment?._id}>
-                                        <div className='flex gap-2 mb-2'>
-                                            <Avatar className='' aria-label="user image">
-                                                {comment?.userPhoto}
-                                            </Avatar>
-                                            <p>{comment?.userName}</p>
-                                        </div>
-
-                                        <Typography className='mt-0' color="text.secondary">
-                                            {comment?.text}
-                                        </Typography>
-
-                                    </div>)
-                                }
-                            </div>
-                        ) : ''
-                    }
+                   
 
                     <form onSubmit={(e) => {
                         e.preventDefault()
@@ -101,7 +81,29 @@ const page = ({ params }) => {
                         <Button type='submit' className="" variant="outlined">Post Answer</Button>
                     </form>
                 </div>
-                <div className='bg-gray-300'></div>
+                <div className='p-5'>
+                {
+                        data?.comments && data?.comments?.length > 0 ? (
+                            <div className='max-h-[400px] overflow-y-auto'>
+                                {
+                                    data?.comments?.map(comment => <div className='my-5 border-b-2 pb-2' key={comment?._id}>
+                                        <div className='flex gap-2 mb-2'>
+                                            <Avatar className='' aria-label="user image">
+                                                {comment?.userPhoto}
+                                            </Avatar>
+                                            <p className='font-semibold'>{comment?.userName}</p>
+                                        </div>
+
+                                        <Typography className='mt-0' color="text.secondary">
+                                            {comment?.text}
+                                        </Typography>
+
+                                    </div>)
+                                }
+                            </div>
+                        ) : ''
+                    }
+                </div>
             </div>
             <Footer></Footer>
         </Box>
