@@ -6,7 +6,7 @@ const useDiscussData = () => {
     const { refetch: reload, data: discuss = []}= useQuery({
         queryKey: ['discuss'],
         queryFn: async()=>{
-            const res = await axiosPublic.get('/allDiscus');
+            const res = await axiosPublic.get('/resentDiscus');
             return res.data
         }
     })

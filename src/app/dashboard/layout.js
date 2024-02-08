@@ -23,7 +23,7 @@ import EditNoteIcon from "@mui/icons-material/EditNote";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import { ListItemButton, ListItemIcon, ListItemText, Paper } from '@mui/material';
 import { useTheme } from '@emotion/react';
-import bg2 from "../../assets/Insight Forge (3).png"
+import bg2 from "../../assets/logo3.png"
 import Image from 'next/image';
 import GroupsIcon from '@mui/icons-material/Groups';
 import DevicesIcon from '@mui/icons-material/Devices';
@@ -243,7 +243,8 @@ export default function Dashboard({ children }) {
         <ThemeProvider theme={themeColor}>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
-                <AppBar position="absolute" open={open} style={{ background: "#263238", color:"white" }}>
+                <AppBar position="absolute" open={open} style={{ background: theme.palette.primary.main }}>
+                {/* <AppBar position="absolute" open={open} style={{ background: "#263238", color:"white" }}> */}
                     <Toolbar
                         sx={{
                             pr: '24px', // keep right padding when drawer closed
@@ -343,10 +344,10 @@ export default function Dashboard({ children }) {
                     </List>
                 </Drawer>
                
-                    <Box sx={{maxWidth:"xl", mx:"auto"}}>
+                    <div className='md:min-w-[1024px] mx-auto '>
                         {children}
                         <Copyright />
-                    </Box>
+                    </div>
 
                 
             </Box>

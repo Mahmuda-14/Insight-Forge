@@ -39,16 +39,14 @@ const Job = () => {
 
       <div >
         <h2 className='text-black p-4 pt-[80px] text-2xl  mt-5 text-center font-bold'>Find your dream job.</h2>
-        <form onSubmit={handleSubmit} className="w-[800px] mx-auto bg-white p-8 rounded shadow-2xl flex justify-center items-center">
+        <form onSubmit={handleSubmit} className="lg:w-[800px] md:w-[600px] sm:w-[500px] lg:h-[200px] md:h-[250px] sm:h-[300px] mx-auto bg-white p-8 rounded shadow-2xl lg:flex md:flex-col-1 sm:flex-col-1 justify-center items-center">
         <div >
-              {/* <label className="block text-teal-600 text-[22px] mb-2 ">
-                Job Type:
-              </label> */}
+             
               <select
                 type="text" name="jobtype"
                 value={formData.jobtype}
                 onChange={handleChange}
-                className=" p-4 border rounded-md w-[500px]"
+                className=" p-4  border rounded-md lg:w-[500px] md:w-[500px] sm:w-[450px]" 
               >
                 <option value="" disabled>
                   Select a job
