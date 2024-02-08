@@ -11,10 +11,7 @@ import { useRouter } from 'next/navigation';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 import Footer from '@/components/shared/footer/Footer';
 import useDiscussData from '@/app/hooks/useDiscussData';
-<<<<<<< HEAD
 import SingleComment from './SingleComment';
-=======
->>>>>>> 252692a0545fa08be3564a316df15770524a24dc
 
 const page = ({ params }) => {
     console.log(params.id)
@@ -31,11 +28,7 @@ const page = ({ params }) => {
     })
 
 
-<<<<<<< HEAD
     const [discuss, reload ] = useDiscussData()
-=======
-    const [discuss ] = useDiscussData()
->>>>>>> 252692a0545fa08be3564a316df15770524a24dc
 
 
     const postAns = (text, postedId) => {
@@ -65,13 +58,9 @@ const page = ({ params }) => {
 
 
     return (
-<<<<<<< HEAD
         <div>
 
         <Box className="mt-16" style={{ padding: '', }}>
-=======
-        <Box className="my-7" style={{ padding: '10px', }}>
->>>>>>> 252692a0545fa08be3564a316df15770524a24dc
             <DrawerAppBar></DrawerAppBar>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8 px-10 mt-8 min-h-full mb-4'>
                 <div className=' '>

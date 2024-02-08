@@ -43,18 +43,18 @@
 
 .qusPost {
     font-size: 14px;
-    border: 2px solid #8F9FB3;
+    border: 2px solid #5a5f66;
     background: none;
     border-radius: 5px;
-    color: #8F9FB3;
+    color: #5a5f66;
     padding: 10px 16px;
     font-weight: 600;
 }
 
 .qusPost:hover {
     color: white;
-    background: #8F9FB3;
-    border: 2px solid #8F9FB3;
+    background: #5a5f66;
+    border: 2px solid #5a5f66;
 }
 
 .discusContainer {

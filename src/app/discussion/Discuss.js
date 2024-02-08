@@ -22,6 +22,7 @@ import TurnedInNotOutlinedIcon from "@mui/icons-material/TurnedInNotOutlined";
 import WebStoriesIcon from "@mui/icons-material/WebStories";
 import { QuestionAnswer } from '@mui/icons-material';
 
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -33,8 +34,7 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
-    backgroundColor: '#C5FFF8',
-    border: '2px solid #000',
+    backgroundColor: '#fff',
     boxShadow: 24,
     p: 4,
 };
@@ -241,12 +241,14 @@ const Discuss = () => {
             <div className='flex flex-row gap-3 '>
 
                 <div className='grid grid-cols-1 gap-3 mr-4 ml-[7rem] my-9'>
-                    {
-                        discuss?.filter((menuItem) => {
-                            return search.toLocaleLowerCase() === '' ? menuItem : menuItem?.category.toLocaleLowerCase().includes(search) || menuItem?.title.toLocaleLowerCase().includes(search)
-                            // || parseInt(menuItem?.price).includes(search)
-                        })?.map(question => <DiscussM key={question.id} question={question}></DiscussM>)
-                    }
+                {discuss && discuss.length > 0 ? (
+            discuss?.filter((menuItem) => {
+                return search.toLocaleLowerCase() === '' ? menuItem : menuItem?.category.toLocaleLowerCase().includes(search) || menuItem?.title.toLocaleLowerCase().includes(search)
+                // || parseInt(menuItem?.price).includes(search)
+            })?.map(question => <DiscussM key={question?.id} question={question}></DiscussM>)
+          ) : (
+            <p>No data available.</p>
+          )}
 
                 </div>
 
@@ -254,7 +256,7 @@ const Discuss = () => {
                 <div>
                     <div>
 
-                        <Button onClick={handleOpen} className=' bg-slate-400 px-9 ml-7 left-7 bottom-12'> <BorderColorOutlinedIcon style={{ width: '1.5em ', height: '1.5em' }} />Ask A Question</Button>
+                        <Button onClick={handleOpen} className=' qusPost ml-7 left-7 bottom-12'> <BorderColorOutlinedIcon style={{ width: '1.5em ', height: '1.5em' }} />Ask A Question</Button>
                         <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 mb-5">
                             <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>States</h2>
                             <hr></hr>
