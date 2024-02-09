@@ -58,7 +58,6 @@ const Discuss = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [age, setAge] = React.useState('');
 
-
     const handleSearch = e => {
         e.preventDefault()
         const form = e.target.value
@@ -220,35 +219,43 @@ const Discuss = () => {
 
 
             {/* question part */}
+{/* 
+            <div className='ml-[7rem]'>
+            <ul className='flex flex-row ml-[319px]'>
+                <li className='mr-[19px]'>
+                    <Button>All Questions</Button>
+                  
+                </li>
+                <li className=''>
+                    <Button  MostAnswered>
+                     
+                    </Button>
+                   
+                </li>
+                <li>
+                    <Button>Recent Posts</Button>
+                   
+                </li>
+            </ul>
+        </div> */}
 
 
-            <div className=' ml-[7rem]'>
-                <ul className='flex flex-row ml-[319px]'>
-                    <li className='mr-[19px] bg-slate-400'>
-                        <Button>Recent Questions</Button>
-                    </li>
-                    <li className=''>
-                        <Button>Most Answered</Button>
-                    </li>
-                    <li>
-                        <Button>Recent Posts</Button>
-                    </li>
-                </ul>
-            </div>
             <Box className="borderBot ml-[112px] mr-[446px]"></Box>
 
 
             <div className='flex flex-row gap-3 '>
 
                 <div className='grid grid-cols-1 gap-3 mr-4 ml-[7rem] my-9'>
-                {discuss && discuss.length > 0 ? (
-            discuss?.filter((menuItem) => {
-                return search.toLocaleLowerCase() === '' ? menuItem : menuItem?.category.toLocaleLowerCase().includes(search) || menuItem?.title.toLocaleLowerCase().includes(search)
-                // || parseInt(menuItem?.price).includes(search)
-            })?.map(question => <DiscussM key={question?.id} question={question}></DiscussM>)
-          ) : (
-            <p>No data available.</p>
-          )}
+
+                    {discuss && discuss.length > 0 ? (
+                        discuss?.filter((menuItem) => {
+                            return search.toLocaleLowerCase() === '' ? menuItem : menuItem?.category.toLocaleLowerCase().includes(search) || menuItem?.title.toLocaleLowerCase().includes(search)
+
+                            // || parseInt(menuItem?.price).includes(search)
+                        })?.map(question => <DiscussM key={question?.id} question={question}></DiscussM>)
+                    ) : (
+                        <p>No data available.</p>
+                    )}
 
                 </div>
 
@@ -261,8 +268,8 @@ const Discuss = () => {
                             <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>States</h2>
                             <hr></hr>
                             <div className="flex flex-col gap-2  my-3">
-                                <Button className='askBtn'>Questions(20)</Button>
-                                <Button className='askBtn'>Answers(20)</Button>
+                                <Button className='askBtn'>Questions({discuss.length})</Button>
+                                <Button className='askBtn'>Answers(2)</Button>
                                 <Button className='askBtn'>Most Liked(20)</Button>
 
 

@@ -12,6 +12,7 @@ import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import useDiscussData from '../hooks/useDiscussData';
+import '../../components/banner/banner.css'
 import useSingleUser from '../hooks/useSingleUser';
 
 const DiscussM = ({ question }) => {
@@ -64,6 +65,10 @@ const DiscussM = ({ question }) => {
                         reload();
                     }
                 })
+                .catch(error => {
+                    toast.error("Something is wrong");
+                    console.error("Error:", error);
+                  });
         } else {
             toast.success("You are not Logged In!");
             router.push("/login");

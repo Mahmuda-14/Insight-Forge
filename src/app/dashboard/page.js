@@ -37,9 +37,9 @@ const page = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <button className='bg-gray-200 w-full py-4 mt-5 pl-10 rounded-md flex items-center text-[#263238] text-lg font-semibold gap-3'>
+                                {/* <button className='bg-gray-200 w-full py-4 mt-5 pl-10 rounded-md flex items-center text-[#263238] text-lg font-semibold gap-3'>
                                     <FaEdit /> Edit Profile
-                                </button>
+                                </button> */}
                             </div>
                             <div className='col-span-1 lg:col-span-3 pt-4 pl-10  bg-gray-100 rounded-md'>
                                 <h1 className='font-bold text-xl mb-5'>Bio Graph</h1>

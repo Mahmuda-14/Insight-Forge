@@ -5,11 +5,25 @@ import React, { useState } from 'react';
 import '../../utils/button/theme_button.css'
 const JobM = () => {
 
-  const [showMoreInfo, setShowMoreInfo] = useState(false);
+  const [showMoreInfo1, setShowMoreInfo1] = useState(false);
 
-  const handleReadMoreClick = () => {
-    setShowMoreInfo(!showMoreInfo);
+  const handleReadMoreClick1 = () => {
+    setShowMoreInfo1(!showMoreInfo1);
   };
+
+  const [showMoreInfo2, setShowMoreInfo2] = useState(false);
+
+  const handleReadMoreClick2 = () => {
+    setShowMoreInfo2(!showMoreInfo2);
+  };
+
+
+  const [showMoreInfo3, setShowMoreInfo3] = useState(false);
+
+  const handleReadMoreClick3 = () => {
+    setShowMoreInfo3(!showMoreInfo3);
+  };
+
 
 
   return (
@@ -32,7 +46,7 @@ const JobM = () => {
 
         </div>
         <div className='text-center'>
-          <p className='text-[35px] my-[20px]'>Browse from Over <span className='text-[40px] text-[#87CEEB] font-bold'>200+</span> Jobs</p>
+          <p className='text-[35px] my-[20px]'>Browse from Over <span className='text-[40px] text-[#4f675b] font-bold'>200+</span> Jobs</p>
           <p>Empowering careers through seamless integration, our job-focused platform connects talented individuals with dynamic <br />
             opportunities,fostering professional growth and success. </p>
         </div>
@@ -48,18 +62,18 @@ const JobM = () => {
             height={130}
 
           />
-          <h2 className="text-xl font-bold text-gray-800 mb-2">Card Title</h2>
-          <p className="text-gray-600 my-[10px]">This is a simple card example using Tailwind CSS. Customize it as per your needs.</p>
+          <h2 className="text-xl font-bold text-gray-800 mb-2">X Company</h2>
+          <p className="text-gray-600 my-[10px]">They typically have a portfolio showcasing their previous work,</p>
 
-          {showMoreInfo && (
-            <p className='mb-[20px] text-gray-600'>Additional information that is revealed when Read More is clicked.</p>
+          {showMoreInfo1 && (
+            <p className='mb-[20px] text-gray-600'>which may include websites they have designed and developed for various clients across different industries.</p>
           )}
 
           <button
-            onClick={handleReadMoreClick}
+            onClick={handleReadMoreClick1}
             className="blog-button"
           >
-            {showMoreInfo ? 'Read Less' : 'Read More'}
+            {showMoreInfo1 ? 'Read Less' : 'Read More'}
           </button>
         </div>
 
@@ -71,18 +85,18 @@ const JobM = () => {
             height={150}
 
           />
-          <h2 className="text-xl font-bold text-gray-800 mb-2">Card Title</h2>
-          <p className="text-gray-600 my-[10px]">This is a simple card example using Tailwind CSS. Customize it as per your needs.</p>
+          <h2 className="text-xl font-bold text-gray-800 mb-2">Y Company</h2>
+          <p className="text-gray-600 my-[10px]">They employ skilled professionals with expertise in various areas of web development</p>
 
-          {showMoreInfo && (
-            <p className='mb-[20px] text-gray-600'>Additional information that is revealed when Read More is clicked.</p>
+          {showMoreInfo2 && (
+            <p className='mb-[20px] text-gray-600'>such as HTML, CSS, JavaScript, PHP, Python, Ruby on Rails, etc.</p>
           )}
 
           <button
-            onClick={handleReadMoreClick}
+            onClick={handleReadMoreClick2}
             className="blog-button"
           >
-            {showMoreInfo ? 'Read Less' : 'Read More'}
+            {showMoreInfo2 ? 'Read Less' : 'Read More'}
           </button>
         </div>
 
@@ -94,18 +108,18 @@ const JobM = () => {
             height={100}
 
           />
-          <h2 className="text-xl font-bold text-gray-800 mb-2">Card Title</h2>
-          <p className="text-gray-600 my-[10px]">This is a simple card example using Tailwind CSS. Customize it as per your needs.</p>
+          <h2 className="text-xl font-bold text-gray-800 mb-2">Z Company</h2>
+          <p className="text-gray-600 my-[10px]">They work closely with clients to understand their requirements, goals, and target audience </p>
 
-          {showMoreInfo && (
-            <p className='mb-[20px] text-gray-600'>Additional information that is revealed when Read More is clicked.</p>
+          {showMoreInfo3 && (
+            <p className='mb-[20px] text-gray-600'>to create customized solutions tailored to their needs.</p>
           )}
 
           <button
-            onClick={handleReadMoreClick}
+            onClick={handleReadMoreClick3}
             className="blog-button"
           >
-            {showMoreInfo ? 'Read Less' : 'Read More'}
+            {showMoreInfo3 ? 'Read Less' : 'Read More'}
           </button>
         </div>
       </div>
