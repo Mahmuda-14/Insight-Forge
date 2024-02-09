@@ -53,7 +53,7 @@ const HackathonCreationForm = () => {
         <div>
             <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>Create Hackathon</Typography>
 
-            <Paper elevation={5} sx={{ p: 3 }}>
+            <Paper elevation={10} sx={{ p: 3 }}>
                 <Box
                     component="form"
                     noValidate
@@ -72,7 +72,7 @@ const HackathonCreationForm = () => {
                                 label="Title"
                                 autoFocus
                                 {...register("title", { required: true })}
-                                sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
+                                sx={{ backgroundColor: "white", mt: 2 }}
                             />
 
 
@@ -87,7 +87,7 @@ const HackathonCreationForm = () => {
                                 name="Total Price"
                                 autoComplete="Total Price"
                                 {...register("price", { required: true })}
-                                sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
+                                sx={{ backgroundColor: "white", mt: 2 }}
                             />
 
 
@@ -102,7 +102,7 @@ const HackathonCreationForm = () => {
                                 name="description"
                                 autoComplete="description"
                                 {...register("description", { required: true })}
-                                sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
+                                sx={{ backgroundColor: "white", mt: 2 }}
                             />
 
                         </Grid>
@@ -114,7 +114,7 @@ const HackathonCreationForm = () => {
                                 label="Category"
                                 fullWidth
                                 {...register("category", { required: true })}
-                                sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
+                                sx={{ backgroundColor: "white", mt: 2 }}
                             >
                                 <MenuItem value={"beginner"}>Beginner</MenuItem>
                                 <MenuItem value={"intermediate"}>Intermediate</MenuItem>
@@ -125,7 +125,7 @@ const HackathonCreationForm = () => {
                         {/* <Grid item xs={12}>
                         <InputLabel id="demo-simple-select-helper-label">Dead Line</InputLabel>
                         <DatePicker
-                             sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
+                             sx={{ backgroundColor: "white", mt: 2 }}
                             label='Select Date'
                             value={value}
                             fullWidth
@@ -140,7 +140,7 @@ const HackathonCreationForm = () => {
                     </Grid>
                     <button
 
-                        className=" font-semibold w-full py-2 rounded mt-8 mb-2 bg-[#C5FFF8] text-black"
+                        className=" font-semibold w-full py-2 rounded mt-8 mb-2 bg-[#4f675b] text-white"
                     >
                         Create Hackathon
                     </button>

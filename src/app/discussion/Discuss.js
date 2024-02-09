@@ -45,7 +45,7 @@ const Discuss = () => {
     const axiosSecure = useAxiosSecure()
     const { user } = useAuth();
     const router = useRouter();
-    const [discuss] = useDiscussData()
+    const [discuss, reload] = useDiscussData()
     // const [blogs, reloadBlog] = useBlogs()
 
 
@@ -94,7 +94,9 @@ const Discuss = () => {
                 .then(res => {
                     console.log(res.data)
                     if (res.data.__v === 0) {
+                        reload()
                         toast.success("Your question has been posted");
+                       
                     }
                 })
         } else {

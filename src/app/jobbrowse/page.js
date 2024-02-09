@@ -8,6 +8,7 @@ import '../../components/banner/banner.css'
 import Job from '../job/Job';
 import { Divider } from '@mui/material';
 import Image from 'next/image';
+import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 
 
 
@@ -54,6 +55,7 @@ const page = () => {
         
     return (
         <div>
+          <DrawerAppBar></DrawerAppBar>
                   {/* <div >
         <h2 className='text-black p-4 pt-[80px] text-2xl  mt-5 text-center font-bold'>Find your dream job.</h2>
         <form onSubmit={handleSubmit} className="lg:w-[800px] md:w-[600px] sm:w-[500px] lg:h-[200px] md:h-[250px] sm:h-[300px] mx-auto bg-white p-8 rounded shadow-2xl lg:flex md:flex-col-1 sm:flex-col-1 justify-center items-center">
