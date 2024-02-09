@@ -22,7 +22,7 @@
 
 .askBtn {
     font-size: 14px;
-    border: 1px solid #d9c6c2;
+    border: 1px solid rgb(53, 84, 68);
     background: none;
     border-radius: 5px;
     color: #161211;
@@ -32,8 +32,24 @@
 
 .askBtn:hover {
     color: white;
-    background: #3f515b;
-    border: 2px solid #042030;
+    background: rgb(53, 84, 68);
+    border: 2px solid rgb(53, 84, 68);
+}
+
+.states, .joinUs {
+    font-size: 14px;
+    border: 1px solid rgb(53, 84, 68);
+    background: none;
+    border-radius: 5px;
+    color: #161211;
+    padding: 14px 20px;
+    font-weight: 400;
+}
+
+.states:hover, .joinUs {
+    color: white;
+    background: rgb(53, 84, 68);
+    border: 2px solid rgb(53, 84, 68);
 }
 
 .input{
