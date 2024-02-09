@@ -154,7 +154,7 @@ export default function Dashboard({ children }) {
         },
         {
             id: "5",
-            route: "Registered Hackathon",
+            route: "All Hackathon",
             pathname: "/dashboard/allHackathon",
             icon: <AccountCircleIcon />,
         },

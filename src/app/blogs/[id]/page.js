@@ -6,6 +6,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
 import useAuth from '@/app/hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
+<<<<<<< HEAD
 import useSingleUser from '@/app/hooks/useSingleUser';
 import useAxiosSecure from '@/app/hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
@@ -13,6 +14,9 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 import Footer from '@/components/shared/footer/Footer';
+=======
+import DrawerAppBar from '@/components/shared/Navbar/Navbar';
+>>>>>>> cb3a1b670b73db25ef3ab8d99c2975b1064ad30b
 
 const page = ({ params }) => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -30,6 +34,7 @@ const page = ({ params }) => {
             }
       })
 
+<<<<<<< HEAD
       const submitLike = (id) => {
             if (user && user?.email) {
 
@@ -63,6 +68,20 @@ const page = ({ params }) => {
                   text,
                   postedId
 
+=======
+      const submitComment = (e) => {
+            e.preventDefault();
+            const from = e.target;
+            const text = from.comment.value;
+            const postedId = data._id;
+            const commentIn = {
+                  userName: user?.displayName,
+                  userPhoto: user?.photoURL,
+                  userEmail: user?.email,
+                  text,
+                  postedId
+
+>>>>>>> cb3a1b670b73db25ef3ab8d99c2975b1064ad30b
             }
             axiosPublic.put("/commentBlog", commentIn)
                   .then(res => {
@@ -76,9 +95,15 @@ const page = ({ params }) => {
       }
 
       return (
+<<<<<<< HEAD
             <di>
                   <DrawerAppBar></DrawerAppBar>
                   <div className="container w-lg m-auto space-x-6 grid grid-cols-12 gap-2 my-4  ">
+=======
+            <div>
+                  <DrawerAppBar></DrawerAppBar>
+                  <div className="container w-lg m-auto space-x-6 grid grid-cols-12 gap-2 my-12 mt-20  ">
+>>>>>>> cb3a1b670b73db25ef3ab8d99c2975b1064ad30b
                         <Box className="col-span-12 md:col-span-8 border-none shadow-none ">
                               <Card style={{ border: 0 }} className=" space-x-2 shadow-none " >
                                     <CardMedia
@@ -102,10 +127,14 @@ const page = ({ params }) => {
                                                 {/* Like and comment icon */}
                                                 <Box className="flex  justify-items-center gap-8 mr-8 mt-4 ">
                                                       <Box className="flex space-x-2">
+<<<<<<< HEAD
                                                             {
                                                                   data?.likes?.includes(users[0]?._id) ? <ThumbUpAltIcon className='ml-2' /> :
                                                                         <Button onClick={() => submitLike(data._id)} className="text-black w-10" ><ThumbUpOffAltIcon></ThumbUpOffAltIcon></Button>
                                                             }
+=======
+                                                            <FavoriteBorderOutlinedIcon className='text-black'></FavoriteBorderOutlinedIcon>
+>>>>>>> cb3a1b670b73db25ef3ab8d99c2975b1064ad30b
                                                             <Typography>
                                                                   {data?.likes?.length}
                                                             </Typography>
@@ -163,8 +192,12 @@ const page = ({ params }) => {
                               </Box>
                         </Box>
                   </div>
+<<<<<<< HEAD
                   <Footer></Footer>
             </di>
+=======
+            </div>
+>>>>>>> cb3a1b670b73db25ef3ab8d99c2975b1064ad30b
       );
 };
 export default page;
