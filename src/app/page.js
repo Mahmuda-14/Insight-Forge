@@ -13,10 +13,10 @@ const HomePage = () => {
   return (
     <Box sx={{ maxWidth: "xl", mx: "auto" }} >
       <DrawerAppBar></DrawerAppBar>
-      <Divider sx={{ backgroundColor: 'white',paddingTop:'45px' }} />
+      <Divider sx={{ backgroundColor: 'white',paddingTop:'0px' }} />
       <Banner></Banner>
-      <Discuss></Discuss>
       <Chatbot></Chatbot>
+      <Discuss></Discuss>
       {/* <Review></Review>
       <All></All>
       <Count></Count>

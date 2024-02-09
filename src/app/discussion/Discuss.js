@@ -124,10 +124,10 @@ const Discuss = () => {
             >
 
                 <div>
-                    <Marquee {...marqueeProps}>
-                        <p className=' text-3xl font-bold text-slate-800 my-5'>Ask Your Question Here</p>
+                        <div className='flex justify-center items-center'>
+                        <p className='text-center text-3xl font-bold text-slate-800 my-5'>Ask Your Question Here</p>
                         <SouthIcon style={{ width: '2em ', height: '1em' }}></SouthIcon>
-                    </Marquee>
+                        </div>
 
                     <form onChange={handleSearch} className='flex my-10'>
                         <SearchRoundedIcon style={{ width: '1.5em ', height: '2em', position: 'relative', top: '3px', left: '41px', color: 'gray' }} />
@@ -268,9 +268,9 @@ const Discuss = () => {
                             <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>States</h2>
                             <hr></hr>
                             <div className="flex flex-col gap-2  my-3">
-                                <Button className='askBtn'>Questions({discuss.length})</Button>
-                                <Button className='askBtn'>Answers(2)</Button>
-                                <Button className='askBtn'>Most Liked(20)</Button>
+                                <Button className='states'>Questions({discuss.length})</Button>
+                                <Button className='states'>Answers(2)</Button>
+                                <Button className='states'>Most Liked(20)</Button>
 
 
                             </div>
@@ -287,9 +287,9 @@ const Discuss = () => {
                                 <hr></hr>
                                 <div className="flex flex-col gap-2  my-3">
 
-                                    <Button className='askBtn'><Link href={'https://www.facebook.com/'}><FacebookIcon style={{ marginRight: '5px', color: 'blue' }}></FacebookIcon>Facebook</Link></Button>
-                                    <Button className='askBtn'><Link href={'https://www.facebook.com/'}><InstagramIcon style={{ marginRight: '5px', color: 'red' }}></InstagramIcon>Instagram</Link></Button>
-                                    <Button className='askBtn'><Link href={'https://www.facebook.com/'}><TwitterIcon style={{ marginRight: '7px', color: 'blue' }}></TwitterIcon>Twitter</Link></Button>
+                                    <Button className='states'><Link href={'https://www.facebook.com/'}><FacebookIcon className='hover:text-white' style={{ marginRight: '5px' }}></FacebookIcon>Facebook</Link></Button>
+                                    <Button className='states'><Link href={'https://www.instagram.com/'}><InstagramIcon className='hover:text-white' style={{ marginRight: '5px' }}></InstagramIcon>Instagram</Link></Button>
+                                    <Button className='states'><Link href={'https://twitter.com/'}><TwitterIcon className='hover:text-white' style={{ marginRight: '7px' }}></TwitterIcon>Twitter</Link></Button>
 
 
                                 </div>
