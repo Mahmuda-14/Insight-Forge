@@ -135,7 +135,7 @@ const DrawerAppBar = (props, item) => {
     <Box sx={{ display: 'flex', color: "white" }}>
       
       <CssBaseline />
-      <AppBar component="nav" style={{ background: theme.palette.primary.mainGradient }}>
+      <AppBar component="nav" >
         <Toolbar>
           <IconButton
             color="inherit"
