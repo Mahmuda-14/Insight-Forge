@@ -16,9 +16,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Avatar, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
+import { Avatar, Badge, ListItemIcon, Menu, MenuItem, Stack, Tooltip } from '@mui/material';
 import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import Image from 'next/image';
@@ -26,6 +27,8 @@ import useAuth from '@/app/hooks/useAuth';
 import { useTheme } from '@emotion/react';
 import bg2 from "../../../assets/logo3.png"
 import { useRouter } from 'next/navigation';
+import useSingleUser from '@/app/hooks/useSingleUser';
+import useAxiosSecure from '@/app/hooks/useAxiosSecure';
 
 
 
@@ -82,9 +85,12 @@ const DrawerAppBar = (props, item) => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const { user, logOut } = useAuth()
+  const [users] = useSingleUser()
   const theme = useTheme();
   const router = useRouter();
+  const axiosSecure = useAxiosSecure();
   console.log(user)
+
 
   const handleLogOut = () => {
     logOut()
@@ -127,6 +133,25 @@ const DrawerAppBar = (props, item) => {
     </Box>
   );
 
+  const seeNotification = () => {
+    if (user && user?.email) {
+
+      const userIfo = {
+        userId: users[0]?._id
+      }
+      axiosSecure.post("/seeAllNotification", userIfo)
+        .then(res => {
+          console.log(res.data);
+          refetch();
+        })
+        .catch(error => {
+          console.error("Error:", error);
+        });
+    } else {
+      toast.success("You are not Logged In!");
+      router.push("/login");
+    }
+  }
 
 
   const container = window !== undefined ? () => window().document.body : undefined;
@@ -161,42 +186,54 @@ const DrawerAppBar = (props, item) => {
             ))}
           </Box>
           {
-            user && user?.email ? <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src={user?.photoURL} />
+            user && user?.email ?
+              <Stack spacing={2} direction="row" sx={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }}>
+                <IconButton onClick={seeNotification} sx={{ color: 'white', cursor: "pointer", right: '12px' }}>
+                  <Badge badgeContent={users[0]?.notifications?.length} color="secondary">
+                    <NotificationsIcon />
+                  </Badge>
                 </IconButton>
-              </Tooltip>
-              <Menu
-                sx={{ mt: '45px' }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                {settings.map((setting) => (
-                  <MenuItem key={setting.id} onClick={handleCloseUserMenu}>
-                    <Button href={setting.pathname} key={setting.id} sx={{ color: 'black' }}>
-                      {setting.route}
-                    </Button>
-                  </MenuItem>
-                ))}
-                <MenuItem onClick={handleCloseUserMenu}>
-                  <Button onClick={handleLogOut} sx={{ color: 'black' }}>
-                    Log Out
-                  </Button>
-                </MenuItem>
-              </Menu>
-            </Box>
+                {/* <Badge badgeContent={4} color="secondary">
+                  <NotificationsIcon sx={{ color: 'white', cursor: "pointer" , right: '12px' }} />
+                </Badge> */}
+
+                <Box sx={{ flexGrow: 0 }}>
+                  <Tooltip title="Open settings">
+                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                      <Avatar alt="Remy Sharp" src={user?.photoURL} />
+                    </IconButton>
+                  </Tooltip>
+                  <Menu
+                    sx={{ mt: '45px' }}
+                    id="menu-appbar"
+                    anchorEl={anchorElUser}
+                    anchorOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    open={Boolean(anchorElUser)}
+                    onClose={handleCloseUserMenu}
+                  >
+                    {settings.map((setting) => (
+                      <MenuItem key={setting.id} onClick={handleCloseUserMenu}>
+                        <Button href={setting.pathname} key={setting.id} sx={{ color: 'black' }}>
+                          {setting.route}
+                        </Button>
+                      </MenuItem>
+                    ))}
+                    <MenuItem onClick={handleCloseUserMenu}>
+                      <Button onClick={handleLogOut} sx={{ color: 'black' }}>
+                        Log Out
+                      </Button>
+                    </MenuItem>
+                  </Menu>
+                </Box>
+              </Stack>
               :
               <Box sx={{ flexGrow: 0 }}>
                 <Button variant="contained" href='/login' sx={{ color: 'white', background: '#6f817a', right: '12px' }}>
