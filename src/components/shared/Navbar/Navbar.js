@@ -55,16 +55,17 @@ const navItems = [
   //   pathname: "/hackathon",
   //   icon: <EditNoteIcon />,
   // },
-  { id: "4",
+  {
+    id: "4",
     route: "Job Board",
     pathname: "/job",
-    icon: < PhoneIcon/>,
+    icon: < PhoneIcon />,
   },
   {
-    id:"5",
+    id: "5",
     route: "About",
     pathname: "/about",
-    icon: < PhoneIcon/>,
+    icon: < PhoneIcon />,
   }
 ];
 
@@ -103,7 +104,7 @@ const DrawerAppBar = (props, item) => {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', color: "black" }}>
-      
+
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -131,18 +132,18 @@ const DrawerAppBar = (props, item) => {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-  
+
     <Box sx={{ display: 'flex', color: "white" }}>
-      
+
       <CssBaseline />
-      <AppBar component="nav" >
+      <AppBar component="" style={{ background: "linear-gradient(to right, rgba(53, 84, 68, 0.9), rgba(53, 84, 68, 0.9))" }}>
         <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { sm: 'none' }, width: '80px' }}
           >
             <MenuIcon />
           </IconButton>
@@ -152,61 +153,61 @@ const DrawerAppBar = (props, item) => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, ml: 3 }}>
             {navItems.map((item) => (
 
-              <Button variant="outlined"  href={item.pathname} key={item.id} sx={{  color: 'white',right:'10px'}} >
+              <Button variant="" href={item.pathname} key={item.id} sx={{ color: 'white', right: '10px' }} >
                 {item.route}
               </Button>
 
 
             ))}
-    </Box>
+          </Box>
           {
-    user && user?.email ? <Box sx={{ flexGrow: 0 }}>
-      <Tooltip title="Open settings">
-        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar alt="Remy Sharp" src={user?.photoURL} />
-        </IconButton>
-      </Tooltip>
-      <Menu
-        sx={{ mt: '45px' }}
-        id="menu-appbar"
-        anchorEl={anchorElUser}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        keepMounted
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        open={Boolean(anchorElUser)}
-        onClose={handleCloseUserMenu}
-      >
-        {settings.map((setting) => (
-          <MenuItem key={setting.id} onClick={handleCloseUserMenu}>
-            <Button href={setting.pathname} key={setting.id} sx={{ color: 'black' }}>
-              {setting.route}
-            </Button>
-          </MenuItem>
-        ))}
-        <MenuItem onClick={handleCloseUserMenu}>
-          <Button onClick={handleLogOut} sx={{ color: 'black' }}>
-            Log Out
-          </Button>
-        </MenuItem>
-      </Menu>
-    </Box>
-      :
-      <Box sx={{ flexGrow: 0 }}>
-        <Button variant="contained" href='/login' sx={{ color: 'white', background: '#6f817a', right: '12px' }}>
-          Login
-        </Button>
-        <Button variant="outlined" href='/register' sx={{ color: 'white', border: '2px solid #6f817a', borderRadius: '10px' }}>
-          Register
-        </Button>
+            user && user?.email ? <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src={user?.photoURL} />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: '45px' }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                {settings.map((setting) => (
+                  <MenuItem key={setting.id} onClick={handleCloseUserMenu}>
+                    <Button href={setting.pathname} key={setting.id} sx={{ color: 'black' }}>
+                      {setting.route}
+                    </Button>
+                  </MenuItem>
+                ))}
+                <MenuItem onClick={handleCloseUserMenu}>
+                  <Button onClick={handleLogOut} sx={{ color: 'black' }}>
+                    Log Out
+                  </Button>
+                </MenuItem>
+              </Menu>
+            </Box>
+              :
+              <Box sx={{ flexGrow: 0 }}>
+                <Button variant="contained" href='/login' sx={{ color: 'white', background: '#6f817a', right: '12px' }}>
+                  Login
+                </Button>
+                <Button variant="outlined" href='/register' sx={{ color: 'white', border: '2px solid #6f817a', borderRadius: '10px' }}>
+                  Register
+                </Button>
 
-      </Box>
-  }
+              </Box>
+          }
         </Toolbar >
       </AppBar >
       <nav>

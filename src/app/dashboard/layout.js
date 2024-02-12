@@ -69,7 +69,7 @@ const AppBar = styled(MuiAppBar, {
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
     ({ theme, open }) => ({
         '& .MuiDrawer-paper': {
-            position: 'relative',
+            position: 'fixed',
             whiteSpace: 'nowrap',
             width: drawerWidth,
             transition: theme.transitions.create('width', {
@@ -154,7 +154,7 @@ export default function Dashboard({ children }) {
         },
         {
             id: "5",
-            route: "Registered Hackathon",
+            route: "All Hackathon",
             pathname: "/dashboard/allHackathon",
             icon: <AccountCircleIcon />,
         },
@@ -241,9 +241,9 @@ export default function Dashboard({ children }) {
 
     return (
         <ThemeProvider theme={themeColor}>
-            <Box sx={{ display: 'flex' }}>
+            <Box sx={{ display: 'flex' }} position="">
                 <CssBaseline />
-                <AppBar position="absolute" open={open} style={{ background: theme.palette.primary.main }}>
+                <AppBar position="fixed" open={open} style={{ background: theme.palette.primary.main }}>
                 {/* <AppBar position="absolute" open={open} style={{ background: "#263238", color:"white" }}> */}
                     <Toolbar
                         sx={{
@@ -270,14 +270,14 @@ export default function Dashboard({ children }) {
                         >
                             Dashboard
                         </Typography>
-                        <IconButton color="inherit">
+                        {/* <IconButton color="inherit">
                             <Badge badgeContent={4} color="secondary">
                                 <NotificationsIcon />
                             </Badge>
-                        </IconButton>
+                        </IconButton> */}
                     </Toolbar>
                 </AppBar>
-                <Drawer variant="permanent" open={open} >
+                <Drawer position="fixed" variant="permanent" open={open} >
                     <Toolbar
                         sx={{
                             display: 'flex',
@@ -288,7 +288,7 @@ export default function Dashboard({ children }) {
                         }}
                     >
                         <Image  src={bg2} alt='company' width={50} height={50} /> <Typography  variant="h7" sx={{ml:2, fontWeight:600, color:"white"}}>Insight <br/> Forge</Typography>
-                        <IconButton onClick={toggleDrawer} sx={{ mr: 2 }}>
+                        <IconButton onClick={toggleDrawer} sx={{ mr: 2, color: 'white' }}>
                             <ChevronLeftIcon />
                         </IconButton>
                     </Toolbar>
@@ -344,7 +344,7 @@ export default function Dashboard({ children }) {
                     </List>
                 </Drawer>
                
-                    <div className='md:min-w-[1024px] mx-auto '>
+                    <div className='md:min-w-[1024px] mx-auto overflow-y-auto'>
                         {children}
                         <Copyright />
                     </div>

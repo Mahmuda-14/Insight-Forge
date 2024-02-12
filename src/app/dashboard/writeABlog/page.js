@@ -10,6 +10,7 @@ import useAxiosPublic from '@/app/hooks/useAxiosPublic';
 import useAuth from '@/app/hooks/useAuth';
 import '../writeABlog/writeABlog.css'
 import toast from 'react-hot-toast';
+import { TextField } from '@mui/material';
 
 /**
  * @param {Jodit} jodit
@@ -41,29 +42,29 @@ const Form = () => {
 	const axiosPublic = useAxiosPublic()
 	const { user } = useAuth();
 
-	const [config, setConfig] = useState({
-		readonly: false,
-		toolbar: true,
-		buttons: ['bold', 'italic', 'underline', 'ul', 'ol', 'font', 'brush', 'fontsize', 'align', 'image', 'undo', 'redo', 'link', 'unlink', 'source']
-	});
+	// const [config, setConfig] = useState({
+	// 	readonly: false,
+	// 	toolbar: true,
+	// 	buttons: ['bold', 'italic', 'underline', 'ul', 'ol', 'font', 'brush', 'fontsize', 'align', 'image', 'undo', 'redo', 'link', 'unlink', 'source']
+	// });
 
-	const [textAreaValue, setTextAreaValue] = useState('');
+	// const [textAreaValue, setTextAreaValue] = useState('');
 
-	const [inputValue, setInputValue] = useState('');
+	// const [inputValue, setInputValue] = useState('');
 
 
-	const handleWYSIWYGChange = useCallback(newTextAreaValue => {
+	// const handleWYSIWYGChange = useCallback(newTextAreaValue => {
 
-		setTextAreaValue(newTextAreaValue);
-		setInputValue(newTextAreaValue);
+	// 	setTextAreaValue(newTextAreaValue);
+	// 	setInputValue(newTextAreaValue);
 
-		return setTextAreaValue(() => newTextAreaValue);
-	}, []);
+	// 	return setTextAreaValue(() => newTextAreaValue);
+	// }, []);
 
-	const handleNativeTextAreaChange = useCallback(e => {
-		setTextAreaValue(e.target.value);
-		setInputValue(e.target.value);
-	}, []);
+	// const handleNativeTextAreaChange = useCallback(e => {
+	// 	setTextAreaValue(e.target.value);
+	// 	setInputValue(e.target.value);
+	// }, []);
 
 	const handlePost = async (e) => {
 		e.preventDefault()
@@ -71,7 +72,7 @@ const Form = () => {
 		const title = from.get("title")
 		const image = from.get("image")
 		const category = from.get("category")
-		const details = textAreaValue
+		const details = from.get("details")
 		console.log(title, details, category)
 
 		const data = new FormData()
@@ -151,11 +152,6 @@ const Form = () => {
 	return (
 		<div className='mt-20 min-h-screen min-w-full'>
 
-			<div>
-				<p>Original Timestamp: {timestampStr}</p>
-				<p>Converted Timestamp (US/Eastern): {formattedTimestamp}</p>
-			</div>
-
 			<DashboardTitle subTitle="What is the new blog?" headerTitle='Write a blog'></DashboardTitle>
 
 			<form onSubmit={handlePost} className='w-full mx-auto'>
@@ -166,7 +162,7 @@ const Form = () => {
 				</label>
 				<input className='w-full border p-2 rounded-md outline-none text-3xl font-semibold mb-3' name='title' placeholder="Title" type="text" />
 
-				{!isSource ? (
+				{/* {!isSource ? (
 					<JoditEditor
 						config={config}
 						onChange={handleWYSIWYGChange}
@@ -178,7 +174,14 @@ const Form = () => {
 						onChange={handleNativeTextAreaChange}
 						value={textAreaValue}
 					/>
-				)}
+				)} */}
+				<TextField name='details'
+                                required
+                                className='input w-full'
+                                placeholder="Details"
+                                multiline
+                                rows={10}
+                            />
 
 				<select className='w-full border p-2 rounded-md outline-none my-3' defaultValue='' name='category'>
 					<option disabled value=''>Select blog category</option>
