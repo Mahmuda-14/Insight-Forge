@@ -31,14 +31,15 @@ const page = ({ params }) => {
     const [discuss, reload ] = useDiscussData()
 
 
-    const postAns = (text, postedId) => {
+    const postAns = (text, postedId, athorId) => {
         if (user && user?.email) {
             const ansInfo = {
                 text,
                 userName: user?.displayName,
                 userEmail: user?.email,
                 userPhoto: user?.photoURL,
-                postedId
+                postedId,
+                athorId
             }
             console.log(ansInfo)
             axiosSecure.put('/postAnswer', ansInfo)
@@ -74,7 +75,7 @@ const page = ({ params }) => {
                         e.preventDefault()
                         const from = e.target
                         const text = from.answer.value
-                        postAns(text, data?._id)
+                        postAns(text, data?._id, data?.userId)
                     }} className='from mt-5'>
                         <div className='mb-3'>
                             <TextField name='answer'
