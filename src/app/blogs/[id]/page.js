@@ -6,7 +6,6 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
 import useAuth from '@/app/hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
-<<<<<<< HEAD
 import useSingleUser from '@/app/hooks/useSingleUser';
 import useAxiosSecure from '@/app/hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
@@ -14,9 +13,6 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 import Footer from '@/components/shared/footer/Footer';
-=======
-import DrawerAppBar from '@/components/shared/Navbar/Navbar';
->>>>>>> cb3a1b670b73db25ef3ab8d99c2975b1064ad30b
 
 const page = ({ params }) => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
