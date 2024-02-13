@@ -49,6 +49,7 @@ const BlogCard = ({ item }) => {
                 <div class="wave"></div>
                 <div class="infotop p-5">
                     <Image width={320} height={400} alt='blog image' className='rounded-md' src={image}></Image>
+                    <img />
 
                     <h1 className='mt-3'>
                         {title}
