@@ -61,8 +61,8 @@ const DiscussM = ({ question }) => {
                 .then(res => {
                     console.log(res.data)
                     if (res.data) {
-                        toast.success("You like this question");
                         reload();
+                        toast.success("You like this question");
                     }
                 })
                 .catch(error => {

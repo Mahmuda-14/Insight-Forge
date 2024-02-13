@@ -20,6 +20,7 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useSingleUser from "../hooks/useSingleUser";
 import useAuth from "../hooks/useAuth";
+import BlogShare from "@/components/blogShare/modal";
 import HTMLReactParser from 'html-react-parser'
 
 const page = () => {
@@ -179,6 +180,9 @@ const page = () => {
                       </Typography>
                   }
                   <Box className="flex justify-end items-center justify-items-center space-x-6 " >
+                    <Box>
+                      <BlogShare></BlogShare>
+                    </Box>
                     <Box>
                       {
                         blog.likes?.includes(users[0]?._id) ? <ThumbUpAltIcon className='ml-2' /> :

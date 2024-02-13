@@ -45,11 +45,10 @@ const Discuss = () => {
     const axiosSecure = useAxiosSecure()
     const { user } = useAuth();
     const router = useRouter();
-    const [discuss] = useDiscussData()
+    const [discuss, reload] = useDiscussData()
     // const [blogs, reloadBlog] = useBlogs()
     const [users] = useSingleUser()
-    console.log(user?._id)
-
+console.log(users)
 
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -97,6 +96,7 @@ const Discuss = () => {
                 .then(res => {
                     console.log(res.data)
                     if (res.data.__v === 0) {
+                        reload()
                         toast.success("Your question has been posted");
                     }
                 })

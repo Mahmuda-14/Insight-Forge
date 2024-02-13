@@ -1,4 +1,4 @@
-[
+ [
     {
         
         "category":"Technology",
@@ -6,22 +6,27 @@
         "image":"https://i.ibb.co/30tWs9t/knowledge.jpg",
         "name": "Jane Doe",
         "date": "2024-01-08",
+        "likes": 3,
         "details": "Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
         "comments": [
             {
               
-              "author": "Alice",
+              "userName": "Alice",
+              "userPhoto":"https://i.ibb.co/9wBtM9G/profile5.png",
               "date": "2024-01-02",
+              "userEmail":"john.doe@example.com",
               "text": "Great post! Thanks for sharing."
             },
             {
               
-              "author": "Bob",
+              "userName": "Bob",
+              "userEmail":"emily.smith@gmail.com",
+              "userPhoto":"https://i.ibb.co/9wBtM9G/profile5.png",
               "date": "2024-01-03",
               "text": "I have a question about..."
             }
-          ],
-        "rating": 3
+          ]
+       
     },
     {
         
@@ -31,11 +36,13 @@
         "name": "John Doe",
         "date": "2024-01-06",
         "details": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)",
-        "rating": 2,
+        "likes": 2,
         "comments": [
             {
               
-              "author": "Charlie",
+              "userName": "Charlie",
+              "userEmail":"david.jones@yahoo.com",
+              "userPhoto":"https://i.ibb.co/9wBtM9G/profile5.png",
               "date": "2024-01-06",
               "text": "I totally agree with your points!"
             }
@@ -48,11 +55,13 @@
       "name": "Sarah Smith",
       "date": "2024-01-03",
       "details": "I found the product to be incredibly useful and easy to use. The interface is intuitive, and it has all the features I need. Highly recommend it!",
-      "rating": 4,
+      "likes": 4,
       "comments": [
           {
             
-            "author": "Charlie",
+            "userName": "Charlie",
+            "userEmail":"sarah.wilson@hotmail.com",
+            "userPhoto":"https://i.ibb.co/9wBtM9G/profile5.png",
             "date": "2024-01-06",
             "text": "I totally agree with your points!"
           }
@@ -65,17 +74,21 @@
         "name": "MJ Doe",
         "date": "2024-01-05",
         "details": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)",
-        "rating": 5,
+        "likes": 5,
         "comments": [
             {
               
-              "author": "Alice",
+              "userName": "Alice",
+              "userEmail":"alexander.brown@outlook.com",
+              "userPhoto":"https://i.ibb.co/9wBtM9G/profile5.png",
               "date": "2024-01-02",
               "text": "Great post! Thanks for sharing."
             },
             {
              
-              "author": "Bob",
+              "userName": "Bob",
+              "userEmail":"john.doe@example.com",
+              "userPhoto":"https://i.ibb.co/9wBtM9G/profile5.png",
               "date": "2024-01-03",
               "text": "I have a question about..."
             }
@@ -90,17 +103,21 @@
       "name": "Robert Johnson",
       "date": "2024-01-02",
       "details": "This is by far the best service I have ever used. The customer support is outstanding, and the product itself is top-notch. I couldn't be happier!",
-      "rating": 5,
+      "likes": 5,
       "comments": [
           {
             
-            "author": "Alice",
+            "userName": "Alice",
+            "userEmail":"emily.smith@gmail.com",
+            "userPhoto":"https://i.ibb.co/9wBtM9G/profile5.png",
             "date": "2024-01-02",
             "text": "Great post! Thanks for sharing."
           },
           {
            
-            "author": "Bob",
+            "userName": "Bob",
+            "userEmail":"david.jones@yahoo.com",
+            "userPhoto":"https://i.ibb.co/9wBtM9G/profile5.png",
             "date": "2024-01-03",
             "text": "I have a question about..."
           }
@@ -114,21 +131,26 @@
         "name": "Robert Johnson",
         "date": "2024-01-02",
         "details": "This is by far the best service I have ever used. The customer support is outstanding, and the product itself is top-notch. I couldn't be happier!",
-        "rating": 5,
+        "likes": 5,
         "comments": [
             {
              
-              "author": "Alice",
+              "userName": "Alice",
+              "userEmail":"david.jones@yahoo.com",
+              "userPhoto":"https://i.ibb.co/9wBtM9G/profile5.png",
               "date": "2024-01-02",
               "text": "Great post! Thanks for sharing."
             },
             {
              
-              "author": "Bob",
+              "userName": "Bob",
+              "userEmail":"david.jones@yahoo.com",
+              "userPhoto":"https://i.ibb.co/9wBtM9G/profile5.png",
               "date": "2024-01-03",
               "text": "I have a question about..."
             }
           ]
+
     }
     
-]
+] 

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 " use client"
 
 import * as React from 'react';
@@ -29,6 +30,8 @@ import bg2 from "../../../assets/logo3.png"
 import { useRouter } from 'next/navigation';
 import useSingleUser from '@/app/hooks/useSingleUser';
 import useAxiosSecure from '@/app/hooks/useAxiosSecure';
+import Notification from './Notification';
+import toast from 'react-hot-toast';
 
 
 
@@ -78,8 +81,9 @@ const DrawerAppBar = (props, item) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [seeNotifications, setSeeNotifications] = React.useState(false)
   const { user, logOut } = useAuth()
-  const [users] = useSingleUser()
+  const [users, singleUserReload] = useSingleUser()
   const theme = useTheme();
   const router = useRouter();
   const axiosSecure = useAxiosSecure();
@@ -136,10 +140,12 @@ const DrawerAppBar = (props, item) => {
       axiosSecure.post("/seeAllNotification", userIfo)
         .then(res => {
           console.log(res.data);
-          refetch();
+          singleUserReload();
+          setSeeNotifications(!seeNotifications)
         })
         .catch(error => {
           console.error("Error:", error);
+          toast.error("Something was wrong");
         });
     } else {
       toast.success("You are not Logged In!");
@@ -151,7 +157,7 @@ const DrawerAppBar = (props, item) => {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-
+<div>
     <Box sx={{ display: 'flex', color: "white" }}>
 
       <CssBaseline />
@@ -201,14 +207,10 @@ const DrawerAppBar = (props, item) => {
                     <NotificationsIcon />
                   </Badge>
                 </IconButton>
-                {/* <Badge badgeContent={4} color="secondary">
-                  <NotificationsIcon sx={{ color: 'white', cursor: "pointer" , right: '12px' }} />
-                </Badge> */}
-
                 <Box sx={{ flexGrow: 0 }}>
                   <Tooltip title="Open settings">
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                      <Avatar alt="Remy Sharp" src={user?.photoURL} />
+                    <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="athor image" />
                     </IconButton>
                   </Tooltip>
                   <Menu
@@ -278,6 +280,11 @@ const DrawerAppBar = (props, item) => {
         </Typography>
       </Box>
     </Box >
+{
+  seeNotifications ? 
+  <Notification></Notification> : ""
+}
+</div>
   );
 }
 
