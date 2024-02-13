@@ -127,10 +127,10 @@ const Discuss = () => {
             >
 
                 <div>
-                        <div className='flex justify-center items-center'>
+                    <div className='flex justify-center items-center'>
                         <p className='text-center text-3xl font-bold text-slate-800 my-5'>Ask Your Question Here</p>
                         <SouthIcon style={{ width: '2em ', height: '1em' }}></SouthIcon>
-                        </div>
+                    </div>
 
                     <form onChange={handleSearch} className='flex my-10'>
                         <SearchRoundedIcon style={{ width: '1.5em ', height: '2em', position: 'relative', top: '3px', left: '41px', color: 'gray' }} />
@@ -222,7 +222,7 @@ const Discuss = () => {
 
 
             {/* question part */}
-{/* 
+            {/* 
             <div className='ml-[7rem]'>
             <ul className='flex flex-row ml-[319px]'>
                 <li className='mr-[19px]'>
@@ -246,9 +246,9 @@ const Discuss = () => {
             <Box className="borderBot ml-[112px] mr-[446px]"></Box>
 
 
-            <div className='flex flex-row gap-3 '>
+            <div className='flex sm:flex-col md:flex-col lg:flex-row gap-3 '>
 
-                <div className='grid grid-cols-1 gap-3 mr-4 ml-[7rem] my-9'>
+                <div className='grid grid-cols-1 gap-3 mr-4 sm:ml-0 lg:ml-[7rem] my-9'>
 
                     {discuss && discuss.length > 0 ? (
                         discuss?.filter((menuItem) => {
@@ -263,42 +263,38 @@ const Discuss = () => {
                 </div>
 
 
-                <div>
+                <div className='sm:ml-20'>
                     <div>
 
-                        <Button onClick={handleOpen} className=' qusPost ml-7 left-7 bottom-12'> <BorderColorOutlinedIcon style={{ width: '1.5em ', height: '1.5em' }} />Ask A Question</Button>
+                        <button type="submit" onClick={handleOpen} className="askBtn"> <BorderColorOutlinedIcon style={{ width: '1em ', height: '1.5em' }} />Ask Question</button>
                         <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 mb-5">
                             <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>States</h2>
                             <hr></hr>
                             <div className="flex flex-col gap-2  my-3">
-                                <Button className='states'>Questions({discuss.length})</Button>
-                                <Button className='states'>Answers(2)</Button>
-                                <Button className='states'>Most Liked(20)</Button>
 
-
+                                <button type="submit" className="states">Questions({discuss.length})</button>
+                                <button type="submit" className="states">Answers(2)</button>
+                                <button type="submit" className="states">Most Liked(20)</button>
                             </div>
 
                         </div>
 
                     </div>
+
                     <div>
-                        <div>
+                        <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 mb-5">
+                            <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>Join Us On</h2>
+                            <hr></hr>
+                            <div className="flex flex-col gap-2  my-3">
 
 
-                            <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 mb-5">
-                                <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>Join Us On</h2>
-                                <hr></hr>
-                                <div className="flex flex-col gap-2  my-3">
+                                <button type="submit" className="states"><Link href={'https://www.facebook.com/'}><FacebookIcon className='hover:text-white' style={{ marginRight: '5px' }}></FacebookIcon>Facebook</Link></button>
 
-                                    <Button className='states'><Link href={'https://www.facebook.com/'}><FacebookIcon className='hover:text-white' style={{ marginRight: '5px' }}></FacebookIcon>Facebook</Link></Button>
-                                    <Button className='states'><Link href={'https://www.instagram.com/'}><InstagramIcon className='hover:text-white' style={{ marginRight: '5px' }}></InstagramIcon>Instagram</Link></Button>
-                                    <Button className='states'><Link href={'https://twitter.com/'}><TwitterIcon className='hover:text-white' style={{ marginRight: '7px' }}></TwitterIcon>Twitter</Link></Button>
+                                <button type="submit" className="states"><Link href={'https://www.instagram.com/'}><InstagramIcon className='hover:text-white' style={{ marginRight: '5px' }}></InstagramIcon>Instagram</Link></button>
 
-
-                                </div>
+                                <button type="submit" className="states"><Link href={'https://twitter.com/'}><TwitterIcon className='hover:text-white' style={{ marginRight: '7px' }}></TwitterIcon>Twitter</Link></button>
 
                             </div>
-
                         </div>
                     </div>
                 </div>

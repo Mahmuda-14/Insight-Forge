@@ -52,12 +52,6 @@ const navItems = [
     pathname: "/contact",
     icon: <PhoneIcon />,
   },
-  // {
-  //   id: "4",
-  //   route: "VirtualHackathon",
-  //   pathname: "/hackathon",
-  //   icon: <EditNoteIcon />,
-  // },
   {
     id: "4",
     route: "Job Board",
@@ -168,21 +162,35 @@ const DrawerAppBar = (props, item) => {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' }, width: '80px' }}
+            sx={{
+              display: { sm: 'none', md: 'none' },
+              width: '80px'
+            }}
           >
             <MenuIcon />
           </IconButton>
 
-          <Image src={bg2} alt='company' width={109} height={100} style={{ marginLeft: '107px', marginRight: '184px' }} />
+          <Image
+            src={bg2}
+            alt='company'
+            width={109}
+            height={100}
+            style={{
+              marginLeft: {
+                sm: '14px',
+                md: '15px',
+                lg: '107px',
+              },
+              marginRight: '184px',
+              display: { xs: 'none', sm: 'none', md: 'block' }
+            }}
+          />
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, ml: 3 }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md: 'block' }, ml: 3 }}>
             {navItems.map((item) => (
-
-              <Button variant="" href={item.pathname} key={item.id} sx={{ color: 'white', right: '10px' }} >
+              <Button variant="" href={item.pathname} key={item.id} sx={{ color: 'white', right: '10px' }}>
                 {item.route}
               </Button>
-
-
             ))}
           </Box>
           {
