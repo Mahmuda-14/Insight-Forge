@@ -12,6 +12,7 @@ import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 import Footer from '@/components/shared/footer/Footer';
 import useDiscussData from '@/app/hooks/useDiscussData';
 import SingleComment from './SingleComment';
+import useSingleUser from '@/app/hooks/useSingleUser';
 
 const page = ({ params }) => {
     console.log(params.id)
@@ -29,6 +30,7 @@ const page = ({ params }) => {
 
 
     const [discuss, reload ] = useDiscussData()
+    const [, singleUserReload ] = useSingleUser()
 
 
     const postAns = (text, postedId, athorId) => {
@@ -49,6 +51,7 @@ const page = ({ params }) => {
                         toast.success("You answer this question");
                         reload()
                         refetch()
+                        singleUserReload()
                     }
                 })
         } else {
