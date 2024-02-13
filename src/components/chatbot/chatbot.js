@@ -7,7 +7,7 @@ import Lottie from 'lottie-react';
 const Chatbot = () => {
     return (
         <Box sx={{mx:"auto", px:10, maxWidth:"xl"}}>
-           <Paper elevation={10} sx={{ maxWidth: '400px', mx: 'auto', my: 8, background: '#87CEEB', py:2, px:1 }}><Typography variant="h4" sx={{ px: '12px', py: '5px', color: 'black', fontWeight:600 }}>Insight Forge Chatbot</Typography></Paper>
+           <Paper elevation={10} sx={{ maxWidth: '400px', mx: 'auto', my: 8, background: 'white', py:2, px:1 }}><Typography variant="h4" sx={{ px: '12px', py: '5px', color: 'black', fontWeight:600 }}>Insight Forge Chatbot</Typography></Paper>
            <Typography sx={{ textAlign: 'center', color: 'black', mt: 5, maxWidth:"800px", mx:"auto" }} >Before jump into the discussion section we are requesting you to use our chatbot, insightBot. Here You will get some idea about some basic technology for web development sector. You just need to ask - what is html. It will give you the basic answer of html. You also will find answer for css, javascript, react, next js, node js, mongodb, mongoose, express js,SQL database, angular, vue js, Django, flask, Ruby on Rails, PostgreSQL, Restful apis, version control, docker, kubernetes, apache, nginx, npm, webpack, babel.  </Typography>
             <Grid container sx={{my:10}}>
                 <Grid item xs={12} md={6} lg={6}>

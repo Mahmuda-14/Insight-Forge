@@ -6,6 +6,7 @@ import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
 import useAuth from '@/app/hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
 import BlogShare from '@/components/blogShare/modal';
+
 const page = ({params}) => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const { user } = useAuth();
@@ -67,8 +68,10 @@ const page = ({params}) => {
             <Avatar alt="Remy Sharp" className="w-8 h-8" src={data?.userImg} />
             </Box>
             {/* Like and comment icon */}
-            <Box className="flex  justify-items-center gap-8 mr-8 mt-4 ">
-            <BlogShare></BlogShare>
+            <Box className="flex  justify-items-center items-center gap-8 mr-8 mt-4 ">
+                  <Box>
+                        <BlogShare></BlogShare>
+                  </Box>
             <Box className="flex space-x-2">
             <FavoriteBorderOutlinedIcon className='text-black'></FavoriteBorderOutlinedIcon>
            <Typography>
@@ -111,8 +114,8 @@ const page = ({params}) => {
           </Button>
           </form>
           <Box className="space-y-6">
-          {data?.comments?.map((item)=>(
-          <Box key={item} className="flex space-x-4 ">
+          {data?.comments?.map((item, i)=>(
+          <Box key={i} className="flex space-x-4 ">
           <Avatar alt="Remy Sharp" src={item?.userPhoto} />
           <Box className="">
           <Typography className=' text-lg md:text-xl  ' >
@@ -131,4 +134,3 @@ const page = ({params}) => {
       );
 };
 export default page;
-

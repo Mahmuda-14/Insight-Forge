@@ -8,9 +8,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import ShareIcon from '@mui/icons-material/Share';
 import { FacebookShareButton,LinkedinShareButton, WhatsappShareButton , WhatsappIcon , TwitterShareButton,TelegramShareButton,TelegramIcon, FacebookIcon,LinkedinIcon, TwitterIcon,} from "react-share";
-
-
-
+ 
 const style = {
       position: 'absolute',
       top: '50%',
@@ -23,13 +21,16 @@ const style = {
     };
 
 const BlogShare = () => {
-      
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const  currentPageUrl= window.location.href;
+  //const  currentPageUrl= "https://insight-forge-psi.vercel.app/blogs";
   const hashText='#Insightforge';
   const quoteText= 'Please share this post';
+  const blogTitle= "This is a blog"
+  
  
       return (
             <div>
@@ -53,7 +54,9 @@ const BlogShare = () => {
             <FacebookShareButton 
             url= {currentPageUrl}
             quote={quoteText}
-            hashtag={hashText} >
+            hashtag={hashText}
+            title={ blogTitle} 
+            >
             <FacebookIcon className=' w-12 h-12 rounded-full' ></FacebookIcon>
             </FacebookShareButton>
 

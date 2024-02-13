@@ -70,10 +70,12 @@ export default function LogInPage() {
         console.log(result.user)
 
         const userInfo = {
-          email: result?.user?.email,
-          name: result?.user?.displayName,
+          uEmail: result?.user?.email,
+          uName: result?.user?.displayName,
+          uPhoto: result?.user?.photoURL,
           role: "user"
         }
+        console.log(userInfo);
         axiosPublic.post('/users', userInfo)
           .then(res => {
             console.log(res.data);

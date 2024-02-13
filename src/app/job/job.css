@@ -5,5 +5,27 @@
     height: 500px;
   }
 
+  @media (max-width: 1500px) {
+    .p {
+        width: 52%; 
+        height: 600px;
+        
+    }
+}
   
-  
+  @media (max-width: 992px) {
+    .p {
+        width: 70%; 
+        height: 500px;
+        margin-top: 1000px;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .p {
+        width: 90%; 
+        height: 500px;
+        margin-top: 1000px;
+    }
+}

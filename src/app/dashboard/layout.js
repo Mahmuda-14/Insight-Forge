@@ -23,11 +23,15 @@ import EditNoteIcon from "@mui/icons-material/EditNote";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import { ListItemButton, ListItemIcon, ListItemText, Paper } from '@mui/material';
 import { useTheme } from '@emotion/react';
-import bg2 from "../../assets/Insight Forge (3).png"
+import bg2 from "../../assets/logo3.png"
 import Image from 'next/image';
 import GroupsIcon from '@mui/icons-material/Groups';
 import DevicesIcon from '@mui/icons-material/Devices';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import useAdmin from '../hooks/useAdmin';
+import useRecruiter from '../hooks/useRecruiter';
+import PeopleIcon from '@mui/icons-material/People';
+import bgdashboard from '../../assets/dashboard-bg.jpg'
 
 function Copyright(props) {
     return (
@@ -42,7 +46,7 @@ function Copyright(props) {
     );
 }
 
-const drawerWidth = 220;
+const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
@@ -89,32 +93,110 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 // TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme();
+const themeColor = createTheme({
+    palette: {
+        primary: {
+          main: '#263238',
+          // mainGradient: "linear-gradient(to right, #3c3c3c, #ffffff)",
+          contrastText:"black"
+        },
+        secondary: {
+          main:"#C5FFF8"
+        }
+        // ...
+      },
+    breakpoints: {
+        values: {
+          xs: 0,
+          sm: 600,
+          md: 900,
+          lg: 1480,
+          xl: 1536,
+        },
+      },
+})
 
 export default function Dashboard({ children }) {
+    const [isAdmin] = useAdmin();
+    const [isRecruiter] = useRecruiter();
     const [open, setOpen] = React.useState(true);
+
+    console.log(isAdmin, isRecruiter);
+
     const toggleDrawer = () => {
         setOpen(!open);
     };
     const theme = useTheme()
-    const mainListItems = [
+    const mainListItemsAdmin = [
         {
             id: "1",
             route: "AdminProfile",
             pathname: "/dashboard",
             icon: <AccountCircleIcon />,
+        },
+        {
+            id: "2",
+            route: "User Management",
+            pathname: "/dashboard/user",
+            icon: <PeopleIcon />,
+        },
+        {
+            id: "3",
+            route: "All Discuss",
+            pathname: "/dashboard/allDiscuss",
+            icon: <AccountCircleIcon />,
+        },
+        {
+            id: "4",
+            route: "Hackathon Creation",
+            pathname: "/dashboard/createHackathon",
+            icon: <AccountCircleIcon />,
+        },
+        {
+            id: "5",
+            route: "Registered Hackathon",
+            pathname: "/dashboard/allHackathon",
+            icon: <AccountCircleIcon />,
+        },
+        {
+            id: "6",
+            route: "All Payment",
+            pathname: "/dashboard/allPayment",
+            icon: <AccountCircleIcon />,
+        },
+
+
+    ]
+    const mainListItemsUser = [
+        {
+            id: "1",
+            route: "UserProfile",
+            pathname: "/dashboard",
+            icon: <AccountCircleIcon />,
+        },
+        {
+            id: "2",
+            route: "Write a blog",
+            pathname: "/dashboard/writeABlog",
+            icon: <EditNoteIcon />,
+        },
+        {
+            id: "3",
+            route: "My blog",
+            pathname: "/dashboard/myBLog",
+            icon: <EditNoteIcon />,
+        },
+
+    ]
+    const mainListItemsRecruiter = [
+        {
+            id: "1",
+            route: "RecruiterProfile",
+            pathname: "/dashboard",
+            icon: <AccountCircleIcon />,
         }
 
     ]
-    // const mainListItemsAdmin = [
-    //     {
-    //         id: "1",
-    //         route: "UserProfile",
-    //         pathname: "/dashboard",
-    //         icon: <AccountCircleIcon />,
-    //     }
-
-    // ]
 
     const secondaryListItems = [
         {
@@ -146,28 +228,30 @@ export default function Dashboard({ children }) {
             route: "Discussion ",
             pathname: "discussion ",
             icon: <GroupsIcon/>,
-        },
+        }
         ,
         {
-            id: "2",
+            id: "6",
             route: "VirtualHackathon",
             pathname: "/hackathon",
             icon: <DevicesIcon />,
         },
     ];
+    
 
     return (
-        <ThemeProvider theme={defaultTheme}>
+        <ThemeProvider theme={themeColor}>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
-                <AppBar position="absolute" open={open} style={{ background: theme.palette.primary.mainGradient }}>
+                <AppBar position="absolute" open={open} style={{ background: theme.palette.primary.main }}>
+                {/* <AppBar position="absolute" open={open} style={{ background: "#263238", color:"white" }}> */}
                     <Toolbar
                         sx={{
                             pr: '24px', // keep right padding when drawer closed
                         }}  >
                         <IconButton
                             edge="start"
-                            color="black"
+                            color="white"
                             aria-label="open drawer"
                             onClick={toggleDrawer}
                             sx={{
@@ -175,14 +259,14 @@ export default function Dashboard({ children }) {
                                 ...(open && { display: 'none' }),
                             }}
                         >
-                            <MenuIcon />
+                            <MenuIcon className='text-white' />
                         </IconButton>
                         <Typography
                             component="h1"
                             variant="h5"
-                            color="black"
+                            color="white"
                             noWrap
-                            sx={{ flexGrow: 1, fontWeight:600 }}
+                            sx={{ flexGrow: 1, fontWeight:600, color: 'white' }}
                         >
                             Dashboard
                         </Typography>
@@ -200,28 +284,58 @@ export default function Dashboard({ children }) {
                             alignItems: 'center',
                             justifyContent: 'flex-end',
                             px: [1],
-                            background: theme.palette.primary.mainGradient
+                            background:"#263238",
                         }}
                     >
-                        <Image  src={bg2} alt='company' width={50} height={50} /> <Typography  variant="h7" sx={{ml:2, fontWeight:600}}>Insight <br/> Forge</Typography>
+                        <Image  src={bg2} alt='company' width={50} height={50} /> <Typography  variant="h7" sx={{ml:2, fontWeight:600, color:"white"}}>Insight <br/> Forge</Typography>
                         <IconButton onClick={toggleDrawer} sx={{ mr: 2 }}>
                             <ChevronLeftIcon />
                         </IconButton>
                     </Toolbar>
                     <Divider />
-                    <List component="nav" sx={{ background: theme.palette.primary.mainGradient }}>
-                        {mainListItems.map((item) => (
-                            <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'black' }}>
-                                <ListItemIcon sx={{ color: 'black' }}>
+                    <List component="nav" sx={{ background: "#263238" }}>
+                       
+                       {
+                        isAdmin ?
+                        <>
+                        {mainListItemsAdmin.map((item) => (
+                            <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'white' }}>
+                                <ListItemIcon sx={{ color: 'white' }}>
                                     {item.icon}
                                 </ListItemIcon>
                                 <ListItemText primary={item.route} />
                             </ListItemButton>
                         ))}
+                        </>
+                        :
+                        isRecruiter?
+                       <>
+                        {mainListItemsRecruiter.map((item) => (
+                            <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'white' }}>
+                                <ListItemIcon sx={{ color: 'white' }}>
+                                    {item.icon}
+                                </ListItemIcon>
+                                <ListItemText primary={item.route} />
+                            </ListItemButton>
+                        ))}
+                       </>
+                        :
+                        <>
+                        {mainListItemsUser.map((item) => (
+                            <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'white' }}>
+                                <ListItemIcon sx={{ color: 'white' }}>
+                                    {item.icon}
+                                </ListItemIcon>
+                                <ListItemText primary={item.route} />
+                            </ListItemButton>
+                        ))}
+                        </>
+                       }
+
                         <Divider sx={{ my: 1 }} />
                         {secondaryListItems.map((item) => (
-                            <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'black' }}>
-                                <ListItemIcon sx={{ color: 'black' }}>
+                            <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'white' }}>
+                                <ListItemIcon sx={{ color: 'white' }}>
                                     {item.icon}
                                 </ListItemIcon>
                                 <ListItemText primary={item.route} />
@@ -230,10 +344,10 @@ export default function Dashboard({ children }) {
                     </List>
                 </Drawer>
                
-                    <Container maxWidth="xl">
+                    <div className='md:min-w-[1024px] mx-auto '>
                         {children}
                         <Copyright />
-                    </Container>
+                    </div>
 
                 
             </Box>
