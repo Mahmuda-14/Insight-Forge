@@ -25,8 +25,8 @@ const BlogShare = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const  currentPageUrl= window.location.href;
-  //const  currentPageUrl= "https://insight-forge-psi.vercel.app/blogs";
+  //const  currentPageUrl= window.location.href;
+  const  currentPageUrl= "https://insight-forge-psi.vercel.app/blogs";
   const hashText='#Insightforge';
   const quoteText= 'Please share this post';
   const blogTitle= "This is a blog"

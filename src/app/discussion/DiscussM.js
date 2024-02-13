@@ -65,6 +65,10 @@ const DiscussM = ({ question }) => {
                         reload();
                     }
                 })
+                .catch(error => {
+                    toast.error("Something is wrong");
+                    console.error("Error:", error);
+                  });
         } else {
             toast.success("You are not Logged In!");
             router.push("/login");
@@ -102,9 +106,9 @@ const DiscussM = ({ question }) => {
                     </div>
                 </div>
             </div>
-            <div>
+            {/* <div>
                 <img className='w-[15rem] h-[13rem] mt-4 rounded-2xl' src="https://i.ibb.co/RNmQ9dJ/7.webp" />
-            </div>
+            </div> */}
         </div>
     );
 };

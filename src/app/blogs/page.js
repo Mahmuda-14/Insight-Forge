@@ -19,7 +19,9 @@ import Link from "next/link";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useSingleUser from "../hooks/useSingleUser";
+import useAuth from "../hooks/useAuth";
 import BlogShare from "@/components/blogShare/modal";
+import HTMLReactParser from 'html-react-parser'
 
 const page = () => {
   const axiosSecure = useAxiosSecure()
@@ -27,6 +29,7 @@ const page = () => {
   const axiosPublic = useAxiosPublic();
   const [recentPosts, setRecentPosts] = useState([])
   const [users] = useSingleUser()
+  const { user } = useAuth();
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [search, setSearch] = useState(' ')
   console.log(search)
@@ -57,26 +60,31 @@ const page = () => {
 
   }
   const submitLike = (id) => {
-    const userId = { 
-      postId: id,
-      postedId: users[0]?._id
-    }
-    axiosSecure.put("/blogLike", userId)
-      .then(res => {
-        console.log(res.data);
-        refetch();
-      })
-      .catch(error => {
-        console.error("Error:", error);
-      });
+    if (user && user?.email) {
 
+      const userId = {
+        postId: id,
+        postedId: users[0]?._id
+      }
+      axiosSecure.put("/blogLike", userId)
+        .then(res => {
+          console.log(res.data);
+          refetch();
+        })
+        .catch(error => {
+          console.error("Error:", error);
+        });
+    } else {
+      toast.success("You are not Logged In!");
+      router.push("/login");
+    }
   }
 
   return (
     <Box className="overflow-hidden" style={{ padding: '10px' }}>
       <DrawerAppBar></DrawerAppBar>
-      <Typography variant="h3" sx={{ color: "black", textAlign: "center", fontWeight: 700 }} className="mt-5"> Knowledge Revolution </Typography>
-      <Typography variant="h6" sx={{ color: "black", textAlign: "center", mt: 3 }} >Explore practical strategies for continuous <br /> learning and adapting to the ever-evolving world of information</Typography>
+      <Typography variant="h3" sx={{ color: "black", textAlign: "center", fontWeight: 700 }} className="mt-16"> Knowledge Revolution </Typography>
+      <Typography variant="h6" sx={{ color: "black", textAlign: "center", mt: 2 }} >Explore practical strategies for continuous <br /> learning and adapting to the ever-evolving world of information</Typography>
       <div className="container w-xl m-auto space-x-6  grid grid-cols-12 gap-2 my-12  ">
         {/* Left side colum */}
         <div className=" col-span-12 lg:col-span-4 space-y-6   ">
@@ -91,7 +99,7 @@ const page = () => {
               }}>
               <TextField style={{ borderRadius: 0 }} type='text' fullWidth onKeyUp={handleSearch} placeholder='Search category ' id="fullWidth" />
             </Box>
-            <Button className="bg-[#8BD0EC] hover:bg-[#8BD0EC]" variant="contained" sx={{ borderRadius: 0 }} endIcon={<FaSearchLocation style={{ color: 'black' }} />}>
+            <Button className="bg-gray-50 hover:bg-gray-100" variant="contained" sx={{ borderRadius: 0 }} endIcon={<FaSearchLocation style={{ color: 'black' }} />}>
             </Button>
           </Box>
 
@@ -113,7 +121,7 @@ const page = () => {
           </Typography>
           <Box className="gap-4 space-y-8 flex-col md:flex-row ">
             {recentPosts.map((recentPost) => (
-              <Card key={recentPost._id} style={{ boxShadow: '0px 2px 4px rgba(#F7FBFD)', width: "50%" }} className=" bg-[#DCF1F9]  shadow-none rounded-md " >
+              <Card key={recentPost._id} style={{ boxShadow: '0px 2px 4px rgba(#F7FBFD)', width: "50%" }} className=" bg-gray-50  shadow-none rounded-md " >
                 <Link href={`/blogs/${recentPost._id}`}>
                   <CardMedia
                     component="img"
@@ -141,7 +149,7 @@ const page = () => {
         <div className=" col-span-12 md:col-span-8 ">
           <div className="grid grid-cols-1 gap-6 ">
             {data?.map((blog, index) => (
-              <Card key={index} className="flex flex-col lg:flex-row lg:items-end space-x-2 bg-[#DCF1F9] " >
+              <Card key={index} className="flex flex-col lg:flex-row lg:items-end space-x-2 bg-gray-50 " >
                 <CardMedia
                   component="img"
                   image={blog.image}
@@ -178,7 +186,7 @@ const page = () => {
                     <Box>
                       {
                         blog.likes?.includes(users[0]?._id) ? <ThumbUpAltIcon className='ml-2' /> :
-                      <Button onClick={() => submitLike(blog._id)} className="text-black w-10" ><ThumbUpOffAltIcon></ThumbUpOffAltIcon></Button>
+                          <Button onClick={() => submitLike(blog._id)} className="text-black w-10" ><ThumbUpOffAltIcon></ThumbUpOffAltIcon></Button>
                       }
                       {blog.likes?.length}
                     </Box>
@@ -189,7 +197,7 @@ const page = () => {
                       </Typography>
                     </Box>
                     <Link href={`/blogs/${blog._id}`}>
-                      <Button className=" w-4 bg-[#8BD0EC] hover:bg-[#8BD0EC]" variant="contained" sx={{ borderRadius: 0 }} endIcon={<ArrowRightIcon style={{ color: 'black', fontSize: '38px' }} />}>
+                      <Button className=" w-4 bg-gray-50 hover:bg-gray-100" variant="contained" sx={{ borderRadius: 0 }} endIcon={<ArrowRightIcon style={{ color: 'black', fontSize: '38px' }} />}>
                       </Button>
                     </Link>
                   </Box>
