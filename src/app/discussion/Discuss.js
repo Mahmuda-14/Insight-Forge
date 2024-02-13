@@ -263,7 +263,7 @@ const Discuss = () => {
                 </div>
 
 
-                <div className='sm:ml-20'>
+                <div className='sm:ml-20 md:ml-20 lg:ml-0'>
                     <div>
 
                         <button type="submit" onClick={handleOpen} className="askBtn"> <BorderColorOutlinedIcon style={{ width: '1em ', height: '1.5em' }} />Ask Question</button>
