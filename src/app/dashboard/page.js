@@ -18,9 +18,9 @@ const page = () => {
 
             {
                 singleUser?.map((user) =>
-                    <div key={user._id} className=" pt-3">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 lg:gap-5 ">
-                            <div className='col-span-1 lg:col-span-2'>
+                    <div key={user._id} className="lg:pr-5 lg:pl-8 pt-3">
+                        <div className="grid grid-cols-1 lg:grid-cols-5  gap-5 mx-auto lg:mx-0">
+                            <div className='col-span-1 lg:col-span-2 mx-auto lg:mx-0 xl:'>
                                 <div className='text-center bg-gray-100 p-4 rounded-md'>
                                     {
                                         user?.uPhoto ?
@@ -42,7 +42,7 @@ const page = () => {
                                     <FaEdit /> Edit Profile
                                 </button> */}
                             </div>
-                            <div className='col-span-1 lg:col-span-3 pt-4 pl-10  bg-gray-100 rounded-md'>
+                            <div className='col-span-1 lg:col-span-3 pt-4 px-10 lg:pl-10  bg-gray-100 rounded-md mx-auto lg:mx-0 xl:'>
                                 <h1 className='font-bold text-xl mb-5'>Bio Graph</h1>
                                 <div className='text-gray-700'>
                                     <div className=" mb-3">

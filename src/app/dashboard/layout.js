@@ -344,7 +344,7 @@ export default function Dashboard({ children }) {
                     </List>
                 </Drawer>
                
-                    <div className='md:min-w-[1024px] mx-auto overflow-y-auto'>
+                    <div className=' mx-auto overflow-y-auto'>
                         {children}
                         <Copyright />
                     </div>
