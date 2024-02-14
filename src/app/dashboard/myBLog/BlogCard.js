@@ -11,6 +11,7 @@ import useAxiosSecure from '@/app/hooks/useAxiosSecure';
 import useMyBlog from '@/app/hooks/useMyBlog';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
+import Link from 'next/link';
 
 
 
@@ -78,7 +79,7 @@ const BlogCard = ({ item }) => {
 
     return (
         <div>
-            <div class="e-card playing w-[240px] h-[400px] lg:w-80 lg:h-[420px]">
+            <div class="e-card playing w-[310px] h-[420px]">
                 <div class="image"></div>
                 <div class="wave"></div>
                 <div class="wave"></div>
@@ -92,20 +93,22 @@ const BlogCard = ({ item }) => {
                     <p className='text-gray-300 text-sm '>Posted Data: {formattedTimestamp}</p>
                     <div className='bg-none text-base text-gray-50'>
                         {
-                            details.length > 100 ?
-                                <Typography className='bg-none text-base text-gray-50' variant="subtitle1" color="text.secondary" component="div">
+                            details.length > 87 ?
+                                <p className='bg-none text-base text-gray-50'>
                                     {HTMLReactParser(details).slice(0, 88)}
-                                </Typography> :
-                                <Typography variant="subtitle1" color="text.secondary" component="div">
+                                </p> :
+                                <p variant="subtitle1" className='bg-none text-base text-gray-50'>
                                     {HTMLReactParser(details)}
-                                </Typography>
+                                </p>
 
                         }
                     </div>
                     <div className='flex justify-end items-center gap-5 mt-4'>
+                        {/* <Link href={`/dashboard/updateBlog/${_id}`}>
                         <button class="bg-[#263238] hover:bg-[#4e5356] px-4 py-2 rounded-md">
                             <FaEdit />
                         </button>
+                        </Link> */}
                         <button onClick={() => handleDelete(_id)} class="bg-red-600 hover:bg-red-500 px-4 pb-2 rounded-md">
                             <DeleteForeverIcon />
                         </button>
