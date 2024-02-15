@@ -10,7 +10,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
-
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Lottie from "lottie-react";
@@ -159,7 +159,7 @@ export default function RegistrationPage() {
             <Typography component="h1" variant="h4" sx={{ color: "#2e7d32", fontWeight: 600 }}>
               Sign up
             </Typography>
-            <Typography component="h1" variant="h7" sx={{ color: "#2e7d32", fontWeight: 500, mt:4, textAlign:"center" }}>
+            <Typography component="h1" variant="h7" sx={{ color: "#2e7d32", fontWeight: 500, mt: 4, textAlign: "center" }}>
               If you are a recruiter then we are requesting you to Sign Up through registration field to experience some extra benefit
             </Typography>
             <Box
@@ -170,7 +170,7 @@ export default function RegistrationPage() {
             >
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
-                <InputLabel id="demo-simple-select-helper-label">Name</InputLabel>
+                  <InputLabel id="demo-simple-select-helper-label">Name</InputLabel>
                   <TextField
                     autoComplete="Name"
                     name="Name"
@@ -180,30 +180,25 @@ export default function RegistrationPage() {
                     label="Name"
                     autoFocus
                     {...register("name", { required: true })}
-                    sx={{ backgroundColor: "#C5FFF8", mt:2 }}
+                    sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
                   />
                   {errors.name && (
                     <Typography> Name field is required</Typography>
                   )}
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                <InputLabel id="demo-simple-select-helper-label">Photo URL</InputLabel>
-                  <TextField
-                    required
-                    fullWidth
-                    id="Photo URL"
-                    label="Photo URL"
-                    name="Photo URL"
-                    autoComplete="Photo URL"
-                    {...register("photo", { required: true })}
-                    sx={{ backgroundColor: "#C5FFF8" , mt:2  }}
-                  />
+                  <InputLabel id="demo-simple-select-helper-label">Photo URL</InputLabel>
+                  <input className='hidden text-3xl font-semibold mb-3' {...register("photo", { required: true })} type="file" id='coverImg' />
+                  <label required htmlFor='coverImg' className='text-gray-500 flex mb-3 items-end cursor-pointer pt-3'>
+                    <AddPhotoAlternateIcon sx={{ width: '50px', height: '50px' }} className='w-50 text-gray-500' />
+                    <p className='font-semibold'>add your blog cover</p>
+                  </label>
                   {errors.photo && (
                     <Typography> Photo URL Field is required</Typography>
                   )}
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                <InputLabel id="demo-simple-select-helper-label">Email Address</InputLabel>
+                  <InputLabel id="demo-simple-select-helper-label">Email Address</InputLabel>
                   <TextField
                     required
                     fullWidth
@@ -212,7 +207,7 @@ export default function RegistrationPage() {
                     name="email"
                     autoComplete="email"
                     {...register("email", { required: true })}
-                    sx={{ backgroundColor: "#C5FFF8", mt:2  }}
+                    sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
                   />
                   {errors.email && (
                     <Typography> Email Field is required</Typography>
@@ -226,7 +221,7 @@ export default function RegistrationPage() {
                     label="user"
                     fullWidth
                     {...register("role", { required: true })}
-                    sx={{ backgroundColor: "#C5FFF8" , mt:2 }}
+                    sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
                   >
                     <MenuItem value={"user"}>User</MenuItem>
                     <MenuItem value={"recruiter"}>Recruiter</MenuItem>
@@ -236,7 +231,7 @@ export default function RegistrationPage() {
                   )}
                 </Grid>
                 <Grid item xs={12}>
-                <InputLabel id="demo-simple-select-helper-label">Password</InputLabel>
+                  <InputLabel id="demo-simple-select-helper-label">Password</InputLabel>
                   <TextField
                     required
                     fullWidth
@@ -251,7 +246,7 @@ export default function RegistrationPage() {
                       maxLength: 25,
                       pattern: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=])/,
                     })}
-                    sx={{ backgroundColor: "#C5FFF8" , mt:2 }}
+                    sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
                   />
                   {errors.password?.type === "required" && (
                     <Typography>Password is required </Typography>
