@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client'
 import React from 'react';
@@ -17,13 +18,13 @@ const page = () => {
 
             {
                 singleUser?.map((user) =>
-                    <div key={user._id} className=" pt-3">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 lg:gap-5 ">
-                            <div className='col-span-1 lg:col-span-2'>
+                    <div key={user._id} className="lg:pr-5 lg:pl-8 pt-3">
+                        <div className="grid grid-cols-1 lg:grid-cols-5  gap-5 mx-auto lg:mx-0">
+                            <div className='col-span-1 lg:col-span-2 mx-auto lg:mx-0 xl:'>
                                 <div className='text-center bg-gray-100 p-4 rounded-md'>
                                     {
                                         user?.uPhoto ?
-                                            <Image alt='user image' width={288} height={288} className='mx-auto rounded-full  p-3 bg-gray-300' src={user?.uPhoto}></Image> :
+                                            <img alt='user image' className='mx-auto w-[288px] h-[288px] rounded-full  p-3 bg-gray-300' src={user?.uPhoto}/> :
                                             <Image width={288} height={288} alt='user image' className='mx-auto rounded-full  p-3 bg-gray-300' src='https://i.ibb.co/jZM8vtT/profile-icon-design-free-vector.jpg'></Image>
                                     }
                                     <div className="space-y-2 ">
@@ -41,7 +42,7 @@ const page = () => {
                                     <FaEdit /> Edit Profile
                                 </button> */}
                             </div>
-                            <div className='col-span-1 lg:col-span-3 pt-4 pl-10  bg-gray-100 rounded-md'>
+                            <div className='col-span-1 lg:col-span-3 pt-4 px-10 lg:pl-10  bg-gray-100 rounded-md mx-auto lg:mx-0 xl:'>
                                 <h1 className='font-bold text-xl mb-5'>Bio Graph</h1>
                                 <div className='text-gray-700'>
                                     <div className=" mb-3">
