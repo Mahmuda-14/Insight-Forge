@@ -79,7 +79,7 @@ const DiscussM = ({ question }) => {
 
 
     return (
-        <div className="qusContainer card card2 flex flex-row justify-between my-2">
+        <div className="qusContainer card card2  flex flex-row justify-between my-2">
             <div key={_id} className='p-6'>
                 <div className='flex gap-4 mb-5'>
                     <img className='w-12 h-12 rounded-full' src={photo} />
