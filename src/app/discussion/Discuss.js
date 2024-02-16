@@ -14,7 +14,6 @@ import { useRouter } from 'next/navigation';
 import useAxiosSecure from '../hooks/useAxiosSecure';
 import useDiscussData from '../hooks/useDiscussData';
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
-import Marquee from "react-fast-marquee";
 import SouthIcon from '@mui/icons-material/South';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import DiscussM from './DiscussM';
@@ -117,6 +116,14 @@ const Discuss = () => {
         gradientColor: 'rgb(248,251,253)'
 
     };
+
+
+
+
+
+
+
+    
 
     return (
         <Box className="discussion overflow-x-hidden" style={{ padding: '10px' }}>
@@ -289,9 +296,41 @@ const Discuss = () => {
             <div className="flex flex-col gap-2  my-3">
 
 
-                <button type="submit" className="states"><Link href={'https://www.facebook.com/'}><FacebookIcon className='hover:text-white' style={{ marginRight: '5px' }}></FacebookIcon>Facebook</Link></button>
+                <div className='sm:ml-20 md:ml-20 lg:ml-0'>
+                    <div>
 
-                <button type="submit" className="states"><Link href={'https://www.instagram.com/'}><InstagramIcon className='hover:text-white' style={{ marginRight: '5px' }}></InstagramIcon>Instagram</Link></button>
+                        <button type="submit" onClick={handleOpen} className="askBtn"> <BorderColorOutlinedIcon style={{ width: '1em ', height: '1.5em' }} />Ask Question</button>
+                        <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 mb-5">
+                            <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>States</h2>
+                            <hr></hr>
+                            <div className="flex flex-col gap-2  my-3">
+
+                                <button type="submit" className="states">Questions({discuss.length})</button>
+                                <button type="submit" className="states">Answers(2)</button>
+                                <button type="submit" className="states">Most Liked(20)</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 mb-5">
+                            <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>Join Us On</h2>
+                            <hr></hr>
+                            <div className="flex flex-col gap-2  my-3">
+
+
+                                <button type="submit" className="states"><Link href={'https://www.facebook.com/'}><FacebookIcon className='hover:text-white' style={{ marginRight: '5px' }}></FacebookIcon>Facebook</Link></button>
+
+                                <button type="submit" className="states"><Link href={'https://www.instagram.com/'}><InstagramIcon className='hover:text-white' style={{ marginRight: '5px' }}></InstagramIcon>Instagram</Link></button>
+
+                                <button type="submit" className="states"><Link href={'https://twitter.com/'}><TwitterIcon className='hover:text-white' style={{ marginRight: '7px' }}></TwitterIcon>Twitter</Link></button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <button type="submit" className="states"><Link href={'https://twitter.com/'}><TwitterIcon className='hover:text-white' style={{ marginRight: '7px' }}></TwitterIcon>Twitter</Link></button>
 
@@ -309,7 +348,12 @@ const Discuss = () => {
     );
 };
 
-
+{/* <button
+type="submit"
+className="bg-[#87CEEB] text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+>
+Post Job
+</button> */}
 
 
 

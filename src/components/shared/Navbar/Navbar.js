@@ -58,12 +58,6 @@ const navItems = [
     pathname: "/contact",
     icon: <PhoneIcon />,
   },
-  // {
-  //   id: "4",
-  //   route: "VirtualHackathon",
-  //   pathname: "/hackathon",
-  //   icon: <EditNoteIcon />,
-  // },
   {
     id: "4",
     route: "Job Board",
@@ -194,12 +188,9 @@ const DrawerAppBar = (props, item) => {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none',  md: 'none', lg:'block' }, ml: 3 }}>
             {navItems.map((item) => (
-
-              <Button variant="" href={item.pathname} key={item.id} sx={{ color: 'white', right: '10px' }} >
+              <Button variant="" href={item.pathname} key={item.id} sx={{ color: 'white', right: '10px' }}>
                 {item.route}
               </Button>
-
-
             ))}
           </Box>
           {
