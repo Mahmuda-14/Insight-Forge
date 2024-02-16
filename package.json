@@ -33,20 +33,16 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^5.0.1",
     "react-player": "^2.14.1",
-<<<<<<< HEAD
     "react-time-ago": "^7.2.1",
     "react-type-animation": "^3.2.0",
     "sharp": "^0.33.2",
     "socket.io-client": "^4.7.4",
     "swiper": "^11.0.5",
     "utf-8-validate": "^5.0.10",
-    "ws": "^8.16.0"
-=======
+    "ws": "^8.16.0",
     "react-share": "^5.1.0",
-    "react-type-animation": "^3.2.0",
-    "sweetalert2": "^11.10.5",
-    "swiper": "^11.0.5"
->>>>>>> 1f31f4abf7f672ef20a02e47e5c4ef879203890f
+    "sweetalert2": "^11.10.5"
+   
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",
