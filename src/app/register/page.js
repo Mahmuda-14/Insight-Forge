@@ -41,6 +41,9 @@ function Copyright(props) {
   );
 }
 
+const image_hosting_key = process.env.NEXT_PUBLIC_Image_KEY
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
+
 export default function RegistrationPage() {
   const axiosPublic = useAxiosPublic()
 
@@ -57,51 +60,67 @@ export default function RegistrationPage() {
     formState: { errors }, reset
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data, data.name);
     const uEmail = data.email;
     const uName = data.name;
     const uPassword = data.password;
     const uPhoto = data.photo;
 
-
-    registration(uEmail, uPassword).then((result) => {
-      const loggedUser = result.user;
-      console.log(loggedUser)
-      updateUser(data.name, data.photo)
-        .then(() => {
-          console.log('User profile Updated')
-          reset();
-          toast.success("user updated successfully")
-        });
-      logOut()
-        .then()
-        .catch()
-      router.push('/login')
+    const imageFile = { image: data.photo[0] }
+    const res = await axiosPublic.post(image_hosting_api, imageFile, {
+      headers: {
+        'content-type': 'multipart/form-data'
+      },
+      body: imageFile
     })
 
-    const userInfo = {
-      uEmail: data.email,
-      uName: data.name,
-      uPhoto: data.photo,
-      role: data.role
-    }
-    console.log(userInfo)
+    if (res.data.success) {
 
-    axiosPublic.post('/users', userInfo)
-      .then(res => {
-        console.log(res.data)
-        if (res.data.__v === 0) {
-          console.log(loggedUser);
-          updateUser(uName, uPhoto).then(() => {
-            console.log("User profile Updated");
+      registration(uEmail, uPassword).then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser)
+        updateUser(data.name, res?.data?.data?.display_url)
+          .then(() => {
+            console.log('User profile Updated')
             reset();
-            toast.success("User Updated Successfully");
-            logOut().then().catch();
-            router.push("/login");
+            toast.success("user updated successfully")
           });
-        }
-      }).catch(err => { console.log(err) })
+        logOut()
+          .then()
+          .catch()
+        router.push('/login')
+      })
+
+      const userInfo = {
+        uEmail: data.email,
+        uName: data.name,
+        uPhoto: res?.data?.data?.display_url,
+        role: data.role
+      }
+      console.log(userInfo)
+
+      axiosPublic.post('/users', userInfo)
+        .then(res => {
+          console.log(res.data)
+          if (res.data.__v === 0) {
+            console.log(loggedUser);
+            updateUser(uName, uPhoto).then(() => {
+              console.log("User profile Updated");
+              reset();
+              toast.success("User Updated Successfully");
+              logOut().then().catch();
+              router.push("/login");
+            });
+          }
+        }).catch(err => {
+          console.log(err)
+          toast.error("Something was wrong");
+        })
+    }else{
+      toast.error("Something was wrong")
+    }
+
 
   };
 
@@ -194,7 +213,7 @@ export default function RegistrationPage() {
                     <p className='font-semibold'>add your blog cover</p>
                   </label>
                   {errors.photo && (
-                    <Typography> Photo URL Field is required</Typography>
+                    <Typography sx={{color: 'red'}}> Photo URL Field is required</Typography>
                   )}
                 </Grid>
                 <Grid item xs={12} sm={6}>
