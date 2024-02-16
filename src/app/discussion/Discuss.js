@@ -99,6 +99,7 @@ const Discuss = () => {
                     if (res.data.__v === 0) {
                         reload()
                         toast.success("Your question has been posted");
+                       
                     }
                 })
         } else {

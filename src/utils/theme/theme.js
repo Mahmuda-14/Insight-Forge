@@ -10,16 +10,16 @@ const themeColor = createTheme({
           contrastText:"black"
         },
         secondary: {
-          main:"#C5FFF8"
+          main:"#91ff35"
         }
         // ...
       },
       breakpoints: {
         values: {
           xs: 0,
-          sm: 641,
-          md: 769,
-          lg: 1025,
+          sm: 450,
+          md: 600,
+          lg: 1200,
           xl: 1536,
         },
       },

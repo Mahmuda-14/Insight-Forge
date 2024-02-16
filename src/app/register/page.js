@@ -199,7 +199,7 @@ export default function RegistrationPage() {
                     label="Name"
                     autoFocus
                     {...register("name", { required: true })}
-                    sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
+                    sx={{ backgroundColor: "#a8f0cc", mt:2 }}
                   />
                   {errors.name && (
                     <Typography> Name field is required</Typography>
@@ -226,7 +226,7 @@ export default function RegistrationPage() {
                     name="email"
                     autoComplete="email"
                     {...register("email", { required: true })}
-                    sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
+                    sx={{ backgroundColor: "#a8f0cc", mt:2  }}
                   />
                   {errors.email && (
                     <Typography> Email Field is required</Typography>
@@ -240,7 +240,7 @@ export default function RegistrationPage() {
                     label="user"
                     fullWidth
                     {...register("role", { required: true })}
-                    sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
+                    sx={{ backgroundColor: "#a8f0cc" , mt:2 }}
                   >
                     <MenuItem value={"user"}>User</MenuItem>
                     <MenuItem value={"recruiter"}>Recruiter</MenuItem>
@@ -265,7 +265,7 @@ export default function RegistrationPage() {
                       maxLength: 25,
                       pattern: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=])/,
                     })}
-                    sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
+                    sx={{ backgroundColor: "#a8f0cc" , mt:2 }}
                   />
                   {errors.password?.type === "required" && (
                     <Typography>Password is required </Typography>
@@ -289,7 +289,7 @@ export default function RegistrationPage() {
               </Grid>
               <button
 
-                className=" font-semibold w-full py-2 rounded mt-8 mb-2 bg-[#C5FFF8] text-black"
+                className=" font-semibold w-full py-2 rounded mt-8 mb-2 bg-[#4f675b] text-white"
               >
                 Sign Up
               </button>
@@ -306,8 +306,8 @@ export default function RegistrationPage() {
               <Chip label="OR" size="small" />
             </Divider>
 
-            <button onClick={handleGoogleLogIn} className=" font-semibold w-full py-2 rounded mt-7 mb-2 text-lg bg-[#C5FFF8] text-black">
-              <GoogleIcon sx={{ mr: 3, color: "blue" }} />
+            <button onClick={handleGoogleLogIn} className=" font-semibold w-full py-2 rounded mt-7 mb-2 text-lg bg-[#4f675b] text-white">
+              <GoogleIcon sx={{ mr: 3, color: "white" }} />
               Google Log In
             </button>
           </Box>

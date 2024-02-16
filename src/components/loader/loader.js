@@ -1,6 +1,6 @@
 import React from 'react';
 
-const loader = () => {
+const Loader = () => {
     return (
         <div class="loader">
             <div class="cell d-0"></div>
@@ -23,4 +23,4 @@ const loader = () => {
     );
 };
 
-export default loader;
+export default Loader;

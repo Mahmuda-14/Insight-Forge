@@ -31,11 +31,15 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import useAdmin from '../hooks/useAdmin';
 import useRecruiter from '../hooks/useRecruiter';
 import PeopleIcon from '@mui/icons-material/People';
-import bgdashboard from '../../assets/dashboard-bg.jpg'
+// import bgdashboard from '../../assets/dashboard-bg.jpg'
+import Diversity3Icon from '@mui/icons-material/Diversity3';
+import BugReportIcon from '@mui/icons-material/BugReport';
+import ReceiptIcon from '@mui/icons-material/Receipt';
+import Loader from '@/components/loader/loader';
 
 function Copyright(props) {
     return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
+        <Typography variant="body2" color="text.secondary" align="center" {...props} sx={{mt:10}}>
             {'Copyright © '}
             <Link color="inherit" href="https://mui.com/">
                InsightForge
@@ -117,11 +121,12 @@ const themeColor = createTheme({
 })
 
 export default function Dashboard({ children }) {
-    const [isAdmin] = useAdmin();
-    const [isRecruiter] = useRecruiter();
+    const [isAdmin, isAdminLoading] = useAdmin();
+    const [isRecruiter, isRecruiterLoading] = useRecruiter();
     const [open, setOpen] = React.useState(true);
 
     console.log(isAdmin, isRecruiter);
+    
 
     const toggleDrawer = () => {
         setOpen(!open);
@@ -144,25 +149,25 @@ export default function Dashboard({ children }) {
             id: "3",
             route: "All Discuss",
             pathname: "/dashboard/allDiscuss",
-            icon: <AccountCircleIcon />,
+            icon: <Diversity3Icon />,
         },
         {
             id: "4",
             route: "Hackathon Creation",
             pathname: "/dashboard/createHackathon",
-            icon: <AccountCircleIcon />,
+            icon: <BugReportIcon />,
         },
         {
             id: "5",
             route: "All Hackathon",
             pathname: "/dashboard/allHackathon",
-            icon: <AccountCircleIcon />,
+            icon: <DevicesIcon />,
         },
         {
             id: "6",
             route: "All Payment",
             pathname: "/dashboard/allPayment",
-            icon: <AccountCircleIcon />,
+            icon: <ReceiptIcon />,
         },
 
 
@@ -208,25 +213,25 @@ export default function Dashboard({ children }) {
         {
             id: "2",
             route: "Blogs",
-            pathname: "blogs",
+            pathname: "/blogs",
             icon: <EditNoteIcon />,
         },
         {
             id: "3",
             route: "Register",
-            pathname: "register",
+            pathname: "/register",
             icon: <AppRegistrationIcon />,
         },
         {
             id: "4",
             route: "Contact",
-            pathname: "contact",
+            pathname: "/contact",
             icon: <PhoneIcon />,
         },
         {
             id: "5",
             route: "Discussion ",
-            pathname: "discussion ",
+            pathname: "/discussion ",
             icon: <GroupsIcon/>,
         }
         ,
@@ -284,7 +289,8 @@ export default function Dashboard({ children }) {
                             alignItems: 'center',
                             justifyContent: 'flex-end',
                             px: [1],
-                            background:"#263238",
+                            background:"#4f675b",
+                           
                         }}
                     >
                         <Image  src={bg2} alt='company' width={50} height={50} /> <Typography  variant="h7" sx={{ml:2, fontWeight:600, color:"white"}}>Insight <br/> Forge</Typography>
@@ -293,7 +299,7 @@ export default function Dashboard({ children }) {
                         </IconButton>
                     </Toolbar>
                     <Divider />
-                    <List component="nav" sx={{ background: "#263238" }}>
+                    <List component="nav" sx={{ background: "#4f675b",  height:800 }}>
                        
                        {
                         isAdmin ?
@@ -332,7 +338,7 @@ export default function Dashboard({ children }) {
                         </>
                        }
 
-                        <Divider sx={{ my: 1 }} />
+                        <Divider sx={{ my: 1, color:"white", mt:2 }} />
                         {secondaryListItems.map((item) => (
                             <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'white' }}>
                                 <ListItemIcon sx={{ color: 'white' }}>
@@ -344,7 +350,7 @@ export default function Dashboard({ children }) {
                     </List>
                 </Drawer>
                
-                    <div className=' mx-auto overflow-y-auto'>
+                    <div className='md:min-w-[600px] ml-10 mx-auto overflow-x-auto overflow-y-auto'>
                         {children}
                         <Copyright />
                     </div>

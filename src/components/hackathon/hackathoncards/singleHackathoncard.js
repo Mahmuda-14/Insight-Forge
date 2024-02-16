@@ -28,7 +28,7 @@ const SingleHackathoncard = ({ hackathon }) => {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: 400,
-        backgroundColor: '#C5FFF8',
+        backgroundColor: 'white',
         border: '2px solid #000',
         boxShadow: 24,
         p: 4,
@@ -118,7 +118,7 @@ const SingleHackathoncard = ({ hackathon }) => {
                                             label="TeamName"
                                             autoFocus
                                             {...register("team", { required: true })}
-                                            sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
+                                            sx={{ backgroundColor: "white", mt: 2 }}
                                         />
 
 
@@ -133,7 +133,7 @@ const SingleHackathoncard = ({ hackathon }) => {
                                             name="Phone Number"
                                             autoComplete="Phone Number"
                                             {...register("phone", { required: true })}
-                                            sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
+                                            sx={{ backgroundColor:  "white", mt: 2 }}
                                         />
 
 
@@ -148,7 +148,7 @@ const SingleHackathoncard = ({ hackathon }) => {
                                             name="address"
                                             autoComplete="address"
                                             {...register("address", { required: true })}
-                                            sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
+                                            sx={{ backgroundColor:  "white", mt: 2 }}
                                         />
 
                                     </Grid>
@@ -160,7 +160,7 @@ const SingleHackathoncard = ({ hackathon }) => {
                                             label="Currency"
                                             fullWidth
                                             {...register("currency", { required: true })}
-                                            sx={{ backgroundColor: "#C5FFF8", mt: 2 }}
+                                            sx={{ backgroundColor:  "white", mt: 2 }}
                                         >
                                             <MenuItem value={"BDT"}>BDT</MenuItem>
                                             <MenuItem value={"USD"}>USD</MenuItem>
@@ -173,7 +173,7 @@ const SingleHackathoncard = ({ hackathon }) => {
                                 </Grid>
                                 <button
 
-                                    className=" font-semibold w-full py-2 rounded mt-8 mb-2 bg-[#C5FFF8] text-black"
+                                    className=" font-semibold w-full py-2 rounded mt-8 mb-2 bg-[#4f675b] text-white"
                                 >
                                     Pay
                                 </button>
