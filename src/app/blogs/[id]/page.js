@@ -65,6 +65,7 @@ const page = ({ params }) => {
                   postedId
 
             }
+            console.log(commentIn)
             axiosPublic.put("/commentBlog", commentIn)
                   .then(res => {
                         console.log(res.data)
@@ -124,7 +125,7 @@ const page = ({ params }) => {
             {/* Use the actual title from the blog */}
             {data?.title}
             </Typography>
-            <Typography variant="subtitle1" color="text.secondary" component="div">
+            <Typography variant="subtitle1" textAlign='justify' color="text.secondary" component="div">
             {data?.details}
             </Typography>
             </CardContent>
