@@ -3,8 +3,8 @@
 'use client'
 import DashboardTitle from '@/components/shared/dashboardTitle/dashboardTitle';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Jodit } from 'jodit/es2018/jodit.fat.min';
-import JoditEditor from 'jodit-react';
+// import { Jodit } from 'jodit/es2018/jodit.fat.min';
+// import JoditEditor from 'jodit-react';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import useAxiosPublic from '@/app/hooks/useAxiosPublic';
 import useAuth from '@/app/hooks/useAuth';
@@ -12,27 +12,27 @@ import '../writeABlog/writeABlog.css'
 import toast from 'react-hot-toast';
 import { TextField } from '@mui/material';
 
-/**
- * @param {Jodit} jodit
- */
-function preparePaste(jodit) {
-	jodit.e.on(
-		'paste',
-		e => {
-			if (confirm('Change pasted content?')) {
-				jodit.e.stopPropagation('paste');
-				jodit.s.insertHTML(
-					Jodit.modules.Helpers.getDataTransfer(e)
-						.getData(Jodit.constants.TEXT_HTML)
-						.replace(/a/g, 'b')
-				);
-				return false;
-			}
-		},
-		{ top: true }
-	);
-}
-Jodit.plugins.add('preparePaste', preparePaste);
+// /**
+//  * @param {Jodit} jodit
+//  */
+// function preparePaste(jodit) {
+// 	jodit.e.on(
+// 		'paste',
+// 		e => {
+// 			if (confirm('Change pasted content?')) {
+// 				jodit.e.stopPropagation('paste');
+// 				jodit.s.insertHTML(
+// 					Jodit.modules.Helpers.getDataTransfer(e)
+// 						.getData(Jodit.constants.TEXT_HTML)
+// 						.replace(/a/g, 'b')
+// 				);
+// 				return false;
+// 			}
+// 		},
+// 		{ top: true }
+// 	);
+// }
+// Jodit.plugins.add('preparePaste', preparePaste);
 
 const image_hosting_key = process.env.NEXT_PUBLIC_Image_KEY
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`

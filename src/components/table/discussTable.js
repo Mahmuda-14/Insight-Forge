@@ -44,8 +44,8 @@ export default function DiscussTable() {
 
     <div>
       <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>All Discuss</Typography>
-      <TableContainer component={Paper} elevation={5} sx={{p:5}}>
-        <Table sx={{ width: 1000, p: 3 }} aria-label="simple table">
+      <TableContainer component={Paper}  >
+        <Table sx={{ minWidth:650, ml:5} } aria-label="simple table"> 
           <TableHead>
             <TableRow>
               <TableCell sx={{ color: "black" }}>No</TableCell>

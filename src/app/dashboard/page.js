@@ -18,7 +18,7 @@ const page = () => {
             {
                 singleUser?.map((user) =>
                     <div key={user._id} className=" pt-3">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 lg:gap-5 ">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 lg:gap-5 ml-3 ">
                             <div className='col-span-1 lg:col-span-2'>
                                 <div className='text-center bg-gray-100 p-4 rounded-md'>
                                     {

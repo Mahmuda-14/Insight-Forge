@@ -53,7 +53,7 @@ const HackathonCreationForm = () => {
         <div>
             <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>Create Hackathon</Typography>
 
-            <Paper elevation={10} sx={{ p: 3 }}>
+            <Paper elevation={10} sx={{ p: 3, m:6 }}>
                 <Box
                     component="form"
                     noValidate

@@ -190,7 +190,7 @@ const Banner = () => {
                     <div id="item1" className="carousel-item relative w-full">
                         <Image style={{ width: '100%', height: '500px' }} src={re}></Image>
                         <div className="  absolute flex items-center h-full top-0 left-0  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21,)]">
-                            <div className=' text-white space-y-7 pl-[16rem] mx-6 text-center'>
+                            <div className=' text-white space-y-7 pl-[1rem] md:pl-[1.5rem] lg:pl-[16rem] mx-6 text-center'>
 
                                 <h2 className=' text-5xl font-bold  font-serif' >Welcome to the World of Knowledge Sharing </h2>
 
@@ -228,7 +228,7 @@ const Banner = () => {
                     <div id="item2" className="carousel-item relative w-full">
                         <Image style={{ width: '100%', height: '500px' }} src={re1}></Image>
                         <div className="  absolute flex items-center h-full top-0 left-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21,)]">
-                            <div className=' text-white space-y-7 sm:pl-[1.5rem] lg:pl-[16rem] mx-6 text-center'>
+                            <div className=' text-white space-y-7 pl-[1rem] md:pl-[1.5rem] lg:pl-[16rem] mx-6 text-center'>
 
                                 <h2 className=' text-5xl font-bold  font-serif' >Welcome to the World of Knowledge Sharing </h2>
 
@@ -266,7 +266,7 @@ const Banner = () => {
                     <div id="item3" className="carousel-item relative w-full">
                         <Image style={{ width: '100%', height: '500px' }} src={re2}></Image>
                         <div className="  absolute flex items-center h-full top-0 left-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21,)]">
-                            <div className=' text-white space-y-7 pl-[16rem] mx-6 text-center'>
+                            <div className=' text-white space-y-7 pl-[1rem] md:pl-[1.5rem] lg:pl-[16rem] mx-6 text-center'>
 
                                 <h2 className=' text-5xl font-bold  font-serif' >Welcome to the World of Knowledge Sharing </h2>
 

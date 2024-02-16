@@ -42,7 +42,7 @@ const page = () => {
               setJobs(res.data)
             })
       
-        }, [])
+        }, [axiosPublic])
       
         const marqueeProps = {
       

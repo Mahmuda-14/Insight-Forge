@@ -21,7 +21,7 @@ const Story = () => {
         sx={{
           paddingTop: "32px",
           paddingBottom: "32px",
-          backgroundColor: blueGrey[400],
+          backgroundColor: "#4f675b",
           color: "#263238",
           px:2
           
@@ -35,6 +35,7 @@ const Story = () => {
             titleTypographyProps={{
               fontSize: { xs: 18, sm: 26 },
               fontWeight: 'bold',
+              color:"white"
             }}
        
           

@@ -19,8 +19,10 @@ import Button from '@mui/material/Button';
 import { Avatar, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
 import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
-
+import MessageIcon from '@mui/icons-material/Message';
 import EditNoteIcon from "@mui/icons-material/EditNote";
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import WorkIcon from '@mui/icons-material/Work';
 import Image from 'next/image';
 import useAuth from '@/app/hooks/useAuth';
 import { useTheme } from '@emotion/react';
@@ -59,13 +61,21 @@ const navItems = [
     id: "4",
     route: "Job Board",
     pathname: "/job",
-    icon: < PhoneIcon />,
-  },
+    icon: < WorkIcon />,
+  }
+  ,
   {
     id: "5",
     route: "About",
     pathname: "/about",
-    icon: < PhoneIcon />,
+    icon: < AccountBoxIcon />,
+  }
+  ,
+  {
+    id: "6",
+    route: "Messenger",
+    pathname: "/messenger",
+    icon: < MessageIcon />,
   }
 ];
 
@@ -137,20 +147,20 @@ const DrawerAppBar = (props, item) => {
 
       <CssBaseline />
       <AppBar component="" style={{ background: "linear-gradient(to right, rgba(53, 84, 68, 0.9), rgba(53, 84, 68, 0.9))" }}>
-        <Toolbar>
+        <Toolbar sx={{ display:'flex' , justifyContent:'space-between'}}>
           <IconButton
-            color="inherit"
+            color="white"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' }, width: '80px' }}
+            sx={{ mr: 2, display: { xs: 'flex', md: 'flex', lg:'none' }, width: '80px' }}
           >
-            <MenuIcon />
+            <MenuIcon sx={{color:'white'}}/>
           </IconButton>
 
-          <Image src={bg2} alt='company' width={109} height={100} style={{ marginLeft: '107px', marginRight: '184px' }} />
+          <Image src={bg2} alt='company' width={109} height={100}  />
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, ml: 3 }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none',  md: 'none', lg:'block' }, ml: 3 }}>
             {navItems.map((item) => (
 
               <Button variant="" href={item.pathname} key={item.id} sx={{ color: 'white', right: '10px' }} >
@@ -161,7 +171,8 @@ const DrawerAppBar = (props, item) => {
             ))}
           </Box>
           {
-            user && user?.email ? <Box sx={{ flexGrow: 0 }}>
+            user && user?.email ? 
+            <Box sx={{ flexGrow:0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt="Remy Sharp" src={user?.photoURL} />
@@ -220,7 +231,7 @@ const DrawerAppBar = (props, item) => {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
+            display: { xs: 'block', md: 'block', lg:'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
         >

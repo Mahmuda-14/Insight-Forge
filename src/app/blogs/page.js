@@ -153,7 +153,7 @@ const page = () => {
                   component="img"
                   image={blog.image}
                   alt="Live from space album cover"
-                  className="w-full lg:w-[40%]  h-full"
+                  sx={{width:300, height:200}}
                 />
                 <CardContent className=" flex flex-col space-y-4 shadow-none " >
                   <Box className=" flex justify-items-center space-x-6 uppercase" >
