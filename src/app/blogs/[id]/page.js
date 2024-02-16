@@ -14,6 +14,7 @@ import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 import Footer from '@/components/shared/footer/Footer';
 import { useForm } from 'react-hook-form';
+import BlogShare from '@/components/blogShare/modal';
 
 const page = ({ params }) => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -113,6 +114,7 @@ const page = ({ params }) => {
                    {/* Like and comment icon */}
                   <Box className="flex  justify-items-center gap-8 mr-8 mt-4 ">
                    <Box className="flex space-x-2">
+                   <BlogShare></BlogShare>
                     {
                    blog?.likes?.includes(users[0]?._id) ? <ThumbUpAltIcon className='ml-2' /> :
                    <Button onClick={() => submitLike(blog._id)} className="text-black w-10" ><ThumbUpOffAltIcon></ThumbUpOffAltIcon></Button>

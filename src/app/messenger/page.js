@@ -14,6 +14,7 @@ import MessageOwn from '@/components/chatapp/messageOwn';
 import useSingleConversation from '../hooks/useSingleConversation';
 import useSingleUser from '../hooks/useSingleUser';
 import { io } from 'socket.io-client'
+import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 
 const Messenger = () => {
 
@@ -117,7 +118,9 @@ const Messenger = () => {
 
     return (
         <div>
+            <DrawerAppBar></DrawerAppBar>
             <Grid container>
+            
 
                 <Grid item sx={{ display: { xs: 'none', sm: 'block', md: "block" } }} sm={3} md={3}>
 

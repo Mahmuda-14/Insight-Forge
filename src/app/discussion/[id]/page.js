@@ -12,6 +12,7 @@ import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 import Footer from '@/components/shared/footer/Footer';
 import useDiscussData from '@/app/hooks/useDiscussData';
 import SingleComment from './SingleComment';
+import useSingleUser from '@/app/hooks/useSingleUser';
 
 const page = ({ params }) => {
     console.log(params.id)
@@ -19,6 +20,7 @@ const page = ({ params }) => {
     const router = useRouter();
     const axiosSecure = useAxiosSecure()
     const axiosPublic = useAxiosPublic()
+    
     const { refetch, data } = useQuery({
         queryKey: ['discuss'],
         queryFn: async () => {
@@ -29,16 +31,18 @@ const page = ({ params }) => {
 
 
     const [discuss, reload ] = useDiscussData()
+    const [, singleUserReload ] = useSingleUser()
 
 
-    const postAns = (text, postedId) => {
+    const postAns = (text, postedId, athorId) => {
         if (user && user?.email) {
             const ansInfo = {
                 text,
                 userName: user?.displayName,
                 userEmail: user?.email,
                 userPhoto: user?.photoURL,
-                postedId
+                postedId,
+                athorId
             }
             console.log(ansInfo)
             axiosSecure.put('/postAnswer', ansInfo)
@@ -48,6 +52,7 @@ const page = ({ params }) => {
                         toast.success("You answer this question");
                         reload()
                         refetch()
+                        singleUserReload()
                     }
                 })
         } else {
@@ -74,7 +79,7 @@ const page = ({ params }) => {
                         e.preventDefault()
                         const from = e.target
                         const text = from.answer.value
-                        postAns(text, data?._id)
+                        postAns(text, data?._id, data?.userId)
                     }} className='from mt-5'>
                         <div className='mb-3'>
                             <TextField name='answer'

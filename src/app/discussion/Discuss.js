@@ -27,6 +27,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Link from 'next/link';
+import useSingleUser from '../hooks/useSingleUser';
 
 const style = {
     position: 'absolute',
@@ -47,7 +48,8 @@ const Discuss = () => {
     const router = useRouter();
     const [discuss, reload] = useDiscussData()
     // const [blogs, reloadBlog] = useBlogs()
-
+    const [users] = useSingleUser()
+console.log(users)
 
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -82,6 +84,7 @@ const Discuss = () => {
             // console.log(title, description, category)
 
             const discusItem = {
+                userId: users[0]?._id,
                 name: user?.displayName,
                 email: user?.email,
                 photo: user?.photoURL,

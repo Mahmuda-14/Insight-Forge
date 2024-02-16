@@ -11,6 +11,7 @@ import useAuth from '@/app/hooks/useAuth';
 import '../writeABlog/writeABlog.css'
 import toast from 'react-hot-toast';
 import { TextField } from '@mui/material';
+import { useForm } from 'react-hook-form';
 
 // /**
 //  * @param {Jodit} jodit
@@ -66,23 +67,21 @@ const Form = () => {
 	// 	setInputValue(e.target.value);
 	// }, []);
 
-	const handlePost = async (e) => {
-		e.preventDefault()
-		const from = new FormData(e.target)
-		const title = from.get("title")
-		const image = from.get("image")
-		const category = from.get("category")
-		const details = from.get("details")
+	const { register, handleSubmit, reset } = useForm()
+
+	const onSubmit = async (data) => {
+		const title = data.title
+		const category = data.category
+		const details = data.details
 		console.log(title, details, category)
 
-		const data = new FormData()
-		data.append('image', image)
-
-		const res = await axiosPublic.post(image_hosting_api, data, {
-			headers: {
-				'content-type': 'multipart/form-data'
-			}
-		})
+		const imageFile = { image: data.image[0] }
+        const res = await axiosPublic.post(image_hosting_api, imageFile, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            },
+            body: imageFile
+        })
 
 		console.log(res.data)
 
@@ -100,6 +99,7 @@ const Form = () => {
 			const blogRes = await axiosPublic.post('/blog', blogItem)
 			console.log(blogRes)
 			if (blogRes.status = 200) {
+				reset()
 				toast.success("Your blog has been publish");
 			}
 		}
@@ -154,28 +154,16 @@ const Form = () => {
 
 			<DashboardTitle subTitle="What is the new blog?" headerTitle='Write a blog'></DashboardTitle>
 
-			<form onSubmit={handlePost} className='w-full mx-auto'>
-				<input className='hidden text-3xl font-semibold mb-3' required name='image' type="file" id='coverImg' />
+			<form onSubmit={handleSubmit(onSubmit)} className='w-full mx-auto md:pr-3 md:pl-20 pl-[60px] pr-2'>
+				<input className='hidden text-3xl font-semibold mb-3' required {...register("image")} type="file" id='coverImg' />
 				<label required htmlFor='coverImg' className='text-gray-500 flex mb-3 items-end cursor-pointer'>
 					<AddPhotoAlternateIcon sx={{ width: '50px', height: '50px' }} className='w-50 text-gray-500' />
 					<p className='font-semibold'>add your blog cover</p>
 				</label>
-				<input className='w-full border p-2 rounded-md outline-none text-3xl font-semibold mb-3' name='title' placeholder="Title" type="text" />
 
-				{/* {!isSource ? (
-					<JoditEditor
-						config={config}
-						onChange={handleWYSIWYGChange}
-						value={textAreaValue}
-					/>
-				) : (
-					<textarea
-						className={'simple-textarea'}
-						onChange={handleNativeTextAreaChange}
-						value={textAreaValue}
-					/>
-				)} */}
-				<TextField name='details'
+				<input className='w-full border p-2 rounded-md outline-none text-xl md:text-2xl lg:text-3xl font-semibold mb-3' {...register("title")} placeholder="Title" type="text" />
+
+				<TextField {...register("details")}
                                 required
                                 className='input w-full'
                                 placeholder="Details"
@@ -183,7 +171,7 @@ const Form = () => {
                                 rows={10}
                             />
 
-				<select className='w-full border p-2 rounded-md outline-none my-3' defaultValue='' name='category'>
+				<select className='w-full border p-2 rounded-md outline-none my-3' defaultValue='' {...register("category")} >
 					<option disabled value=''>Select blog category</option>
 					<option value="angular">angular</option>
 					<option value="apache">apache</option>
