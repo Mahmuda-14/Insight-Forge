@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client'
 import React from 'react';
@@ -23,7 +24,7 @@ const page = () => {
                                 <div className='text-center bg-gray-100 p-4 rounded-md'>
                                     {
                                         user?.uPhoto ?
-                                            <Image alt='user image' width={288} height={288} className='mx-auto rounded-full  p-3 bg-gray-300' src={user?.uPhoto}></Image> :
+                                            <img alt='user image' className='mx-auto w-[288px] h-[288px] rounded-full  p-3 bg-gray-300' src={user?.uPhoto}/> :
                                             <Image width={288} height={288} alt='user image' className='mx-auto rounded-full  p-3 bg-gray-300' src='https://i.ibb.co/jZM8vtT/profile-icon-design-free-vector.jpg'></Image>
                                     }
                                     <div className="space-y-2 ">

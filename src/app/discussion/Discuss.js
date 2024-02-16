@@ -116,6 +116,14 @@ console.log(users)
 
     };
 
+
+
+
+
+
+
+    
+
     return (
         <Box className="discussion overflow-x-hidden" style={{ padding: '10px' }}>
 
@@ -243,10 +251,10 @@ console.log(users)
         </div> */}
 
 
-            <Box className="borderBot ml-[112px] mr-[446px]"></Box>
+            <Box className="borderBot sm:ml-0 md:ml-0 lg:ml-[112px] lg:mr-[446px]"></Box>
 
 
-            <div className='flex sm:flex-col md:flex-col lg:flex-row gap-3 '>
+            <div className='flex flex-col sm:flex-col md:flex-col lg:flex-row gap-3 '>
 
                 <div className='grid grid-cols-1 gap-3 mr-4 sm:ml-0 lg:ml-[7rem] my-9'>
 
