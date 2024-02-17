@@ -7,12 +7,7 @@ import { useQuery } from '@tanstack/react-query'
 const useSingleUser = () => {
     const axiosSecure = useAxiosSecure()
     const {user} = useAuth()
-<<<<<<< HEAD
-    
-    const { refetch, data: singleUser = []}= useQuery({
-=======
     const { refetch: singleUserReload, data: singleUser = []}= useQuery({
->>>>>>> 1f31f4abf7f672ef20a02e47e5c4ef879203890f
         queryKey: ['singleUser', user?.email],
         queryFn: async()=>{
             
