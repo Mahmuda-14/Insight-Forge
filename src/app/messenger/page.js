@@ -20,13 +20,16 @@ const Messenger = () => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [message, setMessage] = useState(null)
+     
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [arrivalMessage, setArrivalMessage] = useState(null)
+      // eslint-disable-next-line react-hooks/rules-of-hooks
     const [currentChat, setCurrentChat] = useState(null)
     const axiosPublic = useAxiosPublic()
     const scrollRef = useRef()
     const [singleUser] = useSingleUser()
     const socket = useRef()
+   
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
@@ -40,6 +43,7 @@ const Messenger = () => {
               createdAt: Date.now()
           })
       })
+    
         
     }, [setArrivalMessage])
 
@@ -49,7 +53,7 @@ const Messenger = () => {
         socket.current.on("getUsers", users => {
             console.log(users)
         })
-    }, [singleUser, arrivalMessage, message])
+    }, [singleUser, arrivalMessage, message,socket])
 
 
     const handleSetCurrentItem = (item) => {
@@ -101,7 +105,7 @@ const Messenger = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
 
-        arrivalMessage && currentChat?.members.includes(arrivalMessage.senderId) &&
+        arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) &&
             setMessage((prev) => [...prev, arrivalMessage])
     }, [arrivalMessage, currentChat])
 
@@ -146,8 +150,8 @@ const Messenger = () => {
                                 }}>
 
                                     {
-                                        message.map(m =>
-                                            <div ref={scrollRef} key={m._id}>
+                                        message.map((m,i) =>
+                                            <div ref={scrollRef} key={i}>
                                                 <MessageOwn
                                                     message={m}
                                                     own={m.sender === singleUser[0]?._id}

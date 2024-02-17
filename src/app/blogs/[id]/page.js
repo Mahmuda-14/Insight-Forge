@@ -24,7 +24,7 @@ const page = ({ params }) => {
       const axiosSecure = useAxiosSecure();
       const [users] = useSingleUser()
       // eslint-disable-next-line react-hooks/rules-of-hooks
-      const { data:blog, refetch } = useQuery({
+      const { data: blog, refetch } = useQuery({
             queryKey: ['blog'],
             queryFn: async () => {
                   const res = await axiosPublic.get(`/blog/${params.id}`);
@@ -60,8 +60,8 @@ const page = ({ params }) => {
 
 
       const onSubmit = (data) => {
-          
-           
+
+
             const text = data.comment;
             const postedId = blog._id;
             const commentIn = {
@@ -78,7 +78,7 @@ const page = ({ params }) => {
                         console.log(res.data)
                         refetch()
                         reset()
-                        
+
                   })
                   .catch(error => {
                         console.error("Error:", error);
@@ -90,47 +90,47 @@ const page = ({ params }) => {
             <div>
                   <DrawerAppBar></DrawerAppBar>
                   <div className="container w-lg m-auto space-x-6 grid grid-cols-12 gap-2 my-4  ">
-                   <Box className="col-span-12 md:col-span-8 border-none shadow-none ">
-                   <Card style={{ border: 0 }} className=" space-x-2 shadow-none " >
-                   <CardMedia
-                  component="img"
-                  sx={{ width: '100%', height: '100%', borderRadius: 2 }}
-                 image={blog?.image}
-                    alt="Live from space album cover"
+                        <div className="col-span-12 md:col-span-8 border-none shadow-none ">
+                              <Card style={{ border: 0 }} sx={{ marginX: 2, boxShadow: 'none' }} >
+                                    <CardMedia
+                                          component="img"
+                                          sx={{ width: '100%', height: '100%', borderRadius: 2 }}
+                                          image={blog?.image}
+                                          alt="Live from space album cover"
                                     />
-             <CardContent className=" flex flex-col space-y-4 " >
-                  <Box className="flex
+                                    <CardContent className=" flex flex-col space-y-4 " >
+                                          <div className="flex
                   justify-between ">
-                   {/* Date and user name */}
-                  <Box className=" flex  space-x-6 uppercase mt-4" >
-                   <Typography component="div" variant="subtitle">
-                   {blog?.date}
-                   </Typography>
-                   <Typography component="div" variant="subtitle," >
-                  {blog?.name}
-                   </Typography>
-                   <Avatar alt="Remy Sharp" className="w-8 h-8" src={blog?.userImg} />
-                   </Box>
-                   {/* Like and comment icon */}
-                  <Box className="flex  justify-items-center gap-8 mr-8 mt-4 ">
-                   <Box className="flex space-x-2">
-                   <BlogShare></BlogShare>
-                    {
-                   blog?.likes?.includes(users[0]?._id) ? <ThumbUpAltIcon className='ml-2' /> :
-                   <Button onClick={() => submitLike(blog._id)} className="text-black w-10" ><ThumbUpOffAltIcon></ThumbUpOffAltIcon></Button>
-                   }
-                   <Typography>
-                   {blog?.likes?.length}
-                   </Typography>
-                   </Box>
-                   <Box className="pt-1 flex space-x-2">
-                   <ModeCommentOutlinedIcon></ModeCommentOutlinedIcon>
-                   <Typography>
-                   {blog?.comments?.length}
-                   </Typography>
-                    </Box>
-                     </Box>
-                     </Box>
+                                                {/* Date and user name */}
+                                                <div className=" flex  space-x-6 uppercase mt-4" >
+                                                      <Typography component="div" variant="subtitle">
+                                                            {blog?.date}
+                                                      </Typography>
+                                                      <Typography component="div" variant="subtitle," >
+                                                            {blog?.name}
+                                                      </Typography>
+                                                      <Avatar alt="Remy Sharp" className="w-8 h-8" src={blog?.userImg} />
+                                                </div>
+                                                {/* Like and comment icon */}
+                                                <div className="flex  justify-items-center gap-8 mr-8 mt-4 ">
+                                                      <div className="flex space-x-2">
+                                                            <BlogShare></BlogShare>
+                                                            {
+                                                                  blog?.likes?.includes(users[0]?._id) ? <ThumbUpAltIcon className='ml-2' /> :
+                                                                        <Button onClick={() => submitLike(blog._id)} className="text-black w-10" ><ThumbUpOffAltIcon></ThumbUpOffAltIcon></Button>
+                                                            }
+                                                            <Typography>
+                                                                  {blog?.likes?.length}
+                                                            </Typography>
+                                                      </div>
+                                                      <Box className="pt-1 flex space-x-2">
+                                                            <ModeCommentOutlinedIcon></ModeCommentOutlinedIcon>
+                                                            <Typography>
+                                                                  {blog?.comments?.length}
+                                                            </Typography>
+                                                      </Box>
+                                                </div>
+                                          </div>
                                           <Typography className=' text-lg md:text-4xl' component="div" sx={{ fontWeight: 700 }}  >
                                                 {/* Use the actual title from the blog */}
                                                 {blog?.title}
@@ -140,9 +140,9 @@ const page = ({ params }) => {
                                           </Typography>
                                     </CardContent>
                               </Card>
-                        </Box>
+                        </div>
                         {/* Comment section */}
-                        <Box className="col-span-12 md:col-span-4 mt-8 md:my-0 ">
+                        <div className="col-span-12 md:col-span-4 mt-8 md:my-0 ">
 
                               <Box
                                     component="form"
@@ -179,7 +179,7 @@ const page = ({ params }) => {
                                           </Box>
                                     ))}
                               </Box>
-                        </Box>
+                        </div>
                   </div>
                   <Footer></Footer>
             </div>
