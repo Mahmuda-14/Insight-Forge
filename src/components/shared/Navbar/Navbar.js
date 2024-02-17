@@ -190,14 +190,14 @@ const DrawerAppBar = (props, item) => {
               <MenuIcon sx={{ color: 'white' }} />
             </IconButton>
 
-            <Image src={bg2} alt='company' width={109} height={100} />
+            <Image src={bg2} alt='company' width={109} height={100} style={{marginLeft:'84px', marginRight:'192px'}} />
 
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'none', lg: 'block' }, ml: 3 }}>
               {navItems.map((item) => (
                 <Navlink key={item.id} href={item.pathname}>
 
                   {item.pathname === path ? (
-                    <Button variant="contained" sx={{ color: 'white', right: '10px',backgroundColor:'#6f817a' }} >
+                    <Button variant="contained" style={{color:'white', background:'#6f817a', right:'10px'}}>
                       {item.route}
                     </Button>
                   ) : (
