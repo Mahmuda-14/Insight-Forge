@@ -197,8 +197,8 @@ const page = () => {
                     </Typography>
                   </div>
                   <Link href={`/blogs/${blog._id}`}>
-                    <button variant="contained" sx={{ borderRadius: 0, borderBottomRightRadius: 3, backgroundColor: "#496556", }} endIcon={<ArrowRightIcon style={{ color: 'black', fontSize: '38px' }} />}>
-                    </button>
+                    <Button variant="contained" sx={{ borderRadius: 0, borderBottomRightRadius: 3, backgroundColor: "#496556", }} endIcon={<ArrowRightIcon style={{ color: 'black', fontSize: '38px' }} />}>
+                    </Button>
                   </Link>
                 </div>
               </Grid>
