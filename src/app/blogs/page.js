@@ -121,7 +121,7 @@ const page = () => {
           </Typography>
           <div className="gap-4 space-y-8 flex flex-wrap lg:flex-col   ">
             {recentPosts.map((recentPost) => (
-              <Box key={recentPost.id} width={128}>
+              <Box key={recentPost._id} width={128}>
                 <Link href={`/blogs/${recentPost._id}`}>
                   <img src={recentPost.image} className=" h-32 w-32 rounded-sm" >
                   </img>

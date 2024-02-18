@@ -33,9 +33,10 @@ const Messenger = () => {
     const [singleUser] = useSingleUser()
     const socket = useRef()
 
+    
 
-    const { data:searchedUser } = useQuery({
-        queryKey: ['allBlogs'],
+    const { data: searchedUser, refetch: reload } = useQuery({
+        queryKey: ['searchUser'],
         queryFn: async () => {
             const res = await axiosPublic.get(`/searchUsers?search=${search}`);
             console.log(res.data)
@@ -48,13 +49,11 @@ const Messenger = () => {
         const searchText = e.target.value;
         // console.log(searchText)
         setSearch(searchText)
-       
+        reload()
+
 
     }
 
-    //   const SearchedUser = data?.filter((item, index, self) => {
-    //     return self.findIndex(t => t.category === item.category) === index;
-    //   });
 
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -94,6 +93,7 @@ const Messenger = () => {
 
 
     }
+
 
     const {
         register,
@@ -135,8 +135,7 @@ const Messenger = () => {
             setMessage((prev) => [...prev, arrivalMessage])
     }, [arrivalMessage, currentChat])
 
-    const [singleConversation, refetch] = useSingleConversation()
-    console.log(singleConversation)
+
 
 
 
@@ -145,9 +144,22 @@ const Messenger = () => {
         scrollRef.current?.scrollIntoView({ behavior: "smooth" })
     }, [message])
 
-    const handleConversation = ()=>{
-        
+    const handleConversation = (searchedUser) => {
+        const conversationUser = {
+            senderId: singleUser[0]._id,
+            receiverId: searchedUser._id
+        }
+
+        axiosPublic.post('/conversation', conversationUser)
+            .then(res => {
+                console.log(res.data);
+                refetch()
+            })
     }
+
+
+    const [singleConversation, refetch] = useSingleConversation()
+    console.log(singleConversation)
 
 
     return (
@@ -162,25 +174,31 @@ const Messenger = () => {
                     {/* search result */}
 
                     {
-                        searchedUser && 
-                        <Grid onClick={handleConversation} container sx={{ alignItems: "center", my: 3 }}>
-                        <Grid item> <Avatar alt="Travis Howard" src={searchedUser?.uPhoto} /></Grid>
-                        <Grid item>
-                            <Typography sx={{ ml: 1 }} >{searchedUser?.uName}</Typography>
-                        </Grid>
-                    </Grid>
-                    
+                        searchedUser &&
+
+                        <div onClick={() => handleConversation(searchedUser)}>
+                            <Grid container sx={{ alignItems: "center", my: 3 }}>
+                                <Grid item> <Avatar alt="Travis Howard" src={searchedUser?.uPhoto} /></Grid>
+                                <Grid item>
+                                    <Typography sx={{ ml: 1 }} >{searchedUser?.uName}</Typography>
+                                </Grid>
+                            </Grid>
+                        </div>
+
+
                     }
-                    
+
 
                     <Divider></Divider>
                     {
+                        singleConversation &&
                         singleConversation.map(item =>
                             <div onClick={() => handleSetCurrentItem(item)} key={item._id} >
                                 <Conversations conversation={item} currentUser={singleUser} ></Conversations>
                             </div>
 
                         )
+                       
                     }
                 </Grid>
 

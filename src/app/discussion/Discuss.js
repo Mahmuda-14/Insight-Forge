@@ -63,7 +63,6 @@ console.log(users)
         e.preventDefault()
         const form = e.target.value
         setSearch(form)
-
     }
 
     console.log(search)
@@ -264,7 +263,7 @@ console.log(users)
                             return search.toLocaleLowerCase() === '' ? menuItem : menuItem?.category.toLocaleLowerCase().includes(search) || menuItem?.title.toLocaleLowerCase().includes(search)
 
                             // || parseInt(menuItem?.price).includes(search)
-                        })?.map(question => <DiscussM key={question?.id} question={question}></DiscussM>)
+                        })?.map(question => <DiscussM key={question?._id} question={question}></DiscussM>)
                     ) : (
                         <p>No data available.</p>
                     )}
