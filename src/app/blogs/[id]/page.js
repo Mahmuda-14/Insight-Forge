@@ -24,6 +24,7 @@ const page = ({ params }) => {
       const axiosSecure = useAxiosSecure();
       const [users] = useSingleUser()
       // eslint-disable-next-line react-hooks/rules-of-hooks
+      
       const { data: blog, refetch } = useQuery({
             queryKey: ['blog'],
             queryFn: async () => {

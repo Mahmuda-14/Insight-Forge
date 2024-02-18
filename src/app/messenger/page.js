@@ -3,7 +3,7 @@
 
 "use client"
 
-import { Avatar, Badge, Box, Grid, TextField, Typography } from '@mui/material';
+import { Avatar, Badge, Box, Divider, Grid, TextField, Typography } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
 import SendIcon from '@mui/icons-material/Send';
 import { useForm } from 'react-hook-form';
@@ -15,36 +15,62 @@ import useSingleConversation from '../hooks/useSingleConversation';
 import useSingleUser from '../hooks/useSingleUser';
 import { io } from 'socket.io-client'
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
+import { useQuery } from '@tanstack/react-query';
 
 const Messenger = () => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [message, setMessage] = useState(null)
-     
+
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [arrivalMessage, setArrivalMessage] = useState(null)
-      // eslint-disable-next-line react-hooks/rules-of-hooks
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [currentChat, setCurrentChat] = useState(null)
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [search, setSearch] = useState(null)
     const axiosPublic = useAxiosPublic()
     const scrollRef = useRef()
     const [singleUser] = useSingleUser()
     const socket = useRef()
-   
+
+
+    const { data:searchedUser } = useQuery({
+        queryKey: ['allBlogs'],
+        queryFn: async () => {
+            const res = await axiosPublic.get(`/searchUsers?search=${search}`);
+            console.log(res.data)
+            return res.data
+        }
+    })
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        const searchText = e.target.value;
+        // console.log(searchText)
+        setSearch(searchText)
+       
+
+    }
+
+    //   const SearchedUser = data?.filter((item, index, self) => {
+    //     return self.findIndex(t => t.category === item.category) === index;
+    //   });
+
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
         socket.current = io("ws://localhost:8900")
         socket.current.on("getMessage", (value) => {
             console.log(value)
-          setArrivalMessage({
+            setArrivalMessage({
 
-              sender: value.senderId,
-              text: value.text,
-              createdAt: Date.now()
-          })
-      })
-    
-        
+                sender: value.senderId,
+                text: value.text,
+                createdAt: Date.now()
+            })
+        })
+
+
     }, [setArrivalMessage])
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -53,7 +79,7 @@ const Messenger = () => {
         socket.current.on("getUsers", users => {
             console.log(users)
         })
-    }, [singleUser, arrivalMessage, message,socket])
+    }, [singleUser, arrivalMessage, message, socket])
 
 
     const handleSetCurrentItem = (item) => {
@@ -119,17 +145,35 @@ const Messenger = () => {
         scrollRef.current?.scrollIntoView({ behavior: "smooth" })
     }, [message])
 
+    const handleConversation = ()=>{
+        
+    }
+
 
     return (
         <div>
             <DrawerAppBar></DrawerAppBar>
             <Grid container>
-            
-
-                <Grid item sx={{ display: { xs: 'none', sm: 'block', md: "block" } }} sm={3} md={3}>
 
 
-                    <TextField id="standard-basic" label="Search for friends" variant="standard" />
+                <Grid item sx={{ display: { xs: 'none', sm: 'block', md: "block" }, mt: 10 }} sm={3} md={3}>
+
+                    <TextField style={{ borderRadius: 5 }} type='text' fullWidth onKeyUp={handleSearch} placeholder='Search for friends ' id="fullWidth" />
+                    {/* search result */}
+
+                    {
+                        searchedUser && 
+                        <Grid onClick={handleConversation} container sx={{ alignItems: "center", my: 3 }}>
+                        <Grid item> <Avatar alt="Travis Howard" src={searchedUser?.uPhoto} /></Grid>
+                        <Grid item>
+                            <Typography sx={{ ml: 1 }} >{searchedUser?.uName}</Typography>
+                        </Grid>
+                    </Grid>
+                    
+                    }
+                    
+
+                    <Divider></Divider>
                     {
                         singleConversation.map(item =>
                             <div onClick={() => handleSetCurrentItem(item)} key={item._id} >
@@ -150,7 +194,7 @@ const Messenger = () => {
                                 }}>
 
                                     {
-                                        message.map((m,i) =>
+                                        message.map((m, i) =>
                                             <div ref={scrollRef} key={i}>
                                                 <MessageOwn
                                                     message={m}
