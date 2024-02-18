@@ -5,7 +5,6 @@ const SingleComment = ({ comment }) => {
     const {_id, userPhoto, userName, text, date} = comment || []
 
     const [formattedTimestamp, setFormattedTimestamp] = useState('');
-    console.log(date)
 	
 	useEffect(() => {
 		const convertTimestamp = () => {
