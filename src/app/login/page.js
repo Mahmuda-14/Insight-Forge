@@ -58,8 +58,8 @@ export default function LogInPage() {
       const loggedUser = result.user;
 
       console.log(loggedUser);
-      toast.success("User logged in");
       router.push("/");
+      toast.success("User logged in");
 
     });
   };
