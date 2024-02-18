@@ -79,7 +79,8 @@ const DiscussM = ({ question }) => {
 
 
     return (
-        <div className="qusContainer card card2  flex flex-row justify-between my-2">
+        <div className=''>
+        <div className="qusContainer card card2 flex flex-row justify-between my-2">
             <div key={_id} className='p-6'>
                 <div className='flex gap-4 mb-5'>
                     <img className='w-12 h-12 rounded-full' src={photo} />
@@ -106,9 +107,7 @@ const DiscussM = ({ question }) => {
                     </div>
                 </div>
             </div>
-            {/* <div>
-                <img className='w-[15rem] h-[13rem] mt-4 rounded-2xl' src="https://i.ibb.co/RNmQ9dJ/7.webp" />
-            </div> */}
+        </div>
         </div>
     );
 };
