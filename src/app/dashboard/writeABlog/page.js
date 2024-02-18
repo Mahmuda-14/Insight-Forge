@@ -3,35 +3,37 @@
 'use client'
 import DashboardTitle from '@/components/shared/dashboardTitle/dashboardTitle';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Jodit } from 'jodit/es2018/jodit.fat.min';
-import JoditEditor from 'jodit-react';
+// import { Jodit } from 'jodit/es2018/jodit.fat.min';
+// import JoditEditor from 'jodit-react';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import useAxiosPublic from '@/app/hooks/useAxiosPublic';
 import useAuth from '@/app/hooks/useAuth';
 import '../writeABlog/writeABlog.css'
 import toast from 'react-hot-toast';
+import { TextField } from '@mui/material';
+import { useForm } from 'react-hook-form';
 
-/**
- * @param {Jodit} jodit
- */
-function preparePaste(jodit) {
-	jodit.e.on(
-		'paste',
-		e => {
-			if (confirm('Change pasted content?')) {
-				jodit.e.stopPropagation('paste');
-				jodit.s.insertHTML(
-					Jodit.modules.Helpers.getDataTransfer(e)
-						.getData(Jodit.constants.TEXT_HTML)
-						.replace(/a/g, 'b')
-				);
-				return false;
-			}
-		},
-		{ top: true }
-	);
-}
-Jodit.plugins.add('preparePaste', preparePaste);
+// /**
+//  * @param {Jodit} jodit
+//  */
+// function preparePaste(jodit) {
+// 	jodit.e.on(
+// 		'paste',
+// 		e => {
+// 			if (confirm('Change pasted content?')) {
+// 				jodit.e.stopPropagation('paste');
+// 				jodit.s.insertHTML(
+// 					Jodit.modules.Helpers.getDataTransfer(e)
+// 						.getData(Jodit.constants.TEXT_HTML)
+// 						.replace(/a/g, 'b')
+// 				);
+// 				return false;
+// 			}
+// 		},
+// 		{ top: true }
+// 	);
+// }
+// Jodit.plugins.add('preparePaste', preparePaste);
 
 const image_hosting_key = process.env.NEXT_PUBLIC_Image_KEY
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -41,47 +43,45 @@ const Form = () => {
 	const axiosPublic = useAxiosPublic()
 	const { user } = useAuth();
 
-	const [config, setConfig] = useState({
-		readonly: false,
-		toolbar: true,
-		buttons: ['bold', 'italic', 'underline', 'ul', 'ol', 'font', 'brush', 'fontsize', 'align', 'image', 'undo', 'redo', 'link', 'unlink', 'source']
-	});
+	// const [config, setConfig] = useState({
+	// 	readonly: false,
+	// 	toolbar: true,
+	// 	buttons: ['bold', 'italic', 'underline', 'ul', 'ol', 'font', 'brush', 'fontsize', 'align', 'image', 'undo', 'redo', 'link', 'unlink', 'source']
+	// });
 
-	const [textAreaValue, setTextAreaValue] = useState('');
+	// const [textAreaValue, setTextAreaValue] = useState('');
 
-	const [inputValue, setInputValue] = useState('');
+	// const [inputValue, setInputValue] = useState('');
 
 
-	const handleWYSIWYGChange = useCallback(newTextAreaValue => {
+	// const handleWYSIWYGChange = useCallback(newTextAreaValue => {
 
-		setTextAreaValue(newTextAreaValue);
-		setInputValue(newTextAreaValue);
+	// 	setTextAreaValue(newTextAreaValue);
+	// 	setInputValue(newTextAreaValue);
 
-		return setTextAreaValue(() => newTextAreaValue);
-	}, []);
+	// 	return setTextAreaValue(() => newTextAreaValue);
+	// }, []);
 
-	const handleNativeTextAreaChange = useCallback(e => {
-		setTextAreaValue(e.target.value);
-		setInputValue(e.target.value);
-	}, []);
+	// const handleNativeTextAreaChange = useCallback(e => {
+	// 	setTextAreaValue(e.target.value);
+	// 	setInputValue(e.target.value);
+	// }, []);
 
-	const handlePost = async (e) => {
-		e.preventDefault()
-		const from = new FormData(e.target)
-		const title = from.get("title")
-		const image = from.get("image")
-		const category = from.get("category")
-		const details = textAreaValue
+	const { register, handleSubmit, reset } = useForm()
+
+	const onSubmit = async (data) => {
+		const title = data.title
+		const category = data.category
+		const details = data.details
 		console.log(title, details, category)
 
-		const data = new FormData()
-		data.append('image', image)
-
-		const res = await axiosPublic.post(image_hosting_api, data, {
-			headers: {
-				'content-type': 'multipart/form-data'
-			}
-		})
+		const imageFile = { image: data.image[0] }
+        const res = await axiosPublic.post(image_hosting_api, imageFile, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            },
+            body: imageFile
+        })
 
 		console.log(res.data)
 
@@ -99,6 +99,7 @@ const Form = () => {
 			const blogRes = await axiosPublic.post('/blog', blogItem)
 			console.log(blogRes)
 			if (blogRes.status = 200) {
+				reset()
 				toast.success("Your blog has been publish");
 			}
 		}
@@ -149,38 +150,28 @@ const Form = () => {
 
 
 	return (
-		<div className='mt-20 min-h-screen'>
-
-			<div>
-				<p>Original Timestamp: {timestampStr}</p>
-				<p>Converted Timestamp (US/Eastern): {formattedTimestamp}</p>
-			</div>
+		<div className='mt-20 min-h-screen min-w-full'>
 
 			<DashboardTitle subTitle="What is the new blog?" headerTitle='Write a blog'></DashboardTitle>
 
-			<form onSubmit={handlePost} className='w-full mx-auto'>
-				<input className='hidden text-3xl font-semibold mb-3' required name='image' type="file" id='coverImg' />
+			<form onSubmit={handleSubmit(onSubmit)} className='w-full mx-auto md:pr-3 md:pl-20 pl-[60px] pr-2'>
+				<input className='hidden text-3xl font-semibold mb-3' required {...register("image")} type="file" id='coverImg' />
 				<label required htmlFor='coverImg' className='text-gray-500 flex mb-3 items-end cursor-pointer'>
 					<AddPhotoAlternateIcon sx={{ width: '50px', height: '50px' }} className='w-50 text-gray-500' />
 					<p className='font-semibold'>add your blog cover</p>
 				</label>
-				<input className='w-full border p-2 rounded-md outline-none text-3xl font-semibold mb-3' name='title' placeholder="Title" type="text" />
 
-				{!isSource ? (
-					<JoditEditor
-						config={config}
-						onChange={handleWYSIWYGChange}
-						value={textAreaValue}
-					/>
-				) : (
-					<textarea
-						className={'simple-textarea'}
-						onChange={handleNativeTextAreaChange}
-						value={textAreaValue}
-					/>
-				)}
+				<input className='w-full border p-2 rounded-md outline-none text-xl md:text-2xl lg:text-3xl font-semibold mb-3' {...register("title")} placeholder="Title" type="text" />
 
-				<select className='w-full border p-2 rounded-md outline-none my-3' defaultValue='' name='category'>
+				<TextField {...register("details")}
+                                required
+                                className='input w-full'
+                                placeholder="Details"
+                                multiline
+                                rows={10}
+                            />
+
+				<select className='w-full border p-2 rounded-md outline-none my-3' defaultValue='' {...register("category")} >
 					<option disabled value=''>Select blog category</option>
 					<option value="angular">angular</option>
 					<option value="apache">apache</option>

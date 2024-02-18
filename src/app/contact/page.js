@@ -40,18 +40,19 @@ export default function Contact() {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    maxWidth: "md",
+                    maxWidth: "xl",
                     justifyContent: "center",
                     mx: "auto"
                 }}
             >
 
-                <Paper elevation={10} sx={{ width: '210px', mx: 'auto', my: 4, background: '#87CEEB' }}><Typography variant="h4" sx={{ px: '12px', py: '5px', color: 'black', fontWeight: 600 }}>Contact us</Typography></Paper>
+               
                 <Grid spacing={5} container sx={{ justifyContent: "center", alignItems: "center" }}>
                     <Grid item xs={12} md={6}>
                         <Lottie animationData={ContactUsAnimation}></Lottie>
                     </Grid>
                     <Grid item xs={12} md={6}>
+                    <Typography variant="h4" sx={{ px: '12px', py: '5px', color: '#4f675b', fontWeight: 600, textAlign:"center" }}>Contact us</Typography>
                         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                             <TextField
                                 margin="normal"
@@ -61,7 +62,7 @@ export default function Contact() {
                                 label="Name"
                                 type="text"
                                 id="from_name"
-                                sx={{ backgroundColor: "#C5FFF8" }}
+                                sx={{ backgroundColor: "white" }}
                             />
                             <TextField
                                 margin="normal"
@@ -72,7 +73,7 @@ export default function Contact() {
                                 name="email_id"
                                 autoComplete="email"
                                 autoFocus
-                                sx={{ backgroundColor: "#C5FFF8" }}
+                                sx={{ backgroundColor: "white" }}
                             />
 
                             <TextField
@@ -83,13 +84,13 @@ export default function Contact() {
                                 fullWidth
                                 multiline
                                 maxRows={4}
-                                sx={{ backgroundColor: "#C5FFF8" }}
+                                sx={{ backgroundColor: "white" }}
                             />
 
 
                             <button
 
-                                className='font-semibold w-full py-2 rounded mt-3 mb-2 bg-[#C5FFF8] text-black'
+                                className='font-semibold w-full py-2 rounded mt-3 mb-2 bg-[#4f675b] text-white'
                             >
                                 Send Us
                             </button>

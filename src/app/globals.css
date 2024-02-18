@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.scrollBar{
+  scrollbar-width: thin;
+}
 
 .logo{
     width: 100px;
@@ -53,7 +56,21 @@
   border-radius:0!important;
  }
 
+ .css-1oj04vr-MuiCardContent-root:last-child{
+ padding-bottom:0!important;
+ }
+
 
  .jodit-status-bar{
   visibility: hidden;
  }
+
+ .MuiToolbar-root{
+  height: 70px;
+ }
+
+ 
+.space-y-8 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: calc(0  * var(--tw-space-y-reverse));
+
+}

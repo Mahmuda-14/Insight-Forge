@@ -2,8 +2,9 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { Button } from '@mui/material';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import { QuestionAnswer } from "@mui/icons-material";
 import './discus.css'
 import useAxiosSecure from '../hooks/useAxiosSecure';
@@ -11,29 +12,63 @@ import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import useDiscussData from '../hooks/useDiscussData';
+import '../../components/banner/banner.css'
+import useSingleUser from '../hooks/useSingleUser';
 
 const DiscussM = ({ question }) => {
-    const { photo, title, _id, likes } = question;
+    const { name, photo, title, _id, likes, comments, createdAt } = question || []
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
     const router = useRouter();
-    const [ reload] = useDiscussData()
+    const [, reload] = useDiscussData()
+    const [users] = useSingleUser()
 
 
+    const [formattedTimestamp, setFormattedTimestamp] = useState('');
+	
+	useEffect(() => {
+		const convertTimestamp = () => {
+
+			const timestamp = new Date(createdAt);
+
+			// Use the Intl.DateTimeFormat object with timeZone option
+			const formatter = new Intl.DateTimeFormat('en-US', {
+			//   timeZone: targetTimezone,
+			  year: 'numeric',
+			  month: 'numeric',
+			  day: 'numeric',
+			  hour: 'numeric',
+			  minute: 'numeric',
+			//   second: 'numeric',
+			//   timeZoneName: 'short',
+			});
+		
+			const formattedResult = formatter?.format(timestamp);
+		
+			setFormattedTimestamp(formattedResult);
+		};
+
+		convertTimestamp();
+	}, [createdAt]);
 
     const likePost = (id) => {
         if (user && user?.email) {
             const uId = {
-                postId: id
+                postId: users[0]?._id,
+                postedId: id
             }
             axiosSecure.put('/questionLike', uId)
                 .then(res => {
                     console.log(res.data)
                     if (res.data) {
-                        toast.success("You like this question");
                         reload();
+                        toast.success("You like this question");
                     }
                 })
+                .catch(error => {
+                    toast.error("Something is wrong");
+                    console.error("Error:", error);
+                  });
         } else {
             toast.success("You are not Logged In!");
             router.push("/login");
@@ -44,33 +79,35 @@ const DiscussM = ({ question }) => {
 
 
     return (
+        <div className=''>
         <div className="qusContainer card card2 flex flex-row justify-between my-2">
-            <div key={question?._id} className='p-6'>
+            <div key={_id} className='p-6'>
                 <div className='flex gap-4 mb-5'>
-                    <img className='w-12 h-12 rounded-full' src={question.photo} />
+                    <img className='w-12 h-12 rounded-full' src={photo} />
                     <div>
-                        <p>{question.name}</p>
-                        <p>Posted on 21 august 2012</p>
+                        <p className='font-bold'>{name}</p>
+                        <p className='text-sm text-gray-500'>{formattedTimestamp}</p>
                     </div>
                 </div>
 
-                <Link href={`/discussion/${question?._id}`}><h3 className='text-xl font-bold my-1'>{question.title}</h3></Link>
+                <Link href={`/discussion/${_id}`}><h3 className='text-xl font-bold my-1 w-[35rem]'>{title}</h3></Link>
 
 
-                <p>50 Answers · 10 hours ago</p>
+                <p>{comments?.length} Answers </p>
                 <div className="btnIcon my-3">
-                    <Link href={`/discussion/${question?._id}`}><Button> <QuestionAnswer /> Answer</Button></Link>
+                    <Link href={`/discussion/${_id}`}><Button> <QuestionAnswer /> Answer</Button></Link>
                     <div className="like">
-                        <Button
-                            onClick={() => { likePost(question?._id) }}
-                        ><ThumbUpOffAltIcon /></Button>
-                        <span>{question?.likes?.length} likes</span>
+                        {
+                            likes?.includes(users[0]?._id) ? <ThumbUpAltIcon className='ml-2' /> :
+                                <Button
+                                    onClick={() => { likePost(_id) }}
+                                ><ThumbUpOffAltIcon /></Button>
+                        }
+                        <span>{likes?.length} likes</span>
                     </div>
                 </div>
             </div>
-            <div>
-                <img className='w-[15rem] h-[13rem] mt-4 rounded-2xl' src={question.photo} />
-            </div>
+        </div>
         </div>
     );
 };

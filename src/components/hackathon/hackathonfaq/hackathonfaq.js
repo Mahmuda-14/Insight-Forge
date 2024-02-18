@@ -4,17 +4,16 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import FAQAnimation from "../../../assets/faqAnimation.json"
+import FAQAnimation from '../../../assets/FaqAnimation.json'
 import Lottie from 'lottie-react';
-import { Box, Container, Grid, Paper, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 
 
 export default function Hackathonfaq() {
     return (
         <Box sx={{maxWidth:"xl", mx:"auto"}}>
             <div style={{  padding:'10px' }}>
-                <Paper elevation={10} sx={{ maxWidth: '355px', mx: 'auto', my: 4, background: '#87CEEB', py: 2, px: 1 }}><Typography variant="h4" sx={{ px: '12px', py: '5px', color: 'black', fontWeight: 600 }}>FAQ for Hackathon</Typography></Paper>
-
+                <Typography variant="h4" sx={{ px: '12px', py: '20px', color: 'black', mt:'40px', fontWeight: 500, textAlign:"center" }}>FAQ for <span className='text-[#4f675b] font-bold'>Hackathon</span></Typography>
                 <Grid container spacing={3} sx={{ justifyContent: "center", alignItems: "center", px:5 }}>
                     <Grid item xs={12} md={6} lg={6}>
                         <Lottie animationData={FAQAnimation}></Lottie>
@@ -22,10 +21,10 @@ export default function Hackathonfaq() {
                     <Grid item xs={12} md={6} lg={6}>
                         <Accordion>
                             <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
+                                expandIcon={<ExpandMoreIcon sx={{color:"white"}}/>}
                                 aria-controls="panel1-content"
                                 id="panel1-header"
-                                sx={{fontWeight:600, backgroundColor:"#C5FFF8"}}
+                                sx={{fontWeight:600, backgroundColor:"#4f675b", color:"white"}}
                             >
                                 What is a virtual hackathon?
 
@@ -36,10 +35,10 @@ export default function Hackathonfaq() {
                         </Accordion>
                         <Accordion>
                             <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
+                                expandIcon={<ExpandMoreIcon sx={{color:"white"}}/>}
                                 aria-controls="panel2-content"
                                 id="panel2-header"
-                                sx={{fontWeight:600, backgroundColor:"#C5FFF8"}}
+                                sx={{fontWeight:600, backgroundColor:"#4f675b", color:"white"}}
                             >
                                How do I participate in a virtual hackathon?
                             </AccordionSummary>
@@ -49,10 +48,10 @@ export default function Hackathonfaq() {
                         </Accordion>
                         <Accordion>
                             <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
+                                expandIcon={<ExpandMoreIcon sx={{color:"white"}}/>}
                                 aria-controls="panel2-content"
                                 id="panel2-header"
-                                sx={{fontWeight:600, backgroundColor:"#C5FFF8"}}
+                                sx={{fontWeight:600, backgroundColor:"#4f675b", color:"white"}}
                             >
                                 What are the benefits of participating in a virtual hackathon?
                             </AccordionSummary>
@@ -62,10 +61,10 @@ export default function Hackathonfaq() {
                         </Accordion>
                         <Accordion>
                             <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
+                                expandIcon={<ExpandMoreIcon sx={{color:"white"}}/>}
                                 aria-controls="panel2-content"
                                 id="panel2-header"
-                                sx={{fontWeight:600, backgroundColor:"#C5FFF8"}}
+                                sx={{fontWeight:600, backgroundColor:"#4f675b", color:"white"}}
                             >
                                Do I need to be a programmer to join a virtual hackathon?
                             </AccordionSummary>
@@ -75,10 +74,10 @@ export default function Hackathonfaq() {
                         </Accordion>
                         <Accordion>
                             <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
+                                expandIcon={<ExpandMoreIcon sx={{color:"white"}}/>}
                                 aria-controls="panel2-content"
                                 id="panel2-header"
-                                sx={{fontWeight:600, backgroundColor:"#C5FFF8"}}
+                                sx={{fontWeight:600, backgroundColor:"#4f675b", color:"white"}}
                             >
                                How are virtual hackathons judged?
                             </AccordionSummary>
@@ -88,10 +87,10 @@ export default function Hackathonfaq() {
                         </Accordion>
                         <Accordion>
                             <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
+                                expandIcon={<ExpandMoreIcon sx={{color:"white"}}/>}
                                 aria-controls="panel2-content"
                                 id="panel2-header"
-                                sx={{fontWeight:600, backgroundColor:"#C5FFF8"}}
+                                sx={{fontWeight:600, backgroundColor:"#4f675b", color:"white"}}
                             >
                                What happens after a virtual hackathon ends?
                             </AccordionSummary>
@@ -101,10 +100,10 @@ export default function Hackathonfaq() {
                         </Accordion>
                         <Accordion>
                             <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
+                                expandIcon={<ExpandMoreIcon sx={{color:"white"}}/>}
                                 aria-controls="panel2-content"
                                 id="panel2-header"
-                                sx={{fontWeight:600, backgroundColor:"#C5FFF8"}}
+                                sx={{fontWeight:600, backgroundColor:"#4f675b", color:"white"}}
                             >
                                How can I find virtual hackathons to participate in?
                             </AccordionSummary>

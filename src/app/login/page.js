@@ -58,8 +58,8 @@ export default function LogInPage() {
       const loggedUser = result.user;
 
       console.log(loggedUser);
-      toast.success("User logged in");
       router.push("/");
+      toast.success("User logged in");
 
     });
   };
@@ -72,6 +72,7 @@ export default function LogInPage() {
         const userInfo = {
           uEmail: result?.user?.email,
           uName: result?.user?.displayName,
+          uPhoto: result?.user?.photoURL,
           role: "user"
         }
         console.log(userInfo);
@@ -116,7 +117,7 @@ export default function LogInPage() {
         component={Paper}
         elevation={6}
         square
-        style={{ background: 'linear-gradient(to right, #FFFFFF, #87CEEB)', padding: '10px' }}
+        style={{  padding: '10px' }}
       >
         <Box
           sx={{
@@ -154,7 +155,7 @@ export default function LogInPage() {
               autoComplete="email"
               autoFocus
               {...register("email", { required: true })}
-              sx={{ backgroundColor: "#C5FFF8" }}
+              sx={{ backgroundColor: "#a8f0cc" }}
             />
             {errors.email && <span>Email field is required</span>}
             <TextField
@@ -167,12 +168,12 @@ export default function LogInPage() {
               id="password"
               autoComplete="current-password"
               {...register("password", { required: true })}
-              sx={{ backgroundColor: "#C5FFF8" }}
+              sx={{ backgroundColor: "#a8f0cc" }}
             />
             {errors.password && <span>Password field is required</span>}
             <button
 
-              className='font-semibold w-full py-2 rounded mt-3 mb-2 bg-[#C5FFF8] text-black'
+              className='font-semibold w-full py-2 rounded mt-3 mb-2 bg-[#4f675b] text-white'
             >
               Sign In
             </button>
@@ -188,8 +189,8 @@ export default function LogInPage() {
           <Divider sx={{ mt: 5, border:'black' }}>
             <Chip label="OR" size="small" />
           </Divider>
-          <button onClick={handleGoogleLogIn} className=" font-semibold w-full py-2 rounded mt-7 mb-2 text-lg bg-[#C5FFF8] text-black">
-            <GoogleIcon sx={{ mr: 3, color: "blue" }} />
+          <button onClick={handleGoogleLogIn} className=" font-semibold w-full py-2 rounded mt-7 mb-2 text-lg bg-[#4f675b] text-white">
+            <GoogleIcon sx={{ mr: 3, color: "white" }} />
             Google Log In
           </button>
           <Copyright sx={{ mt: 5 }} />

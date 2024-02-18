@@ -5,21 +5,21 @@ import {  createTheme, ThemeProvider } from '@mui/material/styles';
 const themeColor = createTheme({
     palette: {
         primary: {
-          main: '#263238',
+          main: '#4f675b',
           // mainGradient: "linear-gradient(to right, #3c3c3c, #ffffff)",
           contrastText:"black"
         },
         secondary: {
-          main:"#C5FFF8"
+          main:"#91ff35"
         }
         // ...
       },
-    breakpoints: {
+      breakpoints: {
         values: {
           xs: 0,
-          sm: 600,
-          md: 900,
-          lg: 1480,
+          sm: 450,
+          md: 600,
+          lg: 1200,
           xl: 1536,
         },
       },
