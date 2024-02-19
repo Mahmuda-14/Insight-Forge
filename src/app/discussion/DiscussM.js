@@ -5,7 +5,9 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
-import { QuestionAnswer } from "@mui/icons-material";
+import { Attachment, QuestionAnswer } from "@mui/icons-material";
+// import PushPinIcon from '@mui/icons-material/PushPin';
+
 import './discus.css'
 import useAxiosSecure from '../hooks/useAxiosSecure';
 import useAuth from '../hooks/useAuth';
@@ -16,13 +18,14 @@ import '../../components/banner/banner.css'
 import useSingleUser from '../hooks/useSingleUser';
 
 const DiscussM = ({ question }) => {
-    const { name, photo, title, _id, likes, comments, createdAt } = question || []
+    const { name, photo, title, _id, likes, comments, createdAt  } = question || []
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
     const router = useRouter();
     const [, reload] = useDiscussData()
     const [users] = useSingleUser()
 
+    // const [isPinned, setIsPinned] = useState(pinned);
 
     const [formattedTimestamp, setFormattedTimestamp] = useState('');
 	
@@ -77,6 +80,24 @@ const DiscussM = ({ question }) => {
 
 
 
+    // const togglePin = () => {
+    //     setIsPinned(!isPinned);
+    //     const endpoint = isPinned ? '/unpin' : '/pin'; // Determine which API endpoint to call based on current pin status
+    //     axiosSecure.put(endpoint + `/${_id}`)
+    //         .then(res => {
+    //             console.log(res.data);
+    //             // Optionally, you can reload the data if necessary
+    //             reload();
+    //             // Provide feedback to the user
+    //             toast.success(isPinned ? "Post unpinned successfully" : "Post pinned successfully");
+    //         })
+    //         .catch(error => {
+    //             console.error("Error:", error);
+    //             toast.error("Something went wrong");
+    //         });
+    // };
+
+
 
     return (
         <div className=''>
@@ -105,6 +126,7 @@ const DiscussM = ({ question }) => {
                         }
                         <span>{likes?.length} likes</span>
                     </div>
+                    {/* <Button onClick={togglePin}>{isPinned ? <PushPinIcon /> : <Attachment/>}</Button> */}
                 </div>
             </div>
         </div>

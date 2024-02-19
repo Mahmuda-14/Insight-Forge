@@ -121,6 +121,7 @@ const Discuss = () => {
 
 
 
+    
 
 
     
@@ -332,7 +333,7 @@ const Discuss = () => {
                     </div>
                 </div>
 
-                <button type="submit" className="states"><Link href={'https://twitter.com/'}><TwitterIcon className='hover:text-white' style={{ marginRight: '7px' }}></TwitterIcon>Twitter</Link></button>
+              
 
             </div>
         </div>
