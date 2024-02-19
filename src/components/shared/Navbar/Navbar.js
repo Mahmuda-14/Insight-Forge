@@ -73,7 +73,7 @@ const navItems = [
     pathname: "/about",
     icon: < AccountBoxIcon />,
   }
-  ,
+  
 ];
 
 const settings = [

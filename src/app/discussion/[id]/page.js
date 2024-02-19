@@ -13,6 +13,7 @@ import Footer from '@/components/shared/footer/Footer';
 import useDiscussData from '@/app/hooks/useDiscussData';
 import SingleComment from './SingleComment';
 import useSingleUser from '@/app/hooks/useSingleUser';
+import { useForm } from 'react-hook-form';
 
 const page = ({ params }) => {
     console.log(params.id)
@@ -29,9 +30,13 @@ const page = ({ params }) => {
         }
     })
 
+    console.log(data)
+
 
     const [discuss, reload ] = useDiscussData()
     const [, singleUserReload ] = useSingleUser()
+
+    const { register, handleSubmit, reset } = useForm()
 
 
     const postAns = (text, postedId, athorId) => {
@@ -44,6 +49,7 @@ const page = ({ params }) => {
                 postedId,
                 athorId
             }
+            reset()
             console.log(ansInfo)
             axiosSecure.put('/postAnswer', ansInfo)
                 .then(res => {
@@ -54,7 +60,9 @@ const page = ({ params }) => {
                         refetch()
                         singleUserReload()
                     }
-                })
+                }).catch(error => {
+                    toast.error("Something is wrong");
+                });
         } else {
             toast.success("You are not Logged In!");
             router.push("/login");
@@ -71,11 +79,11 @@ const page = ({ params }) => {
                 <div className=' '>
                     <div>
                         <h3 className='text-xl font-bold'>{discuss.title}</h3>
-                        <p className='text-base text-gray-500'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus laboriosam sunt tempore minima laudantium praesentium, ducimus reiciendis aut iste dolores labore animi quas quibusdam. At qui repudiandae ducimus facilis officiis.</p>
+                        <p className='text-base text-gray-500'>{discuss?.description}</p>
                     </div>
                     
 
-                    <form onSubmit={(e) => {
+                    <form  onSubmit={(e) => {
                         e.preventDefault()
                         const from = e.target
                         const text = from.answer.value

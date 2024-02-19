@@ -4,7 +4,7 @@ import useAuth from "./useAuth";
 import { useRouter } from "next/navigation";
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://insight-forge-server.vercel.app'
 })
 
 const useAxiosSecure = () => {

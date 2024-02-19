@@ -181,7 +181,7 @@ export default function Dashboard({ children }) {
     const mainListItemsUser = [
         {
             id: "1",
-            route: "UserProfile",
+            route: "User Profile",
             pathname: "/dashboard",
             icon: <AccountCircleIcon />,
         },
