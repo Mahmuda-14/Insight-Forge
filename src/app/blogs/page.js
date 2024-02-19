@@ -107,7 +107,7 @@ const page = () => {
       <Typography className="tex-md md:text-xl" sx={{ letterSpacing: 6, fontWeight: 800 }}>
       CATEGORIES
       </Typography>
-      <Box className="my-6 flex lg:flex-col  gap-4 ">
+      <Box className="flex flex-wrap lg:flex-col gap-4 lg:gap-0  ">
       {uniqueSingleCategory?.map((category, i) => (
       <Typography key={i} component="div" mt={2} variant="body1" className="font-bold" >
       {/* Use the actual title from the blog */}
