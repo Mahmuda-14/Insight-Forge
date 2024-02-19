@@ -48,7 +48,7 @@ const Discuss = () => {
     const [discuss, reload] = useDiscussData()
     // const [blogs, reloadBlog] = useBlogs()
     const [users] = useSingleUser()
-    console.log(users)
+console.log(users)
 
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -63,6 +63,7 @@ const Discuss = () => {
         e.preventDefault()
         const form = e.target.value
         setSearch(form)
+
     }
 
     console.log(search)
@@ -97,7 +98,7 @@ const Discuss = () => {
                     if (res.data.__v === 0) {
                         reload()
                         toast.success("Your question has been posted");
-
+                       
                     }
                 })
         } else {
@@ -122,7 +123,7 @@ const Discuss = () => {
 
 
 
-
+    
 
     return (
         <Box className="discussion overflow-x-hidden" style={{ padding: '10px' }}>
@@ -251,9 +252,10 @@ const Discuss = () => {
         </div> */}
 
 
-            {/* <Box className="borderBot ml-[112px] mr-[446px]"></Box> */}
+            <Box className="borderBot sm:ml-0 md:ml-0 lg:ml-[112px] lg:mr-[446px]"></Box>
 
-            <div className='flex sm:flex-col md:flex-col lg:flex-row gap-3 '>
+
+            <div className='flex flex-col sm:flex-col md:flex-col lg:flex-row gap-3 '>
 
                 <div className='grid grid-cols-1 gap-3 mr-4 sm:ml-0 lg:ml-[7rem] my-9'>
 
@@ -268,6 +270,7 @@ const Discuss = () => {
                     )}
 
                 </div>
+
 
                 <div className='sm:ml-20 md:ml-20 lg:ml-0'>
                     <div>
@@ -306,9 +309,7 @@ const Discuss = () => {
                 </div>
 
 
-
             </div>
-
 
 
         </Box>

@@ -22,7 +22,7 @@ const HomePage = () => {
       <All></All>
       <Count></Count>
       <Logo></Logo> */}
-      <MessengerButton ></MessengerButton>
+      <MessengerButton></MessengerButton>
       <Footer></Footer>
     </Box>
   );
