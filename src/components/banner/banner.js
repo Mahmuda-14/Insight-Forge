@@ -4,7 +4,7 @@ import 'swiper/css';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Image from 'next/image';
 import { TypeAnimation } from 'react-type-animation';
-import { Divider } from '@mui/material';
+import { Box, Divider } from '@mui/material';
 import re from '../../../public/Image/1.jpg'
 import re1 from '../../../public/Image/6.jpg'
 import re2 from '../../../public/Image/3.jpg'
@@ -12,7 +12,7 @@ import re2 from '../../../public/Image/3.jpg'
 
 const Banner = () => {
     return (
-        <div className=''>
+        <Box position={'relative'} zIndex={5}>
             <Swiper
                 spaceBetween={50}
                 slidesPerView={1}
@@ -141,7 +141,7 @@ const Banner = () => {
             </Swiper>
 
 
-        </div>
+        </Box>
     );
 };
 

@@ -7,11 +7,12 @@ import DrawerAppBar from "@/components/shared/Navbar/Navbar";
 import Footer from "@/components/shared/footer/Footer";
 import { Box,  Divider } from "@mui/material";
 import Discuss from "./discussion/Discuss";
+import MessengerButton from "@/components/chatapp/messengerButton";
 
 
 const HomePage = () => {
   return (
-    <Box sx={{ maxWidth: "xl", mx: "auto" }} >
+    <Box sx={{ maxWidth: "xl", mx: "auto", position:'relative' , zIndex:5}} >
       <DrawerAppBar></DrawerAppBar>
       <Divider sx={{ backgroundColor: 'white',paddingTop:'0px' }} />
       <Banner></Banner>
@@ -21,6 +22,7 @@ const HomePage = () => {
       <All></All>
       <Count></Count>
       <Logo></Logo> */}
+      <MessengerButton ></MessengerButton>
       <Footer></Footer>
     </Box>
   );

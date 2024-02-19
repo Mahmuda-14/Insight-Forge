@@ -7,15 +7,21 @@ import { Avatar, Badge, Box, Divider, Grid, TextField, Typography } from '@mui/m
 import React, { useEffect, useRef, useState } from 'react';
 import SendIcon from '@mui/icons-material/Send';
 import { useForm } from 'react-hook-form';
-import useAxiosPublic from '../hooks/useAxiosPublic';
+// import useAxiosPublic from '../hooks/useAxiosPublic';
 
-import Conversations from '@/components/chatapp/conversations';
-import MessageOwn from '@/components/chatapp/messageOwn';
-import useSingleConversation from '../hooks/useSingleConversation';
-import useSingleUser from '../hooks/useSingleUser';
+// import Conversations from '@/components/chatapp/conversations';
+// import MessageOwn from '@/components/chatapp/messageOwn';
+// import useSingleConversation from '../hooks/useSingleConversation';
+// import useSingleUser from '../hooks/useSingleUser';
 import { io } from 'socket.io-client'
-import DrawerAppBar from '@/components/shared/Navbar/Navbar';
+
 import { useQuery } from '@tanstack/react-query';
+import useAxiosPublic from '@/app/hooks/useAxiosPublic';
+import useSingleUser from '@/app/hooks/useSingleUser';
+import Conversations from './conversations';
+import MessageOwn from './messageOwn';
+import useSingleConversation from '@/app/hooks/useSingleConversation';
+import useUsersData from '@/app/hooks/useUsersData';
 
 const Messenger = () => {
 
@@ -28,12 +34,15 @@ const Messenger = () => {
     const [currentChat, setCurrentChat] = useState(null)
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [search, setSearch] = useState(null)
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [friend, setFriend] = useState(null)
     const axiosPublic = useAxiosPublic()
     const scrollRef = useRef()
     const [singleUser] = useSingleUser()
     const socket = useRef()
+    const [users] = useUsersData()
 
-    
+
 
     const { data: searchedUser, refetch: reload } = useQuery({
         queryKey: ['searchUser'],
@@ -91,7 +100,11 @@ const Messenger = () => {
                 setMessage(res.data)
             })
 
-
+              // to find friend
+              const currentUser = singleUser[0]._id
+              const friendId = item.members.find((m) => m !== currentUser)
+              const friendDetails = users.find(user => user._id === friendId)
+              setFriend(friendDetails);
     }
 
 
@@ -162,15 +175,16 @@ const Messenger = () => {
     console.log(singleConversation)
 
 
+
+
+
     return (
         <div>
-            <DrawerAppBar></DrawerAppBar>
+
             <Grid container>
+                <Grid item xs={12} sm={6} md={4}>
 
-
-                <Grid item sx={{ display: { xs: 'none', sm: 'block', md: "block" }, mt: 10 }} sm={3} md={3}>
-
-                    <TextField style={{ borderRadius: 5 }} type='text' fullWidth onKeyUp={handleSearch} placeholder='Search for friends ' id="fullWidth" />
+                    <TextField style={{ borderRadius: 5, mt:8 }} type='text' fullWidth onKeyUp={handleSearch} placeholder='Search for friends ' id="fullWidth" />
                     {/* search result */}
 
                     {
@@ -190,6 +204,7 @@ const Messenger = () => {
 
 
                     <Divider></Divider>
+                    <Typography sx={{color:'#009688', textAlign:"center", fontSize:20, fontWeight:600, mt:2}}>Conversation</Typography>
                     {
                         singleConversation &&
                         singleConversation.map(item =>
@@ -198,17 +213,23 @@ const Messenger = () => {
                             </div>
 
                         )
-                       
+
                     }
                 </Grid>
 
-                <Grid item xs={12} sm={6} md={6} sx={{ p: 2 }}>
+                <Grid item xs={12} sm={6} md={8} sx={{ p: 2 }}>
                     {
                         message ?
                             <>
+                                <Grid container sx={{ alignItems: "center", backgroundColor:"#009688", borderRadius:2, mb:2, px:2, py:1}}>
+                                    <Grid item> <Avatar alt="Travis Howard" src={friend?.uPhoto} /></Grid>
+                                    <Grid item>
+                                        <Typography sx={{ ml: 1, color:"white" }} >{friend?.uName}</Typography>
+                                    </Grid>
+                                </Grid>
                                 <Box sx={{
                                     overflow: "hidden",
-                                    overflowY: "scroll", height: 550
+                                    overflowY: "scroll", height: 400
                                 }}>
 
                                     {
@@ -229,13 +250,13 @@ const Messenger = () => {
                                     component="form"
                                     noValidate
                                     onSubmit={handleSubmit(onSubmit)}
-                                    sx={{ mt: 3, display: "flex", width: { xs: 400, sm: 450, md: 600 } }}
+                                    sx={{ mt: 3, display: "flex", justifyContent: 'center', alignItems: "center", width: { xs: 400, sm: 420, md: 420 } }}
                                 >
                                     <TextField type='text' fullWidth placeholder='send the message' id="fullWidth" name="newMessage"
                                         {...register("newMessage", { required: true })}
-                                        sx={{ backgroundColor: "#a8f0cc", mt: 2 }}
+                                        sx={{ backgroundColor: "#b2dfdb", mt: 2 }}
                                     />
-                                    <button className='text-green-700'><SendIcon /></button>
+                                    <button className='text-white bg-[#4f675b] ml-1 px-4 h-14 mt-3 rounded-md'><SendIcon /></button>
                                 </Box>
                             </> :
                             <p className='text-2xl text-center mt-24 text-gray-500'>Open a conversation here</p>
@@ -243,22 +264,6 @@ const Messenger = () => {
 
                 </Grid>
 
-
-
-                <Grid item sx={{ display: { xs: 'none', sm: 'block', md: "block" } }} sm={3} md={3}>
-                    <h1>Online</h1>
-                    <Grid container sx={{ alignItems: "center", mt: 3 }}>
-                        <Grid item>
-                            <Badge color="secondary" overlap="circular" badgeContent=" ">
-                                <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-                            </Badge>
-                        </Grid>
-
-                        <Grid item>
-                            <Typography sx={{ ml: 1 }} >Jhon</Typography>
-                        </Grid>
-                    </Grid>
-                </Grid>
             </Grid>
         </div>
     );

@@ -175,7 +175,7 @@ const DrawerAppBar = (props, item) => {
 
   return (
     <div>
-      <Box sx={{ display: 'flex', color: "white" }}>
+      <Box sx={{ display: 'flex', color: "white" , zIndex:5}}>
 
         <CssBaseline />
         <AppBar >
