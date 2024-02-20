@@ -28,24 +28,29 @@
   box-shadow: 0px 0px 30px 1px rgba(5, 129, 157, 0.3);
  }
 
- 
- @media screen and (max-width:640px)
- {
-  .card{
+ @media screen and (max-width: 425px) {
+  .card {
+    width: 352px;
+  }
+}
+
+@media screen and (min-width: 426px) and (max-width: 640px) {
+  .card {
     width: 621px;
   }
- }
+}
 
 
-
-
+@media screen and (min-width: 641px) and (max-width: 768px) {
+  .card {
+    width: 700px;
+  }
+}
 
 
 
  .card3 {
-  /* width: 956px;
-  height: 254px; */
-  /* background-image: linear-gradient(163deg, #2a373a 0%, #69757a 100%); */
+ 
   border-width: 2px;
   border-top-width: 7px;
   border-top-color: #476c65;
@@ -71,13 +76,3 @@
  .card3:hover {
   box-shadow: 0px 0px 30px 1px rgba(5, 129, 157, 0.3);
  }
-
- 
-
-
-
-
-
-
-
- 

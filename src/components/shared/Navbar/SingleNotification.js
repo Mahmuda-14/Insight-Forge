@@ -35,7 +35,7 @@ const SingleNotification = ({ seeNotification }) => {
 
 
     return (
-        <div className="flex items-center gap-3 hover:bg-[#5f7c6d] rounded-md p-2 text-white">
+        <div className="flex items-center gap-3 hover:bg-[#5f7c6d] rounded-md p-2 text-white cursor-pointer">
             <img className="w-16 h-16 rounded-full" src={userPhoto} alt="athor image" />
             <div>
                 <h5 className="text-sm">{formattedTimestamp}</h5>

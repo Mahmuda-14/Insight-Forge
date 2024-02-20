@@ -10,6 +10,7 @@ import useAuth from '../hooks/useAuth';
 // import useAxiosSecure from '../hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
 import useAxiosPublic from '../hooks/useAxiosPublic';
+import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 
 const page = () => {
 
@@ -73,6 +74,7 @@ const page = () => {
 
   return (
     <div>
+      <DrawerAppBar></DrawerAppBar>
       <div className="relative mx-auto" style={{
         backgroundImage: 'url("https://i.ibb.co/f1C0Ch6/pexels-vojtech-okenka-392018.jpg")',
         backgroundSize: 'cover',

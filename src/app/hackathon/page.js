@@ -11,13 +11,13 @@ const Hackathon = () => {
 
   return (
 
-    <div className='w-[450px] md:w-[600px] lg:w-[1200px] mx-auto'>
+    <Box sx={{maxWidth:"xl"}} >
       <DrawerAppBar></DrawerAppBar>
       <Hackathonbanner></Hackathonbanner>
       <Hackathonfaq></Hackathonfaq>
       <Hackathoncards></Hackathoncards>
 
-    </div>
+    </Box>
   );
 };
 

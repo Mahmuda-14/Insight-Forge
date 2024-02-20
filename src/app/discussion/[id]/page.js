@@ -71,7 +71,7 @@ const page = ({ params }) => {
                 <div className=' '>
                     <div>
                         <h3 className='text-xl font-bold'>{discuss.title}</h3>
-                        <p className='text-base text-gray-500'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus laboriosam sunt tempore minima laudantium praesentium, ducimus reiciendis aut iste dolores labore animi quas quibusdam. At qui repudiandae ducimus facilis officiis.</p>
+                        <p className='text-base text-gray-500'>{discuss?.description}</p>
                     </div>
                     
 
