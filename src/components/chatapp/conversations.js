@@ -20,10 +20,11 @@ const Conversations = (conversation, currentUser) => {
 
     return (
         <div>
-            <Grid container sx={{ alignItems: "center", mt: 3 }}>
+           
+            <Grid container sx={{ alignItems: "center", mt:1, backgroundColor:"#009688", borderRadius:2,  px:2, py:1 }}>
                 <Grid item> <Avatar alt="Travis Howard" src={friendDetails?.uPhoto} /></Grid>
                 <Grid item>
-                    <Typography sx={{ ml: 1 }} >{friendDetails?.uName}</Typography>
+                    <Typography sx={{ ml: 1, color:"white" }} >{friendDetails?.uName}</Typography>
                 </Grid>
             </Grid>
         </div>

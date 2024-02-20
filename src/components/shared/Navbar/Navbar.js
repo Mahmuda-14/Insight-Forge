@@ -36,6 +36,7 @@ import useAxiosSecure from '@/app/hooks/useAxiosSecure';
 import Notification from './Notification';
 import toast from 'react-hot-toast';
 import Navlink from './Navlink';
+import Script from 'next/script';
 
 
 
@@ -72,13 +73,7 @@ const navItems = [
     pathname: "/about",
     icon: < AccountBoxIcon />,
   }
-  ,
-  {
-    id: "6",
-    route: "Messenger",
-    pathname: "/messenger",
-    icon: < MessageIcon />,
-  }
+  
 ];
 
 const settings = [
@@ -190,14 +185,14 @@ const DrawerAppBar = (props, item) => {
               <MenuIcon sx={{ color: 'white' }} />
             </IconButton>
 
-            <Image src={bg2} alt='company' width={109} height={100} style={{marginLeft:'84px', marginRight:'192px'}} />
+            <Image src={bg2} alt='company' width={109} height={100} />
 
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'none', lg: 'block' }, ml: 3 }}>
               {navItems.map((item) => (
                 <Navlink key={item.id} href={item.pathname}>
 
                   {item.pathname === path ? (
-                    <Button variant="contained" style={{color:'white', background:'#6f817a', right:'10px'}}>
+                    <Button variant="contained" style={{ color: 'white', background: '#6f817a', right: '10px' }}>
                       {item.route}
                     </Button>
                   ) : (
@@ -252,6 +247,23 @@ const DrawerAppBar = (props, item) => {
                         <Button onClick={handleLogOut} sx={{ color: 'black' }}>
                           Log Out
                         </Button>
+                      </MenuItem>
+                      <MenuItem>
+                        <Button sx={{ color: 'black' }}>Translate </Button>
+                        
+                        <div id="google_translate_element" ></div>
+                        <Script id="google_translate_init" strategy="lazyOnload">
+                          {`
+                            function googleTranslateElementInit() {
+                           new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+          }
+        `}
+                        </Script>
+                        <Script
+                          id="google_translate_script"
+                          strategy="afterInteractive"
+                          src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+                        />
                       </MenuItem>
                     </Menu>
                   </Box>
