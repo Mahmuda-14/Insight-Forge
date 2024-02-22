@@ -175,6 +175,12 @@ export default function Dashboard({ children }) {
         //     pathname: "/dashboard/analytics",
         //     icon: <AccountCircleIcon />,
         // },
+        {
+            id: "7",
+            route: "Add Ouiz",
+            pathname: "/dashboard/quizz",
+            icon: <ReceiptIcon />,
+        },
 
 
     ]

@@ -57,12 +57,12 @@ const QuestionForm = () => {
   
 
   return (
-    <div className="container  mt-8">
+    <div className="container  mt-[100px]  mx-auto lg:ml-[100px] md:ml-[50px] sm:ml-[0px]">
 
-          <form onSubmit={handleSubmit} className="lg:w-[800px] md:w-[600px]  sm:w-[500px]  mx-auto bg-white p-8 rounded shadow-md">
+          <form onSubmit={handleSubmit} className="lg:w-[800px] md:w-[600px]  sm:w-[500px] lg:ml-[100px] md:ml-[50px] sm:ml-[0px] mx-auto bg-[#F5F5F4] p-8 rounded shadow-2xl">
             
           <div className="mb-12">
-              <label className="block text-[#006A4E] text-[22px] mb-2">
+              <label className="block text-[#4f675b] text-[22px] mb-2">
                 Category
               </label>
               <select
@@ -77,19 +77,19 @@ const QuestionForm = () => {
                 <option value="CSS">CSS</option>
                 <option value="HTML">HTML</option>
                 <option value="React">React</option>
-                <option value="Next.js">Next.js</option>
+                {/* <option value="Next.js">Next.js</option>
                 <option value="MongoDB">MongoDB</option>
                 <option value="Node.js">Node.js</option>
                 <option value="Tailwind">Tailwind</option>
                 <option value="Express.js">Express.js</option>
                 <option value="JavaScript">JavaScript</option>
                 <option value="Material UI">Material UI</option>
-                <option value="Firebase">Firebase</option>
+                <option value="Firebase">Firebase</option> */}
               </select>
             </div>
 
-            <div className="mb-12 mt-[80px]">
-              <label className="block text-[#006A4E] text-[22px] mb-2">
+            <div className="mb-6 mt-[50px]">
+              <label className="block text-[#4f675b] text-[22px] mb-2">
                 Question:
               </label>
               <input
@@ -101,8 +101,8 @@ const QuestionForm = () => {
                 placeholder="Enter Question"
               />
             </div>
-            <div className="mb-12">
-              <label className="block text-[#006A4E] text-[22px] mb-2">
+            <div className="mb-6">
+              <label className="block text-[#4f675b] text-[22px] mb-2">
                 Option 1:
               </label>
               <input
@@ -114,8 +114,8 @@ const QuestionForm = () => {
                 placeholder="Option 1"
               />
             </div>
-            <div className="mb-12">
-              <label className="block text-[#006A4E] text-[22px] mb-2">
+            <div className="mb-6">
+              <label className="block text-[#4f675b] text-[22px] mb-2">
                 Option 2:
               </label>
               <input
@@ -127,8 +127,8 @@ const QuestionForm = () => {
                 placeholder="Option 2"
               />
             </div>
-            <div className="mb-12">
-              <label className="block text-[#006A4E] text-[22px] mb-2">
+            <div className="mb-6">
+              <label className="block text-[#4f675b] text-[22px] mb-2">
                 Option 3:
               </label>
               <input
@@ -141,8 +141,8 @@ const QuestionForm = () => {
               />
             </div>
 
-            <div className="mb-12">
-              <label className="block text-[#006A4E] text-[22px] mb-2">
+            <div className="mb-6">
+              <label className="block text-[#4f675b] text-[22px] mb-2">
                 Option 4:
               </label>
               <input
@@ -156,7 +156,7 @@ const QuestionForm = () => {
             </div>
 
             <div className="mb-12">
-              <label className="block text-[#006A4E] text-[22px] mb-2">
+              <label className="block text-[#4f675b] text-[22px] mb-2">
                 Correct Answer
               </label>
               <input
@@ -173,7 +173,7 @@ const QuestionForm = () => {
             <div className="mb-4">
               <button
                 type="submit"
-                className="bg-[#006A4E] text-white py-2 px-4 w-[150px] h-[50px] rounded hover:bg-[#87CEEB] focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+                className="bg-[#4f675b] text-white py-2 px-4 w-[150px] h-[50px] rounded hover:bg-[#87CEEB] focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
               >
                 Submit
               </button>
