@@ -36,6 +36,7 @@ import Diversity3Icon from '@mui/icons-material/Diversity3';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import Loader from '@/components/loader/loader';
+import { Add, AddAPhoto, AddBoxOutlined, FolderSpecialRounded, PostAdd } from '@mui/icons-material';
 
 function Copyright(props) {
     return (
@@ -202,13 +203,25 @@ export default function Dashboard({ children }) {
     const mainListItemsRecruiter = [
         {
             id: "1",
-            route: "RecruiterProfile",
+            route: "Profile",
             pathname: "/dashboard",
             icon: <AccountCircleIcon />,
+        },
+        {
+            id: "2",
+            route: "Post Job",
+            pathname: "/dashboard/postJob",
+            icon: <PostAdd />,
+        },
+        {
+            id: "3",
+            route: "Post",
+            pathname: "/dashboard/post",
+            icon: <FolderSpecialRounded/>,
         }
 
     ]
-
+    
     const secondaryListItems = [
         {
             id: "1",
@@ -356,11 +369,14 @@ export default function Dashboard({ children }) {
                     </List>
                 </Drawer>
                
-                    <div className='md:min-w-[600px] ml-16 md:ml-16 
-                    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto'>
+                    <div className=' mx-auto overflow-x-auto overflow-y-auto'>
                         {children}
                         <Copyright />
                     </div>
+                    {/* md:min-w-[600px] ml-16 md:ml-16 
+                    lg:ml-52 */}
+
+                    {/* md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto" */}
 
                 
             </Box>

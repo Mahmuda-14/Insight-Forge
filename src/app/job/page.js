@@ -65,7 +65,7 @@ const Job = () => {
       <JobM></JobM>
       <Card></Card>    
       {/* <JobCard></JobCard> */}
-      <PostForm></PostForm>
+      {/* <PostForm></PostForm> */}
       <Gallery></Gallery>
       <Footer></Footer>
     </div>
