@@ -80,6 +80,13 @@ const navItems = [
     pathname: "/messenger",
     icon: < MessageIcon />,
   }
+  ,
+  {
+    id: "7",
+    route: "Quiz",
+    pathname: "/quiz2",
+    icon: < MessageIcon />,
+  }
 ];
 
 const settings = [

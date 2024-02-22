@@ -3,12 +3,13 @@
 
 import React, { useState } from 'react';
 import useAxiosPublic from '../hooks/useAxiosPublic';
-
+import toast from 'react-hot-toast';
 
 const QuestionForm = () => {
     const axiosPublic = useAxiosPublic()
   
     const [formData, setFormData] = useState({
+      category:'',
       question: '',
       option1: '',
       option2: '',
@@ -45,11 +46,11 @@ const QuestionForm = () => {
         .then(res => {
           console.log(res.data)
           if (res.data.__v === 0) {
-            toast.success("Your job has been posted");
+            toast.success("The question has been posted");
           }
         })
         .catch(error => {
-          console.error('Error posting job:', error);
+          console.error('Error posting :', error);
         });
       // console.log(formData);
     };
@@ -60,9 +61,35 @@ const QuestionForm = () => {
 
           <form onSubmit={handleSubmit} className="lg:w-[800px] md:w-[600px]  sm:w-[500px]  mx-auto bg-white p-8 rounded shadow-md">
             
-           
+          <div className="mb-12">
+              <label className="block text-[#006A4E] text-[22px] mb-2">
+                Category
+              </label>
+              <select
+                type="text" name="category"
+                value={formData.category}
+                onChange={handleChange}
+                className="mt-4 p-2 border rounded-md"
+              >
+                <option value="" disabled>
+                  Select category
+                </option>
+                <option value="CSS">CSS</option>
+                <option value="HTML">HTML</option>
+                <option value="React">React</option>
+                <option value="Next.js">Next.js</option>
+                <option value="MongoDB">MongoDB</option>
+                <option value="Node.js">Node.js</option>
+                <option value="Tailwind">Tailwind</option>
+                <option value="Express.js">Express.js</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Material UI">Material UI</option>
+                <option value="Firebase">Firebase</option>
+              </select>
+            </div>
+
             <div className="mb-12 mt-[80px]">
-              <label className="block text-teal-600 text-[22px] mb-2">
+              <label className="block text-[#006A4E] text-[22px] mb-2">
                 Question:
               </label>
               <input
@@ -75,7 +102,7 @@ const QuestionForm = () => {
               />
             </div>
             <div className="mb-12">
-              <label className="block text-teal-600 text-[22px] mb-2">
+              <label className="block text-[#006A4E] text-[22px] mb-2">
                 Option 1:
               </label>
               <input
@@ -88,7 +115,7 @@ const QuestionForm = () => {
               />
             </div>
             <div className="mb-12">
-              <label className="block text-teal-600 text-[22px] mb-2">
+              <label className="block text-[#006A4E] text-[22px] mb-2">
                 Option 2:
               </label>
               <input
@@ -101,7 +128,7 @@ const QuestionForm = () => {
               />
             </div>
             <div className="mb-12">
-              <label className="block text-teal-600 text-[22px] mb-2">
+              <label className="block text-[#006A4E] text-[22px] mb-2">
                 Option 3:
               </label>
               <input
@@ -115,7 +142,7 @@ const QuestionForm = () => {
             </div>
 
             <div className="mb-12">
-              <label className="block text-teal-600 text-[22px] mb-2">
+              <label className="block text-[#006A4E] text-[22px] mb-2">
                 Option 4:
               </label>
               <input
@@ -129,7 +156,7 @@ const QuestionForm = () => {
             </div>
 
             <div className="mb-12">
-              <label className="block text-teal-600 text-[22px] mb-2">
+              <label className="block text-[#006A4E] text-[22px] mb-2">
                 Correct Answer
               </label>
               <input
@@ -146,7 +173,7 @@ const QuestionForm = () => {
             <div className="mb-4">
               <button
                 type="submit"
-                className="bg-[#87CEEB] text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+                className="bg-[#006A4E] text-white py-2 px-4 w-[150px] h-[50px] rounded hover:bg-[#87CEEB] focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
               >
                 Submit
               </button>

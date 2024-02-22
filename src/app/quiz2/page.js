@@ -2,40 +2,30 @@
 "use client"
 
 
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import useAxiosPublic from '../hooks/useAxiosPublic';
 import Image from 'next/image';
-
-const questions = [
-  {
-    question: 'What is the capital of France?',
-    options: ['Paris', 'Berlin', 'London', 'Rome'],
-    correctAnswer: 'Paris',
-  },
-  {
-    question: 'What is the largest planet in our solar system?',
-    options: ['Mercury', 'Venus', 'Earth', 'Jupiter'],
-    correctAnswer: 'Jupiter',
-  },
-  {
-    question: 'What is the chemical symbol for water?',
-    options: ['H2O', 'CO2', 'NaCl', 'C6H12O6'],
-    correctAnswer: 'H2O',
-  },
-  {
-    question: 'What is the tallest mammal?',
-    options: ['Giraffe', 'Elephant', 'Hippopotamus', 'Rhinoceros'],
-    correctAnswer: 'Giraffe',
-  },
-];
 
 const Quiz = () => {
   const router = useRouter();
+  const axiosPublic = useAxiosPublic();
+  const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState('');
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
+
+  useEffect(() => {
+   
+    axiosPublic.get('/quiz3')
+      .then(res => {
+        setQuestions(res.data);
+      })
+      .catch(error => {
+        console.error('Error fetching quiz questions:', error);
+      });
+  }, [axiosPublic]);
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
@@ -61,7 +51,7 @@ const Quiz = () => {
     <div className="container mx-auto">
       {showScore ? (
         <div className="text-center m-[200px]">
-          <Image className='flex justify-center items-center mx-auto' src="https://i.ibb.co/31FQ0LM/unnamed.gif" alt="ok" width={300} height={200}></Image>
+           <Image className='flex justify-center items-center mx-auto' src="https://i.ibb.co/31FQ0LM/unnamed.gif" alt="ok" width={300} height={200}></Image>
           <h2 className="text-2xl font-semibold mt-[50px]">Your Score: {score}</h2>
           <button
             className="mt-[50px] p-2 bg-[#006A4E] text-white rounded-md"
@@ -76,20 +66,42 @@ const Quiz = () => {
             Question {currentQuestion + 1}/{questions.length}
           </h2>
           <h3 className="text-lg font-medium mb-2">
-            {questions[currentQuestion].question}
+            {questions[currentQuestion]?.question} 
           </h3>
           <div className="grid grid-cols-2 gap-4">
-            {questions[currentQuestion].options.map((option, index) => (
-              <button
-                key={index}
-                className={`p-4 bg-gray-200 rounded-md ${
-                  selectedOption === option ? 'bg-[#006A4E] text-white' : ''
-                }`}
-                onClick={() => handleOptionSelect(option)}
-              >
-                {option}
-              </button>
-            ))}
+            <button
+              className={`p-4 bg-gray-200 rounded-md ${
+                selectedOption === questions[currentQuestion]?.option1 ? 'bg-[#006A4E] text-white' : ''
+              }`}
+              onClick={() => handleOptionSelect(questions[currentQuestion]?.option1)}
+            >
+              {questions[currentQuestion]?.option1}
+            </button>
+            <button
+              className={`p-4 bg-gray-200 rounded-md ${
+                selectedOption === questions[currentQuestion]?.option2 ? 'bg-[#006A4E] text-white' : ''
+              }`}
+              onClick={() => handleOptionSelect(questions[currentQuestion]?.option2)}
+            >
+              {questions[currentQuestion]?.option2}
+            </button>
+            <button
+              className={`p-4 bg-gray-200 rounded-md ${
+                selectedOption === questions[currentQuestion]?.option3 ? 'bg-[#006A4E] text-white' : ''
+              }`}
+              onClick={() => handleOptionSelect(questions[currentQuestion]?.option3)}
+            >
+              {questions[currentQuestion]?.option3}
+            </button>
+            <button
+              className={`p-4 bg-gray-200 rounded-md ${
+                selectedOption === questions[currentQuestion]?.option4 ? 'bg-[#006A4E] text-white' : ''
+              }`}
+              onClick={() => handleOptionSelect(questions[currentQuestion]?.option4)}
+            >
+              {questions[currentQuestion]?.option4}
+            </button>
+           
           </div>
           <button
             className="mt-[100px] p-2 bg-[#006A4E] text-white rounded-md w-[150px] h-[50px]"
