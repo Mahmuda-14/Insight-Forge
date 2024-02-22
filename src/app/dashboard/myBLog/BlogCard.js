@@ -95,10 +95,10 @@ const BlogCard = ({ item }) => {
                         {
                             details.length > 87 ?
                                 <p className='bg-none text-base text-gray-50'>
-                                    {HTMLReactParser(details).slice(0, 88)}
+                                    {details.slice(0, 88)}
                                 </p> :
                                 <p variant="subtitle1" className='bg-none text-base text-gray-50'>
-                                    {HTMLReactParser(details)}
+                                    {details}
                                 </p>
 
                         }

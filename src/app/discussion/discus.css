@@ -65,17 +65,18 @@
 
 .qusPost {
     font-size: 14px;
-    border: 1px solid rgb(53, 84, 68);
+    border: 2px solid #5a5f66;
     background: none;
     border-radius: 5px;
-    color: rgb(53, 84, 68);
+    color: #5a5f66;
     padding: 10px 16px;
     font-weight: 600;
 }
 
 .qusPost:hover {
     color: white;
-    background: rgb(53, 84, 68);
+    background: #5a5f66;
+    border: 2px solid #5a5f66;
 }
 
 .discusContainer {
