@@ -17,7 +17,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Avatar, Badge, ListItemIcon, Menu, MenuItem, Stack, Tooltip } from '@mui/material';
+import {  Badge, ListItemIcon, Menu, MenuItem, Stack, Tooltip } from '@mui/material';
 import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
 import MessageIcon from '@mui/icons-material/Message';
@@ -185,7 +185,7 @@ const DrawerAppBar = (props, item) => {
               <MenuIcon sx={{ color: 'white' }} />
             </IconButton>
 
-            <Image src={bg2} alt='company' width={109} height={100} />
+            <Image src={bg2} alt='company' width={109} height={100} style={{ marginLeft: '84px', marginRight: '192px' }} />
 
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'none', lg: 'block' }, ml: 3 }}>
               {navItems.map((item) => (

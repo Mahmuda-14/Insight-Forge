@@ -170,12 +170,12 @@ export default function Dashboard({ children }) {
             pathname: "/dashboard/allPayment",
             icon: <ReceiptIcon />,
         },
-        // {
-        //     id: "7",
-        //     route: "Analytics",
-        //     pathname: "/dashboard/analytics",
-        //     icon: <AccountCircleIcon />,
-        // },
+        {
+            id: "7",
+            route: "Analytics",
+            pathname: "/dashboard/analytics",
+            icon: <AccountCircleIcon />,
+        },
 
 
     ]
