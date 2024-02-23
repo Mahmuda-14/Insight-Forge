@@ -4,25 +4,28 @@ import useAxiosPublic from '@/app/hooks/useAxiosPublic';
 import React, { useEffect, useState } from 'react';
 import My from './My';
 import useAuth from '@/app/hooks/useAuth';
-
+import DashboardTitle from '@/components/shared/dashboardTitle/dashboardTitle';
 const page = () => {
 
     const [job, setJobs] = useState([]);
     const axiosPublic = useAxiosPublic();
     const {user} = useAuth()
+    const email = user?.email;
+    // console.log('paici',email)
+    // console.log(job)
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
        
-      axiosPublic.get(`/myjob?email =${user?.email}`)
+      axiosPublic.get(`/myjob?email=${user?.email}`)
         .then(res => {
           setJobs(res.data)
         })
   
-    }, [axiosPublic])
+    }, [email])
 
     return (
         <div className='mt-20 min-h-screen'>
-        {/* <DashboardTitle subTitle='Your Posted Blogs' headerTitle='See your all blog'></DashboardTitle> */}
+        <DashboardTitle subTitle='My Jobs' headerTitle='All Posted Job'></DashboardTitle>
         <div className='md:pr-3 md:pl-20 pl-[56px]'>
 
         {job && job.length > 0 ? (
@@ -33,7 +36,7 @@ const page = () => {
             }
         </div>
                 ) : (
-                    <p className='text-center'>No blog available.</p>
+                    <p className='text-center'>No data available.</p>
                 )}
 
         </div>
