@@ -73,7 +73,13 @@ const navItems = [
     pathname: "/about",
     icon: < AccountBoxIcon />,
   }
-  
+  ,
+  {
+    id: "6",
+    route: "Quiz",
+    pathname: "/quiz2",
+    icon: < AccountBoxIcon />,
+  }
 ];
 
 const settings = [
