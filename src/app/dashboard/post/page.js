@@ -12,7 +12,7 @@ const page = () => {
     const {user} = useAuth()
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
-        // axiosSecure.get(`/myBlog?email=${user?.email}`)
+       
       axiosPublic.get(`/myjob?email =${user?.email}`)
         .then(res => {
           setJobs(res.data)

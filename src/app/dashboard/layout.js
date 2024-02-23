@@ -37,6 +37,7 @@ import BugReportIcon from '@mui/icons-material/BugReport';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import Loader from '@/components/loader/loader';
 import { Add, AddAPhoto, AddBoxOutlined, FolderSpecialRounded, PostAdd } from '@mui/icons-material';
+import { QuestionAnswer } from '@mui/icons-material';
 
 function Copyright(props) {
     return (
@@ -197,6 +198,12 @@ export default function Dashboard({ children }) {
             route: "My blog",
             pathname: "/dashboard/myBLog",
             icon: <EditNoteIcon />,
+        },
+        {
+            id: "4",
+            route: "My Question",
+            pathname: "/dashboard/myQuestion",
+            icon: <QuestionAnswer />,
         },
 
     ]
