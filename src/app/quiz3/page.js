@@ -57,7 +57,7 @@ const QuestionForm = () => {
   
 
   return (
-    <div className="container  mt-[100px]  mx-auto lg:ml-[100px] md:ml-[50px] sm:ml-[0px]">
+    <div className="container  mt-[100px]  mx-auto ">
 
           <form onSubmit={handleSubmit} className="lg:w-[800px] md:w-[600px]  sm:w-[500px] lg:ml-[100px] md:ml-[50px] sm:ml-[0px] mx-auto bg-[#F5F5F4] p-8 rounded shadow-2xl">
             
