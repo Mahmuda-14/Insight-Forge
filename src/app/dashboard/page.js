@@ -12,6 +12,7 @@ const page = () => {
     const [myBlog] = useMyBlog()
     console.log(myBlog)
     const [singleUser] = useSingleUser()
+    console.log(singleUser)
     return (
         <div className='mt-20 min-h-screen'>
             <DashboardTitle subTitle='My Profile' headerTitle='Hi, Welcome Back!'></DashboardTitle>
