@@ -19,7 +19,6 @@ const Quiz = () => {
   const [scoreImage, setScoreImage] = useState('https://i.ibb.co/31FQ0LM/unnamed.gif');
 
   useEffect(() => {
-    // Update score image based on score
     if (score < 4) {
       setScoreImage('https://i.ibb.co/Xywycty/1677009437-102953-gif-url.gif');
     } else {
@@ -57,6 +56,7 @@ const Quiz = () => {
 
   const handleFinishQuiz = () => {
     router.push('/'); 
+    
   };
 
   return (
@@ -67,7 +67,7 @@ const Quiz = () => {
            <Image className='flex justify-center items-center mx-auto' src={scoreImage} alt="ok" width={300} height={200}></Image>
           <h2 className="text-2xl font-semibold mt-[50px]">Your Score: {score}</h2>
           <button
-            className="mt-[50px] p-2 bg-[#006A4E] text-white rounded-md"
+            className="mt-[50px] p-2 bg-[#4f675b] text-white rounded-md w-[150px] h-[50px]"
             onClick={handleFinishQuiz}
           >
             Finish Quiz

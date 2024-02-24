@@ -37,6 +37,7 @@ import Notification from './Notification';
 import toast from 'react-hot-toast';
 import Navlink from './Navlink';
 import Script from 'next/script';
+import { Quiz } from '@mui/icons-material';
 
 
 
@@ -77,8 +78,8 @@ const navItems = [
   {
     id: "6",
     route: "Quiz",
-    pathname: "/quiz2",
-    icon: < AccountBoxIcon />,
+    pathname: "/quiz",
+    icon: < Quiz />,
   }
 ];
 
