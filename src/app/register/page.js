@@ -75,6 +75,11 @@ export default function RegistrationPage() {
       body: imageFile
     })
 
+
+   
+
+
+
     if (res.data.success) {
 
       registration(uEmail, uPassword).then((result) => {

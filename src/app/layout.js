@@ -7,6 +7,8 @@ import MainLayout from "@/components/shared/MainLayout/MainLayout";
 import AuthProvider from './provider/AuthProvider';
 import WebTheme from '@/utils/theme/theme';
 import ReactQueryProvider from '@/components/React-Query-Provider/ReactOueryProvider';
+// import { SocketProvider } from './hooks/useSocket';
+// import Main from './main';
 
 
 
@@ -31,8 +33,9 @@ export default function RootLayout({ children }) {
               <AuthProvider>
                 <Toaster position="top-center" />
                 <MainLayout>{children}</MainLayout>
+                
               </AuthProvider>
-          
+             
           </WebTheme>
         </body>
       </html>

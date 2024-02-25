@@ -48,7 +48,7 @@ const Discuss = () => {
     const [discuss, reload] = useDiscussData()
     // const [blogs, reloadBlog] = useBlogs()
     const [users] = useSingleUser()
-console.log(users)
+        // console.log(users)
 
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
