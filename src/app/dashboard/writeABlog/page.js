@@ -10,7 +10,7 @@ import useAxiosPublic from '@/app/hooks/useAxiosPublic';
 import useAuth from '@/app/hooks/useAuth';
 import '../writeABlog/writeABlog.css'
 import toast from 'react-hot-toast';
-import { TextField } from '@mui/material';
+import { TextField, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
 
 // /**
@@ -67,7 +67,7 @@ const Form = () => {
 	// 	setInputValue(e.target.value);
 	// }, []);
 
-	const { register, handleSubmit, reset } = useForm()
+	const { register, handleSubmit, formState: { errors }, reset } = useForm()
 
 	const onSubmit = async (data) => {
 		const title = data.title
@@ -155,11 +155,14 @@ const Form = () => {
 			<DashboardTitle subTitle="What is the new blog?" headerTitle='Write a blog'></DashboardTitle>
 
 			<form onSubmit={handleSubmit(onSubmit)} className='w-full mx-auto md:pr-3 md:pl-20 pl-[60px] pr-2'>
-				<input className='hidden text-3xl font-semibold mb-3' required {...register("image")} type="file" id='coverImg' />
+				<input className='hidden text-3xl font-semibold mb-3' {...register("image", { required: true })} type="file" id='coverImg' />
 				<label required htmlFor='coverImg' className='text-gray-500 flex mb-3 items-end cursor-pointer'>
 					<AddPhotoAlternateIcon sx={{ width: '50px', height: '50px' }} className='w-50 text-gray-500' />
 					<p className='font-semibold'>add your blog cover</p>
 				</label>
+				{errors.image && (
+                    <Typography sx={{color: 'red'}}> Photo Field is required</Typography>
+                  )}
 
 				<input className='w-full border p-2 rounded-md outline-none text-xl md:text-2xl lg:text-3xl font-semibold mb-3' {...register("title")} placeholder="Title" type="text" />
 

@@ -75,6 +75,11 @@ export default function RegistrationPage() {
       body: imageFile
     })
 
+
+   
+
+
+
     if (res.data.success) {
 
       registration(uEmail, uPassword).then((result) => {
@@ -213,7 +218,7 @@ export default function RegistrationPage() {
                     <p className='font-semibold'>add your blog cover</p>
                   </label>
                   {errors.photo && (
-                    <Typography sx={{color: 'red'}}> Photo URL Field is required</Typography>
+                    <Typography sx={{color: 'red'}}> Photo Field is required</Typography>
                   )}
                 </Grid>
                 <Grid item xs={12} sm={6}>

@@ -36,7 +36,12 @@ import Diversity3Icon from '@mui/icons-material/Diversity3';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import Loader from '@/components/loader/loader';
+<<<<<<< HEAD
 import PaidIcon from '@mui/icons-material/Paid';
+=======
+import { Add, AddAPhoto, AddBoxOutlined, FolderSpecialRounded, PostAdd } from '@mui/icons-material';
+import { QuestionAnswer } from '@mui/icons-material';
+>>>>>>> 801d114eb77be6aeb2c0df1ddf24f57f43f0bf1b
 
 function Copyright(props) {
     return (
@@ -170,12 +175,18 @@ export default function Dashboard({ children }) {
             pathname: "/dashboard/allPayment",
             icon: <ReceiptIcon />,
         },
-        // {
-        //     id: "7",
-        //     route: "Analytics",
-        //     pathname: "/dashboard/analytics",
-        //     icon: <AccountCircleIcon />,
-        // },
+        {
+            id: "7",
+            route: "Analytics",
+            pathname: "/dashboard/analytics",
+            icon: <AccountCircleIcon />,
+        },
+        {
+            id: "8",
+            route: "Add Quiz",
+            pathname: "/dashboard/quizz",
+            icon: <AccountCircleIcon />,
+        },
 
 
     ]
@@ -200,22 +211,40 @@ export default function Dashboard({ children }) {
         },
         {
             id: "4",
+<<<<<<< HEAD
             route: "My Payment",
             pathname: "/dashboard/myPayment",
             icon: <PaidIcon />,
+=======
+            route: "My Question",
+            pathname: "/dashboard/myQuestion",
+            icon: <QuestionAnswer />,
+>>>>>>> 801d114eb77be6aeb2c0df1ddf24f57f43f0bf1b
         },
 
     ]
     const mainListItemsRecruiter = [
         {
             id: "1",
-            route: "RecruiterProfile",
+            route: "Profile",
             pathname: "/dashboard",
             icon: <AccountCircleIcon />,
+        },
+        {
+            id: "2",
+            route: "Post Job",
+            pathname: "/dashboard/postJob",
+            icon: <PostAdd />,
+        },
+        {
+            id: "3",
+            route: "Post",
+            pathname: "/dashboard/post",
+            icon: <FolderSpecialRounded/>,
         }
 
     ]
-
+    
     const secondaryListItems = [
         {
             id: "1",
@@ -363,11 +392,14 @@ export default function Dashboard({ children }) {
                     </List>
                 </Drawer>
                
-                    <div className='md:min-w-[600px] ml-16 md:ml-16 
-                    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto'>
+                    <div className=' mx-auto overflow-x-auto overflow-y-auto'>
                         {children}
                         <Copyright />
                     </div>
+                    {/* md:min-w-[600px] ml-16 md:ml-16 
+                    lg:ml-52 */}
+
+                    {/* md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto" */}
 
                 
             </Box>
