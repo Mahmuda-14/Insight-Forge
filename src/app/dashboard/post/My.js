@@ -5,6 +5,7 @@ import React from 'react';
 import '../../../utils/button/theme_button.css'
 import Swal from 'sweetalert2';
 import useAxiosPublic from '@/app/hooks/useAxiosPublic';
+import toast from 'react-hot-toast';
 const My = ({ item }) => {
 
     const { _id,logo, jobtitle, description } = item;
@@ -32,7 +33,7 @@ const My = ({ item }) => {
                                 text: "This food has been deleted.",
                                 icon: "success"
                             });
-                            refetch()
+                            
                         }
                     }).catch(error => {
                         console.error("Error:", error);
