@@ -12,25 +12,25 @@ import Update from './Update';
 
 const page = ({ params }) => {
     const axiosPublic = useAxiosPublic()
-    const { data, refetch } = useQuery({
+    const { data:blog=[], refetch } = useQuery({
         queryKey: ['blog'],
         queryFn: async () => {
             const res = await axiosPublic.get(`/blog/${params.id}`);
             return res.data
         }
     })
-    console.log(data?.category)
+    console.log(blog?.category)
 
     
 
     
 
     return (
-        <div className='mt-20 min-h-screen min-w-full'>
+        <div className='mt-20 min-h-screen min-w-full ml-10'>
 
 			<DashboardTitle subTitle="What is the new update?" headerTitle='Update your blog'></DashboardTitle>
 
-            <Update data={data}></Update>
+            <Update  blog={blog}></Update>
 		</div>
     );
 };

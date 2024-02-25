@@ -79,7 +79,7 @@ const BlogCard = ({ item }) => {
 
     return (
         <div>
-            <div class="e-card playing w-[310px] h-[420px]">
+            <div class="e-card playing w-[310px] h-[450px]">
                 <div class="image"></div>
                 <div class="wave"></div>
                 <div class="wave"></div>

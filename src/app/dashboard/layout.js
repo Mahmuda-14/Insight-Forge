@@ -36,6 +36,7 @@ import Diversity3Icon from '@mui/icons-material/Diversity3';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import Loader from '@/components/loader/loader';
+import PaidIcon from '@mui/icons-material/Paid';
 
 function Copyright(props) {
     return (
@@ -196,6 +197,12 @@ export default function Dashboard({ children }) {
             route: "My blog",
             pathname: "/dashboard/myBLog",
             icon: <EditNoteIcon />,
+        },
+        {
+            id: "4",
+            route: "My Payment",
+            pathname: "/dashboard/myPayment",
+            icon: <PaidIcon />,
         },
 
     ]
