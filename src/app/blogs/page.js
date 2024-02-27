@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
@@ -19,6 +21,7 @@ import useSingleUser from "../hooks/useSingleUser";
 import useAuth from "../hooks/useAuth";
 import BlogShare from "@/components/blogShare/modal";
 import HTMLReactParser from 'html-react-parser'
+import Script from "next/script";
 
 
 
@@ -81,14 +84,26 @@ const page = () => {
   }
 
   return (
-    <Box  style={{ padding: '10px', overflow:'hidden' }}>
+    <Box style={{ padding: '10px', overflow: 'hidden' }}>
       <DrawerAppBar></DrawerAppBar>
-      <Typography variant="h3" sx={{ color: "black", textAlign: "center", fontWeight: 700, mt:6 }} > Knowledge Revolution </Typography>
+      {/* <div id="google_translate_element"></div>
+      <Script id="google_translate_element" type="text/javascript">
+        {`
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+  `}
+      </Script>
+      <Script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></Script> */}
+
+
+
+      <Typography variant="h3" sx={{ color: "black", textAlign: "center", fontWeight: 700, mt: 6 }} > Knowledge Revolution </Typography>
       <Typography variant="h6" sx={{ color: "black", textAlign: "center", mt: 2 }} >Explore practical strategies for continuous <br /> learning and adapting to the ever-evolving world of information</Typography>
       <div className="container w-xl m-auto space-x-6  grid grid-cols-12 gap-2 my-12  ">
         {/* Left side colum */}
         <div className=" col-span-12 lg:col-span-4 space-y-6   ">
-          <Box sx={{display:'flex'}}>
+          <Box sx={{ display: 'flex' }}>
             <Box
               sx={{
                 width: 300,
@@ -104,7 +119,7 @@ const page = () => {
           </Box>
 
           <Box>
-            <Typography  sx={{ letterSpacing: 6, fontWeight: 800, }}>
+            <Typography sx={{ letterSpacing: 6, fontWeight: 800, }}>
               CATEGORIES
             </Typography>
             <div className="my-6 flex lg:flex-col  gap-4 ">
@@ -121,7 +136,7 @@ const page = () => {
           </Typography>
           <div className="gap-4 space-y-8 flex flex-wrap lg:flex-col   ">
             {recentPosts.map((recentPost) => (
-              <Box key={recentPost.id} width={128}>
+              <Box key={recentPost._id} width={128}>
                 <Link href={`/blogs/${recentPost._id}`}>
                   <img src={recentPost.image} className=" h-32 w-32 rounded-sm" >
                   </img>
@@ -214,5 +229,3 @@ const page = () => {
 };
 
 export default page;
-
-

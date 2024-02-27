@@ -5,6 +5,7 @@ import React from 'react';
 import '../../utils/button/theme_button.css'
 import Link from 'next/link';
 // import Marquee from 'react-fast-marquee';
+import '../../components/banner/banner.css'
 
 const Job = ({ item }) => {
     const { logo, jobtitle, description } = item;

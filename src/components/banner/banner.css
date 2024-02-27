@@ -28,13 +28,13 @@
   box-shadow: 0px 0px 30px 1px rgba(5, 129, 157, 0.3);
  }
 
- @media screen and (max-width: 425px) {
+ @media screen and (max-width: 426px) {
   .card {
-    width: 352px;
+    width: 400px;
   }
 }
 
-@media screen and (min-width: 426px) and (max-width: 640px) {
+@media screen and (min-width: 427px) and (max-width: 640px) {
   .card {
     width: 621px;
   }

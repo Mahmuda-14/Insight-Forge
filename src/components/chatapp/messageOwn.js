@@ -9,7 +9,7 @@ const MessageOwn = (message, own) => {
     console.log(message)
     return (
         <div >
-
+           
             {
                 message.own ?
                     <>
@@ -29,7 +29,7 @@ const MessageOwn = (message, own) => {
                         <Grid container sx={{ alignItems: "center", mt: 3, justifyContent: "flex-end" }}>
 
                             <Grid item>
-                               
+
                                 <Typography sx={{ mr: 1, width: 350, background: "#eeeeee", color: "black", p: 2, borderRadius: 5 }} >{message.message.text}</Typography>
                             </Grid>
                             <Grid item> <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" /></Grid>

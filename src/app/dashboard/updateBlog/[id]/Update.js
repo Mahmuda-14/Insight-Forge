@@ -10,15 +10,15 @@ import useAxiosPublic from '@/app/hooks/useAxiosPublic';
 const image_hosting_key = process.env.NEXT_PUBLIC_Image_KEY
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
-const Update = ({ data }) => {
-    console.log(data)
+const Update = ({ blog }) => {
+    console.log(blog)
     const axiosPublic = useAxiosPublic()
     const [newImg, setNewImg] = useState()
     const [newTitle, setNewTitle] = useState()
     const [newCategory, setNewCategory] = useState()
     const [newDetails, setNewDetails] = useState()
 
-    const { image, title, details, category } = data || []
+    const { image, title, details, category } = blog || []
 
     const { register, handleSubmit, reset } = useForm()
 
@@ -37,11 +37,11 @@ const Update = ({ data }) => {
             title: data.title,
             category: data.category,
             details: data.details,
-            image: image || res?.data?.data?.display_url
+            image:  res?.data?.data?.display_url|| image
         }
 
         console.log(blogItem)
-        // const blogRes = await axiosPublic.post('/blog', blogItem)
+        // const blogRes = await axiosPublic.put('/blog', blogItem)
         // console.log(blogRes)
         // if (blogRes.status = 200) {
         // 	reset()
@@ -50,9 +50,9 @@ const Update = ({ data }) => {
     }
 
     return (
-        <div>
+        <div >
             <form onSubmit={handleSubmit(onSubmit)} className='w-full mx-auto'>
-                <input className='hidden text-3xl font-semibold mb-3' defaultValue={image} {...register("image")} type="file" id='coverImg' />
+                <input className='hidden text-3xl font-semibold mb-3'  {...register("image")} type="file" id='coverImg' />
                 <label required htmlFor='coverImg' className='text-gray-500 flex mb-3 items-end cursor-pointer'>
                     <AddPhotoAlternateIcon sx={{ width: '50px', height: '50px' }} className='w-50 text-gray-500' />
                     <p className='font-semibold'>add your blog cover</p>

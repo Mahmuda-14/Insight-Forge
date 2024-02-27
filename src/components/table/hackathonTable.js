@@ -49,7 +49,7 @@ export default function HackathonTable() {
 
     <div>
       <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>All Hackathon</Typography>
-      <TableContainer component={Paper} elevation={5} sx={{ p: 5 }}>
+      <TableContainer component={Paper} elevation={5} sx={{ p: 5, ml:10 }}>
         <Table sx={{ width: 1000, p: 3 }} aria-label="simple table">
           <TableHead>
             <TableRow>

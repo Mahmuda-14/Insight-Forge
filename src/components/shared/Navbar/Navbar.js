@@ -17,7 +17,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Avatar, Badge, ListItemIcon, Menu, MenuItem, Stack, Tooltip } from '@mui/material';
+import {  Badge, ListItemIcon, Menu, MenuItem, Stack, Tooltip } from '@mui/material';
 import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
 import MessageIcon from '@mui/icons-material/Message';
@@ -36,6 +36,8 @@ import useAxiosSecure from '@/app/hooks/useAxiosSecure';
 import Notification from './Notification';
 import toast from 'react-hot-toast';
 import Navlink from './Navlink';
+import Script from 'next/script';
+import { Quiz } from '@mui/icons-material';
 
 
 
@@ -75,9 +77,9 @@ const navItems = [
   ,
   {
     id: "6",
-    route: "Messenger",
-    pathname: "/messenger",
-    icon: < MessageIcon />,
+    route: "Quiz",
+    pathname: "/quiz",
+    icon: < Quiz />,
   }
 ];
 
@@ -190,14 +192,14 @@ const DrawerAppBar = (props, item) => {
               <MenuIcon sx={{ color: 'white' }} />
             </IconButton>
 
-            <Image src={bg2} alt='company' width={109} height={100} style={{marginLeft:'84px', marginRight:'192px'}} />
+            <Image src={bg2} alt='company' width={109} height={100} style={{ marginLeft: '84px', marginRight: '192px' }} />
 
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'none', lg: 'block' }, ml: 3 }}>
               {navItems.map((item) => (
                 <Navlink key={item.id} href={item.pathname}>
 
                   {item.pathname === path ? (
-                    <Button variant="contained" style={{color:'white', background:'#6f817a', right:'10px'}}>
+                    <Button variant="contained" style={{ color: 'white', background: '#6f817a', right: '10px' }}>
                       {item.route}
                     </Button>
                   ) : (
@@ -252,6 +254,23 @@ const DrawerAppBar = (props, item) => {
                         <Button onClick={handleLogOut} sx={{ color: 'black' }}>
                           Log Out
                         </Button>
+                      </MenuItem>
+                      <MenuItem>
+                        <Button sx={{ color: 'black' }}>Translate </Button>
+                        
+                        <div id="google_translate_element" ></div>
+                        <Script id="google_translate_init" strategy="lazyOnload">
+                          {`
+                            function googleTranslateElementInit() {
+                           new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+          }
+        `}
+                        </Script>
+                        <Script
+                          id="google_translate_script"
+                          strategy="afterInteractive"
+                          src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+                        />
                       </MenuItem>
                     </Menu>
                   </Box>

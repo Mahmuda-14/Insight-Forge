@@ -13,7 +13,7 @@ const useSingleConversation = () => {
         queryKey: ['singleConversation'],
         queryFn: async()=>{
             const res = await axiosSecure.get(`/conversation/${singleUser[0]?._id}`);
-            console.log(res.data)
+            // console.log(res.data)
             return res.data
         }
     })
