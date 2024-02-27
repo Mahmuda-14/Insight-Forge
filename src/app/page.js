@@ -12,6 +12,7 @@ import Discuss from "./discussion/Discuss";
 const HomePage = () => {
   return (
     <Box sx={{ maxWidth: "xl", mx: "auto" }} >
+      <h1>alkdjdl</h1>
       <DrawerAppBar></DrawerAppBar>
       <Divider sx={{ backgroundColor: 'white',paddingTop:'0px' }} />
       <Banner></Banner>

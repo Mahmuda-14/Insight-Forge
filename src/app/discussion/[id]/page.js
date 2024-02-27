@@ -107,7 +107,7 @@ const page = ({ params }) => {
                         data?.comments && data?.comments?.length > 0 ? (
                             <div className='max-h-[400px] overflow-y-auto'>
                                 {
-                                    data?.comments?.map(comment => <SingleComment key={comment._id} comment={comment}></SingleComment>)
+                                    data?.comments?.map(comment => <SingleComment key={comment._id} comment={comment} refetch={refetch}></SingleComment>)
                                 }
                             </div>
                         ) : <p>No answer available.</p>
