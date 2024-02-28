@@ -12,12 +12,7 @@ import MessengerButton from "@/components/chatapp/messengerButton";
 
 const HomePage = () => {
   return (
-<<<<<<< HEAD
-    <Box sx={{ maxWidth: "xl", mx: "auto" }} >
-      <h1>alkdjdl</h1>
-=======
     <Box sx={{ maxWidth: "xl", mx: "auto", position:'relative' , zIndex:5}} >
->>>>>>> 0818f352d2b930dfe9fa98d81573ca479aefbd19
       <DrawerAppBar></DrawerAppBar>
       <Divider sx={{ backgroundColor: 'white',paddingTop:'0px' }} />
       <Banner></Banner>
