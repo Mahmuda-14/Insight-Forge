@@ -123,7 +123,7 @@ const SingleComment = ({ comment, refetch }) => {
                         {
                             show ? <div className='w-20 h-20 bg-gray-100 relative -ml-10 mt-1 rounded-md p-2'>
                                 <div>
-                                <button onClick={() => { handleDelete(_id) }} className='hover:bg-gray-200 p-1 rounded-sm w-full'>
+                                <button onClick={() => { handleDelete(_id, postedId) }} className='hover:bg-gray-200 p-1 rounded-sm w-full'>
                                         delete
                                     </button>
                                 </div>
