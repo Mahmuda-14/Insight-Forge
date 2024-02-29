@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client"
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
@@ -8,13 +9,18 @@ const page = () => {
     return (
         <div className=" pt-6">
              <DrawerAppBar></DrawerAppBar>
-          <h1 className=" text-[#006A4E] text-center text-3xl font-medium my-6 ">
+             <div >
+              <Image src="https://i.ibb.co/S7ZChJT/i.gif" alt="cover" width={210} height={210} className="mx-auto"/>
+             </div>
+
+          <h1 className=" text-[#006A4E] text-center text-3xl  my-6 font-bold">
             Welcome to my Quiz App
           </h1>
           <p className=" text-center mt-12 mb-8 ">
-            Looking to test your general knowledge on web development..? Then you are at the right
+            Looking to test your general knowledge on web development..? Then you are at the right 
             place. Try out this fun quiz!
           </p>
+          
           <div className=" flex justify-center items-center">
             <div className=" w-[500px] px-8 py-4 shadow-2xl bg-[#4f675b] text-white flex justify-center items-center flex-col gap-6 ">
               <h1 className=" font-extrabold text-xl ">A Fun Quiz</h1>
