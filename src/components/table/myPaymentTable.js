@@ -12,54 +12,57 @@ import Paper from '@mui/material/Paper';
 import { Typography } from '@mui/material';
 import useAxiosSecure from '@/app/hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
-import usePaymentData from '@/app/hooks/usePaymentData';
-import useHackathonData from '@/app/hooks/useHackathonData';
 
-function createData(Title, Category, Price, Description,_id) {
-  return { Title, Category, Price, Description,_id };
+import useMyPaymentData from '@/app/hooks/useMyPaymentData';
+
+function createData(Name, Email, Team, Category, Price, Currency, Address, TransactionId ,_id) {
+  return { Name, Email, Team, Category, Price, Currency, Address, TransactionId ,_id };
 }
 
 
-export default function HackathonTable() {
+export default function MyPaymentTable() {
 
- const [allhackathon, reload] = useHackathonData()
- 
+ const [myPayment, reload] = useMyPaymentData()
+ console.log(myPayment);
   const axiosSecure = useAxiosSecure()
-  console.log(allhackathon);
+ 
 
   const handleDelete = (id) => {
 
    
-    axiosSecure.delete(`/hackathonDelete/${id}`)
+    axiosSecure.delete(`/allPaymentDelete/${id}`)
       .then(res => {
 
         if (res.data.deletedCount > 0) {
-          toast.success("Hackathon is Deleted")
+          toast.success("Payment History is Deleted")
         }
         reload()
       })
   }
 
 
-  const rows = allhackathon.map((item) => createData(item.title, item.category, item.totalPrice, item.description, item._id))
+  const rows = myPayment.map((item) => createData(item.order[0].name, item.order[0].email, item.order[0].team, item.order[0].category,item.order[0].totalPrice, item.order[0].currency, item.order[0].address, item.transactionId, item._id))
   console.log(rows)
   
 
   return (
 
     <div>
-      <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>All Hackathon</Typography>
+      <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>My Payment</Typography>
       <TableContainer component={Paper} elevation={5} sx={{ p: 5, ml:10 }}>
         <Table sx={{ width: 1000, p: 3 }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell sx={{ color: "black" }} align="left" >No</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">Title</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">Category</TableCell>
-              <TableCell sx={{ color: "black" }} align="left"> Price</TableCell>
-              <TableCell sx={{ color: "black" }} align="left"> Description</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">  Action</TableCell>
-             
+              <TableCell sx={{ color: "black" }} align="left">Name</TableCell>
+              <TableCell sx={{ color: "black" }} align="left">Email</TableCell>
+              <TableCell sx={{ color: "black" }} align="left"> Team</TableCell>
+              <TableCell sx={{ color: "black" }} align="left"> Category</TableCell>
+              <TableCell sx={{ color: "black" }} align="left">  Price</TableCell>
+              <TableCell sx={{ color: "black" }} align="left">  Currency</TableCell>
+              <TableCell sx={{ color: "black" }} align="left">  Address</TableCell>
+              <TableCell sx={{ color: "black" }} align="left">  TransactionId</TableCell>
+              <TableCell sx={{ color: "black" }} align="left"> Delete</TableCell>
 
             </TableRow>
           </TableHead>
@@ -73,13 +76,15 @@ export default function HackathonTable() {
                   {i + 1}
                 </TableCell>
                 <TableCell sx={{ color: "black" }} component="th" scope="row">
-                  {row.Title}
+                  {row.Name}
                 </TableCell>
+                <TableCell sx={{ color: "black" }} align="left">{row.Email}</TableCell>
+                <TableCell sx={{ color: "black" }} align="left">{row.Team}</TableCell>
                 <TableCell sx={{ color: "black" }} align="left">{row.Category}</TableCell>
                 <TableCell sx={{ color: "black" }} align="left">{row.Price}</TableCell>
-               
-                <TableCell sx={{ color: "black" }} align="left">{row.Description}</TableCell>
-               
+                <TableCell sx={{ color: "black" }} align="left">{row.Currency}</TableCell>
+                <TableCell sx={{ color: "black" }} align="left">{row.Address}</TableCell>
+                <TableCell sx={{ color: "black" }} align="left">{row.TransactionId}</TableCell>
                 <TableCell onClick={() => handleDelete(row._id)} sx={{ color: "black" }} align="right"><button
                   class="flex justify-center items-center gap-2 w-20 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-gradient-to-r from-[#fb7185] via-[#e11d48] to-[#be123c] hover:shadow-xl hover:shadow-red-500 hover:scale-105 duration-300 hover:from-[#be123c] hover:to-[#fb7185]"
                 >

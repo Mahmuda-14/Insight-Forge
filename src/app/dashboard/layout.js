@@ -36,10 +36,10 @@ import Diversity3Icon from '@mui/icons-material/Diversity3';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import Loader from '@/components/loader/loader';
+import PaidIcon from '@mui/icons-material/Paid';
 import { Add, AddAPhoto, AddBoxOutlined, FolderSpecialRounded, PostAdd } from '@mui/icons-material';
 import { QuestionAnswer } from '@mui/icons-material';
 import Navlink from '@/components/shared/Navbar/Navlink';
-import { usePathname } from 'next/navigation';
 
 function Copyright(props) {
     return (
@@ -210,6 +210,12 @@ export default function Dashboard({ children }) {
         },
         {
             id: "4",
+            route: "My Payment",
+            pathname: "/dashboard/myPayment",
+            icon: <PaidIcon />
+        },
+        {
+            id: "5",
             route: "My Question",
             pathname: "/dashboard/myQuestion",
             icon: <QuestionAnswer />,
@@ -340,24 +346,24 @@ export default function Dashboard({ children }) {
                             isAdmin ?
                                 <>
                                     {mainListItemsAdmin.map((item) => (
-                                         <Navlink key={item.id} href={item.pathname}>
-                                         {item.pathname === path ?
-                                             (<ListItemButton variant="contained" style={{ color: 'white', background: '#6f817a' }}>
-                                                 <ListItemIcon sx={{ color: 'white' }}>
-                                                     {item.icon}
-                                                 </ListItemIcon>
-                                                 <ListItemText primary={item.route} />
-                                             </ListItemButton>) : (
-                                                 <ListItemButton sx={{ color: 'white' }}>
-                                                     <ListItemIcon sx={{ color: 'white' }}>
-                                                         {item.icon}
-                                                     </ListItemIcon>
-                                                     {item.route}
+                                        <Navlink key={item.id} href={item.pathname}>
+                                            {item.pathname === path ?
+                                                (<ListItemButton variant="contained" style={{ color: 'white', background: '#6f817a' }}>
+                                                    <ListItemIcon sx={{ color: 'white' }}>
+                                                        {item.icon}
+                                                    </ListItemIcon>
+                                                    <ListItemText primary={item.route} />
+                                                </ListItemButton>) : (
+                                                    <ListItemButton sx={{ color: 'white' }}>
+                                                        <ListItemIcon sx={{ color: 'white' }}>
+                                                            {item.icon}
+                                                        </ListItemIcon>
+                                                        {item.route}
 
-                                                 </ListItemButton>
+                                                    </ListItemButton>
 
-                                             )}
-                                     </Navlink>
+                                                )}
+                                        </Navlink>
                                     ))}
                                 </>
                                 :
@@ -387,24 +393,24 @@ export default function Dashboard({ children }) {
                                     :
                                     <>
                                         {mainListItemsUser.map((item) => (
-                                             <Navlink key={item.id} href={item.pathname}>
-                                             {item.pathname === path ?
-                                                 (<ListItemButton variant="contained" style={{ color: 'white', background: '#6f817a' }}>
-                                                     <ListItemIcon sx={{ color: 'white' }}>
-                                                         {item.icon}
-                                                     </ListItemIcon>
-                                                     <ListItemText primary={item.route} />
-                                                 </ListItemButton>) : (
-                                                     <ListItemButton sx={{ color: 'white' }}>
-                                                         <ListItemIcon sx={{ color: 'white' }}>
-                                                             {item.icon}
-                                                         </ListItemIcon>
-                                                         {item.route}
+                                            <Navlink key={item.id} href={item.pathname}>
+                                                {item.pathname === path ?
+                                                    (<ListItemButton variant="contained" style={{ color: 'white', background: '#6f817a' }}>
+                                                        <ListItemIcon sx={{ color: 'white' }}>
+                                                            {item.icon}
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={item.route} />
+                                                    </ListItemButton>) : (
+                                                        <ListItemButton sx={{ color: 'white' }}>
+                                                            <ListItemIcon sx={{ color: 'white' }}>
+                                                                {item.icon}
+                                                            </ListItemIcon>
+                                                            {item.route}
 
-                                                     </ListItemButton>
+                                                        </ListItemButton>
 
-                                                 )}
-                                         </Navlink>
+                                                    )}
+                                            </Navlink>
                                         ))}
                                     </>
                         }
