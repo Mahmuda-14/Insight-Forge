@@ -38,7 +38,7 @@ import toast from 'react-hot-toast';
 import Navlink from './Navlink';
 import Script from 'next/script';
 import { Quiz } from '@mui/icons-material';
-
+import '../../../app/globals.css'
 
 
 const drawerWidth = 240;
@@ -120,6 +120,9 @@ const DrawerAppBar = (props, item) => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+
+  
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', color: "black" }}>
@@ -258,7 +261,7 @@ const DrawerAppBar = (props, item) => {
                       <MenuItem>
                         <Button sx={{ color: 'black' }}>Translate </Button>
                         
-                        <div id="google_translate_element" ></div>
+                        {/* <div id="google_translate_element" ></div>
                         <Script id="google_translate_init" strategy="lazyOnload">
                           {`
                             function googleTranslateElementInit() {
@@ -270,7 +273,7 @@ const DrawerAppBar = (props, item) => {
                           id="google_translate_script"
                           strategy="afterInteractive"
                           src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-                        />
+                        /> */}
                       </MenuItem>
                     </Menu>
                   </Box>

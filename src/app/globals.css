@@ -74,3 +74,8 @@
   margin-top: calc(0  * var(--tw-space-y-reverse));
 
 }
+
+
+#google_translate_element {
+  display: none !important;
+}

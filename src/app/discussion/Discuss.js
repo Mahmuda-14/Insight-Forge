@@ -66,7 +66,7 @@ const Discuss = () => {
 
     }
 
-    console.log(search)
+    // console.log(search)
 
     const handleChange = (event) => {
         setAge(event.target.value);
