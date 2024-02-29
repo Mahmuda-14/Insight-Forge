@@ -37,7 +37,7 @@ import Notification from './Notification';
 import toast from 'react-hot-toast';
 import Navlink from './Navlink';
 import Script from 'next/script';
-import { Quiz } from '@mui/icons-material';
+import { Quiz, Translate } from '@mui/icons-material';
 
 
 
@@ -80,7 +80,8 @@ const navItems = [
     route: "Quiz",
     pathname: "/quiz",
     icon: < Quiz />,
-  }
+  },
+
 ];
 
 const settings = [
