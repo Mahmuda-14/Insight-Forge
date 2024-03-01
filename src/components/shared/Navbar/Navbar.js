@@ -192,7 +192,7 @@ const DrawerAppBar = (props, item) => {
               <MenuIcon sx={{ color: 'white' }} />
             </IconButton>
 
-            <Image src={bg2} alt='company' width={109} height={100} style={{ marginLeft: '84px', marginRight: '192px' }} />
+            <Image src={bg2} alt='company' width={109} height={100} />
 
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'none', lg: 'block' }, ml: 3 }}>
               {navItems.map((item) => (

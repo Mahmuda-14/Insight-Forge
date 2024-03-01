@@ -36,12 +36,9 @@ import Diversity3Icon from '@mui/icons-material/Diversity3';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import Loader from '@/components/loader/loader';
-<<<<<<< HEAD
 import PaidIcon from '@mui/icons-material/Paid';
-=======
 import { Add, AddAPhoto, AddBoxOutlined, FolderSpecialRounded, PostAdd } from '@mui/icons-material';
 import { QuestionAnswer } from '@mui/icons-material';
->>>>>>> 801d114eb77be6aeb2c0df1ddf24f57f43f0bf1b
 
 function Copyright(props) {
     return (
@@ -211,15 +208,24 @@ export default function Dashboard({ children }) {
         },
         {
             id: "4",
-<<<<<<< HEAD
             route: "My Payment",
             pathname: "/dashboard/myPayment",
             icon: <PaidIcon />,
-=======
+            
+        },
+        {
+            id:"5",
             route: "My Question",
             pathname: "/dashboard/myQuestion",
             icon: <QuestionAnswer />,
->>>>>>> 801d114eb77be6aeb2c0df1ddf24f57f43f0bf1b
+        }
+        ,
+        {
+            id: "6",
+            route: "My Hackathon",
+            pathname: "/dashboard/myHackathon",
+            icon: <PaidIcon />,
+            
         },
 
     ]

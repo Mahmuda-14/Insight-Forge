@@ -68,7 +68,7 @@ const page = () => {
     <div>
       <div >
 
-        <Image style={{ width: '1500px', height: '300px' }} src={re2}></Image>
+        <Image style={{ width: '1500px', height: '300px' }} src={re2} alt="background"></Image>
 
       </div>
 
