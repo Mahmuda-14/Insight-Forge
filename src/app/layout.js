@@ -9,13 +9,6 @@ import WebTheme from '@/utils/theme/theme';
 import ReactQueryProvider from '@/components/React-Query-Provider/ReactOueryProvider';
 
 
-// import { SocketProvider } from './hooks/useSocket';
-// import Main from './main';
-
-
-
-
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {

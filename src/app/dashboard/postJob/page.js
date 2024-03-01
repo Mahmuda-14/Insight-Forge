@@ -37,32 +37,32 @@ const page = () => {
     const userEmail = user?.email || "unknown@example.com"; // Fallback email address if user is undefined
 
     const blogItem = {
-        userEmail,
-        jobtitle,
-        logo,
-        location,
-        description,
-        companyname,
-        jobtype,
+      userEmail,
+      jobtitle,
+      logo,
+      location,
+      description,
+      companyname,
+      jobtype,
     };
     console.log(blogItem);
 
     axiosPublic.post('/job', blogItem)
-        .then(res => {
-            console.log(res.data);
-            if (res.status === 200) {
-                toast.success("Your job has been posted");
-                reset();
-            }
-        })
-        .catch(error => {
-            console.error('Error posting job:', error);
-        });
-};
+      .then(res => {
+        console.log(res.data);
+        if (res.status === 200) {
+          toast.success("Your job has been posted");
+          reset();
+        }
+      })
+      .catch(error => {
+        console.error('Error posting job:', error);
+      });
+  };
 
 
 
- 
+
 
   return (
     <div>
@@ -76,12 +76,13 @@ const page = () => {
       <div className='lg:flex md:flex-col-1 sm:flex-col-1 justify-center items-start'>
         <div className="container p-4 mt-8">
 
-          <form onSubmit={handleSubmit(onSubmit)} className="lg:w-[940px] border-t-4 border-t-green-900 md:w-[600px] -mt-[194px]  sm:w-[500px] ml-[22.8rem] mr-11 bg-white p-8 rounded shadow-md">
+          <form onSubmit={handleSubmit(onSubmit)} className="lg:w-[940px] border-t-4 border-t-green-900 md:w-[600px] lg:-mt-[194px]  sm:w-[500px] sm:ml-[47px] lg:ml-[22.8rem] sm:mr-0 lg:mr-11 bg-white lg:p-8 rounded shadow-md">
 
-            <div className="flex flex-row gap-2  mt-[80px]">
 
-              <div className=" w-1/2">
-                <label className="block text-[#4f675b] text-[22px] mb-2">
+            <div className="flex sm:flex-none lg:flex-row gap-2  mt-[80px]">
+
+              <div className="sm:w-full lg:w-1/2">
+                <label className=" text-[#4f675b] text-[22px] mb-2">
                   Job Title
                 </label>
 
@@ -90,8 +91,8 @@ const page = () => {
 
 
               </div>
-              <div className=" w-1/2">
-                <label className="block text-[#4f675b] text-[22px] mb-2">
+              <div className="sm:w-full lg:w-1/2">
+                <label className=" text-[#4f675b] text-[22px] mb-2">
                   Company Name
                 </label>
 
@@ -142,7 +143,7 @@ const page = () => {
                 Description:
               </label>
               <textarea {...register("description")}
-               
+
                 className="border rounded w-full py-2 px-3"
                 placeholder="Enter Job Description"
                 rows="4"

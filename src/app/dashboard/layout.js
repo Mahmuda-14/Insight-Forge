@@ -39,13 +39,14 @@ import Loader from '@/components/loader/loader';
 import PaidIcon from '@mui/icons-material/Paid';
 import { Add, AddAPhoto, AddBoxOutlined, FolderSpecialRounded, PostAdd } from '@mui/icons-material';
 import { QuestionAnswer } from '@mui/icons-material';
+import Navlink from '@/components/shared/Navbar/Navlink';
 
 function Copyright(props) {
     return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props} sx={{mt:10}}>
+        <Typography variant="body2" color="text.secondary" align="center" {...props} sx={{ mt: 10 }}>
             {'Copyright © '}
             <Link color="inherit" href="https://mui.com/">
-               InsightForge
+                InsightForge
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -103,33 +104,34 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const themeColor = createTheme({
     palette: {
         primary: {
-          main: '#263238',
-          // mainGradient: "linear-gradient(to right, #3c3c3c, #ffffff)",
-          contrastText:"black"
+            main: '#263238',
+            // mainGradient: "linear-gradient(to right, #3c3c3c, #ffffff)",
+            contrastText: "black"
         },
         secondary: {
-          main:"#C5FFF8"
+            main: "#C5FFF8"
         }
         // ...
-      },
+    },
     breakpoints: {
         values: {
-          xs: 0,
-          sm: 600,
-          md: 900,
-          lg: 1480,
-          xl: 1536,
+            xs: 0,
+            sm: 600,
+            md: 900,
+            lg: 1480,
+            xl: 1536,
         },
-      },
+    },
 })
 
 export default function Dashboard({ children }) {
     const [isAdmin, isAdminLoading] = useAdmin();
     const [isRecruiter, isRecruiterLoading] = useRecruiter();
     const [open, setOpen] = React.useState(true);
+    const path = usePathname();
 
     console.log(isAdmin, isRecruiter);
-    
+
 
     const toggleDrawer = () => {
         setOpen(!open);
@@ -246,11 +248,11 @@ export default function Dashboard({ children }) {
             id: "3",
             route: "Post",
             pathname: "/dashboard/post",
-            icon: <FolderSpecialRounded/>,
+            icon: <FolderSpecialRounded />,
         }
 
     ]
-    
+
     const secondaryListItems = [
         {
             id: "1",
@@ -280,7 +282,7 @@ export default function Dashboard({ children }) {
             id: "5",
             route: "Discussion ",
             pathname: "/discussion ",
-            icon: <GroupsIcon/>,
+            icon: <GroupsIcon />,
         }
         ,
         {
@@ -290,14 +292,14 @@ export default function Dashboard({ children }) {
             icon: <DevicesIcon />,
         },
     ];
-    
+
 
     return (
         <ThemeProvider theme={themeColor}>
             <Box sx={{ display: 'flex' }} position="">
                 <CssBaseline />
                 <AppBar position="fixed" open={open} style={{ background: theme.palette.primary.main }}>
-                {/* <AppBar position="absolute" open={open} style={{ background: "#263238", color:"white" }}> */}
+                    {/* <AppBar position="absolute" open={open} style={{ background: "#263238", color:"white" }}> */}
                     <Toolbar
                         sx={{
                             pr: '24px', // keep right padding when drawer closed
@@ -319,7 +321,7 @@ export default function Dashboard({ children }) {
                             variant="h5"
                             color="white"
                             noWrap
-                            sx={{ flexGrow: 1, fontWeight:600, color: 'white' }}
+                            sx={{ flexGrow: 1, fontWeight: 600, color: 'white' }}
                         >
                             Dashboard
                         </Typography>
@@ -337,56 +339,92 @@ export default function Dashboard({ children }) {
                             alignItems: 'center',
                             justifyContent: 'flex-end',
                             px: [1],
-                            background:"#4f675b",
-                           
+                            background: "#4f675b",
+
                         }}
                     >
-                        <Image  src={bg2} alt='company' width={50} height={50} /> <Typography  variant="h7" sx={{ml:2, fontWeight:600, color:"white"}}>Insight <br/> Forge</Typography>
+                        <Image src={bg2} alt='company' width={50} height={50} /> <Typography variant="h7" sx={{ ml: 2, fontWeight: 600, color: "white" }}>Insight <br /> Forge</Typography>
                         <IconButton onClick={toggleDrawer} sx={{ mr: 2, color: 'white' }}>
                             <ChevronLeftIcon />
                         </IconButton>
                     </Toolbar>
                     <Divider />
-                    <List component="nav" sx={{ background: "#4f675b",  height:800 }}>
-                       
-                       {
-                        isAdmin ?
-                        <>
-                        {mainListItemsAdmin.map((item) => (
-                            <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'white' }}>
-                                <ListItemIcon sx={{ color: 'white' }}>
-                                    {item.icon}
-                                </ListItemIcon>
-                                <ListItemText primary={item.route} />
-                            </ListItemButton>
-                        ))}
-                        </>
-                        :
-                        isRecruiter?
-                       <>
-                        {mainListItemsRecruiter.map((item) => (
-                            <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'white' }}>
-                                <ListItemIcon sx={{ color: 'white' }}>
-                                    {item.icon}
-                                </ListItemIcon>
-                                <ListItemText primary={item.route} />
-                            </ListItemButton>
-                        ))}
-                       </>
-                        :
-                        <>
-                        {mainListItemsUser.map((item) => (
-                            <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'white' }}>
-                                <ListItemIcon sx={{ color: 'white' }}>
-                                    {item.icon}
-                                </ListItemIcon>
-                                <ListItemText primary={item.route} />
-                            </ListItemButton>
-                        ))}
-                        </>
-                       }
+                    <List component="nav" sx={{ background: "#4f675b", height: 800 }}>
 
-                        <Divider sx={{ my: 1, color:"white", mt:2 }} />
+                        {
+                            isAdmin ?
+                                <>
+                                    {mainListItemsAdmin.map((item) => (
+                                        <Navlink key={item.id} href={item.pathname}>
+                                            {item.pathname === path ?
+                                                (<ListItemButton variant="contained" style={{ color: 'white', background: '#6f817a' }}>
+                                                    <ListItemIcon sx={{ color: 'white' }}>
+                                                        {item.icon}
+                                                    </ListItemIcon>
+                                                    <ListItemText primary={item.route} />
+                                                </ListItemButton>) : (
+                                                    <ListItemButton sx={{ color: 'white' }}>
+                                                        <ListItemIcon sx={{ color: 'white' }}>
+                                                            {item.icon}
+                                                        </ListItemIcon>
+                                                        {item.route}
+
+                                                    </ListItemButton>
+
+                                                )}
+                                        </Navlink>
+                                    ))}
+                                </>
+                                :
+                                isRecruiter ?
+                                    <>
+                                        {mainListItemsRecruiter.map((item) => (
+                                            <Navlink key={item.id} href={item.pathname}>
+                                                {item.pathname === path ?
+                                                    (<ListItemButton variant="contained" style={{ color: 'white', background: '#6f817a' }}>
+                                                        <ListItemIcon sx={{ color: 'white' }}>
+                                                            {item.icon}
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={item.route} />
+                                                    </ListItemButton>) : (
+                                                        <ListItemButton sx={{ color: 'white' }}>
+                                                            <ListItemIcon sx={{ color: 'white' }}>
+                                                                {item.icon}
+                                                            </ListItemIcon>
+                                                            {item.route}
+
+                                                        </ListItemButton>
+
+                                                    )}
+                                            </Navlink>
+                                        ))}
+                                    </>
+                                    :
+                                    <>
+                                        {mainListItemsUser.map((item) => (
+                                            <Navlink key={item.id} href={item.pathname}>
+                                                {item.pathname === path ?
+                                                    (<ListItemButton variant="contained" style={{ color: 'white', background: '#6f817a' }}>
+                                                        <ListItemIcon sx={{ color: 'white' }}>
+                                                            {item.icon}
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={item.route} />
+                                                    </ListItemButton>) : (
+                                                        <ListItemButton sx={{ color: 'white' }}>
+                                                            <ListItemIcon sx={{ color: 'white' }}>
+                                                                {item.icon}
+                                                            </ListItemIcon>
+                                                            {item.route}
+
+                                                        </ListItemButton>
+
+                                                    )}
+                                            </Navlink>
+                                        ))}
+                                    </>
+                        }
+
+                        <Divider sx={{ my: 1, color: "white", mt: 2 }} />
                         {secondaryListItems.map((item) => (
                             <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'white' }}>
                                 <ListItemIcon sx={{ color: 'white' }}>
@@ -397,17 +435,17 @@ export default function Dashboard({ children }) {
                         ))}
                     </List>
                 </Drawer>
-               
-                    <div className=' mx-auto overflow-x-auto overflow-y-auto'>
-                        {children}
-                        <Copyright />
-                    </div>
-                    {/* md:min-w-[600px] ml-16 md:ml-16 
+
+                <div className=' mx-auto overflow-x-auto overflow-y-auto'>
+                    {children}
+                    <Copyright />
+                </div>
+                {/* md:min-w-[600px] ml-16 md:ml-16 
                     lg:ml-52 */}
 
-                    {/* md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto" */}
+                {/* md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto" */}
 
-                
+
             </Box>
         </ThemeProvider>
     );
