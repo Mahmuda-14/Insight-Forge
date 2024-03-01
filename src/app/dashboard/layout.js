@@ -212,13 +212,22 @@ export default function Dashboard({ children }) {
             id: "4",
             route: "My Payment",
             pathname: "/dashboard/myPayment",
-            icon: <PaidIcon />
+            icon: <PaidIcon />,
+            
         },
         {
-            id: "5",
+            id:"5",
             route: "My Question",
             pathname: "/dashboard/myQuestion",
             icon: <QuestionAnswer />,
+        }
+        ,
+        {
+            id: "6",
+            route: "My Hackathon",
+            pathname: "/dashboard/myHackathon",
+            icon: <PaidIcon />,
+            
         },
 
     ]

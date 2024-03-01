@@ -1,4 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+ /* eslint-disable react-hooks/exhaustive-deps */
+
 'use client'
 import useAxiosPublic from '@/app/hooks/useAxiosPublic';
 import React, { useEffect, useState } from 'react';
@@ -21,7 +23,7 @@ const page = () => {
           setJobs(res.data)
         })
   
-    }, [email])
+    }, [user,axiosPublic])
 
     return (
         <div className='mt-20 min-h-screen'>

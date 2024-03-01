@@ -1,12 +1,13 @@
+"use client"
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react-hooks/exhaustive-deps */
 
-"use client"
+
 
 import useAxiosSecure from "@/app/hooks/useAxiosSecure";
 import { Box, Grid, InputLabel, MenuItem, Paper, Select, TextField, Typography } from "@mui/material";
-import { DatePicker } from "@mui/x-date-pickers";
 import { useState } from "react";
+import "react-datepicker/dist/react-datepicker.css";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
@@ -14,7 +15,8 @@ import toast from "react-hot-toast";
 const HackathonCreationForm = () => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
-   const axiosSecure = useAxiosSecure()
+    // const [startDate, setStartDate] = useState(new Date());
+    const axiosSecure = useAxiosSecure()
 
     const {
         register,
@@ -27,33 +29,37 @@ const HackathonCreationForm = () => {
         const title = data.title;
         const totalPrice = data.price;
         const description = data.description;
-        const category = data.category
+        const category = data.category;
+        const fee = data.fee
+        const date = data.date
 
         const hackathonInfo = {
             title: title,
             totalPrice: totalPrice,
+            fee: fee,
             description: description,
-            category: category
+            category: category,
+            date: date
 
         }
 
         axiosSecure.post('/hackathonInfo', hackathonInfo)
-        .then(res=>{
-            console.log(res.data)
-            if(res.data.__v === 0) {
-                toast.success("Hackathon Created Successfully")
-                reset()
+            .then(res => {
+                console.log(res.data)
+                if (res.data.__v === 0) {
+                    toast.success("Hackathon Created Successfully")
+                    reset()
 
-            }
-        })
-            
+                }
+            })
+
     }
 
     return (
-        <div>
+        <div className="md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto">
             <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>Create Hackathon</Typography>
 
-            <Paper elevation={10} sx={{ p: 3, m:6 }}>
+            <Paper elevation={10} sx={{ p: 3, m: 6 }}>
                 <Box
                     component="form"
                     noValidate
@@ -93,6 +99,26 @@ const HackathonCreationForm = () => {
 
                         </Grid>
                         <Grid item xs={12} sm={6}>
+                            <InputLabel id="demo-simple-select-helper-label">Registration Fee</InputLabel>
+                            <TextField
+                                required
+                                fullWidth
+                                id="registrationFee"
+                                label="Registration Fee"
+                                name="registrationFee"
+                                autoComplete="Registration Fee"
+                                {...register("fee", { required: true })}
+                                sx={{ backgroundColor: "white", mt: 2 }}
+                            />
+
+
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <InputLabel id="demo-simple-select-helper-label">Dead Line</InputLabel>
+                            <input className="mt-4 border-gray-300 border-2 w-full py-3 px-2 rounded" type="date"  id='date' {...register("date", { required: true })} />
+                            
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
                             <InputLabel id="demo-simple-select-helper-label">Description</InputLabel>
                             <TextField
                                 required
@@ -122,21 +148,7 @@ const HackathonCreationForm = () => {
                             </Select>
 
                         </Grid>
-                        {/* <Grid item xs={12}>
-                        <InputLabel id="demo-simple-select-helper-label">Dead Line</InputLabel>
-                        <DatePicker
-                             sx={{ backgroundColor: "white", mt: 2 }}
-                            label='Select Date'
-                            value={value}
-                            fullWidth
-                            onChange={(newValue) => setValue(newValue)}
-                            {...register("deadline", {
-                                required: true,
-                                
-                            })}>
 
-                        </DatePicker>
-                    </Grid> */}
                     </Grid>
                     <button
 

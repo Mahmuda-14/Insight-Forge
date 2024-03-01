@@ -65,7 +65,7 @@ const DiscussM = ({ question }) => {
             // console.log(uId)
             axiosSecure.put('/questionLike', uId)
                 .then(res => {
-                    console.log(res.data)
+                    // console.log(res.data)
                     if (res.data) {
                         reload();
                         singleUserReload()
