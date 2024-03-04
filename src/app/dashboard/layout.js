@@ -40,6 +40,7 @@ import PaidIcon from '@mui/icons-material/Paid';
 import { Add, AddAPhoto, AddBoxOutlined, FolderSpecialRounded, PostAdd } from '@mui/icons-material';
 import { QuestionAnswer } from '@mui/icons-material';
 import Navlink from '@/components/shared/Navbar/Navlink';
+import { usePathname } from 'next/navigation';
 
 function Copyright(props) {
     return (

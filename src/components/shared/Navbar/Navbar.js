@@ -261,7 +261,7 @@ const DrawerAppBar = (props, item) => {
                       <MenuItem>
                         <Button sx={{ color: 'black' }}>Translate </Button>
                         
-                        <div id="google_translate_element" ></div>
+                        {/* <div id="google_translate_element" ></div>
                         <Script id="google_translate_init" strategy="lazyOnload">
                           {`
                             function googleTranslateElementInit() {
@@ -273,7 +273,7 @@ const DrawerAppBar = (props, item) => {
                           id="google_translate_script"
                           strategy="afterInteractive"
                           src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-                        />
+                        /> */}
                       </MenuItem>
                     </Menu>
                   </Box>
