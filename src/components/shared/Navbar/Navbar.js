@@ -22,7 +22,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
 import MessageIcon from '@mui/icons-material/Message';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-
+import DevicesIcon from '@mui/icons-material/Devices';
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import WorkIcon from '@mui/icons-material/Work';
@@ -37,8 +37,9 @@ import Notification from './Notification';
 import toast from 'react-hot-toast';
 import Navlink from './Navlink';
 import Script from 'next/script';
-import { Quiz, Translate } from '@mui/icons-material';
-
+import { Quiz } from '@mui/icons-material';
+import { Translate } from '@mui/icons-material';
+import '../../../app/globals.css'
 
 
 const drawerWidth = 240;
@@ -83,10 +84,16 @@ const navItems = [
   },
   {
     id: "7",
-    route: "Translate",
-    pathname: "/translate",
-    icon: < Translate />,
-  }
+    route: "VirtualHackathon",
+    pathname: "/hackathon",
+    icon: <DevicesIcon />,
+},
+{
+  id:"8",
+  route: "Translate",
+  pathname: "/translate",
+  icon: <Translate />,
+}
 ];
 
 const settings = [
@@ -126,6 +133,9 @@ const DrawerAppBar = (props, item) => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+
+  
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', color: "black" }}>
@@ -264,7 +274,7 @@ const DrawerAppBar = (props, item) => {
                       <MenuItem>
                         <Button sx={{ color: 'black' }}>Translate </Button>
                         
-                        <div id="google_translate_element" ></div>
+                        {/* <div id="google_translate_element" ></div>
                         <Script id="google_translate_init" strategy="lazyOnload">
                           {`
                             function googleTranslateElementInit() {
@@ -276,7 +286,7 @@ const DrawerAppBar = (props, item) => {
                           id="google_translate_script"
                           strategy="afterInteractive"
                           src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-                        />
+                        /> */}
                       </MenuItem>
                     </Menu>
                   </Box>

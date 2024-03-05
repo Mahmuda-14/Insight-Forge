@@ -47,15 +47,15 @@ const Page = () => {
           }}>
          
           
-          <div className='absolute left-[460px] top-[99px]'>
-            <h2 className=' text-white mb-10 text-5xl  text-center font-bold'>Find your dream job.</h2>
+          <div className='absolute sm:-left-0 lg:left-[460px] top-[99px]'>
+            <h2 className=' text-white mb-10 sm:text-5xl lg:text-5xl  text-center font-bold'>Find your dream job.</h2>
             <div className='flex  '>
               <SearchRoundedIcon style={{ width: '1.5em ', height: '2em', position: 'relative', top: '3px', left: '41px', color: 'gray' }} />
               <input
                 name="text"
                 type="text"
                 placeholder="Search here"
-                className="input input-bordered border-2 pr-[98px] pl-[11.8rem] py-2 rounded-xl"
+                className="input input-bordered border-2 sm:pr-0 sm:pl-[39px] lg:pr-[98px] lg:pl-[11.8rem] py-2 rounded-xl"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
@@ -87,7 +87,7 @@ const Page = () => {
           <h2 className=' text-[40px] font-bold text-[#4f675b]'>Browse top jobs</h2>
           <p className='text-[18px] text-center mt-[30px] mb-[60px] mx-auto text-black'>Empowering careers through seamless integration, our job-focused platdiv connects talented <br />individuals with dynamic opportunities,fostering professional growth and success.</p>
         </div>
-        <div className='grid grid-cols-4 gap-3 mx-7 my-7'>
+        <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mx-7 my-7'>
           {jobs.length > 0 ? (
             jobs.map(item => <Job key={item.id} item={item}></Job>)
           ) : (

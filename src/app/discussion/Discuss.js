@@ -48,8 +48,11 @@ const Discuss = () => {
     const [discuss, reload] = useDiscussData()
     // const [blogs, reloadBlog] = useBlogs()
     const [users] = useSingleUser()
-        // console.log(users)
+    // console.log(users)
 
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 3;
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [open, setOpen] = React.useState(false);
@@ -98,7 +101,7 @@ const Discuss = () => {
                     if (res.data.__v === 0) {
                         reload()
                         toast.success("Your question has been posted");
-                       
+
                     }
                 })
         } else {
@@ -108,13 +111,9 @@ const Discuss = () => {
     }
 
 
-    const marqueeProps = {
 
-        speed: 30,
-        direction: 'right',
-        pauseOnClick: 'false',
-        gradientColor: 'rgb(248,251,253)'
-
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
     };
 
 
@@ -225,7 +224,7 @@ const Discuss = () => {
 
 
             {/* question part */}
-            {/* 
+{/*             
             <div className='ml-[7rem]'>
             <ul className='flex flex-row ml-[319px]'>
                 <li className='mr-[19px]'>
@@ -248,76 +247,77 @@ const Discuss = () => {
 
             <Box className="borderBot sm:ml-0 md:ml-0 lg:ml-[112px] lg:mr-[446px]"></Box>
 
+           
+                <div className='flex flex-col sm:flex-col md:flex-col lg:flex-row gap-3 '>
 
-            <div className='flex flex-col sm:flex-col md:flex-col lg:flex-row gap-3 '>
+                    <div className='grid grid-cols-1 gap-3 mr-4 sm:ml-0 lg:ml-[7rem] my-9'>
+                        {discuss && discuss.length > 0 ? (
+                            discuss.filter((menuItem) => {
+                                return search.toLocaleLowerCase() === '' ? menuItem : menuItem?.category.toLocaleLowerCase().includes(search) || menuItem?.title.toLocaleLowerCase().includes(search);
+                            }).slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+                                .map((question) => (
+                                    <DiscussM key={question?._id} question={question}></DiscussM>
+                                ))
+                        ) : (
+                            <p>No data available.</p>
+                        )}
+                    </div>
 
-                <div className='grid grid-cols-1 gap-3 mr-4 sm:ml-0 lg:ml-[7rem] my-9'>
+                    <div className='sm:ml-20 md:ml-20 lg:ml-0'>
+                        <div>
 
-                    {discuss && discuss.length > 0 ? (
-                        discuss?.filter((menuItem) => {
-                            return search.toLocaleLowerCase() === '' ? menuItem : menuItem?.category.toLocaleLowerCase().includes(search) || menuItem?.title.toLocaleLowerCase().includes(search)
+                            <button type="submit" onClick={handleOpen} className="askBtn"> <BorderColorOutlinedIcon style={{ width: '1em ', height: '1.5em' }} />Ask Question</button>
+                            <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 mb-5">
+                                <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>States</h2>
+                                <hr></hr>
+                                <div className="flex flex-col gap-2  my-3">
 
-                            // || parseInt(menuItem?.price).includes(search)
-                        })?.map(question => <DiscussM key={question?._id} question={question}></DiscussM>)
-                    ) : (
-                        <p>No data available.</p>
-                    )}
+                                    <button type="submit" className="states">Questions({discuss.length})</button>
+                                    <button type="submit" className="states">Answers(2)</button>
+                                    <button type="submit" className="states">Most Liked(20)</button>
+                                </div>
 
-                </div>
-
-
-                <div className='sm:ml-20 md:ml-20 lg:ml-0'>
-                    <div>
-
-                        <button type="submit" onClick={handleOpen} className="askBtn"> <BorderColorOutlinedIcon style={{ width: '1em ', height: '1.5em' }} />Ask Question</button>
-                        <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 mb-5">
-                            <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>States</h2>
-                            <hr></hr>
-                            <div className="flex flex-col gap-2  my-3">
-
-                                <button type="submit" className="states">Questions({discuss.length})</button>
-                                <button type="submit" className="states">Answers(2)</button>
-                                <button type="submit" className="states">Most Liked(20)</button>
                             </div>
 
                         </div>
 
-                    </div>
-
-                    <div>
-                        <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 mb-5">
-                            <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>Join Us On</h2>
-                            <hr></hr>
-                            <div className="flex flex-col gap-2  my-3">
+                        <div>
+                            <div className=" w-[21rem] h-[20rem] bg-white border-y-2 shadow-xl p-5 mb-5">
+                                <h2 className='text-xl mt-6 mb-4 text-center font-semibold text-black'>Join Us On</h2>
+                                <hr></hr>
+                                <div className="flex flex-col gap-2  my-3">
 
 
-                                <button type="submit" className="states"><Link href={'https://www.facebook.com/'}><FacebookIcon className='hover:text-white' style={{ marginRight: '5px' }}></FacebookIcon>Facebook</Link></button>
+                                    <button type="submit" className="states"><Link href={'https://www.facebook.com/'}><FacebookIcon className='hover:text-white' style={{ marginRight: '5px' }}></FacebookIcon>Facebook</Link></button>
 
-                                <button type="submit" className="states"><Link href={'https://www.instagram.com/'}><InstagramIcon className='hover:text-white' style={{ marginRight: '5px' }}></InstagramIcon>Instagram</Link></button>
+                                    <button type="submit" className="states"><Link href={'https://www.instagram.com/'}><InstagramIcon className='hover:text-white' style={{ marginRight: '5px' }}></InstagramIcon>Instagram</Link></button>
 
-                                <button type="submit" className="states"><Link href={'https://twitter.com/'}><TwitterIcon className='hover:text-white' style={{ marginRight: '7px' }}></TwitterIcon>Twitter</Link></button>
+                                    <button type="submit" className="states"><Link href={'https://twitter.com/'}><TwitterIcon className='hover:text-white' style={{ marginRight: '7px' }}></TwitterIcon>Twitter</Link></button>
 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-
+              
+            {/* Pagination */}
+            <div className="flex justify-center m-11">
+                {Array.from({ length: Math.ceil(discuss.length / itemsPerPage) }, (_, index) => (
+                    <button key={index + 1} onClick={() => paginate(index + 1)} className={`mx-2 px-4 py-2 border ${currentPage === index + 1 ? "btn bg-[#375f4c] text-white" : "border-2 border-green-950"}`}>{index + 1}</button>
+                ))}
             </div>
 
 
+
         </Box>
+
+
     );
 };
-
-{/* <button
-type="submit"
-className="bg-[#87CEEB] text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
->
-Post Job
-</button> */}
-
 
 
 
 export default Discuss;
+
+
