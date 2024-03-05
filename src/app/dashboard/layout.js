@@ -44,6 +44,7 @@ import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import Navlink from '@/components/shared/Navbar/Navlink';
+import { usePathname } from 'next/navigation';
 
 function Copyright(props) {
     return (

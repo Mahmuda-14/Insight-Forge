@@ -3,6 +3,7 @@ import { FaQuoteLeft } from "react-icons/fa";
 import React from "react";
 import {
   Avatar,
+  Button,
   Card,
   CardContent,
   CardHeader,
@@ -14,6 +15,7 @@ import {
   styled,
 } from "@mui/material";
 import { red } from "@mui/material/colors";
+import { Add } from "@mui/icons-material";
 
 const MyCard = () => {
   const StyledFaQuoteLeft = styled(FaQuoteLeft)({
@@ -41,7 +43,9 @@ const MyCard = () => {
           }
           title="Shrimp and Chorizo Paella"
           subheader={<Rating name="size-small" defaultValue={2} sx={{ color: 'white' }} size="small" />}
+
         />
+        <Button className=" text-white left-[400px]"><Add></Add></Button>
       </Card>
     </div>
   );
