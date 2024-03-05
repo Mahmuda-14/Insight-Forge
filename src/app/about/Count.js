@@ -11,9 +11,9 @@ const Count = () => {
 
   return (
     <div className="mt-20 mb-10">
-      <div className="bg-cover bg-fixed bg-center bg-no-repeat h-[350px]" style={{ backgroundImage: 'url("https://i.ibb.co/0hMFwqH/paul-volkmer-f-X-q-Ws-Xl5x8-unsplash.jpg")' }}>
+      <div className="bg-cover bg-fixed bg-center bg-no-repeat lg:h-[350px] md:h-[350px] sm:h-[550px]" style={{ backgroundImage: 'url("https://i.ibb.co/0hMFwqH/paul-volkmer-f-X-q-Ws-Xl5x8-unsplash.jpg")' }}>
         <div className="container mx-auto">
-          <div className="grid grid-cols-4 px-[150px] py-[80px] ">
+          <div className="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2 px-[150px] py-[80px] ">
         
 
             <div className="flex flex-col items-center">

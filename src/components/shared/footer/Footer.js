@@ -15,7 +15,7 @@ const Footer = () => {
       <div className='lg:flex md:flex-col-1 sm:flex-col-1 justify-around items-center '>
         <div className='flex flex-col justify-center items-center  text-left'>
           <Image sx={{ flexGrow: 1 }} src={bg2} alt='company' width={80} height={80} />
-          <p className="text-[18px] text-white"><span className="font-a text-black">Insight Forge</span> Companies Ltd.</p>
+          <p className="text-[15px] text-white"><span className="font-bold text-[25px]">Insight Forge</span> Companies Ltd.</p>
           <p className="text-[12px] text-white">Providing reliable tech since 2021</p>
         </div>
 
@@ -111,7 +111,7 @@ const Footer = () => {
 </div>
 
 
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto  bg-green-100">
         <hr className="border-t border-white " />
         <div className=" text-black text-center text-[12px]">
           <p>&copy; 2024 Insight Forge. All rights reserved.</p>
