@@ -116,6 +116,8 @@ const Page = () => {
 
 
             {showTranslator && (
+              <div>
+                <p className='text-center text-black text-[15px]'>Note: <span className='text-red-500 text-[25px]'>*</span>When you translate, you should use full stop (.) without any space.</p>
                 <div className='flex flex-col lg:flex-row justify-around items-center mt-[50px]'>
                     <div>
                         <div className='flex justify-center items-center'> 
@@ -149,6 +151,7 @@ const Page = () => {
                            
                         </div>
                     </div>
+                </div>
                 </div>
             )}
 
