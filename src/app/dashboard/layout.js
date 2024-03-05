@@ -36,9 +36,13 @@ import Diversity3Icon from '@mui/icons-material/Diversity3';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import Loader from '@/components/loader/loader';
+import LogoutIcon from '@mui/icons-material/Logout';
 import PaidIcon from '@mui/icons-material/Paid';
 import { Add, AddAPhoto, AddBoxOutlined, FolderSpecialRounded, PostAdd } from '@mui/icons-material';
 import { QuestionAnswer } from '@mui/icons-material';
+import useAuth from '../hooks/useAuth';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 import Navlink from '@/components/shared/Navbar/Navlink';
 
 function Copyright(props) {
@@ -128,6 +132,8 @@ export default function Dashboard({ children }) {
     const [isAdmin, isAdminLoading] = useAdmin();
     const [isRecruiter, isRecruiterLoading] = useRecruiter();
     const [open, setOpen] = React.useState(true);
+    const { logOut } = useAuth()
+    const router = useRouter();
     const path = usePathname();
 
     console.log(isAdmin, isRecruiter);
@@ -136,6 +142,13 @@ export default function Dashboard({ children }) {
     const toggleDrawer = () => {
         setOpen(!open);
     };
+
+    const handleLogOut = () => {
+        router.push("/");
+        logOut()
+        toast.success("User logged in");
+    }
+
     const theme = useTheme()
     const mainListItemsAdmin = [
         {
@@ -262,35 +275,10 @@ export default function Dashboard({ children }) {
         },
         {
             id: "2",
-            route: "Blogs",
-            pathname: "/blogs",
-            icon: <EditNoteIcon />,
-        },
-        {
-            id: "3",
-            route: "Register",
-            pathname: "/register",
-            icon: <AppRegistrationIcon />,
-        },
-        {
-            id: "4",
             route: "Contact",
             pathname: "/contact",
             icon: <PhoneIcon />,
-        },
-        {
-            id: "5",
-            route: "Discussion ",
-            pathname: "/discussion ",
-            icon: <GroupsIcon />,
         }
-        ,
-        {
-            id: "6",
-            route: "VirtualHackathon",
-            pathname: "/hackathon",
-            icon: <DevicesIcon />,
-        },
     ];
 
 
@@ -425,14 +413,26 @@ export default function Dashboard({ children }) {
                         }
 
                         <Divider sx={{ my: 1, color: "white", mt: 2 }} />
-                        {secondaryListItems.map((item) => (
-                            <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'white' }}>
-                                <ListItemIcon sx={{ color: 'white' }}>
-                                    {item.icon}
-                                </ListItemIcon>
-                                <ListItemText primary={item.route} />
-                            </ListItemButton>
-                        ))}
+                        <div className='flex flex-col'>
+                            <div className='grow'>
+                                {secondaryListItems.map((item) => (
+                                    <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'white' }}>
+                                        <ListItemIcon sx={{ color: 'white' }}>
+                                            {item.icon}
+                                        </ListItemIcon>
+                                        <ListItemText primary={item.route} />
+                                    </ListItemButton>
+                                ))}
+                            </div>
+                            <div className='grow-0'>
+                                <ListItemButton onClick={handleLogOut} sx={{ color: 'white' }}>
+                                    <ListItemIcon sx={{ color: 'white' }}>
+                                        <LogoutIcon />
+                                    </ListItemIcon>
+                                    <ListItemText primary='Logout' />
+                                </ListItemButton>
+                            </div>
+                        </div>
                     </List>
                 </Drawer>
 

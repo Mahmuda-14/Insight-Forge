@@ -22,7 +22,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
 import MessageIcon from '@mui/icons-material/Message';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-
+import DevicesIcon from '@mui/icons-material/Devices';
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import WorkIcon from '@mui/icons-material/Work';
@@ -80,7 +80,13 @@ const navItems = [
     route: "Quiz",
     pathname: "/quiz",
     icon: < Quiz />,
-  }
+  },
+  {
+    id: "7",
+    route: "VirtualHackathon",
+    pathname: "/hackathon",
+    icon: <DevicesIcon />,
+},
 ];
 
 const settings = [

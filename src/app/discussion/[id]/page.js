@@ -99,7 +99,7 @@ const page = ({ params }) => {
                                 rows={3}
                             />
                         </div>
-                        <button type='submit' className="bg-[#042030] text-white p-3 rounded-md hover:bg-[#3f515b]">Post Answer</button>
+                        <button type='submit' className="bg-[#4F675B] text-white p-3 rounded-md hover:bg-[#6c897b]">Post Answer</button>
                     </form>
                 </div>
                 <div className=''>
@@ -107,7 +107,7 @@ const page = ({ params }) => {
                         data?.comments && data?.comments?.length > 0 ? (
                             <div className='max-h-[400px] overflow-y-auto'>
                                 {
-                                    data?.comments?.map(comment => <SingleComment key={comment._id} comment={comment} refetch={refetch}></SingleComment>)
+                                    data?.comments?.map(comment => <SingleComment key={comment._id} comment={comment} refetch={refetch} data={data}></SingleComment>)
                                 }
                             </div>
                         ) : <p>No answer available.</p>
