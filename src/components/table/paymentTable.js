@@ -46,7 +46,7 @@ export default function PaymentTable() {
 
   return (
 
-    <div>
+    <div className="md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto">
       <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>All Payment</Typography>
       <TableContainer component={Paper} elevation={5} sx={{ p: 5, ml:10 }}>
         <Table sx={{ width: 1000, p: 3 }} aria-label="simple table">

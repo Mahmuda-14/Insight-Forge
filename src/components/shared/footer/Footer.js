@@ -61,17 +61,17 @@ const Footer = () => {
           <p className='text-[18px] text-white mb-[10px] font-bold'>Services</p>
 
           <div className='flex flex-col justify-start items-left gap-3'>
-            <Link href="#">
+            <Link href="https://codex.wordpress.org/Theme_Development">
               <p className='text-[12px] text-white'>
                 Theme Development
               </p>
             </Link>
-            <Link href="#">
+            <Link href="https://www.interaction-design.org/literature/topics/web-design">
               <p className='text-[12px] text-white'>
                 Web Designing
               </p>
             </Link>
-            <Link href="#">
+            <Link href="https://blog.hubspot.com/website/website-development">
               <p className='text-[12px] text-white'>
                 Web Development
               </p>

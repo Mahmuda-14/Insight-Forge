@@ -7,11 +7,6 @@ import MainLayout from "@/components/shared/MainLayout/MainLayout";
 import AuthProvider from './provider/AuthProvider';
 import WebTheme from '@/utils/theme/theme';
 import ReactQueryProvider from '@/components/React-Query-Provider/ReactOueryProvider';
-// import { SocketProvider } from './hooks/useSocket';
-// import Main from './main';
-
-
-
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -29,13 +24,13 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body className={inter.className}>
           <WebTheme>
-           
+         
               <AuthProvider>
                 <Toaster position="top-center" />
                 <MainLayout>{children}</MainLayout>
                 
               </AuthProvider>
-             
+           
           </WebTheme>
         </body>
       </html>

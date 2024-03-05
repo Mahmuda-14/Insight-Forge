@@ -25,7 +25,7 @@ const DiscussM = ({ question }) => {
 
     const [formattedTimestamp, setFormattedTimestamp] = useState('');
 
-    console.log(question)
+    // console.log(question)
 
     useEffect(() => {
         const convertTimestamp = () => {
@@ -62,10 +62,10 @@ const DiscussM = ({ question }) => {
                 userPhoto: user?.photoURL,
                 athorId:userId
             }
-            console.log(uId)
+            // console.log(uId)
             axiosSecure.put('/questionLike', uId)
                 .then(res => {
-                    console.log(res.data)
+                    // console.log(res.data)
                     if (res.data) {
                         reload();
                         singleUserReload()

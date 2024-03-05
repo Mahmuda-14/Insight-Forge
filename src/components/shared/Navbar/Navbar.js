@@ -38,7 +38,7 @@ import toast from 'react-hot-toast';
 import Navlink from './Navlink';
 import Script from 'next/script';
 import { Quiz } from '@mui/icons-material';
-
+import '../../../app/globals.css'
 
 
 const drawerWidth = 240;
@@ -127,6 +127,9 @@ const DrawerAppBar = (props, item) => {
     setAnchorElUser(null);
   };
 
+
+  
+
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', color: "black" }}>
 
@@ -198,7 +201,7 @@ const DrawerAppBar = (props, item) => {
               <MenuIcon sx={{ color: 'white' }} />
             </IconButton>
 
-            <Image src={bg2} alt='company' width={109} height={100} style={{ marginLeft: '84px', marginRight: '192px' }} />
+            <Image src={bg2} alt='company' width={109} height={100} />
 
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'none', lg: 'block' }, ml: 3 }}>
               {navItems.map((item) => (

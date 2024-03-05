@@ -43,6 +43,7 @@ import { QuestionAnswer } from '@mui/icons-material';
 import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import Navlink from '@/components/shared/Navbar/Navlink';
 
 function Copyright(props) {
     return (
@@ -133,6 +134,7 @@ export default function Dashboard({ children }) {
     const [open, setOpen] = React.useState(true);
     const { logOut } = useAuth()
     const router = useRouter();
+    const path = usePathname();
 
     console.log(isAdmin, isRecruiter);
 
@@ -224,13 +226,22 @@ export default function Dashboard({ children }) {
             route: "My Payment",
             pathname: "/dashboard/myPayment",
             icon: <PaidIcon />,
+            
         },
         {
-            id: "5",
+            id:"5",
             route: "My Question",
             pathname: "/dashboard/myQuestion",
             icon: <QuestionAnswer />,
         }
+        ,
+        {
+            id: "6",
+            route: "My Hackathon",
+            pathname: "/dashboard/myHackathon",
+            icon: <PaidIcon />,
+            
+        },
 
     ]
     const mainListItemsRecruiter = [
@@ -326,41 +337,77 @@ export default function Dashboard({ children }) {
                         </IconButton>
                     </Toolbar>
                     <Divider />
-                    <List component="" sx={{ background: "#4f675b", height: 800 }}>
+                    <List component="nav" sx={{ background: "#4f675b", height: 800 }}>
 
                         {
                             isAdmin ?
                                 <>
                                     {mainListItemsAdmin.map((item) => (
-                                        <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'white' }}>
-                                            <ListItemIcon sx={{ color: 'white' }}>
-                                                {item.icon}
-                                            </ListItemIcon>
-                                            <ListItemText primary={item.route} />
-                                        </ListItemButton>
+                                        <Navlink key={item.id} href={item.pathname}>
+                                            {item.pathname === path ?
+                                                (<ListItemButton variant="contained" style={{ color: 'white', background: '#6f817a' }}>
+                                                    <ListItemIcon sx={{ color: 'white' }}>
+                                                        {item.icon}
+                                                    </ListItemIcon>
+                                                    <ListItemText primary={item.route} />
+                                                </ListItemButton>) : (
+                                                    <ListItemButton sx={{ color: 'white' }}>
+                                                        <ListItemIcon sx={{ color: 'white' }}>
+                                                            {item.icon}
+                                                        </ListItemIcon>
+                                                        {item.route}
+
+                                                    </ListItemButton>
+
+                                                )}
+                                        </Navlink>
                                     ))}
                                 </>
                                 :
                                 isRecruiter ?
                                     <>
                                         {mainListItemsRecruiter.map((item) => (
-                                            <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'white' }}>
-                                                <ListItemIcon sx={{ color: 'white' }}>
-                                                    {item.icon}
-                                                </ListItemIcon>
-                                                <ListItemText primary={item.route} />
-                                            </ListItemButton>
+                                            <Navlink key={item.id} href={item.pathname}>
+                                                {item.pathname === path ?
+                                                    (<ListItemButton variant="contained" style={{ color: 'white', background: '#6f817a' }}>
+                                                        <ListItemIcon sx={{ color: 'white' }}>
+                                                            {item.icon}
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={item.route} />
+                                                    </ListItemButton>) : (
+                                                        <ListItemButton sx={{ color: 'white' }}>
+                                                            <ListItemIcon sx={{ color: 'white' }}>
+                                                                {item.icon}
+                                                            </ListItemIcon>
+                                                            {item.route}
+
+                                                        </ListItemButton>
+
+                                                    )}
+                                            </Navlink>
                                         ))}
                                     </>
                                     :
                                     <>
                                         {mainListItemsUser.map((item) => (
-                                            <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'white' }}>
-                                                <ListItemIcon sx={{ color: 'white' }}>
-                                                    {item.icon}
-                                                </ListItemIcon>
-                                                <ListItemText primary={item.route} />
-                                            </ListItemButton>
+                                            <Navlink key={item.id} href={item.pathname}>
+                                                {item.pathname === path ?
+                                                    (<ListItemButton variant="contained" style={{ color: 'white', background: '#6f817a' }}>
+                                                        <ListItemIcon sx={{ color: 'white' }}>
+                                                            {item.icon}
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={item.route} />
+                                                    </ListItemButton>) : (
+                                                        <ListItemButton sx={{ color: 'white' }}>
+                                                            <ListItemIcon sx={{ color: 'white' }}>
+                                                                {item.icon}
+                                                            </ListItemIcon>
+                                                            {item.route}
+
+                                                        </ListItemButton>
+
+                                                    )}
+                                            </Navlink>
                                         ))}
                                     </>
                         }

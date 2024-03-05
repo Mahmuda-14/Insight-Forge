@@ -66,7 +66,7 @@ const Discuss = () => {
 
     }
 
-    console.log(search)
+    // console.log(search)
 
     const handleChange = (event) => {
         setAge(event.target.value);
@@ -94,7 +94,7 @@ const Discuss = () => {
 
             axiosSecure.post('/discus', discusItem)
                 .then(res => {
-                    console.log(res.data)
+                    // console.log(res.data)
                     if (res.data.__v === 0) {
                         reload()
                         toast.success("Your question has been posted");
@@ -118,12 +118,6 @@ const Discuss = () => {
     };
 
 
-
-
-
-
-
-    
 
     return (
         <Box className="discussion overflow-x-hidden" style={{ padding: '10px' }}>
@@ -264,7 +258,7 @@ const Discuss = () => {
                             return search.toLocaleLowerCase() === '' ? menuItem : menuItem?.category.toLocaleLowerCase().includes(search) || menuItem?.title.toLocaleLowerCase().includes(search)
 
                             // || parseInt(menuItem?.price).includes(search)
-                        })?.map(question => <DiscussM key={question?.id} question={question}></DiscussM>)
+                        })?.map(question => <DiscussM key={question?._id} question={question}></DiscussM>)
                     ) : (
                         <p>No data available.</p>
                     )}

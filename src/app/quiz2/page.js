@@ -63,7 +63,7 @@ const Quiz = () => {
     <div className="container mx-auto">
        <DrawerAppBar></DrawerAppBar>
       {showScore ? (
-        <div className="text-center m-[200px]">
+        <div className="text-center lg:m-[200px] md:m-[100px] sm:m-[100px]">
            <Image className='flex justify-center items-center mx-auto' src={scoreImage} alt="ok" width={300} height={200}></Image>
           <h2 className="text-2xl font-semibold mt-[50px]">Your Score: {score}</h2>
           <button
@@ -74,17 +74,17 @@ const Quiz = () => {
           </button>
         </div>
       ) : (
-        <div className="text-center m-[200px]">
-          <h2 className="text-2xl font-semibold mb-4">
+        <div className="text-center lg:m-[200px] md:m-[100px] sm:m-[100px]">
+          <h2 className="text-2xl font-semibold my-[30px]">
             Question {currentQuestion + 1}/{questions.length}
           </h2>
-          <h3 className="text-lg font-medium mb-2">
+          <h3 className="text-[30px] font-medium my-[30px] text-[#4f675b]">
             {questions[currentQuestion]?.question} 
           </h3>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4">
             <button
               className={`p-4 bg-gray-200 rounded-md ${
-                selectedOption === questions[currentQuestion]?.option1 ? 'bg-[#4f675b] text-white' : ''
+                selectedOption === questions[currentQuestion]?.option1 ? 'bg-lime-800 text-white' : ''
               }`}
               onClick={() => handleOptionSelect(questions[currentQuestion]?.option1)}
             >
@@ -92,7 +92,7 @@ const Quiz = () => {
             </button>
             <button
               className={`p-4 bg-gray-200 rounded-md ${
-                selectedOption === questions[currentQuestion]?.option2 ? 'bg-[#4f675b] text-white' : ''
+                selectedOption === questions[currentQuestion]?.option2 ? 'bg-lime-800 text-white' : ''
               }`}
               onClick={() => handleOptionSelect(questions[currentQuestion]?.option2)}
             >
@@ -100,7 +100,7 @@ const Quiz = () => {
             </button>
             <button
               className={`p-4 bg-gray-200 rounded-md ${
-                selectedOption === questions[currentQuestion]?.option3 ? 'bg-[#4f675b] text-white' : ''
+                selectedOption === questions[currentQuestion]?.option3 ? 'bg-lime-800 text-white' : ''
               }`}
               onClick={() => handleOptionSelect(questions[currentQuestion]?.option3)}
             >
@@ -108,7 +108,7 @@ const Quiz = () => {
             </button>
             <button
               className={`p-4 bg-gray-200 rounded-md ${
-                selectedOption === questions[currentQuestion]?.option4 ? 'bg-[#4f675b] text-white' : ''
+                selectedOption === questions[currentQuestion]?.option4 ? 'bg-lime-800 text-white' : ''
               }`}
               onClick={() => handleOptionSelect(questions[currentQuestion]?.option4)}
             >
