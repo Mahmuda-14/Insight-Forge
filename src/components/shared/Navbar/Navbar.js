@@ -38,7 +38,10 @@ import toast from 'react-hot-toast';
 import Navlink from './Navlink';
 import Script from 'next/script';
 import { Quiz } from '@mui/icons-material';
+<<<<<<< HEAD
 import { Translate } from '@mui/icons-material';
+=======
+>>>>>>> 2165903ef7130811dbc9fe20107dcff1a038410b
 import '../../../app/globals.css'
 
 
@@ -88,12 +91,15 @@ const navItems = [
     pathname: "/hackathon",
     icon: <DevicesIcon />,
 },
+<<<<<<< HEAD
 {
   id:"8",
   route: "Translate",
   pathname: "/translate",
   icon: <Translate />,
 }
+=======
+>>>>>>> 2165903ef7130811dbc9fe20107dcff1a038410b
 ];
 
 const settings = [
