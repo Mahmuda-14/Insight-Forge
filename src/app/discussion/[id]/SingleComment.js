@@ -58,6 +58,13 @@ const SingleComment = ({ comment, refetch, data }) => {
         setShowUpdate(!showUpdate)
     }
 
+    const handleReport = () => {
+        toast.success("You report this user");
+        setShow(!show)
+    }
+     
+
+
     const handleDelete = (id, athorId) => {
         const deleteItem = {
             id,
@@ -132,7 +139,7 @@ const SingleComment = ({ comment, refetch, data }) => {
                                        <button onClick={() => { handleDelete(_id, postedId) }} className='hover:bg-gray-200 p-1 rounded-sm w-full'>
                                         delete
                                     </button> : 
-                                    <button //onClick={() => { handleDelete(_id, postedId) }}
+                                    <button onClick={handleReport}
                                      className='hover:bg-gray-200 p-1 rounded-sm w-full'>
                                     report
                                 </button>
@@ -168,8 +175,8 @@ const SingleComment = ({ comment, refetch, data }) => {
                             rows={3}
                         />
                     </div>
-                    <button type='submit' className="bg-[#042030] text-white p-1 rounded-sm hover:bg-[#3f515b]">update</button>
-                    <button onClick={handleCancel} className="text-black p-1 rounded-sm hover:bg-[#ebebeb] ml-3">cancel</button>
+                    <button type='submit' className="bg-[#4F675B] text-white p-2 rounded-md hover:bg-[#6c897b]">update</button>
+                    <button onClick={handleCancel} className="text-[#4F675B] p-2 rounded-md hover:bg-[#6c897b] hover:text-white ml-3 border border-[#6c897b]">cancel</button>
                 </form>
             </div> :
             <Typography className='mt-0' color="text.secondary">

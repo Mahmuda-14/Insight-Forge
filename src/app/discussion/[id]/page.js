@@ -99,7 +99,7 @@ const page = ({ params }) => {
                                 rows={3}
                             />
                         </div>
-                        <button type='submit' className="bg-[#042030] text-white p-3 rounded-md hover:bg-[#3f515b]">Post Answer</button>
+                        <button type='submit' className="bg-[#4F675B] text-white p-3 rounded-md hover:bg-[#6c897b]">Post Answer</button>
                     </form>
                 </div>
                 <div className=''>
