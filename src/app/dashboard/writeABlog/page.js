@@ -3,8 +3,6 @@
 'use client'
 import DashboardTitle from '@/components/shared/dashboardTitle/dashboardTitle';
 import React, { useCallback, useEffect, useState } from 'react';
-// import { Jodit } from 'jodit/es2018/jodit.fat.min';
-// import JoditEditor from 'jodit-react';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import useAxiosPublic from '@/app/hooks/useAxiosPublic';
 import useAuth from '@/app/hooks/useAuth';
@@ -13,27 +11,6 @@ import toast from 'react-hot-toast';
 import { TextField, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
 
-// /**
-//  * @param {Jodit} jodit
-//  */
-// function preparePaste(jodit) {
-// 	jodit.e.on(
-// 		'paste',
-// 		e => {
-// 			if (confirm('Change pasted content?')) {
-// 				jodit.e.stopPropagation('paste');
-// 				jodit.s.insertHTML(
-// 					Jodit.modules.Helpers.getDataTransfer(e)
-// 						.getData(Jodit.constants.TEXT_HTML)
-// 						.replace(/a/g, 'b')
-// 				);
-// 				return false;
-// 			}
-// 		},
-// 		{ top: true }
-// 	);
-// }
-// Jodit.plugins.add('preparePaste', preparePaste);
 
 const image_hosting_key = process.env.NEXT_PUBLIC_Image_KEY
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -42,30 +19,6 @@ const Form = () => {
 	const [isSource, setSource] = useState(false);
 	const axiosPublic = useAxiosPublic()
 	const { user } = useAuth();
-
-	// const [config, setConfig] = useState({
-	// 	readonly: false,
-	// 	toolbar: true,
-	// 	buttons: ['bold', 'italic', 'underline', 'ul', 'ol', 'font', 'brush', 'fontsize', 'align', 'image', 'undo', 'redo', 'link', 'unlink', 'source']
-	// });
-
-	// const [textAreaValue, setTextAreaValue] = useState('');
-
-	// const [inputValue, setInputValue] = useState('');
-
-
-	// const handleWYSIWYGChange = useCallback(newTextAreaValue => {
-
-	// 	setTextAreaValue(newTextAreaValue);
-	// 	setInputValue(newTextAreaValue);
-
-	// 	return setTextAreaValue(() => newTextAreaValue);
-	// }, []);
-
-	// const handleNativeTextAreaChange = useCallback(e => {
-	// 	setTextAreaValue(e.target.value);
-	// 	setInputValue(e.target.value);
-	// }, []);
 
 	const { register, handleSubmit, formState: { errors }, reset } = useForm()
 
@@ -130,18 +83,6 @@ const Form = () => {
 		
 			setFormattedTimestamp(formattedResult);
 
-
-			// // Parse the timestamp string
-			// const timestamp = new Date(timestampStr);
-
-			// // Convert to a different timezone, for example, US/Eastern
-			// const easternTimezoneOffset = -5 * 60; // UTC offset in minutes
-			// const convertedTimestamp = new Date(timestamp.getTime() + easternTimezoneOffset * 60000);
-
-			// // Format the result
-			// const formattedResult = convertedTimestamp.toISOString().replace(/T/, ' ').replace(/\..+/, '');
-
-			// Set the formatted timestamp in the state
 			setFormattedTimestamp(formattedResult);
 		};
 
