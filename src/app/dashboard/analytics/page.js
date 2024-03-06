@@ -12,6 +12,10 @@ import dynamic from "next/dynamic";
 import { FaBook, FaDollarSign, FaUsers } from 'react-icons/fa';
 import useUsersData from '@/app/hooks/useUsersData';
 import './analystic.css';
+import useSubmittedData from '@/app/hooks/useSubmittedData';
+import useAxiosPublic from '@/app/hooks/useAxiosPublic';
+import { useEffect, useState } from 'react';
+import { Task, Work } from '@mui/icons-material';
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
@@ -21,8 +25,30 @@ const Page = () => {
     const [payment] = usePaymentData()
     const [discuss] = useDiscussData()
     const [users] = useUsersData()
+    const [allSubmittedData] = useSubmittedData()
 
-    // const price = allhackathon.totalPrice.length
+
+    const [jobs, setJobs] = useState([]);
+    const axiosPublic = useAxiosPublic();
+  
+    const [dataLoaded, setDataLoaded] = useState(false);
+  
+    useEffect(() => {
+      if (!dataLoaded) {
+        axiosPublic.get('/job')
+          .then(res => {
+            setJobs(res.data);
+            setDataLoaded(true);
+          })
+          .catch(error => {
+            toast.error("Something was wrong");
+          });
+      }
+    }, [axiosPublic, dataLoaded]);
+  
+
+
+
     let sum = 0;
     if (allhackathon && allhackathon.length > 0) {
         sum = allhackathon.reduce((total, hackathon) => total + hackathon.totalPrice, 0);
@@ -98,7 +124,7 @@ const Page = () => {
                 <div className="go-corner go-arrow card p-4">
                 <div className="card-title">Users</div>
                     <div className=" flex flex-row text-secondary">
-                        <FaUsers className='text-3xl'></FaUsers>
+                        <FaUsers className='text-3xl mr-3'></FaUsers>
                         <div className="">{users.length}</div>
                     </div>
                    
@@ -107,35 +133,41 @@ const Page = () => {
                 </div>
 
 
-                {/* <div className="">
-                    <div className=" text-secondary">
-                        <FaBook className='text-3xl'></FaBook>
+                <div className=" small-desc go-corner go-arrow card p-4 ">
+                <div className="card-title">Posted Jobs</div>
+                    <div className="flex flex-row text-secondary">
+                        <Work className='text-3xl mr-3'></Work>
+                        <div className="">{jobs.length}</div>
                     </div>
-                    <div className="">Menu Items</div>
-                    <div className=""></div>
-                    <div className="">↗︎ 400 (22%)</div>
+                   
+                
+                   
                 </div>
 
-                <div className="">
-                    <div className=" text-secondary">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                <div className="go-corner go-arrow card p-4">
+                <div className="card-title">Submitted Hackathon</div>
+                    <div className=" flex flex-row text-secondary">
+                        <Task className='text-3xl'></Task>
+                        <div className=""> {allSubmittedData.length}</div>
                     </div>
-                    <div className="">Orders</div>
-                    <div className="">{}</div>
-                    <div className="">↘︎ 90 (14%)</div>
-                </div> */}
+                   
+                   
+                   
+                </div>
+
+
+               
 
             </div>
 
-            {/* width: 650px;
-  height: 550px */}
-
             <div className="flex ml-11" style={{ width: '100%', height: '76%', marginTop: '53px' }}>
-                <div className="w-1/2">
+                <div className="w-1/2 ">
                     <BarChart
+                    className='left-[127px]'
                         width={728}
                         height={413}
                         data={data}
+                       
                         margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
                     >
                         <CartesianGrid strokeDasharray="3 3" />

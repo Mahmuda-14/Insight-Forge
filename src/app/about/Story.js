@@ -118,7 +118,7 @@ const Story = () => {
             From insightful content to user-friendly interfaces, Insight Forge strive to create an engaging platform for collaborative learning. Join Insight Forge in exploring, sharing, and reviewing the wealth of information that fuels everyone collective intellectual growth!
           </Typography>
 
-          <Button onClick={handleOpen} className=" text-white bg-slate-700 left-[400px]"><Add></Add></Button>
+          <Button onClick={handleOpen} className=" text- bg-white left-[400px]"><Add></Add></Button>
           <Modal
             // aria-labelledby="transition-modal-title"
             // aria-describedby="transition-modal-review"

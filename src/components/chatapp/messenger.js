@@ -66,7 +66,8 @@ const Messenger = () => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
-        socket.current = io("ws://localhost:8900")
+        // socket.current = io("ws://localhost:8900")
+        socket.current = io("https://insight-forge-socket-shoptorshiria78.onrender.com")
         socket.current.on("getMessage", (value) => {
             setArrivalMessage({
 
