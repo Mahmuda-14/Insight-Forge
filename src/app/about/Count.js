@@ -35,7 +35,7 @@ const Count = () => {
              <Image src="https://i.ibb.co/D7TFD1q/aa-removebg-preview.png" alt="cover" width={55} height={55} />
              </div>
               <p className='text-white text-[30px] text-center'>{users.length}</p>
-              <p className='text-white text-[20px] text-center'>Happy Client</p>
+              <p className='text-white text-[20px] text-center'>Happy User</p>
             </div>
 
             <div className=" flex flex-col items-center">
@@ -43,7 +43,7 @@ const Count = () => {
               <Image src="https://i.ibb.co/jzsQGkB/a-removebg-preview-1.png" alt="cover" width={55} height={55} />
               </div>
               <p className='text-white text-[30px] text-center'>{review.length}</p>
-              <p className='text-white text-[20px] text-center'>Client Reviews</p>
+              <p className='text-white text-[20px] text-center'>User Reviews</p>
             </div>
 
             <div className=" flex flex-col items-center">
