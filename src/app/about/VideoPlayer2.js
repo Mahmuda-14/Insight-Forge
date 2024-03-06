@@ -29,7 +29,7 @@ const VideoPlayer2 = () => {
       />
      </div> */}
       {/* Text Overlay */}
-      <div className="absolute inset-0 flex items-center justify-center font-bold text-black text-[25px] mx-[50px]">
+      <div className="absolute inset-0 flex items-center justify-center font-bold text-black lg:text-[25px] md:text-[20px] sm:text-[15px] mx-[50px]">
       <Image
                             src="https://i.ibb.co/LgFphFr/20-removebg-preview.png"
                             alt="Company Logo"

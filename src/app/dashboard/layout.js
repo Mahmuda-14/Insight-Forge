@@ -17,12 +17,10 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EditNoteIcon from "@mui/icons-material/EditNote";
-import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import { ListItemButton, ListItemIcon, ListItemText, Paper } from '@mui/material';
 import { useTheme } from '@emotion/react';
 import bg2 from "../../assets/logo3.png"
 import Image from 'next/image';
-import GroupsIcon from '@mui/icons-material/Groups';
 import DevicesIcon from '@mui/icons-material/Devices';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import useAdmin from '../hooks/useAdmin';
@@ -33,9 +31,15 @@ import Diversity3Icon from '@mui/icons-material/Diversity3';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import Loader from '@/components/loader/loader';
+import LogoutIcon from '@mui/icons-material/Logout';
 import PaidIcon from '@mui/icons-material/Paid';
 import {  FolderSpecialRounded, PostAdd } from '@mui/icons-material';
 import { QuestionAnswer } from '@mui/icons-material';
+import useAuth from '../hooks/useAuth';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
+import Navlink from '@/components/shared/Navbar/Navlink';
+import { usePathname } from 'next/navigation';
 
 function Copyright(props) {
     return (
@@ -124,6 +128,9 @@ export default function Dashboard({ children }) {
     const [isAdmin, isAdminLoading] = useAdmin();
     const [isRecruiter, isRecruiterLoading] = useRecruiter();
     const [open, setOpen] = React.useState(true);
+    const { logOut } = useAuth()
+    const router = useRouter();
+    const path = usePathname();
 
     console.log(isAdmin, isRecruiter);
     const theme = useTheme()
@@ -136,7 +143,13 @@ export default function Dashboard({ children }) {
         setOpen(!open);
     };
 
-    
+    const handleLogOut = () => {
+        router.push("/");
+        logOut()
+        toast.success("User logged in");
+    }
+
+   
     const mainListItemsAdmin = [
         {
             id: "1",
@@ -268,35 +281,10 @@ export default function Dashboard({ children }) {
         },
         {
             id: "2",
-            route: "Blogs",
-            pathname: "/blogs",
-            icon: <EditNoteIcon />,
-        },
-        {
-            id: "3",
-            route: "Register",
-            pathname: "/register",
-            icon: <AppRegistrationIcon />,
-        },
-        {
-            id: "4",
             route: "Contact",
             pathname: "/contact",
             icon: <PhoneIcon />,
-        },
-        {
-            id: "5",
-            route: "Discussion ",
-            pathname: "/discussion ",
-            icon: <GroupsIcon/>,
         }
-        ,
-        {
-            id: "6",
-            route: "VirtualHackathon",
-            pathname: "/hackathon",
-            icon: <DevicesIcon />,
-        },
     ];
     
 
@@ -394,15 +382,100 @@ export default function Dashboard({ children }) {
                         </>
                        }
 
-                        <Divider sx={{ my: 1, color:"white", mt:2 }} />
-                        {secondaryListItems.map((item) => (
-                            <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'white' }}>
-                                <ListItemIcon sx={{ color: 'white' }}>
-                                    {item.icon}
-                                </ListItemIcon>
-                                <ListItemText primary={item.route} />
-                            </ListItemButton>
-                        ))}
+                        {/* {
+                            isAdmin ?
+                                <>
+                                    {mainListItemsAdmin.map((item) => (
+                                        <Navlink key={item.id} href={item.pathname}>
+                                            {item.pathname === path ?
+                                                (<ListItemButton variant="contained" style={{ color: 'white', background: '#6f817a' }}>
+                                                    <ListItemIcon sx={{ color: 'white' }}>
+                                                        {item.icon}
+                                                    </ListItemIcon>
+                                                    <ListItemText primary={item.route} />
+                                                </ListItemButton>) : (
+                                                    <ListItemButton sx={{ color: 'white' }}>
+                                                        <ListItemIcon sx={{ color: 'white' }}>
+                                                            {item.icon}
+                                                        </ListItemIcon>
+                                                        {item.route}
+
+                                                    </ListItemButton>
+
+                                                )}
+                                        </Navlink>
+                                    ))}
+                                </>
+                                :
+                                isRecruiter ?
+                                    <>
+                                        {mainListItemsRecruiter.map((item) => (
+                                            <Navlink key={item.id} href={item.pathname}>
+                                                {item.pathname === path ?
+                                                    (<ListItemButton variant="contained" style={{ color: 'white', background: '#6f817a' }}>
+                                                        <ListItemIcon sx={{ color: 'white' }}>
+                                                            {item.icon}
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={item.route} />
+                                                    </ListItemButton>) : (
+                                                        <ListItemButton sx={{ color: 'white' }}>
+                                                            <ListItemIcon sx={{ color: 'white' }}>
+                                                                {item.icon}
+                                                            </ListItemIcon>
+                                                            {item.route}
+
+                                                        </ListItemButton>
+
+                                                    )}
+                                            </Navlink>
+                                        ))}
+                                    </>
+                                    :
+                                    <>
+                                        {mainListItemsUser.map((item) => (
+                                            <Navlink key={item.id} href={item.pathname}>
+                                                {item.pathname === path ?
+                                                    (<ListItemButton variant="contained" style={{ color: 'white', background: '#6f817a' }}>
+                                                        <ListItemIcon sx={{ color: 'white' }}>
+                                                            {item.icon}
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={item.route} />
+                                                    </ListItemButton>) : (
+                                                        <ListItemButton sx={{ color: 'white' }}>
+                                                            <ListItemIcon sx={{ color: 'white' }}>
+                                                                {item.icon}
+                                                            </ListItemIcon>
+                                                            {item.route}
+
+                                                        </ListItemButton>
+
+                                                    )}
+                                            </Navlink>
+                                        ))}
+                                    </>
+                        } */}
+
+                        <Divider sx={{ my: 1, color: "white", mt: 2 }} />
+                        <div className='flex flex-col'>
+                            <div className='grow'>
+                                {secondaryListItems.map((item) => (
+                                    <ListItemButton href={item.pathname} key={item.id} sx={{ color: 'white' }}>
+                                        <ListItemIcon sx={{ color: 'white' }}>
+                                            {item.icon}
+                                        </ListItemIcon>
+                                        <ListItemText primary={item.route} />
+                                    </ListItemButton>
+                                ))}
+                            </div>
+                            <div className='grow-0'>
+                                <ListItemButton onClick={handleLogOut} sx={{ color: 'white' }}>
+                                    <ListItemIcon sx={{ color: 'white' }}>
+                                        <LogoutIcon />
+                                    </ListItemIcon>
+                                    <ListItemText primary='Logout' />
+                                </ListItemButton>
+                            </div>
+                        </div>
                     </List>
                 </Drawer>
                

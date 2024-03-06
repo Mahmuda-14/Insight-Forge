@@ -11,7 +11,7 @@ import useSingleUser from "@/app/hooks/useSingleUser";
 
 const SingleNotification = ({ seeNotification }) => {
 
-	const { date, postedId, text, userEmail, userName, userPhoto, _id } = seeNotification || []
+	const { date, postedId, text, userEmail, userName, userPhoto, _id, athorId } = seeNotification || []
 	const axiosSecure = useAxiosSecure()
 	const [users, singleUserReload] = useSingleUser()
 
@@ -43,41 +43,25 @@ const SingleNotification = ({ seeNotification }) => {
 	}, [date]);
 
 
-	const handleDelete = (id) => {
+	const handleDelete = (id, athorId) => {
+		const deleteInfo = {
+			id,
+			athorId
+		}
 
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-				const deleteInfo = {
-					userId: users[0]?._id,
-					notificationsId: id
+		axiosSecure.put('/deleteNotification', deleteInfo)
+			.then(res => {
+				console.log(res)
+				if (res.status = 200) {
+					singleUserReload()
 				}
-                axiosSecure.put('/deleteNotification', deleteInfo)
-                    .then(res => {
-						console.log(res.status)
-                        if (res.status = 200) {
-                            Swal.fire({
-                                title: "Deleted!",
-                                text: "This food has been deleted.",
-                                icon: "success"
-                            });
-							singleUserReload()
-                        }
-                    })
-					.catch(error => {
-                        console.error("Error:", error);
-                        toast.error("Something was wrong");
-                      });
-            }
-        });
-    }
+			})
+			.catch(error => {
+				console.error("Error:", error);
+				toast.error("Something was wrong");
+			});
+
+	}
 
 
 	return (
@@ -88,9 +72,9 @@ const SingleNotification = ({ seeNotification }) => {
 					<div>
 						<div className="flex justify-between items-center">
 							<h5 className="text-sm ">{formattedTimestamp}</h5>
-							<IconButton 
-							// onClick={()=>handleDelete(_id)}
-							 sx={{ color: '#dedcdc', cursor: "pointer" }}>
+							<IconButton
+								onClick={() => handleDelete(_id, athorId)}
+								sx={{ color: '#dedcdc', cursor: "pointer" }}>
 								<CloseIcon sx={{ fontSize: '18px' }} />
 							</IconButton>
 						</div>
@@ -100,7 +84,7 @@ const SingleNotification = ({ seeNotification }) => {
 
 
 			</div>
-		</Link>
+		 </Link>
 	);
 };
 

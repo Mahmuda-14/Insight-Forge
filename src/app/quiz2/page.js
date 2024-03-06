@@ -70,20 +70,22 @@ const Quiz = () => {
             className="mt-[50px] p-2 bg-[#4f675b] text-white rounded-md w-[150px] h-[50px]"
             onClick={handleFinishQuiz}
           >
+
             Finish Quiz
           </button>
         </div>
       ) : (
-        <div className="text-center lg:m-[200px] md:m-[100px] sm:m-[100px]">
+        <div className="text-center lg:m-[180px] md:m-[100px] sm:m-[100px]">
           <h2 className="text-2xl font-semibold my-[30px]">
             Question {currentQuestion + 1}/{questions.length}
           </h2>
-          <h3 className="text-[30px] font-medium my-[30px] text-[#4f675b]">
+          <h3 className="text-[30px]  my-[30px] text-lime-800 font-bold ">
             {questions[currentQuestion]?.question} 
           </h3>
-          <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4">
+          <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4 mt-[80px]">
             <button
               className={`p-4 bg-gray-200 rounded-md ${
+                // bg-lime-800
                 selectedOption === questions[currentQuestion]?.option1 ? 'bg-lime-800 text-white' : ''
               }`}
               onClick={() => handleOptionSelect(questions[currentQuestion]?.option1)}
