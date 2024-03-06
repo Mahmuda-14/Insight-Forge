@@ -1,13 +1,27 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useUsersData from '../hooks/useUsersData';
 import useBlogs from '../hooks/useBlogs';
 import useDiscussData from '../hooks/useDiscussData';
+import useAxiosPublic from '../hooks/useAxiosPublic';
 
 const Count = () => {
   const [users] = useUsersData();
   const [blogs] = useBlogs();
   const [discuss] = useDiscussData();
+  const [review, setReview] = useState([]);
+
+  const axiosPublic = useAxiosPublic();
+  useEffect(() => {
+   
+    axiosPublic.get('/review')
+      .then(res => {
+        setReview(res.data);
+      })
+      .catch(error => {
+        console.error('Error fetching quiz questions:', error);
+      });
+  }, [axiosPublic]);
 
   return (
     <div className="mt-20 mb-10">
@@ -28,7 +42,7 @@ const Count = () => {
               <div className='h-[55px] w-[55px] mb-[20px]'>
               <Image src="https://i.ibb.co/jzsQGkB/a-removebg-preview-1.png" alt="cover" width={55} height={55} />
               </div>
-              <p className='text-white text-[30px] text-center'>0</p>
+              <p className='text-white text-[30px] text-center'>{review.length}</p>
               <p className='text-white text-[20px] text-center'>Client Reviews</p>
             </div>
 
