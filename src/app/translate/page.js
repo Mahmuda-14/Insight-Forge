@@ -66,7 +66,7 @@ const Page = () => {
             
 
     
-            console.log(apiUrl); 
+            // console.log(apiUrl); 
     
             fetch(apiUrl)
                 .then(response => response.json())
