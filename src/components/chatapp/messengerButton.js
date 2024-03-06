@@ -29,7 +29,7 @@ export default function MessengerButton() {
   const handleClose = () => setOpen(false);
 
   return (
-    <Box position={'fixed'} zIndex={10} left = {1400} bottom={80} sx={{backgroundColor: '#b2dfdb', borderRadius:10, width:100}}>
+    <Box position={'fixed'} zIndex={10}   sx={{backgroundColor: '#b2dfdb', borderRadius:10, width:100, left:{xs:320, md:650, lg:1400}, bottom:{xs:40,md:60, lg:80}}}>
       <Button sx={{width:20, ml:2, py:3}}  onClick={handleOpen}><ChatIcon  fontSize="large"/></Button>
       <Modal
         open={open}

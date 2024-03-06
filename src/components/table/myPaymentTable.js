@@ -51,18 +51,18 @@ export default function MyPaymentTable() {
       <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>My Payment</Typography>
       <TableContainer component={Paper} elevation={5} sx={{ p: 5 }}>
         <Table sx={{ width: 1000, p: 3 }} aria-label="simple table">
-          <TableHead>
+          <TableHead sx={{backgroundColor:"#4f675b", px:4}}>
             <TableRow>
-              <TableCell sx={{ color: "black" }} align="left" >No</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">Name</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">Email</TableCell>
-              <TableCell sx={{ color: "black" }} align="left"> Team</TableCell>
-              <TableCell sx={{ color: "black" }} align="left"> Category</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">  Price</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">  Currency</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">  Address</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">  TransactionId</TableCell>
-              <TableCell sx={{ color: "black" }} align="left"> Delete</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left" >No</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Name</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Email</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left"> Team</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left"> Category</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">  Price</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">  Currency</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">  Address</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">  TransactionId</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left"> Delete</TableCell>
 
             </TableRow>
           </TableHead>

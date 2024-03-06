@@ -53,6 +53,7 @@ const SingleHackathoncard = ({ hackathon }) => {
             email: user.email,
             title: hackathon.title,
             totalPrice: hackathon.fee,
+            priceMoney:hackathon.totalPrice,
             description: hackathon.description,
             category: hackathon.category,
             team: team,
@@ -78,8 +79,8 @@ const SingleHackathoncard = ({ hackathon }) => {
 
     return (
         <div class="container">
-            <div class="card flex flex-col p-3">
-                <p className='font-bold text-center text-lg mt-3'>{hackathon.title}</p>
+            <div class="cardH flex flex-col p-3">
+                <p className='font-bold text-center text-lg '>{hackathon.title}</p>
                 <p className='text-xs mt-2 text-center'>{hackathon.description}</p>
                 <p className='text-base mt-2  font-bold text-center'>{hackathon.category}</p>
                 <div className='flex justify-between'>

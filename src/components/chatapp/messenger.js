@@ -26,6 +26,7 @@ import useUsersData from '@/app/hooks/useUsersData';
 const Messenger = () => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
+    
     const [message, setMessage] = useState(null)
 
     // eslint-disable-next-line react-hooks/rules-of-hooks

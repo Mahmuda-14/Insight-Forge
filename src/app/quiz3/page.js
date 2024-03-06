@@ -1,4 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+ /* eslint-disable react-hooks/exhaustive-deps */
+
 "use client"
 
 import React, { useState } from 'react';
@@ -7,7 +9,7 @@ import toast from 'react-hot-toast';
 
 const QuestionForm = () => {
     const axiosPublic = useAxiosPublic()
-  
+  // eslint-disable-next-line react-hooks/rules-of-hooks
     const [formData, setFormData] = useState({
       category:'',
       question: '',

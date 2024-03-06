@@ -5,10 +5,10 @@ import { usePathname } from 'next/navigation';
 
 const Navlink = ({ href, children }) => {
     const path = usePathname();
-    const isactive = path === href;
+    const active = path === href;
 
     const childrenWithProps = React.Children.map(children, child =>
-        React.cloneElement(child, { isactive })
+        React.cloneElement(child, { active })
     );
 
     return (

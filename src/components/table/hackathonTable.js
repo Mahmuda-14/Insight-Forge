@@ -51,14 +51,14 @@ export default function HackathonTable() {
       <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>All Hackathon</Typography>
       <TableContainer component={Paper} elevation={5} sx={{ p: 5, ml:10 }}>
         <Table sx={{ width: 1000, p: 3 }} aria-label="simple table">
-          <TableHead>
+          <TableHead sx={{backgroundColor:"#4f675b", px:4}}>
             <TableRow>
-              <TableCell sx={{ color: "black" }} align="left" >No</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">Title</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">Category</TableCell>
-              <TableCell sx={{ color: "black" }} align="left"> Price</TableCell>
-              <TableCell sx={{ color: "black" }} align="left"> Description</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">  Action</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left" >No</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Title</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Category</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left"> Price</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left"> Description</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">  Action</TableCell>
              
 
             </TableRow>

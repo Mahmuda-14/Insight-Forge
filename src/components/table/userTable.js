@@ -65,14 +65,14 @@ export default function UserTable() {
       <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>Manage Users</Typography>
       <TableContainer component={Paper} elevation={5} sx={{ p: 5, ml:10, mr:4 }}>
         <Table sx={{ width: 1000, p: 3 }} aria-label="simple table">
-          <TableHead>
+          <TableHead sx={{backgroundColor:"#4f675b", px:4}}>
             <TableRow>
-              <TableCell sx={{ color: "black" }} align="left" >No</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">Name</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">Email</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">User Role</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">Update User Role</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">Delete</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left" >No</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Name</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Email</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">User Role</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Update User Role</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Delete</TableCell>
 
             </TableRow>
           </TableHead>

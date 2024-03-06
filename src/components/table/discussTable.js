@@ -46,15 +46,15 @@ export default function DiscussTable() {
       <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>All Discuss</Typography>
       <TableContainer component={Paper} elevation={5} sx={{ p: 5, ml:10 }} >
         <Table sx={{ width: 1000, p: 3 }} aria-label="simple table"> 
-          <TableHead>
+          <TableHead sx={{backgroundColor:"#4f675b", px:4}}>
             <TableRow>
-              <TableCell sx={{ color: "black" }}>No</TableCell>
-              <TableCell sx={{ color: "black" }}>Name</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">Email</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">Title</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">Description</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">Category</TableCell>
-              <TableCell sx={{ color: "black" }} align="left">Action</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }}>No</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }}>Name</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Email</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Title</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Description</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Category</TableCell>
+              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Action</TableCell>
 
             </TableRow>
           </TableHead>

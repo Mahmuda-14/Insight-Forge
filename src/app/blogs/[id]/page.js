@@ -164,11 +164,11 @@ const page = ({ params }) => {
 
                               </Box>
 
-                              <Box className="space-y-6">
+                              <div className="space-y-6">
                                     {blog?.comments?.map((item, i) => (
-                                          <Box key={i} className="flex space-x-4 ">
+                                          <div key={i} className="flex space-x-4 ">
                                                 <Avatar alt="Remy Sharp" src={item?.userPhoto} />
-                                                <Box className="">
+                                                <div className="">
                                                       <Typography className=' text-lg md:text-xl  ' >
                                                             {item?.userName}
                                                       </Typography>
@@ -176,10 +176,10 @@ const page = ({ params }) => {
                                                             {item.text}
                                                       </Typography>
                                                       <hr className='w-full'></hr>
-                                                </Box>
-                                          </Box>
+                                                </div>
+                                          </div>
                                     ))}
-                              </Box>
+                              </div>
                         </div>
                   </div>
                   <Footer></Footer>

@@ -1,12 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client'
 import useAxiosPublic from '@/app/hooks/useAxiosPublic';
-import { TextField } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import DashboardTitle from '@/components/shared/dashboardTitle/dashboardTitle';
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-import { useForm } from 'react-hook-form';
 import Update from './Update';
 
 
