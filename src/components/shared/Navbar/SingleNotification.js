@@ -51,13 +51,11 @@ const SingleNotification = ({ seeNotification }) => {
 
 		axiosSecure.put('/deleteNotification', deleteInfo)
 			.then(res => {
-				console.log(res)
 				if (res.status = 200) {
 					singleUserReload()
 				}
 			})
 			.catch(error => {
-				console.error("Error:", error);
 				toast.error("Something was wrong");
 			});
 

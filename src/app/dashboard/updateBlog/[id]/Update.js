@@ -87,7 +87,7 @@ const Update = ({ blog }) => {
                 </select>
 
 
-                <button type='submit' class="bg-[#4F675B] text-white py-2 px-3 rounded-md">Update</button>
+                <button type='submit' className="bg-[#4F675B] text-white py-2 px-3 rounded-md">Update</button>
             </form>
         </div>
     );

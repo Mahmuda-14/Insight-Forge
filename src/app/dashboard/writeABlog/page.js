@@ -139,9 +139,9 @@ const Form = () => {
 					<option value="webpack">webpack</option>
 				</select>
 
-				<button type='submit' class="btn-53">
-					<div class="original">PUBLISH</div>
-					<div class="letters">
+				<button type='submit' className="btn-53">
+					<div className="original">PUBLISH</div>
+					<div className="letters">
 
 						<span>P</span>
 						<span>U</span>

@@ -29,12 +29,10 @@ export default function SubmittedHackathon() {
 //   const [submittedData, setSubmittedData] = useState(true)
  
   const [allSubmittedData] = useSubmittedData()
-   console.log(allSubmittedData);
   
 
 
   const rows = allSubmittedData.map((item) => createData(item.name, item.email, item.team, item.category, item.title, item.submission, item.priceMoney))
-  console.log(rows)
 
 
   return (

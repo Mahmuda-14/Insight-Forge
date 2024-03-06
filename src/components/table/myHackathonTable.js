@@ -36,12 +36,10 @@ export default function MyHackathonTable() {
   // const [allSubmittedData] = useSubmittedData()
 
   const [myPayment] = useMyPaymentData()
-   console.log(myPayment);
 
 
 
   const rows = myPayment.map((item) => createData(item.order[0].name, item.order[0].email, item.order[0].team, item.order[0].category, item.order[0].title, item.order[0].description, item._id))
-  console.log(rows)
 
 
   return (

@@ -7,7 +7,6 @@ const Hackathoncards = () => {
 
     const [allhackathon, reload] = useHackathonData();
 
-    // console.log(allhackathon);
     return (
         <Box  sx={{maxWidth:"xl", mx:"auto", mb:10}}>
             <Typography variant="h4" sx={{ px: '12px', py: '5px', color: 'black', fontWeight: 500, textAlign:"center", my:10 }}>Choose Your <span className='text-[#4f675b] font-bold'>Hackathon</span> From Here</Typography>

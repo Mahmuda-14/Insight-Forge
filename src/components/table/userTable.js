@@ -14,6 +14,7 @@ import useAxiosSecure from '@/app/hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
 import './update.css'
 import DashboardTitle from '../shared/dashboardTitle/dashboardTitle';
+import Swal from 'sweetalert2';
 
 function createData(Name, Email, UserRole, _id, Update, Delete) {
   return { Name, Email, UserRole, _id, Update, Delete };
@@ -27,31 +28,45 @@ export default function UserTable() {
 
   const handleDelete = (id) => {
 
-    console.log(id);
-    axiosSecure.delete(`/allUserDelete/${id}`)
-      .then(res => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/allUserDelete/${id}`)
+          .then(res => {
+            if (res.data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "user is Deleted.",
+                icon: "success"
+              });
+              reload()
+            }
+          }).catch(error => {
+            toast.error("Something was wrong");
+          });
+      }
+    });
+  }
 
-        if (res.data.deletedCount > 0) {
-          toast.success("User is Deleted")
+  const handleUpdate = (id) => {
+    axiosSecure.patch(`/userRoleUpdate/${id}`)
+      .then(res => {
+        if (res.data) {
+          toast.success("User role is made admin")
         }
         reload()
       })
   }
 
-  const handleUpdate = (id) =>{
-    axiosSecure.patch(`/userRoleUpdate/${id}`)
-    .then(res=>{
-      console.log(res.data)
-      if (res.data) {
-        toast.success("User role is made admin")
-      }
-      reload()
-    })
-  }
-
 
   const rows = users.map((user) => createData(user.uName, user.uEmail, user.role, user._id, user._id))
-  console.log(rows)
   // [
   //   createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
   //   createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
@@ -63,17 +78,17 @@ export default function UserTable() {
   return (
 
     <div className="md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto mt-10">
-      <DashboardTitle  subTitle='All users are here' headerTitle='Manage Users'></DashboardTitle>
-      <TableContainer component={Paper} elevation={5} sx={{ p: 5, ml:10, mr:4 }}>
+      <DashboardTitle subTitle='All users are here' headerTitle='Manage Users'></DashboardTitle>
+      <TableContainer component={Paper} elevation={5} sx={{ p: 5, ml: 10, mr: 4 }}>
         <Table sx={{ width: 1000, p: 3 }} aria-label="simple table">
-          <TableHead sx={{backgroundColor:"#4f675b", px:4}}>
+          <TableHead sx={{ backgroundColor: "#4f675b", px: 4 }}>
             <TableRow>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left" >No</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Name</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Email</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">User Role</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Update User Role</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Delete</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left" >No</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">Name</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">Email</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">User Role</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">Update User Role</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">Delete</TableCell>
 
             </TableRow>
           </TableHead>
@@ -97,7 +112,7 @@ export default function UserTable() {
                   </svg>
                 </button></TableCell>
                 <TableCell onClick={() => handleDelete(row._id)} sx={{ color: "black" }} align="right"><button
-                  class="flex justify-center items-center gap-2 w-20 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-gradient-to-r from-[#fb7185] via-[#e11d48] to-[#be123c] hover:shadow-xl hover:shadow-red-500 hover:scale-105 duration-300 hover:from-[#be123c] hover:to-[#fb7185]"
+                  className="flex justify-center items-center gap-2 w-20 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-gradient-to-r from-[#fb7185] via-[#e11d48] to-[#be123c] hover:shadow-xl hover:shadow-red-500 hover:scale-105 duration-300 hover:from-[#be123c] hover:to-[#fb7185]"
                 >
                   <svg viewBox="0 0 15 15" className="w-5 fill-white">
                     <svg

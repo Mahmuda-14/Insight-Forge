@@ -6,7 +6,6 @@ import { format } from "date-fns";
 
 const MessageOwn = (message, own) => {
 
-    console.log(message)
     return (
         <div >
            

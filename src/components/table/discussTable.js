@@ -13,6 +13,7 @@ import useDiscussData from '@/app/hooks/useDiscussData';
 import useAxiosSecure from '@/app/hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
 import DashboardTitle from '../shared/dashboardTitle/dashboardTitle';
+import Swal from 'sweetalert2';
 
 function createData(Name, Email, Title, Description, Category, _id) {
   return { Name, Email, Title, Description, Category, _id };
@@ -26,36 +27,53 @@ export default function DiscussTable() {
 
 
   const rows = discuss.map((item) => createData(item.name, item.email, item.title, item.description, item.category, item._id))
-  console.log(rows)
 
   const handleDelete = (id) => {
 
-    // console.log("button clicked")
-    axiosSecure.delete(`/allDiscussDelete/${id}`)
-    .then(res=>{
-      
-    if(res.data.deletedCount > 0){
-      toast.success("Discuss is Deleted")
-    }
-      reload()
-    })
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/allDiscussDelete/${id}`)
+          .then(res => {
+            if (res.data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "This question has been deleted.",
+                icon: "success"
+              });
+              reload()
+            }
+          }).catch(error => {
+            toast.error("Something was wrong");
+          });
+      }
+    });
+
+
   }
 
   return (
 
     <div className="md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto mt-10">
-      <DashboardTitle  subTitle='All Discuss are here' headerTitle='All Discuss'></DashboardTitle>
-      <TableContainer component={Paper} elevation={5} sx={{ p: 5, ml:10 }} >
-        <Table sx={{ width: 1000, p: 3 }} aria-label="simple table"> 
-          <TableHead sx={{backgroundColor:"#4f675b", px:4}}>
+      <DashboardTitle subTitle='All Discuss are here' headerTitle='All Discuss'></DashboardTitle>
+      <TableContainer component={Paper} elevation={5} sx={{ p: 5, ml: 10 }} >
+        <Table sx={{ width: 1000, p: 3 }} aria-label="simple table">
+          <TableHead sx={{ backgroundColor: "#4f675b", px: 4 }}>
             <TableRow>
-              <TableCell sx={{ color: "white", fontWeight:600 }}>No</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }}>Name</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Email</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Title</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Description</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Category</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Action</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }}>No</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }}>Name</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">Email</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">Title</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">Description</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">Category</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">Action</TableCell>
 
             </TableRow>
           </TableHead>
@@ -66,7 +84,7 @@ export default function DiscussTable() {
                 sx={{ '&:last-child td, &:last-child th': { border: 0 }, color: "black" }}
               >
                 <TableCell sx={{ color: "black" }} component="th" scope="row">
-                  {id+1}
+                  {id + 1}
                 </TableCell>
                 <TableCell sx={{ color: "black" }} component="th" scope="row">
                   {row.Name}
@@ -76,7 +94,7 @@ export default function DiscussTable() {
                 <TableCell sx={{ color: "black" }} align="left">{row.Description}</TableCell>
                 <TableCell sx={{ color: "black" }} align="left">{row.Category}</TableCell>
                 <TableCell onClick={() => handleDelete(row._id)} sx={{ color: "black" }} align="right"><button
-                  class="flex justify-center items-center gap-2 w-20 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-gradient-to-r from-[#fb7185] via-[#e11d48] to-[#be123c] hover:shadow-xl hover:shadow-red-500 hover:scale-105 duration-300 hover:from-[#be123c] hover:to-[#fb7185]"
+                  className="flex justify-center items-center gap-2 w-20 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-gradient-to-r from-[#fb7185] via-[#e11d48] to-[#be123c] hover:shadow-xl hover:shadow-red-500 hover:scale-105 duration-300 hover:from-[#be123c] hover:to-[#fb7185]"
                 >
                   <svg viewBox="0 0 15 15" className="w-5 fill-white">
                     <svg

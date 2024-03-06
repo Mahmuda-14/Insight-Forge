@@ -63,11 +63,7 @@ const Page = () => {
             const fromLanguage = inputLanguage.slice(-2);
             const toLanguage = outputLanguage.slice(-2);
             const apiUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${fromLanguage}&tl=${toLanguage}&dt=t&q=${encodeURI(inputText)}`;
-            
-
-    
-            // console.log(apiUrl); 
-    
+                
             fetch(apiUrl)
                 .then(response => response.json())
                 .then(data => {
@@ -75,7 +71,9 @@ const Page = () => {
                     setTranslatedText(translatedText);
                     setCookie('translatedText', translatedText);
                 })
-                .catch(error => console.error('Error translating text:', error));
+                .catch(error => 
+                    {toast.error("Something was wrong");}
+                    );
         }
     }
     

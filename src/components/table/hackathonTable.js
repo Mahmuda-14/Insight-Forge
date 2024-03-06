@@ -15,52 +15,68 @@ import toast from 'react-hot-toast';
 import usePaymentData from '@/app/hooks/usePaymentData';
 import useHackathonData from '@/app/hooks/useHackathonData';
 import DashboardTitle from '../shared/dashboardTitle/dashboardTitle';
+import Swal from 'sweetalert2';
 
-function createData(Title, Category, Price, Description,_id) {
-  return { Title, Category, Price, Description,_id };
+function createData(Title, Category, Price, Description, _id) {
+  return { Title, Category, Price, Description, _id };
 }
 
 
 export default function HackathonTable() {
 
- const [allhackathon, reload] = useHackathonData()
- 
+  const [allhackathon, reload] = useHackathonData()
+
   const axiosSecure = useAxiosSecure()
-  console.log(allhackathon);
 
   const handleDelete = (id) => {
 
-   
-    axiosSecure.delete(`/hackathonDelete/${id}`)
-      .then(res => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/hackathonDelete/${id}`)
+          .then(res => {
+            if (res.data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Hackathon is Deleted.",
+                icon: "success"
+              });
+              reload()
+            }
+          }).catch(error => {
+            toast.error("Something was wrong");
+          });
+      }
+    });
 
-        if (res.data.deletedCount > 0) {
-          toast.success("Hackathon is Deleted")
-        }
-        reload()
-      })
   }
 
 
   const rows = allhackathon.map((item) => createData(item.title, item.category, item.totalPrice, item.description, item._id))
-  console.log(rows)
-  
+
 
   return (
 
     <div className="md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto mt-10">
-      <DashboardTitle  subTitle='All Hackathons are here' headerTitle='All Hackathon'></DashboardTitle>
-      <TableContainer component={Paper} elevation={5} sx={{ p: 5, ml:10 }}>
+      <DashboardTitle subTitle='All Hackathons are here' headerTitle='All Hackathon'></DashboardTitle>
+      <TableContainer component={Paper} elevation={5} sx={{ p: 5, ml: 10 }}>
         <Table sx={{ width: 1000, p: 3 }} aria-label="simple table">
-          <TableHead sx={{backgroundColor:"#4f675b", px:4}}>
+          <TableHead sx={{ backgroundColor: "#4f675b", px: 4 }}>
             <TableRow>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left" >No</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Title</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Category</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left"> Price</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left"> Description</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">  Action</TableCell>
-             
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left" >No</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">Title</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">Category</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left"> Price</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left"> Description</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">  Action</TableCell>
+
 
             </TableRow>
           </TableHead>
@@ -78,11 +94,11 @@ export default function HackathonTable() {
                 </TableCell>
                 <TableCell sx={{ color: "black" }} align="left">{row.Category}</TableCell>
                 <TableCell sx={{ color: "black" }} align="left">{row.Price}</TableCell>
-               
+
                 <TableCell sx={{ color: "black" }} align="left">{row.Description}</TableCell>
-               
+
                 <TableCell onClick={() => handleDelete(row._id)} sx={{ color: "black" }} align="right"><button
-                  class="flex justify-center items-center gap-2 w-20 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-gradient-to-r from-[#fb7185] via-[#e11d48] to-[#be123c] hover:shadow-xl hover:shadow-red-500 hover:scale-105 duration-300 hover:from-[#be123c] hover:to-[#fb7185]"
+                  className="flex justify-center items-center gap-2 w-20 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-gradient-to-r from-[#fb7185] via-[#e11d48] to-[#be123c] hover:shadow-xl hover:shadow-red-500 hover:scale-105 duration-300 hover:from-[#be123c] hover:to-[#fb7185]"
                 >
                   <svg viewBox="0 0 15 15" className="w-5 fill-white">
                     <svg
@@ -111,4 +127,3 @@ export default function HackathonTable() {
     </div>
   );
 }
-   

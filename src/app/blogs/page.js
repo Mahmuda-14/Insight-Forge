@@ -137,7 +137,7 @@ const page = () => {
             {recentPosts.map((recentPost) => (
               <Box key={recentPost._id} width={128}>
                 <Link href={`/blogs/${recentPost._id}`}>
-                  <img src={recentPost.image} className=" h-32 w-32 rounded-sm" >
+                  <img src={recentPost.image} alt="blog image" className=" h-32 w-32 rounded-sm" >
                   </img>
                   <Box>
                     {
@@ -163,7 +163,7 @@ const page = () => {
           {data?.map((blog, index) => (
             <Grid key={index} container spacing={2} sx={{ border: 0, boxShadow: '3px 3px 15px #00000026;', borderRadius: 3, marginY: 3 }} >
               <Grid xs={12} md={4}  >
-                <img src={blog.image} className="h-80 lg:h-60 w-full rounded-l-lg " >
+                <img src={blog.image} alt="blog image" className="h-80 lg:h-60 w-full rounded-l-lg " >
                 </img>
               </Grid>
               <Grid container direction="column " xs={12} md={8} justifyContent='space-between' paddingLeft={2} >

@@ -46,15 +46,15 @@ const Member = () => {
                        experiences.
                     </p>
                     <div className='flex justify-center items-center gap-[20px] mt-[20px]'>
-                    <a href="https://t.me/your-telegram-channel" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                    <a href="https://t.me/your-telegram-channel" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
                       <TelegramIcon sx={{ fontSize: 23, color: 'black' }} />
                     </a>
 
-                   <a href="https://www.facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                   <a href="https://www.facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
                    <FacebookIcon sx={{ fontSize: 20, color: 'black' }} />
                    </a>
 
-                   <a href="https://www.instagram.com/your-instagram-account" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                   <a href="https://www.instagram.com/your-instagram-account" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
                    <InstagramIcon sx={{ fontSize: 20, color: 'black' }} />
                    </a>
                    <a href="https://github.com/shoptorshiria78" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
@@ -81,15 +81,15 @@ const Member = () => {
                        experiences.
                     </p>
                     <div className='flex justify-center items-center gap-[20px] mt-[20px]'>
-                    <a href="https://t.me/your-telegram-channel" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                    <a href="https://t.me/your-telegram-channel" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
                       <TelegramIcon sx={{ fontSize: 23, color: 'black' }} />
                     </a>
 
-                   <a href="https://www.facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                   <a href="https://www.facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
                    <FacebookIcon sx={{ fontSize: 20, color: 'black' }} />
                    </a>
 
-                   <a href="https://www.instagram.com/your-instagram-account" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                   <a href="https://www.instagram.com/your-instagram-account" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
                    <InstagramIcon sx={{ fontSize: 20, color: 'black' }} />
                    </a>
                    <a href="https://github.com/Shariar2006" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
@@ -114,15 +114,15 @@ const Member = () => {
                        experiences.
                     </p>
                     <div className='flex justify-center items-center gap-[20px] mt-[20px]'>
-                    <a href="https://t.me/your-telegram-channel" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                    <a href="https://t.me/your-telegram-channel" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
                       <TelegramIcon sx={{ fontSize: 23, color: 'black' }} />
                     </a>
 
-                   <a href="https://www.facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                   <a href="https://www.facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
                    <FacebookIcon sx={{ fontSize: 20, color: 'black' }} />
                    </a>
 
-                   <a href="https://www.instagram.com/your-instagram-account" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                   <a href="https://www.instagram.com/your-instagram-account" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
                    <InstagramIcon sx={{ fontSize: 20, color: 'black' }} />
                    </a>
                    <a href="https://github.com/codebuildermonir" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
@@ -148,15 +148,15 @@ const Member = () => {
                        experiences.
                     </p>
                     <div className='flex justify-center items-center gap-[20px] mt-[20px]'>
-                    <a href="https://web.telegram.org/a/#5242521625" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                    <a href="https://web.telegram.org/a/#5242521625" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
                       <TelegramIcon sx={{ fontSize: 23, color: 'black' }} />
                     </a>
 
-                   <a href="https://www.facebook.com/Subarna.1425" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                   <a href="https://www.facebook.com/Subarna.1425" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
                    <FacebookIcon sx={{ fontSize: 20, color: 'black' }} />
                    </a>
 
-                   <a href="https://www.instagram.com/your-instagram-account" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                   <a href="https://www.instagram.com/your-instagram-account" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
                    <InstagramIcon sx={{ fontSize: 20, color: 'black' }} />
                    </a>
                    <a href="https://github.com/Mahmuda-14" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
@@ -181,15 +181,15 @@ const Member = () => {
                        experiences.
                     </p>
                     <div className='flex justify-center items-center gap-[20px] mt-[20px]'>
-                    <a href="https://web.telegram.org/a/#5224811193" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                    <a href="https://web.telegram.org/a/#5224811193" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
                       <TelegramIcon sx={{ fontSize: 23, color: 'black' }} />
                     </a>
 
-                   <a href="https://www.facebook.com/nurnahar.muna.9" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                   <a href="https://www.facebook.com/nurnahar.muna.9" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
                    <FacebookIcon sx={{ fontSize: 20, color: 'black' }} />
                    </a>
 
-                   <a href="https://www.instagram.com/your-instagram-account" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                   <a href="https://www.instagram.com/your-instagram-account" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
                    <InstagramIcon sx={{ fontSize: 20, color: 'black' }} />
                    </a>
                    <a href="https://github.com/muna2411" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
