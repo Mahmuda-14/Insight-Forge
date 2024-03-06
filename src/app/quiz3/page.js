@@ -22,7 +22,6 @@ const QuestionForm = () => {
   
     });
   
-    // console.log(formData);
   
     const handleChange = (e) => {
       const { name, value } = e.target;
@@ -41,21 +40,18 @@ const QuestionForm = () => {
         formData
       }
   
-      console.log('discusItem:', discusItem);
   
   
   
       axiosPublic.post('/quiz4', discusItem)
         .then(res => {
-          console.log(res.data)
           if (res.data.__v === 0) {
             toast.success("The question has been posted");
           }
         })
         .catch(error => {
-          console.error('Error posting :', error);
+          toast.error("Something was wrong");
         });
-      // console.log(formData);
     };
   
 

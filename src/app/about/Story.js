@@ -62,25 +62,22 @@ const Story = () => {
     const review = form.review.value;
 
 
-    console.log(review)
 
     const reviewItem = {
       review,
       rating,
     };
-    console.log(reviewItem)
 
    
       axiosPublic.post('/review', reviewItem)
       .then(res => {
-        console.log(res.data);
         if (res.status === 200) {
           toast.success("Your review has been posted");
           
         }
       })
       .catch(error => {
-        console.error('Error posting review:', error);
+        toast.error('Error posting review:');
       });
 
   };

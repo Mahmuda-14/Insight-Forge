@@ -49,7 +49,6 @@ const Messenger = () => {
         queryKey: ['searchUser'],
         queryFn: async () => {
             const res = await axiosPublic.get(`/searchUsers?search=${search}`);
-            console.log(res.data)
             return res.data
         }
     })
@@ -57,7 +56,6 @@ const Messenger = () => {
     const handleSearch = (e) => {
         e.preventDefault();
         const searchText = e.target.value;
-        // console.log(searchText)
         setSearch(searchText)
         reload()
 
@@ -71,7 +69,6 @@ const Messenger = () => {
         // socket.current = io("ws://localhost:8900")
         socket.current = io("https://insight-forge-socket-shoptorshiria78.onrender.com")
         socket.current.on("getMessage", (value) => {
-            console.log(value)
             setArrivalMessage({
 
                 sender: value.senderId,
@@ -87,18 +84,15 @@ const Messenger = () => {
     useEffect(() => {
         socket.current.emit("addUser", singleUser[0]?._id)
         socket.current.on("getUsers", users => {
-            console.log(users)
         })
     }, [singleUser, arrivalMessage, message, socket])
 
 
     const handleSetCurrentItem = (item) => {
-        // console.log(item._id);
         // eslint-disable-next-line react-hooks/rules-of-hooks
         setCurrentChat(item)
         axiosPublic.get(`/message/${item._id}`)
             .then(res => {
-                // console.log(res.data)
                 setMessage(res.data)
             })
 
@@ -118,7 +112,6 @@ const Messenger = () => {
 
     const onSubmit = (data) => {
 
-        console.log(currentChat._id)
         const newMessage = data.newMessage
         const sendMessage = {
             sender: singleUser[0]?._id,
@@ -129,7 +122,6 @@ const Messenger = () => {
 
         const receiverId = currentChat.members.find((m) => m !== singleUser[0]?._id)
 
-        console.log(receiverId, newMessage, singleUser[0]?._id)
 
         socket.current.emit("sendMessage", {
             senderId: singleUser[0]?._id,
@@ -167,17 +159,12 @@ const Messenger = () => {
 
         axiosPublic.post('/conversation', conversationUser)
             .then(res => {
-                console.log(res.data);
                 refetch()
             })
     }
 
 
     const [singleConversation, refetch] = useSingleConversation()
-    console.log(singleConversation)
-
-
-
 
 
     return (

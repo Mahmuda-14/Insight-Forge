@@ -46,9 +46,7 @@ const Discuss = () => {
     const { user } = useAuth();
     const router = useRouter();
     const [discuss, reload] = useDiscussData()
-    // const [blogs, reloadBlog] = useBlogs()
     const [users] = useSingleUser()
-    // console.log(users)
 
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -69,8 +67,6 @@ const Discuss = () => {
 
     }
 
-    // console.log(search)
-
     const handleChange = (event) => {
         setAge(event.target.value);
     };
@@ -83,7 +79,6 @@ const Discuss = () => {
             const title = from.title.value
             const description = from.description.value
             const category = from.category.value
-            // console.log(title, description, category)
 
             const discusItem = {
                 userId: users[0]?._id,
@@ -97,7 +92,6 @@ const Discuss = () => {
 
             axiosSecure.post('/discus', discusItem)
                 .then(res => {
-                    // console.log(res.data)
                     if (res.data.__v === 0) {
                         reload()
                         toast.success("Your question has been posted");

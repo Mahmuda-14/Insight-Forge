@@ -64,13 +64,12 @@ const BlogCard = ({ item }) => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "This food has been deleted.",
+                                text: "This blog has been deleted.",
                                 icon: "success"
                             });
                             refetch()
                         }
                     }).catch(error => {
-                        console.error("Error:", error);
                         toast.error("Something was wrong");
                       });
             }
@@ -79,12 +78,12 @@ const BlogCard = ({ item }) => {
 
     return (
         <div>
-            <div class="e-card playing w-[310px] h-[450px]">
-                <div class="image"></div>
-                <div class="wave"></div>
-                <div class="wave"></div>
-                <div class="wave"></div>
-                <div class="infotop p-5">
+            <div className="e-card playing w-[310px] h-[450px]">
+                <div className="image"></div>
+                <div className="wave"></div>
+                <div className="wave"></div>
+                <div className="wave"></div>
+                <div className="infotop p-5">
                     <img alt='blog image' className='rounded-md w-80 h-[160px] mx-auto' src={image} />
 
                     <h1 className='mt-3'>
@@ -105,11 +104,11 @@ const BlogCard = ({ item }) => {
                     </div>
                     <div className='flex justify-end items-center gap-5 mt-4'>
                         {/* <Link href={`/dashboard/updateBlog/${_id}`}>
-                        <button class="bg-[#263238] hover:bg-[#4e5356] px-4 py-2 rounded-md">
+                        <button className="bg-[#263238] hover:bg-[#4e5356] px-4 py-2 rounded-md">
                             <FaEdit />
                         </button>
                         </Link> */}
-                        <button onClick={() => handleDelete(_id)} class="bg-red-600 hover:bg-red-500 px-4 pb-2 rounded-md">
+                        <button onClick={() => handleDelete(_id)} className="bg-red-600 hover:bg-red-500 px-4 pb-2 rounded-md">
                             <DeleteForeverIcon />
                         </button>
                     </div>

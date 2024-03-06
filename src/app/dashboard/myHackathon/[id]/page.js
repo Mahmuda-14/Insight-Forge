@@ -17,7 +17,6 @@ const page = ({ params }) => {
     const axiosPublic = useAxiosPublic();
     const [myPayment] = useMyPaymentData()
   const hackathon = myPayment.find(hackathon=> hackathon._id === params.id)
-  console.log(hackathon)
 // eslint-disable-next-line react-hooks/rules-of-hooks
     const {
         register,
@@ -41,10 +40,8 @@ const page = ({ params }) => {
             name,email,title,team,category,totalPrice, submission, registerId
         }
 
-        console.log(submittedData)
         axiosPublic.post('/submission', submittedData)
             .then(res => {
-                console.log(res.data)
                 if(res.data){
                     toast.success("your submission has been saved")
                     reset();

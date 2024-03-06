@@ -31,7 +31,6 @@ const Member = () => {
             navigation
             //   pagination={{ type: 'bullets'}}
             modules={[Navigation, Pagination]}
-            onSwiper={swiper => console.log(swiper)}
             className='h-96 lg:w-[1000px] md:w-[700px] sm:w-[615px] rounded-lg'
           >
 
@@ -82,22 +81,16 @@ const Member = () => {
                     experiences.
                   </p>
                   <div className='flex justify-center items-center gap-[20px] mt-[20px]'>
-                    <a href="https://t.me/your-telegram-channel" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
-                      <TelegramIcon sx={{ fontSize: 23, color: 'black' }} />
-                    </a>
 
-                    <a href="https://www.facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                    <a href="https://www.facebook.com/profile.php?id=100093272871863" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
                       <FacebookIcon sx={{ fontSize: 20, color: 'black' }} />
                     </a>
 
-                    <a href="https://www.instagram.com/your-instagram-account" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+                    <a href="https://www.instagram.com/shariarnafis97" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
                       <InstagramIcon sx={{ fontSize: 20, color: 'black' }} />
                     </a>
                     <a href="https://github.com/Shariar2006" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
                       <GitHubIcon sx={{ fontSize: 20, color: 'black' }} />
-                    </a>
-                    <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
-                      <LinkedInIcon sx={{ fontSize: 20, color: 'black' }} />
                     </a>
                   </div>
                 </div>

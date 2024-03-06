@@ -26,7 +26,6 @@ const Form = () => {
 		const title = data.title
 		const category = data.category
 		const details = data.details
-		console.log(title, details, category)
 
 		const imageFile = { image: data.image[0] }
         const res = await axiosPublic.post(image_hosting_api, imageFile, {
@@ -36,7 +35,6 @@ const Form = () => {
             body: imageFile
         })
 
-		console.log(res.data)
 
 		if (res.data.success) {
 			const blogItem = {
@@ -48,9 +46,7 @@ const Form = () => {
 				details,
 				image: res?.data?.data?.display_url
 			}
-			console.log(blogItem)
 			const blogRes = await axiosPublic.post('/blog', blogItem)
-			console.log(blogRes)
 			if (blogRes.status = 200) {
 				reset()
 				toast.success("Your blog has been publish");
@@ -143,9 +139,9 @@ const Form = () => {
 					<option value="webpack">webpack</option>
 				</select>
 
-				<button type='submit' class="btn-53">
-					<div class="original">PUBLISH</div>
-					<div class="letters">
+				<button type='submit' className="btn-53">
+					<div className="original">PUBLISH</div>
+					<div className="letters">
 
 						<span>P</span>
 						<span>U</span>

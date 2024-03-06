@@ -53,11 +53,9 @@ export default function LogInPage() {
   // const from = router.pathname || '/'
 
   const onSubmit = (data) => {
-    console.log(data);
     signIn(data.email, data.password).then((result) => {
       const loggedUser = result.user;
 
-      console.log(loggedUser);
       router.push("/");
       toast.success("User logged in");
 
@@ -67,7 +65,6 @@ export default function LogInPage() {
 
     googleLogIn()
       .then(result => {
-        console.log(result.user)
 
         const userInfo = {
           uEmail: result?.user?.email,
@@ -75,16 +72,15 @@ export default function LogInPage() {
           uPhoto: result?.user?.photoURL,
           role: "user"
         }
-        console.log(userInfo);
         axiosPublic.post('/users', userInfo)
           .then(res => {
-            console.log(res.data);
 
           })
 
         router.push('/')
       })
-      .catch()
+      .catch((error => toast.error("Something was wrong")
+      ))
 
 
 
@@ -117,7 +113,7 @@ export default function LogInPage() {
         component={Paper}
         elevation={6}
         square
-        style={{  padding: '10px' }}
+        style={{ padding: '10px' }}
       >
         <Box
           sx={{
@@ -186,7 +182,7 @@ export default function LogInPage() {
             </Grid>
 
           </Box>
-          <Divider sx={{ mt: 5, border:'black' }}>
+          <Divider sx={{ mt: 5, border: 'black' }}>
             <Chip label="OR" size="small" />
           </Divider>
           <button onClick={handleGoogleLogIn} className=" font-semibold w-full py-2 rounded mt-7 mb-2 text-lg bg-[#4f675b] text-white">

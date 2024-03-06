@@ -4,6 +4,7 @@ import useAxiosSecure from '@/app/hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import useAuth from '@/app/hooks/useAuth';
+import { useRouter } from 'next/navigation';
 
 const SingleComment = ({ comment, refetch, data }) => {
     const { _id, userPhoto, userName, userEmail, text, date, postedId } = comment || []
@@ -11,7 +12,8 @@ const SingleComment = ({ comment, refetch, data }) => {
     const [show, setShow] = useState(false)
     const [showUpdate, setShowUpdate] = useState(false)
     const { user } = useAuth();
-    console.log(data.email)
+    const router = useRouter()
+    
 
     const [formattedTimestamp, setFormattedTimestamp] = useState('');
 
@@ -62,7 +64,7 @@ const SingleComment = ({ comment, refetch, data }) => {
         toast.success("You report this user");
         setShow(!show)
     }
-     
+
 
 
     const handleDelete = (id, athorId) => {
@@ -73,7 +75,7 @@ const SingleComment = ({ comment, refetch, data }) => {
 
         axiosSecure.put('/deleteComment', deleteItem)
             .then(res => {
-                console.log(res.data)
+                
                 if (res.data) {
                     refetch()
                     toast.success("Comment deleted successfully");
@@ -81,21 +83,20 @@ const SingleComment = ({ comment, refetch, data }) => {
             })
             .catch(error => {
                 toast.error("Something is wrong");
-                console.error("Error:", error);
             });
     }
 
     const updateAns = (text, updatedId) => {
         if (user && user?.email) {
-            if( user?.email === userEmail ){
+            if (user?.email === userEmail) {
                 const updateInfo = {
                     text,
                     updatedId,
                 }
-                console.log(updateInfo)
+                
                 axiosSecure.put('/updateComment', updateInfo)
-                .then(res => {
-                        console.log(res, res.data)
+                    .then(res => {
+                        
                         if (res.status == 200) {
                             toast.success("Answer update successfully");
                             refetch()
@@ -104,8 +105,8 @@ const SingleComment = ({ comment, refetch, data }) => {
                     }).catch(error => {
                         toast.error("Something is wrong");
                     });
-            }else{
-                toast.error("Something is wrong");  
+            } else {
+                toast.error("Something is wrong");
             }
         } else {
             toast.success("You are not Logged In!");
@@ -135,21 +136,21 @@ const SingleComment = ({ comment, refetch, data }) => {
                             show ? <div className='w-20 h-full bg-gray-100 relative -ml-10 mt-1 rounded-md p-2'>
                                 <div>
                                     {
-                                       user?.email === userEmail ? 
-                                       <button onClick={() => { handleDelete(_id, postedId) }} className='hover:bg-gray-200 p-1 rounded-sm w-full'>
-                                        delete
-                                    </button> : 
-                                    <button onClick={handleReport}
-                                     className='hover:bg-gray-200 p-1 rounded-sm w-full'>
-                                    report
-                                </button>
-                                }
+                                        user?.email === userEmail ?
+                                            <button onClick={() => { handleDelete(_id, postedId) }} className='hover:bg-gray-200 p-1 rounded-sm w-full'>
+                                                delete
+                                            </button> :
+                                            <button onClick={handleReport}
+                                                className='hover:bg-gray-200 p-1 rounded-sm w-full'>
+                                                report
+                                            </button>
+                                    }
                                 </div>
                                 <div>
                                     {
                                         user?.email === userEmail && <button onClick={() => { handleUpdate(_id) }} className='hover:bg-gray-200 p-1 rounded-sm w-full'>
-                                        edit
-                                    </button> 
+                                            edit
+                                        </button>
                                     }
                                 </div>
                             </div> : ''
@@ -158,31 +159,31 @@ const SingleComment = ({ comment, refetch, data }) => {
                 </div>
             </div>
 
-{
-    showUpdate ? 
-            <div>
-                <form onSubmit={(e) => {
-                    e.preventDefault()
-                    const from = e.target
-                    const text = from.answer.value
-                    updateAns(text, _id)
-                }} className='from mt-5'>
-                    <div className='mb-3'>
-                        <TextField name='answer'
-                            defaultValue={text}
-                            className='input w-full'
-                            id="outlined-multiline-static"
-                            rows={3}
-                        />
-                    </div>
-                    <button type='submit' className="bg-[#4F675B] text-white p-2 rounded-md hover:bg-[#6c897b]">update</button>
-                    <button onClick={handleCancel} className="text-[#4F675B] p-2 rounded-md hover:bg-[#6c897b] hover:text-white ml-3 border border-[#6c897b]">cancel</button>
-                </form>
-            </div> :
-            <Typography className='mt-0' color="text.secondary">
-                {text}
-            </Typography>
-}
+            {
+                showUpdate ?
+                    <div>
+                        <form onSubmit={(e) => {
+                            e.preventDefault()
+                            const from = e.target
+                            const text = from.answer.value
+                            updateAns(text, _id)
+                        }} className='from mt-5'>
+                            <div className='mb-3'>
+                                <TextField name='answer'
+                                    defaultValue={text}
+                                    className='input w-full'
+                                    id="outlined-multiline-static"
+                                    rows={3}
+                                />
+                            </div>
+                            <button type='submit' className="bg-[#4F675B] text-white p-2 rounded-md hover:bg-[#6c897b]">update</button>
+                            <button onClick={handleCancel} className="text-[#4F675B] p-2 rounded-md hover:bg-[#6c897b] hover:text-white ml-3 border border-[#6c897b]">cancel</button>
+                        </form>
+                    </div> :
+                    <Typography className='mt-0' color="text.secondary">
+                        {text}
+                    </Typography>
+            }
 
 
         </div>

@@ -115,7 +115,6 @@ const DrawerAppBar = (props, item) => {
   const theme = useTheme();
   const router = useRouter();
   const axiosSecure = useAxiosSecure();
-  console.log(user)
   const path = usePathname();
 
   if(loading){
@@ -178,12 +177,10 @@ const DrawerAppBar = (props, item) => {
       }
       axiosSecure.post("/seeAllNotification", userIfo)
         .then(res => {
-          console.log(res.data);
           singleUserReload();
           setSeeNotifications(!seeNotifications)
         })
         .catch(error => {
-          console.error("Error:", error);
           toast.error("Something was wrong");
         });
     } else {

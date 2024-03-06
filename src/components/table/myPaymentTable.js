@@ -15,55 +15,71 @@ import toast from 'react-hot-toast';
 
 import useMyPaymentData from '@/app/hooks/useMyPaymentData';
 import DashboardTitle from '../shared/dashboardTitle/dashboardTitle';
+import Swal from 'sweetalert2';
 
-function createData(Name, Email, Team, Category, Price, Currency, Address, TransactionId ,_id) {
-  return { Name, Email, Team, Category, Price, Currency, Address, TransactionId ,_id };
+function createData(Name, Email, Team, Category, Price, Currency, Address, TransactionId, _id) {
+  return { Name, Email, Team, Category, Price, Currency, Address, TransactionId, _id };
 }
 
 
 export default function MyPaymentTable() {
 
- const [myPayment, reload] = useMyPaymentData()
- console.log(myPayment);
+  const [myPayment, reload] = useMyPaymentData()
   const axiosSecure = useAxiosSecure()
- 
+
 
   const handleDelete = (id) => {
 
-   
-    axiosSecure.delete(`/allPaymentDelete/${id}`)
-      .then(res => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/allPaymentDelete/${id}`)
+          .then(res => {
+            if (res.data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Payment History is Deleted.",
+                icon: "success"
+              });
+              reload()
+            }
+          }).catch(error => {
+            toast.error("Something was wrong");
+          });
+      }
+    });
 
-        if (res.data.deletedCount > 0) {
-          toast.success("Payment History is Deleted")
-        }
-        reload()
-      })
   }
 
 
-  const rows = myPayment.map((item) => createData(item.order[0].name, item.order[0].email, item.order[0].team, item.order[0].category,item.order[0].totalPrice, item.order[0].currency, item.order[0].address, item.transactionId, item._id))
-  console.log(rows)
-  
+  const rows = myPayment.map((item) => createData(item.order[0].name, item.order[0].email, item.order[0].team, item.order[0].category, item.order[0].totalPrice, item.order[0].currency, item.order[0].address, item.transactionId, item._id))
+
 
   return (
 
     <div className="md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto mt-10">
-      <DashboardTitle  subTitle='My Payments are here' headerTitle='My Payment'></DashboardTitle>
+      <DashboardTitle subTitle='My Payments are here' headerTitle='My Payment'></DashboardTitle>
       <TableContainer component={Paper} elevation={5} sx={{ p: 5 }}>
         <Table sx={{ width: 1000, p: 3 }} aria-label="simple table">
-          <TableHead sx={{backgroundColor:"#4f675b", px:4}}>
+          <TableHead sx={{ backgroundColor: "#4f675b", px: 4 }}>
             <TableRow>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left" >No</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Name</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">Email</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left"> Team</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left"> Category</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">  Price</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">  Currency</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">  Address</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left">  TransactionId</TableCell>
-              <TableCell sx={{ color: "white", fontWeight:600 }} align="left"> Delete</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left" >No</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">Name</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">Email</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left"> Team</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left"> Category</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">  Price</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">  Currency</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">  Address</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left">  TransactionId</TableCell>
+              <TableCell sx={{ color: "white", fontWeight: 600 }} align="left"> Delete</TableCell>
 
             </TableRow>
           </TableHead>
@@ -87,7 +103,7 @@ export default function MyPaymentTable() {
                 <TableCell sx={{ color: "black" }} align="left">{row.Address}</TableCell>
                 <TableCell sx={{ color: "black" }} align="left">{row.TransactionId}</TableCell>
                 <TableCell onClick={() => handleDelete(row._id)} sx={{ color: "black" }} align="right"><button
-                  class="flex justify-center items-center gap-2 w-20 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-gradient-to-r from-[#fb7185] via-[#e11d48] to-[#be123c] hover:shadow-xl hover:shadow-red-500 hover:scale-105 duration-300 hover:from-[#be123c] hover:to-[#fb7185]"
+                  className="flex justify-center items-center gap-2 w-20 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-gradient-to-r from-[#fb7185] via-[#e11d48] to-[#be123c] hover:shadow-xl hover:shadow-red-500 hover:scale-105 duration-300 hover:from-[#be123c] hover:to-[#fb7185]"
                 >
                   <svg viewBox="0 0 15 15" className="w-5 fill-white">
                     <svg
@@ -116,4 +132,3 @@ export default function MyPaymentTable() {
     </div>
   );
 }
-   

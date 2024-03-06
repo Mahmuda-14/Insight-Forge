@@ -17,6 +17,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import toast from "react-hot-toast";
 
 
 
@@ -34,7 +35,7 @@ const MyCard = () => {
         setReview(res.data)
       })
       .catch(error => {
-        console.error('Error fetching review:', error);
+        toast.error("Something was wrong");
       });
 
   }, [axiosPublic])

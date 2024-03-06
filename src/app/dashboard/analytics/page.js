@@ -41,7 +41,7 @@ const Page = () => {
             setDataLoaded(true);
           })
           .catch(error => {
-            console.error('Error fetching jobs:', error);
+            toast.error("Something was wrong");
           });
       }
     }, [axiosPublic, dataLoaded]);

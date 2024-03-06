@@ -13,7 +13,6 @@ const MessageOwn = (message, own) => {
     const friendId = message.message.sender;
     const friendDetails = users.find(user => user._id === friendId)
 
-    // console.log(message.message.sender)
 
     return (
         <div >

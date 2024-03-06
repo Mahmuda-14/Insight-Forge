@@ -19,7 +19,6 @@ const SingleHackathoncard = ({ hackathon }) => {
     const handleClose = () => setOpen(false);
 
     const { user } = useAuth()
-    console.log(user)
     const axiosSecure = useAxiosSecure()
 
     const style = {
@@ -65,8 +64,6 @@ const SingleHackathoncard = ({ hackathon }) => {
 
         axiosSecure.post('/register', registerInfo)
             .then(res => {
-                console.log(res.data)
-
                 window.location.replace(res.data.url)
                 if (res.data.success === "success") {
                     toast.success("Your Payment has been done")
@@ -78,8 +75,8 @@ const SingleHackathoncard = ({ hackathon }) => {
     }
 
     return (
-        <div class="container">
-            <div class="cardH flex flex-col p-3">
+        <div className="container">
+            <div className="cardH flex flex-col p-3">
                 <p className='font-bold text-center text-lg '>{hackathon.title}</p>
                 <p className='text-xs mt-2 text-center'>{hackathon.description}</p>
                 <p className='text-base mt-2  font-bold text-center'>{hackathon.category}</p>

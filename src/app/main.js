@@ -7,7 +7,6 @@
 //     const router = useRouter();
 //     const { room } = router.query;
 
-//     console.log("Room query parameter:", room);
 //   return (
 //     <div>
       

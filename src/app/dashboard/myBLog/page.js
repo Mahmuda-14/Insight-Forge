@@ -7,7 +7,6 @@ import BlogCard from './BlogCard';
 
 const page = () => {
     const [myBlog, refetch] = useMyBlog()
-    console.log(myBlog)
     return (
         <div className='mt-20 min-h-screen'>
             <DashboardTitle subTitle='Your Posted Blogs' headerTitle='See your all blog'></DashboardTitle>

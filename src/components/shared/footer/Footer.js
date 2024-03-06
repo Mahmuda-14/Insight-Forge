@@ -82,21 +82,21 @@ const Footer = () => {
         <div className="text-white  lg:mt-[0px] md:mt-[20px] sm:mt-[10px]">
           <p className="text-[18px] text-white mb-[10px] font-bold">Site Links</p>
 
-          <div class="flex flex-col justify-start items-left space-y-2 mt-4">
-            <a href="https://www.youtube.com/your-youtube-channel" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+          <div className="flex flex-col justify-start items-left space-y-2 mt-4">
+            <a href="https://www.youtube.com/your-youtube-channel" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
 
               <YouTubeIcon sx={{ fontSize: 20, color: 'white' }} />
-              <p class="text-[12px]">Your YouTube Link</p>
+              <p className="text-[12px]">Your YouTube Link</p>
             </a>
 
-            <a href="https://www.facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+            <a href="https://www.facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
               <FacebookIcon sx={{ fontSize: 20, color: 'white' }} />
-              <p class="text-[12px]">Your Facebook Link</p>
+              <p className="text-[12px]">Your Facebook Link</p>
             </a>
 
-            <a href="https://www.instagram.com/your-instagram-account" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-white">
+            <a href="https://www.instagram.com/your-instagram-account" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white">
               <InstagramIcon sx={{ fontSize: 20, color: 'white' }} />
-              <p class="text-[12px]">Your Instagram Link</p>
+              <p className="text-[12px]">Your Instagram Link</p>
             </a>
           </div>
         </div>

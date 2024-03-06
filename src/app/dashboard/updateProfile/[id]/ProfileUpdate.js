@@ -24,8 +24,6 @@ const ProfileUpdate = ({ user }) => {
             phone: data.phone,
         }
 
-        console.log(updateItem)
-
         const updateUser = await axiosSecure.patch(`/userUpdate/${_id}`, updateItem)
         if(updateUser.status === 200){
             toast.success("Update your profile")

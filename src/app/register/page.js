@@ -61,7 +61,6 @@ export default function RegistrationPage() {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data, data.name);
     const uEmail = data.email;
     const uName = data.name;
     const uPassword = data.password;
@@ -84,10 +83,8 @@ export default function RegistrationPage() {
 
       registration(uEmail, uPassword).then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser)
         updateUser(data.name, res?.data?.data?.display_url)
           .then(() => {
-            console.log('User profile Updated')
             reset();
             toast.success("user updated successfully")
           });
@@ -103,15 +100,11 @@ export default function RegistrationPage() {
         uPhoto: res?.data?.data?.display_url,
         role: data.role
       }
-      console.log(userInfo)
 
       axiosPublic.post('/users', userInfo)
         .then(res => {
-          console.log(res.data)
           if (res.data.__v === 0) {
-            console.log(loggedUser);
             updateUser(uName, uPhoto).then(() => {
-              console.log("User profile Updated");
               reset();
               toast.success("User Updated Successfully");
               logOut().then().catch();
@@ -119,7 +112,6 @@ export default function RegistrationPage() {
             });
           }
         }).catch(err => {
-          console.log(err)
           toast.error("Something was wrong");
         })
     }else{
@@ -133,7 +125,6 @@ export default function RegistrationPage() {
 
     googleLogIn()
       .then(result => {
-        console.log(result.user)
 
         const userInfo = {
           uEmail: result?.user?.email,
@@ -143,8 +134,7 @@ export default function RegistrationPage() {
         }
         axiosPublic.post('/users', userInfo)
           .then(res => {
-            console.log(res.data);
-
+            toast.error("Something was wrong");
           })
 
         router.push('/')

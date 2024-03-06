@@ -42,11 +42,10 @@ const page = ({ params }) => {
                   }
                   axiosSecure.put("/blogLike", userId)
                         .then(res => {
-                              console.log(res.data);
                               refetch();
                         })
                         .catch(error => {
-                              console.error("Error:", error);
+                              toast.error("Something was wrong");
                         });
             } else {
                   toast.success("You are not Logged In!");
@@ -73,16 +72,14 @@ const page = ({ params }) => {
                   postedId
 
             }
-            console.log(commentIn)
             axiosPublic.put("/commentBlog", commentIn)
                   .then(res => {
-                        console.log(res.data)
                         refetch()
                         reset()
 
                   })
                   .catch(error => {
-                        console.error("Error:", error);
+                        toast.error("Something was wrong");
                   });
 
       }

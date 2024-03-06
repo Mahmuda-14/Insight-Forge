@@ -22,6 +22,7 @@ import useAuth from "../hooks/useAuth";
 import BlogShare from "@/components/blogShare/modal";
 import HTMLReactParser from 'html-react-parser'
 import Script from "next/script";
+import toast from "react-hot-toast";
 
 
 
@@ -35,7 +36,6 @@ const page = () => {
   const { user } = useAuth();
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [search, setSearch] = useState(' ')
-  console.log(search)
   const { data, refetch } = useQuery({
     queryKey: ['allBlogs'],
     queryFn: async () => {
@@ -71,11 +71,10 @@ const page = () => {
       }
       axiosSecure.put("/blogLike", userId)
         .then(res => {
-          console.log(res.data);
           refetch();
         })
         .catch(error => {
-          console.error("Error:", error);
+          toast.error("Something was wrong");
         });
     } else {
       toast.success("You are not Logged In!");
@@ -138,7 +137,7 @@ const page = () => {
             {recentPosts.map((recentPost) => (
               <Box key={recentPost._id} width={128}>
                 <Link href={`/blogs/${recentPost._id}`}>
-                  <img src={recentPost.image} className=" h-32 w-32 rounded-sm" >
+                  <img src={recentPost.image} alt="blog image" className=" h-32 w-32 rounded-sm" >
                   </img>
                   <Box>
                     {
@@ -164,7 +163,7 @@ const page = () => {
           {data?.map((blog, index) => (
             <Grid key={index} container spacing={2} sx={{ border: 0, boxShadow: '3px 3px 15px #00000026;', borderRadius: 3, marginY: 3 }} >
               <Grid xs={12} md={4}  >
-                <img src={blog.image} className="h-80 lg:h-60 w-full rounded-l-lg " >
+                <img src={blog.image} alt="blog image" className="h-80 lg:h-60 w-full rounded-l-lg " >
                 </img>
               </Grid>
               <Grid container direction="column " xs={12} md={8} justifyContent='space-between' paddingLeft={2} >

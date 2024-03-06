@@ -8,7 +8,7 @@ import useAxiosPublic from '@/app/hooks/useAxiosPublic';
 import toast from 'react-hot-toast';
 const My = ({ item }) => {
 
-    const { _id,logo, jobtitle, description } = item;
+    const { _id, logo, jobtitle, description } = item;
 
     const axiosPublic = useAxiosPublic();
 
@@ -30,15 +30,14 @@ const My = ({ item }) => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "This food has been deleted.",
+                                text: "This job has been deleted.",
                                 icon: "success"
                             });
-                            
+
                         }
                     }).catch(error => {
-                        console.error("Error:", error);
                         toast.error("Something was wrong");
-                      });
+                    });
             }
         });
     }
@@ -57,7 +56,7 @@ const My = ({ item }) => {
                     />
                 </div>
                 <div>
-                    <button onClick={() => handleDelete(_id)}type='submit'><Delete></Delete></button>
+                    <button onClick={() => handleDelete(_id)} type='submit'><Delete></Delete></button>
                 </div>
             </div>
             <h2 className='text-2xl mt-6 mb-4 font-semibold text-black text-left'>{jobtitle}</h2>

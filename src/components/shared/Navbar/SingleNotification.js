@@ -26,8 +26,8 @@ const SingleNotification = ({ seeNotification }) => {
 			const formatter = new Intl.DateTimeFormat('en-US', {
 				//   timeZone: targetTimezone,
 				year: 'numeric',
-				month: 'numeric',
 				day: 'numeric',
+				month: 'numeric',
 				hour: 'numeric',
 				minute: 'numeric',
 				//   second: 'numeric',
@@ -51,13 +51,11 @@ const SingleNotification = ({ seeNotification }) => {
 
 		axiosSecure.put('/deleteNotification', deleteInfo)
 			.then(res => {
-				console.log(res)
 				if (res.status = 200) {
 					singleUserReload()
 				}
 			})
 			.catch(error => {
-				console.error("Error:", error);
 				toast.error("Something was wrong");
 			});
 
@@ -72,11 +70,11 @@ const SingleNotification = ({ seeNotification }) => {
 					<div>
 						<div className="flex justify-between items-center">
 							<h5 className="text-sm ">{formattedTimestamp}</h5>
-							<IconButton
+							{/* <IconButton
 								onClick={() => handleDelete(_id, athorId)}
 								sx={{ color: '#dedcdc', cursor: "pointer" }}>
 								<CloseIcon sx={{ fontSize: '18px' }} />
-							</IconButton>
+							</IconButton> */}
 						</div>
 						<p> <span className="font-semibold">{userName}</span> {text}</p>
 					</div>

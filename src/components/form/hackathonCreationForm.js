@@ -46,7 +46,6 @@ const HackathonCreationForm = () => {
 
         axiosSecure.post('/hackathonInfo', hackathonInfo)
             .then(res => {
-                console.log(res.data)
                 if (res.data.__v === 0) {
                     toast.success("Hackathon Created Successfully")
                     reset()
