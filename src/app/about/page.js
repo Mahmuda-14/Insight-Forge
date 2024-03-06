@@ -7,6 +7,8 @@ import Count from './Count';
 import VideoPlayer2 from './VideoPlayer2';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 import Footer from '@/components/shared/footer/Footer';
+import Member from './Member';
+
 
 
 
@@ -18,6 +20,7 @@ const page = () => {
             <VideoPlayer2></VideoPlayer2>
             <Review></Review>
             {/* <All></All> */}
+            <Member></Member>
             <Count></Count> 
             <Logo></Logo>
             <Footer></Footer>
