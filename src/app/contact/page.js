@@ -26,7 +26,7 @@ export default function Contact() {
                     toast.success("Your message has been sent")
                 }
             }, (error) => {
-                console.log(error.text);
+                toast.error("Something was wrong")
             });
     };
 

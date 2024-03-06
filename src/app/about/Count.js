@@ -4,6 +4,7 @@ import useUsersData from '../hooks/useUsersData';
 import useBlogs from '../hooks/useBlogs';
 import useDiscussData from '../hooks/useDiscussData';
 import useAxiosPublic from '../hooks/useAxiosPublic';
+import toast from 'react-hot-toast';
 
 const Count = () => {
   const [users] = useUsersData();
@@ -13,13 +14,13 @@ const Count = () => {
 
   const axiosPublic = useAxiosPublic();
   useEffect(() => {
-   
+
     axiosPublic.get('/review')
       .then(res => {
         setReview(res.data);
       })
       .catch(error => {
-        console.error('Error fetching quiz questions:', error);
+        toast.error("Something was wrong");
       });
   }, [axiosPublic]);
 
@@ -28,19 +29,19 @@ const Count = () => {
       <div className="bg-cover bg-fixed bg-center bg-no-repeat lg:h-[350px] md:h-[350px] sm:h-[550px]" style={{ backgroundImage: 'url("https://i.ibb.co/0hMFwqH/paul-volkmer-f-X-q-Ws-Xl5x8-unsplash.jpg")' }}>
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2 px-[150px] py-[80px] ">
-        
+
 
             <div className="flex flex-col items-center">
-             <div className='h-[55px] w-[55px] mb-[20px]'>
-             <Image src="https://i.ibb.co/D7TFD1q/aa-removebg-preview.png" alt="cover" width={55} height={55} />
-             </div>
+              <div className='h-[55px] w-[55px] mb-[20px]'>
+                <Image src="https://i.ibb.co/D7TFD1q/aa-removebg-preview.png" alt="cover" width={55} height={55} />
+              </div>
               <p className='text-white text-[30px] text-center'>{users.length}</p>
               <p className='text-white text-[20px] text-center'>Happy User</p>
             </div>
 
             <div className=" flex flex-col items-center">
               <div className='h-[55px] w-[55px] mb-[20px]'>
-              <Image src="https://i.ibb.co/jzsQGkB/a-removebg-preview-1.png" alt="cover" width={55} height={55} />
+                <Image src="https://i.ibb.co/jzsQGkB/a-removebg-preview-1.png" alt="cover" width={55} height={55} />
               </div>
               <p className='text-white text-[30px] text-center'>{review.length}</p>
               <p className='text-white text-[20px] text-center'>User Reviews</p>
@@ -48,7 +49,7 @@ const Count = () => {
 
             <div className=" flex flex-col items-center">
               <div className='h-[55px] w-[55px] mb-[20px]'>
-              <Image src="https://i.ibb.co/D4kywBK/qu-removebg-preview.png" alt="cover" width={55} height={55} />
+                <Image src="https://i.ibb.co/D4kywBK/qu-removebg-preview.png" alt="cover" width={55} height={55} />
               </div>
               <p className='text-white text-[30px] text-center'>{discuss.length}</p>
               <p className='text-white text-[20px] text-center'>Posted Question</p>
@@ -56,7 +57,7 @@ const Count = () => {
 
             <div className="flex flex-col items-center">
               <div className='h-[55px] w-[55px] mb-[20px]'>
-              <Image src="https://i.ibb.co/80jhCMm/a-removebg-preview-4.png" alt="cover" width={55} height={55} />
+                <Image src="https://i.ibb.co/80jhCMm/a-removebg-preview-4.png" alt="cover" width={55} height={55} />
               </div>
               <p className='text-white text-[30px] text-center'>{blogs.length}</p>
               <p className='text-white text-[20px] text-center'>Blog Post</p>

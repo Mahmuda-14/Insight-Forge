@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getCookie, hasCookie, setCookie } from 'cookies-next';
+import toast from 'react-hot-toast';
 
 const useTranslation = () => {
     const [selectedLanguage, setSelectedLanguage] = useState(null);
@@ -38,7 +39,9 @@ const useTranslation = () => {
                     setTranslatedText(translatedText);
                     setCookie('translatedText', translatedText); // Store translated text in a cookie
                 })
-                .catch(error => console.error('Error translating text:', error));
+                .catch(error =>
+                     (toast.error("Something was wrong"))
+                );
         }
     };
 

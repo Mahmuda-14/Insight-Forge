@@ -31,7 +31,6 @@ const Member = () => {
           navigation
         //   pagination={{ type: 'bullets'}}
           modules={[Navigation, Pagination]}
-          onSwiper={swiper => console.log(swiper)}
           className='h-96 lg:w-[1000px] md:w-[700px] sm:w-[615px] rounded-lg'
         >
       

@@ -22,6 +22,7 @@ import useAuth from "../hooks/useAuth";
 import BlogShare from "@/components/blogShare/modal";
 import HTMLReactParser from 'html-react-parser'
 import Script from "next/script";
+import toast from "react-hot-toast";
 
 
 
@@ -35,7 +36,6 @@ const page = () => {
   const { user } = useAuth();
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [search, setSearch] = useState(' ')
-  console.log(search)
   const { data, refetch } = useQuery({
     queryKey: ['allBlogs'],
     queryFn: async () => {
@@ -71,11 +71,10 @@ const page = () => {
       }
       axiosSecure.put("/blogLike", userId)
         .then(res => {
-          console.log(res.data);
           refetch();
         })
         .catch(error => {
-          console.error("Error:", error);
+          toast.error("Something was wrong");
         });
     } else {
       toast.success("You are not Logged In!");

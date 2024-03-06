@@ -25,7 +25,6 @@ const DiscussM = ({ question }) => {
 
     const [formattedTimestamp, setFormattedTimestamp] = useState('');
 
-    // console.log(question)
 
     useEffect(() => {
         const convertTimestamp = () => {
@@ -62,10 +61,8 @@ const DiscussM = ({ question }) => {
                 userPhoto: user?.photoURL,
                 athorId:userId
             }
-            // console.log(uId)
             axiosSecure.put('/questionLike', uId)
                 .then(res => {
-                    // console.log(res.data)
                     if (res.data) {
                         reload();
                         singleUserReload()
@@ -74,7 +71,6 @@ const DiscussM = ({ question }) => {
                 })
                 .catch(error => {
                     toast.error("Something is wrong");
-                    console.error("Error:", error);
                 });
         } else {
             toast.success("You are not Logged In!");

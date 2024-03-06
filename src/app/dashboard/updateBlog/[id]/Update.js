@@ -11,7 +11,6 @@ const image_hosting_key = process.env.NEXT_PUBLIC_Image_KEY
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
 const Update = ({ blog }) => {
-    console.log(blog)
     const axiosPublic = useAxiosPublic()
     const [newImg, setNewImg] = useState()
     const [newTitle, setNewTitle] = useState()
@@ -39,14 +38,6 @@ const Update = ({ blog }) => {
             details: data.details,
             image:  res?.data?.data?.display_url|| image
         }
-
-        console.log(blogItem)
-        // const blogRes = await axiosPublic.put('/blog', blogItem)
-        // console.log(blogRes)
-        // if (blogRes.status = 200) {
-        // 	reset()
-        // 	toast.success("Your blog has been publish");
-        // }
     }
 
     return (

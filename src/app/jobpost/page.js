@@ -34,7 +34,6 @@ const page = () => {
 
   });
 
-  // console.log(formData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -53,21 +52,17 @@ const page = () => {
       formData
     }
 
-    console.log('discusItem:', discusItem);
-
 
 
     axiosPublic.post('/job', discusItem)
       .then(res => {
-        console.log(res.data)
         if (res.data.__v === 0) {
           toast.success("Your job has been posted");
         }
       })
       .catch(error => {
-        console.error('Error posting job:', error);
+        toast.error("Something was wrong");
       });
-    // console.log(formData);
   };
 
 

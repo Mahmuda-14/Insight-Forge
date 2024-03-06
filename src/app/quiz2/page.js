@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import useAxiosPublic from '../hooks/useAxiosPublic';
 import Image from 'next/image';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
+import toast from 'react-hot-toast';
 
 const Quiz = () => {
   const router = useRouter();
@@ -34,7 +35,7 @@ const Quiz = () => {
         setQuestions(res.data);
       })
       .catch(error => {
-        console.error('Error fetching quiz questions:', error);
+        toast.error("Something was wrong");
       });
   }, [axiosPublic]);
 

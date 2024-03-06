@@ -16,7 +16,7 @@ import useSingleUser from '@/app/hooks/useSingleUser';
 import { useForm } from 'react-hook-form';
 
 const page = ({ params }) => {
-    console.log(params.id)
+    
     const { user } = useAuth();
     const router = useRouter();
     const axiosSecure = useAxiosSecure()
@@ -30,7 +30,7 @@ const page = ({ params }) => {
         }
     })
 
-    console.log(data)
+    
 
 
     const [discuss, reload ] = useDiscussData()
@@ -50,10 +50,10 @@ const page = ({ params }) => {
                 athorId
             }
             reset()
-            console.log(ansInfo)
+            
             axiosSecure.put('/postAnswer', ansInfo)
                 .then(res => {
-                    console.log(res.data)
+                    
                     if (res.data) {
                         toast.success("You answer this question");
                         reload()

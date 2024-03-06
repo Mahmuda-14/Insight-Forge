@@ -16,7 +16,6 @@ const page = ({ params }) => {
             return res.data
         }
     })
-    console.log(blog?.category)
 
     
 

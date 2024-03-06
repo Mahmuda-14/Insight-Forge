@@ -9,6 +9,7 @@ import Image from 'next/image';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import Footer from '@/components/shared/footer/Footer';
+import toast from 'react-hot-toast';
 
 const Page = () => {
   const [jobs, setJobs] = useState([]);
@@ -24,7 +25,7 @@ const Page = () => {
           setDataLoaded(true);
         })
         .catch(error => {
-          console.error('Error fetching jobs:', error);
+          toast.error("Something was wrong");
         });
     }
   }, [axiosPublic, dataLoaded]);

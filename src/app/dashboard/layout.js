@@ -134,7 +134,6 @@ export default function Dashboard({ children }) {
     const router = useRouter();
     const path = usePathname();
 
-    console.log(isAdmin, isRecruiter);
     const theme = useTheme()
     if(isAdminLoading && isRecruiterLoading){
         return <Loader></Loader>

@@ -13,7 +13,7 @@ const SingleComment = ({ comment, refetch, data }) => {
     const [showUpdate, setShowUpdate] = useState(false)
     const { user } = useAuth();
     const router = useRouter()
-    console.log(data.email)
+    
 
     const [formattedTimestamp, setFormattedTimestamp] = useState('');
 
@@ -75,7 +75,7 @@ const SingleComment = ({ comment, refetch, data }) => {
 
         axiosSecure.put('/deleteComment', deleteItem)
             .then(res => {
-                console.log(res.data)
+                
                 if (res.data) {
                     refetch()
                     toast.success("Comment deleted successfully");
@@ -83,7 +83,6 @@ const SingleComment = ({ comment, refetch, data }) => {
             })
             .catch(error => {
                 toast.error("Something is wrong");
-                console.error("Error:", error);
             });
     }
 
@@ -94,10 +93,10 @@ const SingleComment = ({ comment, refetch, data }) => {
                     text,
                     updatedId,
                 }
-                console.log(updateInfo)
+                
                 axiosSecure.put('/updateComment', updateInfo)
                     .then(res => {
-                        console.log(res, res.data)
+                        
                         if (res.status == 200) {
                             toast.success("Answer update successfully");
                             refetch()

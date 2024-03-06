@@ -13,8 +13,6 @@ const page = () => {
     const axiosPublic = useAxiosPublic();
     const {user} = useAuth()
     const email = user?.email;
-    // console.log('paici',email)
-    // console.log(job)
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
        

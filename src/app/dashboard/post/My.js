@@ -36,7 +36,6 @@ const My = ({ item }) => {
                             
                         }
                     }).catch(error => {
-                        console.error("Error:", error);
                         toast.error("Something was wrong");
                       });
             }

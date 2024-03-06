@@ -70,7 +70,6 @@ const BlogCard = ({ item }) => {
                             refetch()
                         }
                     }).catch(error => {
-                        console.error("Error:", error);
                         toast.error("Something was wrong");
                       });
             }

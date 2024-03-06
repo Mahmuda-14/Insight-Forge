@@ -22,7 +22,6 @@ const page = () => {
   const UserEmail = user?.email
 
 
-  console.log('hello enail', UserEmail);
 
   const onSubmit = async (data) => {
     const jobtitle = data.jobtitle;
@@ -32,7 +31,6 @@ const page = () => {
     const description = data.description;
     const jobtype = data.jobtype;
 
-    console.log(jobtitle, companyname, logo, location, description, jobtype);
 
     const userEmail = user?.email || "unknown@example.com"; // Fallback email address if user is undefined
 
@@ -45,18 +43,16 @@ const page = () => {
       companyname,
       jobtype,
     };
-    console.log(blogItem);
 
     axiosPublic.post('/job', blogItem)
       .then(res => {
-        console.log(res.data);
         if (res.status === 200) {
           toast.success("Your job has been posted");
           reset();
         }
       })
       .catch(error => {
-        console.error('Error posting job:', error);
+        toast.error("Something was wrong");
       });
   };
 

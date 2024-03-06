@@ -57,7 +57,6 @@ const MyQuestion = () => {
                             reloadMyDiscuss()
                         }
                     }).catch(error => {
-                        console.error("Error:", error);
                         toast.error("Something was wrong");
                     });
             }
