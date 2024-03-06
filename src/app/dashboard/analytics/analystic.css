@@ -27,7 +27,7 @@
     overflow: hidden;
     top: 0;
     right: 0;
-    background: linear-gradient(135deg, #6293c8, #384c6c);
+    background: linear-gradient(135deg,  #668e7b, #2e5446);
     border-radius: 0 4px 0 32px;
   }
   
@@ -50,7 +50,7 @@
     text-decoration: none;
     z-index: 0;
     overflow: hidden;
-    background: linear-gradient(to bottom, #c3e6ec, #a7d1d9);
+    background: linear-gradient(to bottom, #abdbc6, #1b3525);
     font-family: Arial, Helvetica, sans-serif;
   }
   
@@ -60,7 +60,8 @@
     z-index: -1;
     top: -23px;
     right: -24px;
-    background: linear-gradient(135deg, #364a60, #384c6c);
+    background: linear-gradient(135deg, #496e60, #33574a);
+    
     height: 57px;
     width: 58px;
     border-radius: 32px;

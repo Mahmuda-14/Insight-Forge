@@ -16,10 +16,8 @@ const Banner = () => {
             <Swiper
                 spaceBetween={50}
                 slidesPerView={1}
-                autoplay={{ delay: 3000, disableOnInteraction: false }}
-                pagination={{ clickable: true }}
-                navigation={true}
-                modules={[Autoplay, Pagination, Navigation]}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}               
+                modules={[Autoplay]}
                 className="mySwiper"
             >
                 <SwiperSlide>
