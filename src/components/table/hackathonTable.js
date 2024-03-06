@@ -14,6 +14,7 @@ import useAxiosSecure from '@/app/hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
 import usePaymentData from '@/app/hooks/usePaymentData';
 import useHackathonData from '@/app/hooks/useHackathonData';
+import DashboardTitle from '../shared/dashboardTitle/dashboardTitle';
 
 function createData(Title, Category, Price, Description,_id) {
   return { Title, Category, Price, Description,_id };
@@ -47,8 +48,8 @@ export default function HackathonTable() {
 
   return (
 
-    <div className="md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto">
-      <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>All Hackathon</Typography>
+    <div className="md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto mt-10">
+      <DashboardTitle  subTitle='All Hackathons are here' headerTitle='All Hackathon'></DashboardTitle>
       <TableContainer component={Paper} elevation={5} sx={{ p: 5, ml:10 }}>
         <Table sx={{ width: 1000, p: 3 }} aria-label="simple table">
           <TableHead sx={{backgroundColor:"#4f675b", px:4}}>

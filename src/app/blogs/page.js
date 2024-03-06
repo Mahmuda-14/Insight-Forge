@@ -98,7 +98,7 @@ const page = () => {
 
 
 
-      <Typography variant="h3" sx={{ color: "black", textAlign: "center", fontWeight: 700, mt: 6 }} > Knowledge Revolution </Typography>
+      <Typography variant="h3" sx={{ color: "black", textAlign: "center", fontWeight: 700, mt: 6 }} > Knowledge <span className="text-[#4f675b] font-extrabold "> Revolution</span> </Typography>
       <Typography variant="h6" sx={{ color: "black", textAlign: "center", mt: 2 }} >Explore practical strategies for continuous <br /> learning and adapting to the ever-evolving world of information</Typography>
       <div className="container w-xl m-auto space-x-6  grid grid-cols-12 gap-2 my-12  ">
         {/* Left side colum */}

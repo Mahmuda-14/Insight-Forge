@@ -38,7 +38,9 @@ import { QuestionAnswer } from '@mui/icons-material';
 import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
-import Navlink from '@/components/shared/Navbar/Navlink';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import QuizIcon from '@mui/icons-material/Quiz';
+import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import { usePathname } from 'next/navigation';
 
 function Copyright(props) {
@@ -191,19 +193,19 @@ export default function Dashboard({ children }) {
             id: "7",
             route: "Analytics",
             pathname: "/dashboard/analytics",
-            icon: <AccountCircleIcon />,
+            icon: <BarChartIcon />,
         },
         {
             id: "8",
             route: "Add Quiz",
             pathname: "/dashboard/quizz",
-            icon: <AccountCircleIcon />,
+            icon: <QuizIcon />,
         },
         {
             id: "9",
             route: "Submitted Hackathon",
             pathname: "/dashboard/submittedHackathon",
-            icon: <AccountCircleIcon />,
+            icon: <QuestionAnswerIcon />,
         },
 
 

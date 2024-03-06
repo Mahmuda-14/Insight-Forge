@@ -46,7 +46,7 @@ const JobM = () => {
 
         </div>
         <div className='text-center'>
-          <p className='text-[35px] my-[20px]'>Browse from Over <span className='text-[40px] text-[#4f675b] font-bold'>200+</span> Jobs</p>
+          <p className='text-[35px] font-bold my-[20px]'>Browse from Over <span className='text-[40px] text-[#4f675b] font-extrabold'>200+</span> Jobs</p>
           <p>Empowering careers through seamless integration, our job-focused platform connects talented individuals with dynamic <br />
             opportunities,fostering professional growth and success. </p>
         </div>

@@ -10,6 +10,7 @@ import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import DashboardTitle from "../shared/dashboardTitle/dashboardTitle";
 
 
 const HackathonCreationForm = () => {
@@ -56,8 +57,8 @@ const HackathonCreationForm = () => {
     }
 
     return (
-        <div className="md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto">
-            <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>Create Hackathon</Typography>
+        <div className="md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto mt-10">
+           <DashboardTitle subTitle='Create Hackathon Here' headerTitle='Create Hackathon'></DashboardTitle>
 
             <Paper elevation={10} sx={{ p: 3, m: 6 }}>
                 <Box

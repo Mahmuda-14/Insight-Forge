@@ -4,6 +4,7 @@ import Hackathonbanner from '@/components/hackathon/hackathonbanner/hackathonban
 import Hackathoncards from '@/components/hackathon/hackathoncards/hackathoncards';
 import Hackathonfaq from '@/components/hackathon/hackathonfaq/hackathonfaq';
 import DrawerAppBar from '@/components/shared/Navbar/Navbar';
+import Footer from '@/components/shared/footer/Footer';
 import { Box } from '@mui/material';
 import React from 'react';
 
@@ -11,12 +12,12 @@ const Hackathon = () => {
 
   return (
 
-    <Box sx={{maxWidth:"xl"}} >
+    <Box >
       <DrawerAppBar></DrawerAppBar>
       <Hackathonbanner></Hackathonbanner>
       <Hackathonfaq></Hackathonfaq>
       <Hackathoncards></Hackathoncards>
-
+      <Footer></Footer>
     </Box>
   );
 };

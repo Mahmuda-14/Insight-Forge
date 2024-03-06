@@ -18,6 +18,7 @@ import useMyPaymentData from '@/app/hooks/useMyPaymentData';
 import { useState } from 'react';
 import Link from 'next/link';
 import useSubmittedData from '@/app/hooks/useSubmittedData';
+import DashboardTitle from '../shared/dashboardTitle/dashboardTitle';
 
 function createData(Name, Email, Team, Category, Title, Description, _id) {
   return { Name, Email, Team, Category, Title, Description, _id };
@@ -44,8 +45,8 @@ export default function MyHackathonTable() {
 
 
   return (
-    <div className="md:min-w-[600px] ml-16 md:ml-16 lg:ml-52 mx-auto overflow-x-auto overflow-y-auto">
-      <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>My Registered Hackathon</Typography>
+    <div className="md:min-w-[600px] ml-16 md:ml-16 lg:ml-52 mx-auto overflow-x-auto overflow-y-auto mt-10">
+       <DashboardTitle  subTitle='My Hackathons are here' headerTitle='My Hackathon'></DashboardTitle>
       <TableContainer component={Paper} elevation={5} sx={{ p: 5 }}>
         <Table sx={{ width: 1000, p: 3 }} aria-label="simple table">
           <TableHead sx={{backgroundColor:"#4f675b", px:4}}>

@@ -130,14 +130,14 @@ const Discuss = () => {
 
                 <div>
                     <div className='flex justify-center items-center'>
-                        <p className='text-center text-3xl font-bold text-slate-800 my-5'>Ask Your Question Here</p>
-                        <SouthIcon style={{ width: '2em ', height: '1em' }}></SouthIcon>
+                        <p className='text-center text-5xl font-bold text-black my-5'>Ask Your <span className='text-[#4f675b] font-extrabold'>Question</span> Here</p>
+                       
                     </div>
 
                     <form onChange={handleSearch} className='flex my-10'>
                         <SearchRoundedIcon style={{ width: '1.5em ', height: '2em', position: 'relative', top: '3px', left: '41px', color: 'gray' }} />
 
-                        <input name="text" type="text" placeholder="Search here" className="input input-bordered border-2 pl-7 py-2 rounded-xl" />
+                        <input name="text" type="text" placeholder="Search here by title" className="input input-bordered border-2 pl-7 py-3 rounded-xl px-3" />
                         {/* <button className='relative bg-slate-500 right-11 rounded-2xl p-3 w-10'>Search</button> */}
 
                     </form>

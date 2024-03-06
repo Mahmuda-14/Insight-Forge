@@ -9,7 +9,7 @@ const Hackathoncards = () => {
 
     // console.log(allhackathon);
     return (
-        <Box  sx={{maxWidth:"xl", mx:"auto"}}>
+        <Box  sx={{maxWidth:"xl", mx:"auto", mb:10}}>
             <Typography variant="h4" sx={{ px: '12px', py: '5px', color: 'black', fontWeight: 500, textAlign:"center", my:10 }}>Choose Your <span className='text-[#4f675b] font-bold'>Hackathon</span> From Here</Typography>
              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12'>
                 {

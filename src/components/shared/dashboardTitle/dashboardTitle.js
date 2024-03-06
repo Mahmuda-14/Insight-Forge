@@ -1,7 +1,7 @@
 import { Divider } from '@mui/material';
 import React from 'react';
 
-const dashboardTitle = ({ subTitle, headerTitle }) => {
+const DashboardTitle = ({ subTitle, headerTitle }) => {
     return (
         <div className="my-10 text-center mx-auto">
             <h1 className=" font-semibold text-2xl md:text-5xl text-[#263238]">{headerTitle}</h1>
@@ -13,4 +13,4 @@ const dashboardTitle = ({ subTitle, headerTitle }) => {
     );
 };
 
-export default dashboardTitle;
+export default DashboardTitle;

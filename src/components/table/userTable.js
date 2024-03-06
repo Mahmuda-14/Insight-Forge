@@ -13,6 +13,7 @@ import { Typography } from '@mui/material';
 import useAxiosSecure from '@/app/hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
 import './update.css'
+import DashboardTitle from '../shared/dashboardTitle/dashboardTitle';
 
 function createData(Name, Email, UserRole, _id, Update, Delete) {
   return { Name, Email, UserRole, _id, Update, Delete };
@@ -61,8 +62,8 @@ export default function UserTable() {
 
   return (
 
-    <div className="md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto">
-      <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>Manage Users</Typography>
+    <div className="md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto mt-10">
+      <DashboardTitle  subTitle='All users are here' headerTitle='Manage Users'></DashboardTitle>
       <TableContainer component={Paper} elevation={5} sx={{ p: 5, ml:10, mr:4 }}>
         <Table sx={{ width: 1000, p: 3 }} aria-label="simple table">
           <TableHead sx={{backgroundColor:"#4f675b", px:4}}>

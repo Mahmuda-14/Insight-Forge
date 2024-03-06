@@ -40,6 +40,7 @@ import Script from 'next/script';
 import { Quiz } from '@mui/icons-material';
 import { Translate } from '@mui/icons-material';
 import '../../../app/globals.css'
+import Loader from '@/components/loader/loader';
 
 
 const drawerWidth = 240;
@@ -109,7 +110,7 @@ const DrawerAppBar = (props, item) => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [seeNotifications, setSeeNotifications] = React.useState(false)
-  const { user, logOut } = useAuth()
+  const { user, logOut, loading } = useAuth()
   const [users, singleUserReload] = useSingleUser()
   const theme = useTheme();
   const router = useRouter();
@@ -117,6 +118,9 @@ const DrawerAppBar = (props, item) => {
   console.log(user)
   const path = usePathname();
 
+  if(loading){
+    return <Loader></Loader>
+  }
 
   const handleLogOut = () => {
     logOut()

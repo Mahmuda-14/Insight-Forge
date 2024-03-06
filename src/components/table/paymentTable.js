@@ -13,6 +13,7 @@ import { Typography } from '@mui/material';
 import useAxiosSecure from '@/app/hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
 import usePaymentData from '@/app/hooks/usePaymentData';
+import DashboardTitle from '../shared/dashboardTitle/dashboardTitle';
 
 function createData(Name, Email, Team, Category, Price, Currency, Address, TransactionId ,_id) {
   return { Name, Email, Team, Category, Price, Currency, Address, TransactionId ,_id };
@@ -46,8 +47,8 @@ export default function PaymentTable() {
 
   return (
 
-    <div className="md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto">
-      <Typography variant="h4" color="secondary" align="center" sx={{ fontWeight: 600, mt: 10, mb: 3, color: "black" }}>All Payment</Typography>
+    <div className="md:min-w-[600px] ml-16 md:ml-16    lg:ml-52 mx-auto overflow-x-auto overflow-y-auto mt-10">
+        <DashboardTitle  subTitle='All payments are here' headerTitle='All Payments'></DashboardTitle>
       <TableContainer component={Paper} elevation={5} sx={{ p: 5, ml:10 }}>
         <Table sx={{ width: 1000, p: 3 }} aria-label="simple table">
           <TableHead sx={{backgroundColor:"#4f675b", px:4}}>

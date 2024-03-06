@@ -114,7 +114,7 @@ const page = ({ params }) => {
                                                 </div>
                                                 {/* Like and comment icon */}
                                                 <div className="flex  justify-items-center gap-8 mr-8 mt-4 ">
-                                                      <div className="flex space-x-2">
+                                                      <div className="flex space-x-2 justify-around items-center">
                                                             <BlogShare></BlogShare>
                                                             {
                                                                   blog?.likes?.includes(users[0]?._id) ? <ThumbUpAltIcon className='ml-2' /> :
