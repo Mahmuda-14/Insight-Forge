@@ -37,7 +37,7 @@ const Member = () => {
             <SwiperSlide>
               <div className='flex justify-around items-center'>
                 <div className='flex justify-center items-center lg:w-[350px] md:w-[280px] sm:w-[200px]'>
-                  <Image src="  https://i.ibb.co/SBySBZg/r.jpg" alt='ok' width={350} height={350} className="sm:rounded-full lg:rounded-full md:rounded-full"></Image>
+                  <Image src="https://i.ibb.co/SBySBZg/r.jpg" alt='ok' width={350} height={350} className="sm:rounded-full lg:rounded-full md:rounded-full"></Image>
                 </div>
                 <div>
                   <p className='text-[22px] font-bold text-black'>Riziya Akter Keya</p>
