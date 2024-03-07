@@ -272,8 +272,8 @@ const DrawerAppBar = (props, item) => {
                           Log Out
                         </Button>
                       </MenuItem>
-                      <MenuItem>
-                        <Button sx={{ color: 'black' }}>Translate </Button>
+                      {/* <MenuItem>
+                        <Button sx={{ color: 'black' }}>Translate </Button> */}
                         
                         {/* <div id="google_translate_element" ></div>
                         <Script id="google_translate_init" strategy="lazyOnload">
@@ -288,7 +288,7 @@ const DrawerAppBar = (props, item) => {
                           strategy="afterInteractive"
                           src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
                         /> */}
-                      </MenuItem>
+                      {/* </MenuItem> */}
                     </Menu>
                   </Box>
                 </Stack>
