@@ -2,10 +2,13 @@
 
 ## Credentials of Insight Forge
 ```
-DB_USER = "your credentials"
-DB_PASS = "your credentials"
-DB_DB = "Your Credentials"
-ACCESS_TOKEN_SECRET= "your certificate"
+NEXT_PUBLIC_APIKEY = "your credentials"
+NEXT_PUBLIC_AUTHDOMAIN = "your credentials"
+NEXT_PUBLIC_PROJECTID = "your credentials"
+NEXT_PUBLIC_STORAGEBUCKET = "your credentials"
+NEXT_PUBLIC_MESSAGINGSENDERID = "your credentials"
+NEXT_PUBLIC_APPID = "your credentials"
+NEXT_PUBLIC_Image_KEY = "your credentials"
 ```
 
 ## Feature of Insight Forge
@@ -43,7 +46,18 @@ We used firebase for login and registration.
 ### 11. Notification
 When someone answers or likes a question, the author of the question gets a notification. He can view the notification in the notification panel by clicking on the bell icon.
 
+### 12. Dashboard
+- Admin: Admin Dashboard has Admin Profile, User Management, All Discuss, Hackathon Creation, All Hackathon, All Payment, Analytics, Add Quiz and Submitted Hackathon routes.
+
+- Recruiter: Recruiter Dashboard has Recruiter Profile, Post Job and Post route.
+
+- Normal user: user dashboard has User Profile, Write a blog, My blog, My Payment, My Question, My Hackathon and Post route.
+
 ## User role
+
+- Admin
+- Recruiter
+- Normal user
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
